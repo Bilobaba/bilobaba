@@ -14,3 +14,11 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+// Your CSS
+@import "pages";
+// @import "components/index";
+// @import "pages/index";
+// @import "vendor/index";
+// @import "events";
