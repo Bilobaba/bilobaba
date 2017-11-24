@@ -1,0 +1,19 @@
+<!-- This file is in `app/views/shared/_flashes.html.erb` -->
+
+<% if notice %>
+  <div class="container">
+  <div class="alert alert-info alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    <strong><%= notice %></strong>
+  </div>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div class="container">
+    <div class="alert alert-warning alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    <strong><%= alert %> </strong>
+  </div>
+  </div>
+<% end %>
