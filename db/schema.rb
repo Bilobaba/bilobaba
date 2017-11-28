@@ -30,10 +30,20 @@ ActiveRecord::Schema.define(version: 20171123132105) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "pseudo"
+    t.string "first_name"
+    t.string "name"
+    t.string "bio"
+    t.datetime "birth_date"
+    t.string "adress"
+    t.string "zip"
+    t.string "town"
+    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_members_on_confirmation_token", unique: true
     t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["pseudo"], name: "index_members_on_pseudo", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
