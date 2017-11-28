@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   devise_for :members
   get 'pages/home' , as: 'home'
 

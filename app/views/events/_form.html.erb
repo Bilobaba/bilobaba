@@ -1,0 +1,24 @@
+<div class="container">
+  <%= simple_form_for(@event) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :begin %>
+      <%= f.input :end %>
+      <%= f.input :price_min %>
+      <%= f.input :price_max %>
+      <%= f.input :adress %>
+      <%= f.input :town %>
+      <%= f.input :zip %>
+      <%= f.input :lat %>
+      <%= f.input :lng %>
+      <%= f.input :organizer %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
