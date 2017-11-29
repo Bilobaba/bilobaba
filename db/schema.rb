@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20171128160208) do
     t.string "zip"
     t.float "lat"
     t.float "lng"
-    t.bigint "members_id"
+    t.bigint "organized_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["members_id"], name: "index_events_on_members_id"
+    t.index ["organized_by_id"], name: "index_events_on_organized_by_id"
   end
 
   create_table "members", force: :cascade do |t|

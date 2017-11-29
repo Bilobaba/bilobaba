@@ -5,5 +5,6 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :timeoutable
 
-  has_many :events
+  has_many :organizes, foreign_key: :organized_by, class_name: :Event
+
 end

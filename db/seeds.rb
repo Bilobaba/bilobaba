@@ -14,3 +14,9 @@ Member.create(email: 'juliette.auvray@thp.fr', password: 'foobar', password_conf
 Member.create(email: 'naula.gratiant@thp.fr', password: 'foobar', password_confirmation: 'foobar', pseudo: 'naula')
 Member.create(email: 'antoine.antoinou@thp.fr', password: 'foobar', password_confirmation: 'foobar', pseudo: 'toinou')
 Member.create(email: 'brice.labejof@thp.fr', password: 'foobar', password_confirmation: 'foobar', pseudo: 'brice')
+
+Event.create(title: 'Resto', organized_by: Member.first)
+Event.create(title: 'Cine', organized_by: Member.first)
+Event.create(title: 'Picnik', organized_by: Member.first)
+Event.create(title: 'Danse', organized_by: Member.second)
+Event.create(title: 'Meditation', organized_by: Member.second)
