@@ -105,6 +105,6 @@ Rails.application.configure do
   user_name: ENV["GMAIL_USERNAME"],
   password: ENV["GMAIL_PASSWORD"]
   }
-
-
 end
+
+Rails.application.routes.default_url_options[:host] = 'bilobaba.herokuapp.com'

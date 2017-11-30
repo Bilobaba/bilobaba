@@ -1,3 +1,3 @@
 class Event < ApplicationRecord
-  belongs_to :organized_by, class_name: :Member
+  belongs_to :organizer, class_name: :Member, foreign_key: :member_id
 end

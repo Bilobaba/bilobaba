@@ -12,7 +12,7 @@ class CreateEvents < ActiveRecord::Migration[5.1]
       t.string      :zip
       t.float       :lat
       t.float       :lng
-      t.references  :organized_by, references: :members, index: true
+      t.references  :member, foreign_key: true
 
       t.timestamps
     end
