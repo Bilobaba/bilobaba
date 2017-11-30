@@ -43,7 +43,6 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
-      binding.pry
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
@@ -72,6 +71,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :begin, :end, :price_min, :price_max, :adress, :town, :zip, :lat, :lng, :organizer)
+      params.require(:event).permit(:title, :description, :begin, :end, :price_min, :price_max, :adress, :town, :zip, :lat, :lng)
     end
 end
