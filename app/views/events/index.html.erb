@@ -4,14 +4,14 @@
   <h1>Evènements à venir</h1>
 
   <div class="table-responsive">
-  <table class="table table-hover">
+  <table class="table">
     <thead>
       <tr>
         <th>Evènement</th>
         <th>Date</th>
-        <th>€</th>
+        <th>Prix (max)</th>
         <th>Lieu</th>
-        <th>Professeur</th>
+        <th>Organisateur</th>
         <th></th>
       </tr>
     </thead>
@@ -21,7 +21,7 @@
         <tr>
           <td><%= event.title %></td>
           <td><%= event.begin %></td>
-          <td><%= event.price_max %></td>
+          <td><%= event.price_max.to_s + '€' %></td>
           <td><%= event.zip %></td>
           <td><%= event.organizer.email %></td>
           <td><%= link_to event do %>
@@ -33,8 +33,5 @@
     </tbody>
   </table>
   </div>
-
-  <br>
-
-  <%= link_to 'New Event', new_event_path %>
+  <%= link_to 'Créer un évènement', new_event_path, class: 'badge' %>
 </div>
