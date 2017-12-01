@@ -5,7 +5,7 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :timeoutable
 
-  has_many :events, class_name: :Event, foreign_key: :member_id
+  has_many :organize_events, class_name: :Event, foreign_key: :member_id
 
   # follower_follows "names" the Follow join table for accessing through the follower association
   has_many :follower_follows, foreign_key: :followee_id, class_name: "Follow"
