@@ -13,11 +13,55 @@ Member.create(email: 'alex@gmail.com', password: 'coucou', password_confirmation
 Member.create(email: 'juju@gmail.com', password: 'coucou', password_confirmation: 'coucou', pseudo: 'juju')
 Member.create(email: 'naula@gmail.com', password: 'coucou', password_confirmation: 'coucou', pseudo: 'naula')
 
-Event.create(title: 'Resto', organizer: Member.first)
-Event.create(title: 'Cine', organizer: Member.first)
-Event.create(title: 'Picnik', organizer: Member.first)
-Event.create(title: 'Danse', organizer: Member.second)
-Event.create(title: 'Meditation', organizer: Member.second)
+Event.create(
+  title: 'Resto',
+  organizer: Member.first,
+  begin: '2017-12-04 18:30',
+  price_min: 15,
+  price_max: 15,
+  members_max: 10,
+  zip: '94300'
+)
+
+Event.create(
+  title: 'Cine',
+  organizer: Member.third,
+  begin: '2017-12-04 18:30',
+  price_min: 15,
+  price_max: 15,
+  members_max: 10,
+  zip: '75011'
+)
+
+Event.create(
+  title: 'Picnik',
+  organizer: Member.first,
+  begin: '2017-12-04 18:30',
+  price_min: 10,
+  price_max: 10,
+  members_max: 30,
+  zip: '75002'
+)
+
+Event.create(
+  title: 'Danse',
+  organizer: Member.second,
+  begin: '2017-12-04 18:30',
+  price_min: 20,
+  price_max: 20,
+  members_max: 10,
+  zip: '75011'
+)
+
+Event.create(
+  title: 'Meditation',
+  organizer: Member.second,
+  begin: '2017-12-04 18:30',
+  price_min: 30,
+  price_max: 30,
+  members_max: 7,
+  zip: '94300'
+)
 
 md = Member.find_by(pseudo: 'didou')
 mk = Member.find_by(pseudo: 'kevain')
