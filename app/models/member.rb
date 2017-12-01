@@ -23,4 +23,10 @@ class Member < ApplicationRecord
   has_many :attend_event_attends, class_name: :AttendEvent, foreign_key: :member_id
   has_many :attend_events , through: :attend_event_attends, source: :event
 
+  has_many :like_event_likes, class_name: :LikeEvent, foreign_key: :member_id
+  has_many :likes_events , through: :like_event_likes, source: :event
+
+  has_many :recommend_event_recommends, class_name: :RecommendEvent, foreign_key: :member_id
+  has_many :recommend_events , through: :recommend_event_recommends, source: :event
+
 end

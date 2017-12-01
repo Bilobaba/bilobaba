@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201163812) do
+ActiveRecord::Schema.define(version: 20171201171126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(version: 20171201163812) do
     t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
+  create_table "like_events", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_like_events_on_event_id"
+    t.index ["member_id"], name: "index_like_events_on_member_id"
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -93,9 +102,22 @@ ActiveRecord::Schema.define(version: 20171201163812) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  create_table "recommend_events", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_recommend_events_on_event_id"
+    t.index ["member_id"], name: "index_recommend_events_on_member_id"
+  end
+
   add_foreign_key "attend_events", "events"
   add_foreign_key "attend_events", "members"
   add_foreign_key "events", "members"
   add_foreign_key "follow_events", "events"
   add_foreign_key "follow_events", "members"
+  add_foreign_key "like_events", "events"
+  add_foreign_key "like_events", "members"
+  add_foreign_key "recommend_events", "events"
+  add_foreign_key "recommend_events", "members"
 end
