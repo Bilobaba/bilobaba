@@ -20,4 +20,7 @@ class Member < ApplicationRecord
   has_many :follow_event_followees, class_name: :FollowEvent, foreign_key: :member_id
   has_many :follow_events , through: :follow_event_followees, source: :event
 
+  has_many :attend_event_attends, class_name: :AttendEvent, foreign_key: :member_id
+  has_many :attend_events , through: :attend_event_attends, source: :event
+
 end
