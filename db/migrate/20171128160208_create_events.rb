@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration[5.1]
       t.datetime    :end
       t.integer     :price_min
       t.integer     :price_max
+      t.integer     :members_max
       t.string      :adress
       t.string      :town
       t.string      :zip
