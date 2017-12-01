@@ -22,7 +22,7 @@
         </li>
 
         <% if member_signed_in? %>
-          <li> <%= link_to "Profil", edit_member_registration_path %> </li>
+          <li class="<%= 'active' if controller_name == 'registrations' %>"> <%= link_to "Profil", edit_member_registration_path %> </li>
         <% else %>
           <!-- Sign up text link -->
           <li>
