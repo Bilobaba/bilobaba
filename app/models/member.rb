@@ -17,4 +17,7 @@ class Member < ApplicationRecord
   # source: :followee matches with the belong_to :followee identification in the Follow model
   has_many :followees, through: :followee_follows, source: :followee
 
+  has_many :follow_event_followees, class_name: :FollowEvent, foreign_key: :member_id
+  has_many :follow_events , through: :follow_event_followees, source: :event
+
 end
