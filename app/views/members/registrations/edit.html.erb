@@ -33,6 +33,10 @@
     </div>
   <% end %>
 
+<%= link_to destroy_member_session_path, method: :delete do %>
+  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Déconnexion") %>
+<% end %>
+
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
