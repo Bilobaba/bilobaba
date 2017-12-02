@@ -34,7 +34,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.1]
       t.string    :pseudo
       t.string    :first_name
       t.string    :name
-      t.string    :pseudo
+      t.string    :avatar
       t.string    :bio
       t.datetime  :birth_date
       t.string    :adress

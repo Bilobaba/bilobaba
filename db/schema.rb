@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20171201171126) do
     t.string "pseudo"
     t.string "first_name"
     t.string "name"
+    t.string "avatar"
     t.string "bio"
     t.datetime "birth_date"
     t.string "adress"
