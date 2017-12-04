@@ -11,6 +11,7 @@
       <th>Prix</th>
       <th>Lieu</th>
       <th>Organisateur</th>
+      <th>Places disponibles</th>
       <th></th>
     </tr>
   </thead>
@@ -25,6 +26,7 @@
           <span class="glyphicon glyphicon-map-marker pointer" aria-hidden="true"></span> 
           <%= event.zip %></td>
         <td><%= event.organizer.email %></td>
+        <td><%= (event.members_max - event.attendees.size).to_s + ' / ' + event.members_max.to_s %></td>
         <td><%= link_to event do %>
             <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
           <% end %>
