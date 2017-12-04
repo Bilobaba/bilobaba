@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: one
+  member: one
+  date: 2017-12-01 16:59:36
+
+two:
+  event: two
+  member: two
+  date: 2017-12-01 16:59:36
