@@ -95,21 +95,21 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
 
-  # domain: ENV["GMAIL_DOMAIN"],
-  # user_name: ENV["GMAIL_USERNAME"],
-  # password: ENV["GMAIL_PASSWORD"]
+  config.action_mailer.default_url_options = { host: 'bilobaba.herokuapp.com' }
+
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'gmail.com',
-    authentication: 'plain',
-    enable_starttls_auto: true,
-    user_name: 'contact.bilobaba@gmail.com',
-    password: 'Bilobaba12345'
-  }
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => 'bilobaba.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+}
 
-  config.action_mailer.default_url_options = { host: 'bilobaba.herokuapp.com' }
+  Rails.application.routes.default_url_options[:host] = 'www.bilobaba.com'
+
 end
 
 Rails.application.routes.default_url_options[:host] = 'bilobaba.herokuapp.com'
