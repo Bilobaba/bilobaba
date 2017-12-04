@@ -1,16 +1,14 @@
-<div class="container">
-  <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-  <h1><%= @event.title %></h1>
-  <table id="show_event">
-    <tr><td>Date et heure</td><td>: <%= @event.begin %></td></tr>
-    <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
-    <tr><td>Lieu</td><td>: <%= @event.adress %></td></tr>
-    <tr><td>Organisateur</td><td>: <%= @event.organizer.email %></td></tr>
-  </table>
-  <p><%= @event.description %></p>
-  <div>
-    <%= link_to 'Edit', edit_event_path(@event), class: 'badge' %>
-    <%= link_to 'Back', events_path, class: 'badge' %>
-  </div>
+<h1><%= @event.title %></h1>
+<table id="show_event">
+  <tr><td>Date et heure</td><td>: <%= @event.begin %></td></tr>
+  <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
+  <tr><td>Lieu</td><td>: <%= @event.adress %></td></tr>
+  <tr><td>Organisateur</td><td>: <%= @event.organizer.email %></td></tr>
+</table>
+<p><%= @event.description %></p>
+<div>
+  <%= link_to 'Edit', edit_event_path(@event), class: 'badge' %>
+  <%= link_to 'Back', events_path, class: 'badge' %>
 </div>
