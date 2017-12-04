@@ -19,7 +19,7 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.title %></td>
-        <td><%= event.begin %></td>
+        <td><%= I18n.l(event.begin, format: '%-d %B') %></td>
         <td><%= event.price_max.to_s + '€' %></td>
         <td><%= event.zip %></td>
         <td><%= event.organizer.email %></td>
