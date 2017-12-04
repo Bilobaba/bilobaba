@@ -3,8 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 h1 {
-    color: #339999;
+    color: white;
     margin-bottom: 20px;
+    background-image:linear-gradient(to right, #339999, #48d2d2);
+    padding: 10px;
+    border-radius: 4px;
 }
 
 #show_event tr > td:first-child {
