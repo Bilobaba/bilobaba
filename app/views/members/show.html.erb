@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @member.email %></h1>
+<table id="show_member">
+  <tr><td>Email</td><td>: <%= @member.email %></td></tr>
+</table>
+<div>
+  <%= link_to 'Back', members_path, class: 'badge' %>
+</div>
