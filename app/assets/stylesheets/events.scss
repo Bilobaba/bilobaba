@@ -6,3 +6,8 @@ h1 {
     color: #339999;
     margin-bottom: 20px;
 }
+
+#show_event tr > td:first-child {
+    padding-right: 10px;
+    color: #339999;
+}
