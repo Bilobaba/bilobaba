@@ -13,16 +13,17 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-left ">
         <li class="<%= 'active' if controller_name == 'events' %>">
           <%= link_to "Evènements", events_path %>
         </li>
-        <li>
-          <%= link_to "Professeurs", events_path %>
+        <li class="<%= 'active' if controller_name == 'members' %>">
+          <%= link_to "Professeurs", members_path %>
         </li>
-
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <% if member_signed_in? %>
-          <li class="<%= 'active' if controller_name == 'registrations' %>"> <%= link_to "Profil", edit_member_registration_path %> </li>
+          <li class="<%= 'active' if controller_name == 'registrations' %>"> <%= link_to "Profil", member_path(current_member) %> </li>
         <% else %>
           <!-- Sign up text link -->
           <li>

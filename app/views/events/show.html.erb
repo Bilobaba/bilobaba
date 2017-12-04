@@ -1,66 +1,14 @@
-<div class="container">
-  <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @event.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @event.description %>
-  </p>
-
-  <p>
-    <strong>Begin:</strong>
-    <%= @event.begin %>
-  </p>
-
-  <p>
-    <strong>End:</strong>
-    <%= @event.end %>
-  </p>
-
-  <p>
-    <strong>Price min:</strong>
-    <%= @event.price_min %>
-  </p>
-
-  <p>
-    <strong>Price max:</strong>
-    <%= @event.price_max %>
-  </p>
-
-  <p>
-    <strong>Adress:</strong>
-    <%= @event.adress %>
-  </p>
-
-  <p>
-    <strong>Town:</strong>
-    <%= @event.town %>
-  </p>
-
-  <p>
-    <strong>Zip:</strong>
-    <%= @event.zip %>
-  </p>
-
-  <p>
-    <strong>Lat:</strong>
-    <%= @event.lat %>
-  </p>
-
-  <p>
-    <strong>Lng:</strong>
-    <%= @event.lng %>
-  </p>
-
-  <p>
-    <strong>Organizer:</strong>
-    <%= @event.organizer %>
-  </p>
-
-  <%= link_to 'Edit', edit_event_path(@event) %> |
-  <%= link_to 'Back', events_path %>
+<h1><%= @event.title %></h1>
+<table id="show_event">
+  <tr><td>Date et heure</td><td>: <%= @event.begin %></td></tr>
+  <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
+  <tr><td>Lieu</td><td>: <%= @event.adress %></td></tr>
+  <tr><td>Organisateur</td><td>: <%= @event.organizer.email %></td></tr>
+</table>
+<p><%= @event.description %></p>
+<div>
+  <%= link_to 'Edit', edit_event_path(@event), class: 'badge' %>
+  <%= link_to 'Back', events_path, class: 'badge' %>
 </div>

@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url('https://fonts.googleapis.com/css?family=Trirong');
+
+body {
+    font-family: 'Trirong', sans-serif;
+}
 
 .image-mobile {
     position: relative;
@@ -30,11 +35,22 @@
     75%  {left:-100px; top:200px;}
     100% {left:-100px; top:-100px;}
 }
+
+.navbar-default {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-default .navbar-nav > li > a {
+    margin-left: 10px;
+}
+
 .navbar-default .navbar-nav > li > a:hover {
-    background-color: #339999;
-    color: white;
+    border-bottom: solid 6px #33999983;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
-    background-color: #BCE469;
+    border-bottom: solid 6px #339999;
+    background-color: transparent;
+    
 }
