@@ -21,7 +21,9 @@
         <td><%= event.title %></td>
         <td><%= I18n.l(event.begin, format: '%-d %B') %></td>
         <td><%= event.price_max.to_s + '€' %></td>
-        <td><%= event.zip %></td>
+        <td>
+          <span class="glyphicon glyphicon-map-marker pointer" aria-hidden="true"></span> 
+          <%= event.zip %></td>
         <td><%= event.organizer.email %></td>
         <td><%= link_to event do %>
             <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>

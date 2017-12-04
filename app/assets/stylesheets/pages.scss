@@ -52,5 +52,22 @@ body {
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
     border-bottom: solid 6px #339999;
     background-color: transparent;
-    
+}
+
+#logo {
+    padding-top: 5px;
+}
+
+h1 {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 20px;
+    background-image:linear-gradient(to right, #339999, #48d2d2);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+.pointer {
+    cursor: pointer;
 }
