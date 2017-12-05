@@ -2,38 +2,7 @@
 
 <h1>Evènements à venir</h1>
 
-<div class="table-responsive">
-<table class="table">
-  <thead>
-    <tr>
-      <th>Evènement</th>
-      <th>Date</th>
-      <th>Prix</th>
-      <th>Lieu</th>
-      <th>Organisateur</th>
-      <th>Places disponibles</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= I18n.l(event.begin, format: '%-d %B') %></td>
-        <td><%= event.price_max.to_s + '€' %></td>
-        <td>
-          <span class="glyphicon glyphicon-map-marker pointer" aria-hidden="true"></span> 
-          <%= event.zip %></td>
-        <td><%= event.organizer.email %></td>
-        <td><%= (event.members_max - event.attendees.size).to_s + ' / ' + event.members_max.to_s %></td>
-        <td><%= link_to event do %>
-            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="table-responsive" id="events">
+  <%= render 'events' %>
 </div>
 <%= link_to 'Créer un évènement', new_event_path, class: 'badge' %>

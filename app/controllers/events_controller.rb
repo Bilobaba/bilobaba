@@ -1,7 +1,7 @@
 require 'pry'
 
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :participate]
 
   # GET /events
   # GET /events.json
@@ -61,6 +61,11 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def participate
+    @event.participate(current_member, params[:status])
+    @events = Event.all.includes(:attendees)
   end
 
   private

@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get 'pages/home', as: 'home'
   get 'pages/contact', as: 'contact'
 
+  get 'participate', to: 'events#participate', as: 'participate'
+
   root 'pages#home'
 end

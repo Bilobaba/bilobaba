@@ -13,5 +13,17 @@ class Event < ApplicationRecord
   has_many :recommend_event_recommenders, class_name: :RecommendEvent, foreign_key: :event_id
   has_many :recommenders , through: :receommend_event_receommenders, source: :member
 
+  def participate(current_member, status)
+    if status == 'in'
+      attendees << current_member unless attendees.include? current_member
+    elsif status == 'out'
+      attendees.delete(current_member)
+    end
+  end
+
+  def participate?(current_member)
+    attendees.include? current_member
+  end
+
 end
 
