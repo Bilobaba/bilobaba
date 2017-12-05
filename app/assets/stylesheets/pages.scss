@@ -75,3 +75,8 @@ h1 {
 .container {
     padding-top: 5px;
 }
+
+a.badge:hover {
+    background-color: #339999;
+    transition: 250ms;
+}
