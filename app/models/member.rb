@@ -5,6 +5,8 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :organize_events, class_name: :Event, foreign_key: :member_id
 
   # follower_follows "names" the Follow join table for accessing through the follower association

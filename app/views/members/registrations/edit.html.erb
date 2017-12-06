@@ -16,6 +16,14 @@
       <%= f.input :password_confirmation, required: false %>
       <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
       <%= f.input :pseudo %>
+
+      <% if current_member.avatar.url.present? %>
+        <%= cl_image_tag current_member.avatar.url, width: 60, height: 60, crop: :fill,
+                          radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
+      <% end %>
+
+      <%= f.file_field :avatar, :label => "Number of Volunteers" , as: "XXX" %>
+
       <%= f.input :first_name %>
       <%= f.input :name %>
       <%= f.input :bio %>
@@ -44,3 +52,4 @@
 <%= link_to "Back", :back %>
 
 </div>
+

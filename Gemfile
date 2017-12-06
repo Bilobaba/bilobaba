@@ -42,6 +42,8 @@ gem 'devise'
 
 gem 'figaro'
 
+gem 'carrierwave'
+
 gem 'cloudinary'
 
 gem 'country_select'
