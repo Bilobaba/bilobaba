@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  devise_for :members
+  devise_for :members, controllers: { registrations: 'registrations' }
 
   devise_scope :member do
     resources :members, only: %i[show index]
