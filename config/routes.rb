@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :events do
+    resources :comments
+  end
+
   devise_for :members
 
   devise_scope :member do

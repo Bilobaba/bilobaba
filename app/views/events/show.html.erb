@@ -2,30 +2,45 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= @event.title %></h1>
-
 <div id="show_event">
 
   <div id="event">
-    <table id="show_event">
-      <tr><td>Date et heure</td><td>: <%= @event.begin %></td></tr>
-      <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
-      <tr><td>Lieu</td><td>: <%= @event.adress %></td></tr>
-      <tr><td>Organisateur</td><td>: <%= @event.organizer.email %></td></tr>
-    </table>
-    <p><%= @event.description %></p>
-    <div>
-      <%= link_to 'Edit', edit_event_path(@event), class: 'badge' %>
-      <%= link_to 'Back', events_path, class: 'badge' %>
-    </div>
-  </div>
 
-  <div id="map">
-    
+    <h3><%= @event.title %></h3>
+
+    <div>
+      <%= image_tag 'event.png' %>
+      <table id="show_event">
+        <tr><td>Date et heure</td><td>: <%= @event.begin %></td></tr>
+        <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
+        <% # TODO Display a maps picto, and show maps on mouse hover %>
+        <tr><td>Lieu</td><td>: <%= @event.zip %></td></tr>
+        <tr><td>Organisateur</td><td>: <%= @event.organizer.email %></td></tr>
+      </table>
+      <p><%= @event.description %></p>
+      <div>
+        <%= link_to 'Edit', edit_event_path(@event), class: 'badge' %>
+        <%= link_to 'Back', events_path, class: 'badge' %>
+      </div>
+    </div>
+    <!-- <div id="map"></div> -->
   </div>
 
   <div id="discussion">
+        <h3>Des questions ? Envie d'en discuter ?</h3>
 
+        <div id="comments">
+        <% @event.comments.each do |comment| %>
+            <%= render comment %>
+        <% end %>
+        </div>
+
+        <% # FIXME Only display this form is a user is connected %>
+        <%= simple_form_for [@event, @comment], remote: true do |f| %>
+            <%= f.input :content, label: false %>
+            <%= f.button :submit, 'Envoyer le commentaire' %>
+        <% end %>
+      
   </div>
 
 </div>

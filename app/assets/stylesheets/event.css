@@ -6,12 +6,35 @@
 }
 
 #event {
-    /* flex: 1; */
+    flex: 1;
+    padding: 10px;
 }
 
-#map {
+#event img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#event > div {
+    border: solid 1px rgb(194, 194, 194);
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+#discussion {
+    flex: 1;
+    padding-left: 20px;
+}
+
+map {
     width: 300px;
-    height: 300px;
+    height: 300px;  
     margin-left: 25px;
     border-radius: 5px;
+}
+
+.comment {
+    border-bottom: solid 1px rgb(196, 196, 196);
+    margin-bottom: 15px;
 }
