@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'pages/home', as: 'home'
   get 'pages/contact', as: 'contact'
+  post 'pages/contact', to: 'pages#send_mail_contact'
 
   get 'participate', to: 'events#participate', as: 'participate'
 
