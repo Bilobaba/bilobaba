@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20171205142516) do
 
   add_foreign_key "attend_events", "events"
   add_foreign_key "attend_events", "members"
-  add_foreign_key "comments", "events", column: "event_id"
+  add_foreign_key "comments", "events"
   add_foreign_key "comments", "members", column: "autor_id"
   add_foreign_key "events", "members"
   add_foreign_key "follow_events", "events"
