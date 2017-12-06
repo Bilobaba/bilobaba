@@ -19,7 +19,7 @@
       </table>
       <p><%= @event.description %></p>
       <div>
-        <%= link_to 'Edit', edit_event_path(@event), class: 'badge' %>
+        <% # TODO Add edit button when the professional is logged %>
         <%= link_to 'Back', events_path, class: 'badge' %>
       </div>
     </div>
