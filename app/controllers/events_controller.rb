@@ -4,12 +4,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.includes(:attendees)
+    @events = Event.all.includes(:attendees).includes(:comments)
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /events/new

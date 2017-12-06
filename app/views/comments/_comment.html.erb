@@ -1,0 +1,7 @@
+<div class="comment" id="comment_<%= comment.id %>">
+    <p><%= link_to comment.autor.email, '#' %> - le <%= comment.created_at %></p>
+    <p><%= comment.content %></p>
+    <% if current_member.id == comment.autor.id %>
+        <p><%= link_to ' ', event_comment_path(comment.event.id, comment.id), method: :DELETE, remote: true, class: 'glyphicon glyphicon-trash' %></p>
+    <% end %>
+</div>
