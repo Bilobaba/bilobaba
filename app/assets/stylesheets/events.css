@@ -11,6 +11,10 @@
     text-align: center;
 }
 
+#events td:last-child{
+    width: 110px;
+}
+
 #events td:nth-child(even):not(:first-of-type) {
     background-color: #ff61610f;
 }
