@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up){|u| u.permit(:email, :password, :password_confirmation,
                                                               :pseudo, :first_name, :name,:bio, :birth_date,
                                                               :adress, :zip, :town, :country, :avatar, roles: [] )}
-    devise_parameter_sanitizer.permit(:account_edit){|u| u.permit(:email, :password, :password_confirmation,
+    devise_parameter_sanitizer.permit(:account_update){|u| u.permit(:email, :password, :password_confirmation,
                                                               :pseudo, :first_name, :name,:bio, :birth_date,
-                                                              :adress, :zip, :town, :country, :avatar )}
+                                                              :adress, :zip, :town, :country, :avatar, :current_password )}
   end
 end
 
