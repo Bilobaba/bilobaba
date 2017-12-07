@@ -1,23 +1,25 @@
 <table class="table">
 <thead>
     <tr>
-    <th>Evènement</th>
-    <th>Date</th>
-    <th>Prix</th>
-    <th>Lieu</th>
-    <th>Organisateur</th>
-    <th>Places disponibles</th>
-    <th></th>
-    <th></th>
+        <th>Evènement</th>
+        <th>Date</th>
+        <th>Prix</th>
+        <th>Lieu</th>
+        <th>Organisateur</th>
+        <th>Places disponibles</th>
+        <th></th>
     </tr>
 </thead>
 
 <tbody>
     <% @events.each do |event| %>
     <tr>
-        <td><%= event.title %></td>
+        <td><%= link_to event.title, event %></td>
         <td><%= I18n.l(event.begin, format: '%-d %B') %></td>
-        <td><%= event.price_max.to_s + '€' %></td>
+        <td>
+            <%= event.price_min.to_s + '€ - ' if event.price_min != event.price_max %>
+            <%= event.price_max.to_s + '€' %>
+        </td>
         <td class="location pointer" onclick="showMap(<%= event.zip %>)">
             <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
             <%= event.zip %>
@@ -33,10 +35,6 @@
             <% else %>
                 <%= link_to 'Y participer', participate_path(id: event.id, status: 'in'), class: 'badge', remote: true %>
             <% end %>
-        <% end %>
-        </td>
-        <td><%= link_to event do %>
-            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
         <% end %>
         </td>
     </tr>

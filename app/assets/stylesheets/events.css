@@ -3,6 +3,18 @@
     color: #339999;
 }
 
+#events th:not(:first-of-type) {
+    text-align: center;
+}
+
+#events td:not(:first-of-type) {
+    text-align: center;
+}
+
+#events td:nth-child(even):not(:first-of-type) {
+    background-color: #ff61610f;
+}
+
 #map {
     display: none;
     position: absolute;
