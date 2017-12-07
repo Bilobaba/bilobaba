@@ -1,4 +1,9 @@
 class Event < ApplicationRecord
+
+  mount_uploader :image, ImageUploader
+  mount_uploaders :photos, PhotoUploader
+
+
   belongs_to :organizer, class_name: :Member, foreign_key: :member_id
 
   has_many :follow_event_followers, class_name: :FollowEvent, foreign_key: :event_id

@@ -5,6 +5,11 @@
     <div class="form-inputs">
       <%= f.input :title %>
       <%= f.input :description %>
+      <% if @event.image.url.present? %>
+        <%= cl_image_tag @event.image.url, width: 824, crop: :fill,
+                          radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
+      <% end %>
+      <%= f.input :image %>
       <%= f.input :begin %>
       <%= f.input :end %>
       <%= f.input :price_min %>
