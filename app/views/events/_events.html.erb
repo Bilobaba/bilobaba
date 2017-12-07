@@ -17,7 +17,7 @@
     <% @events.each do |event| %>
     <tr>
         <td><%= link_to event.title, event %></td>
-        <td><%= I18n.l(event.begin, format: '%-d %B') %></td>
+        <td><%= I18n.l(event.begin, format: '%-d %b - %Hh%M') %></td>
         <td>
             <%= event.price_min.to_s + '€ - ' if event.price_min != event.price_max %>
             <%= event.price_max.to_s + '€' %>
