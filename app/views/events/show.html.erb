@@ -1,3 +1,4 @@
+
 <%= stylesheet_link_tag 'event' %>
 
 <p id="notice"><%= notice %></p>
@@ -9,7 +10,11 @@
     <h3><%= @event.title %></h3>
 
     <div>
-      <%= image_tag 'event.png' %>
+
+      <% if @event.image.url.present? %>
+        <%= cl_image_tag( @event.image.file.filename, width: 824, height:182, radius: 10 ) %>
+      <% end %>
+
       <table id="show_event">
         <tr><td>Date et heure</td><td>: <%= @event.begin %></td></tr>
         <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
@@ -40,7 +45,7 @@
             <%= f.input :content, label: false %>
             <%= f.button :submit, 'Envoyer le commentaire' %>
         <% end %>
-      
+
   </div>
 
 </div>
