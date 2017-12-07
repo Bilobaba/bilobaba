@@ -30,7 +30,7 @@
         organizer = <%= debug @event.organizer.id %>
         <% if member_signed_in? && (current_member == @event.organizer) %>
           <%= link_to 'Modifier', edit_event_path, class: 'badge' %>
-          <%= link_to 'Supprimer', event_path, class: 'badge', method: 'DELETE', data: {confirm: 'Confirmez la suppresion' } %>
+          <%= link_to 'Supprimer', event_path, class: 'badge', method: 'DELETE', data: {confirm: 'Confirmez la suppression' } %>
         <% end %>
       </div>
     </div>

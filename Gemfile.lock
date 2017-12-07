@@ -85,6 +85,8 @@ GEM
       countries (~> 2.0)
       sort_alphabetical (~> 1.0)
     crass (1.0.3)
+    data-confirm-modal (1.6.0)
+      railties (>= 3.0)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -264,6 +266,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.2)
   country_select
+  data-confirm-modal
   devise
   figaro
   jbuilder (~> 2.5)
