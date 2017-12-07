@@ -9,9 +9,7 @@
 # Tables of  pros
 ProTable = ['omar','marc','peter','lucie','garance','amelie','lise','silke','carine','cyrill','veronique','david']
 
-# Delete tables
-Event.destroy_all
-Member.destroy_all
+# Delete table manually if needed
 
 # Populate with pros
 ProTable.each do |p|
