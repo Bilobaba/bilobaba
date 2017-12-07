@@ -65,6 +65,17 @@ class EventsController < ApplicationController
 
   def participate
     @event.participate(current_member, params[:status])
+
+    @author = current_member.pseudo
+    @email = current_member.email
+    @message = 'yoyo'
+
+    if params[:status] == 'in'
+      ContactMailer.event_participate(@author, @email, @message).deliver_now
+    elsif params[:status] == 'out'
+      ContactMailer.event_leave(@author, @email, @message).deliver_now
+    end
+
     @events = Event.all.includes(:attendees)
   end
 
