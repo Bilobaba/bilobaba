@@ -7,6 +7,6 @@
 <div class="table-responsive" id="events">
   <%= render 'events' %>
 </div>
-<%= link_to 'Créer un évènement', new_event_path, class: 'badge' %>
+<%= link_to 'Créer un évènement', new_event_path, class: 'badge' if member_signed_in? %>
 
 <%= render 'map' %>
