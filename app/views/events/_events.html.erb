@@ -18,9 +18,10 @@
         <td><%= event.title %></td>
         <td><%= I18n.l(event.begin, format: '%-d %B') %></td>
         <td><%= event.price_max.to_s + '€' %></td>
-        <td>
-        <span class="glyphicon glyphicon-map-marker pointer" aria-hidden="true"></span> 
-        <%= event.zip %></td>
+        <td class="location pointer">
+            <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+            <%= event.zip %>
+        </td>
         <td><%= event.organizer.email %></td>
         <td><%= (event.members_max - event.attendees.size).to_s + ' / ' + event.members_max.to_s %></td>
         <td>
@@ -40,3 +41,15 @@
     <% end %>
 </tbody>
 </table>
+
+<div id="test"></div>
+<div id="map">
+</div>
+<div id="map_close">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+</div>
+
+<%= javascript_include_tag 'map.js' %>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API'] %>"
+async defer></script>
