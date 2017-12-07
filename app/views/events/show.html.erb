@@ -26,6 +26,12 @@
       <div>
         <% # TODO Add edit button when the professional is logged %>
         <%= link_to 'Back', events_path, class: 'badge' %>
+        <%= debug current_member.id %>
+        organizer = <%= debug @event.organizer.id %>
+        <% if member_signed_in? && (current_member == @event.organizer) %>
+          <%= link_to 'Modifier', edit_event_path, class: 'badge' %>
+          <%= link_to 'Supprimer', event_path, class: 'badge', method: 'DELETE', data: {confirm: 'Confirmez la suppresion' } %>
+        <% end %>
       </div>
     </div>
     <!-- <div id="map"></div> -->
