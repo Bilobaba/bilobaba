@@ -18,9 +18,10 @@
         <td><%= event.title %></td>
         <td><%= I18n.l(event.begin, format: '%-d %B') %></td>
         <td><%= event.price_max.to_s + '€' %></td>
-        <td>
-        <span class="location glyphicon glyphicon-map-marker pointer" aria-hidden="true"></span> 
-        <%= event.zip %></td>
+        <td class="location pointer">
+            <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+            <%= event.zip %>
+        </td>
         <td><%= event.organizer.email %></td>
         <td><%= (event.members_max - event.attendees.size).to_s + ' / ' + event.members_max.to_s %></td>
         <td>

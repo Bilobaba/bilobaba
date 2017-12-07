@@ -25,3 +25,11 @@
     cursor: pointer;
     color: rgba(0, 0, 0, 0.755);
 }
+
+.location_icon {
+    color: #ff6161;
+}
+
+.location:hover {
+    color: #ff9494;
+}
