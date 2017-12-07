@@ -16,7 +16,13 @@
 <tbody>
     <% @events.each do |event| %>
     <tr>
-        <td><%= link_to event.title, event %></td>
+        <td>
+            <%= link_to event do %>
+                <div id="clickable">
+                    <%= event.title %>
+                </div>
+            <% end %>
+        </td>
         <td><%= I18n.l(event.begin, format: '%-d %b - %Hh%M') %></td>
         <td>
             <%= event.price_min.to_s + '€ - ' if event.price_min != event.price_max %>
@@ -27,10 +33,17 @@
             <%= event.zip %>
         </td>
         <td>
-            <% if event.organizer.has_role?(:professional) %>
-                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+            <%= link_to event.organizer do %>
+                <div id="clickable">
+                    <% if event.organizer.has_role?(:professional) %>
+                        <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                    <% end %>
+                    <% if event.organizer.avatar.url.present? %>
+                        <%= cl_image_tag event.organizer.avatar.file.filename, width: 30, height: 30, gravity: :face %>
+                    <% end %>
+                    <span class="organizer"><%= event.organizer.pseudo %></span>
+                </div>
             <% end %>
-            <%= link_to event.organizer.pseudo, event.organizer %>
         </td>
         <td>
             <% if event.attendees.size == event.members_max %>

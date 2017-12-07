@@ -19,6 +19,11 @@
     background-color: #ff61610f;
 }
 
+#events td {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 #map {
     display: none;
     position: absolute;
@@ -48,4 +53,8 @@
 
 .location:hover {
     color: #ff9494;
+}
+
+.organizer {
+    margin-left: 5px;
 }
