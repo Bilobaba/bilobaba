@@ -22,7 +22,9 @@
             <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
             <%= event.zip %>
         </td>
-        <td><%= event.organizer.email %></td>
+        <td>
+            <%= link_to event.organizer.pseudo, event.organizer %>
+        </td>
         <td><%= (event.members_max - event.attendees.size).to_s + ' / ' + event.members_max.to_s %></td>
         <td>
         <% if member_signed_in? %>
