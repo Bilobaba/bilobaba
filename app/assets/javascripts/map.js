@@ -1,13 +1,12 @@
 var map;
 
-function initMap() {
-    var myLatlng = new google.maps.LatLng(40, 0);
+function initMap(latlng) {
     map = new google.maps.Map($("#map")[0], {
-        center: myLatlng,
-        zoom: 5
+        center: latlng,
+        zoom: 12
     });
     var marker = new google.maps.Marker({
-        position: myLatlng,
+        position: latlng,
         map: map
     });
     var infowindow = new google.maps.InfoWindow({
@@ -18,7 +17,7 @@ function initMap() {
     });
 }
 
-function showMap() {
+function buildMap() {
     var boxWidth = $(window).width() / 2,
     boxHeight = $(window).height() / 2;
     boxLeft = boxWidth - (boxWidth / 2),
@@ -43,17 +42,13 @@ function hideMap() {
     $('#map_close').hide();
 }
 
-$( document ).ready(function() {
-    $('#map').on('focusout', function() {
-        hideMap();
-    })
-    
-    $('#map_close').click(function() {
-        hideMap();
-    })
-    
-    $('.location').click(function(){
-        showMap();
-        initMap();
-    })
-});
+function showMap(zipCode){
+    buildMap();
+    new google.maps.Geocoder().geocode( { 'address': String(zipCode) }, function(results, status) {
+        if (status == 'OK') {
+            initMap(results[0].geometry.location);
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
