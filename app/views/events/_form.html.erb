@@ -3,27 +3,39 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :title %>
-      <%= f.input :description %>
+      <%= f.input :title, label: 'Titre' %>
+      <%= f.text_area :description, class: "form-control string optional",label: 'Description' %> </br>
       <% if @event.image.url.present? %>
-        <%= cl_image_tag @event.image.url, width: 824, crop: :fill,
-                          radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
+        <%= cl_image_tag @event.image.file.filename, width: 824, height: 128, crop: :fill,
+              radius: 5, :gravity => :face %>
       <% end %>
-      <%= f.input :image %>
-      <%= f.input :begin %>
-      <%= f.input :end %>
-      <%= f.input :price_min %>
-      <%= f.input :price_max %>
-      <%= f.input :adress %>
-      <%= f.input :town %>
-      <%= f.input :zip %>
-      <%= f.input :lat %>
-      <%= f.input :lng %>
-<!--       <%= f.input :organizer %>
- -->    </div>
+      <%= f.input :image, label: 'Image' %>
+      <%= f.input :begin, label: 'Début' %>
+      <%= f.input :end, label: 'Fin' %>
+      <%= f.input :price_min, label: 'Prix min' %>
+      <%= f.input :price_max, label: 'Prix max' %>
+      <%= f.input :adress, label: 'Adresse' %>
+      <%= f.input :town, label: 'Ville' %>
+      <%= f.input :zip, label: 'CP' %>
+      <%= f.file_field :photos , label: 'Photos' %>
+    </div>
 
     <div class="form-actions">
       <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
+
+<h2> Form_for </h2>
+<div class="container">
+  <%= form_for @event do |f| %>
+    <%= f.text_field :title %>
+
+    <div class="form-inputs">
+      <%= f.file_field :photos %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit %>
     </div>
   <% end %>
 </div>

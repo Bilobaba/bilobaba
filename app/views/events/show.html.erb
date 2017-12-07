@@ -62,9 +62,7 @@
       </div>
     </div>
     <!-- <div id="map"></div> -->
-            <%= cl_image_tag( @event.image.file.filename, width: 824, height:182, radius: 10 ) %>
-        <%= cl_image_tag( @event.image.file.filename, width: 824, height:182, radius: 10 ) %>
-        <%= cl_image_tag( @event.image.file.filename, width: 824, height:182, radius: 10 ) %>
+        <%= cl_image_tag( @event.photos[0].file.filename, width: 824, height:182, radius: 10 ) %>
 
   </div>
 
