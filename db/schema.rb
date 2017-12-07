@@ -113,6 +113,14 @@ ActiveRecord::Schema.define(version: 20171206154608) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  create_table "members_roles", id: false, force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "role_id"
+    t.index ["member_id", "role_id"], name: "index_members_roles_on_member_id_and_role_id"
+    t.index ["member_id"], name: "index_members_roles_on_member_id"
+    t.index ["role_id"], name: "index_members_roles_on_role_id"
+  end
+
   create_table "recommend_events", force: :cascade do |t|
     t.bigint "event_id"
     t.bigint "member_id"
@@ -122,11 +130,15 @@ ActiveRecord::Schema.define(version: 20171206154608) do
     t.index ["member_id"], name: "index_recommend_events_on_member_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
     t.string "name"
-    t.string "avatar"
+    t.string "resource_type"
+    t.bigint "resource_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["name"], name: "index_roles_on_name"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
   add_foreign_key "attend_events", "events"
