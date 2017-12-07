@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :participate]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :participate, :like, :recommend, :follow]
 
   # GET /events
   # GET /events.json
@@ -78,6 +78,22 @@ class EventsController < ApplicationController
 
     @events = Event.all.includes(:attendees)
   end
+
+  def like
+    @event.like(current_member, params[:status])
+  end
+
+
+  def recommend
+    @event.recommend(current_member, params[:status])
+  end
+
+
+  def follow
+    @event.follow(current_member, params[:status])
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

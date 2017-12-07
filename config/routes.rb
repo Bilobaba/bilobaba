@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   post 'pages/contact', to: 'pages#send_mail_contact'
 
   get 'participate', to: 'events#participate', as: 'participate'
+  get 'like', to: 'events#like', as: 'like'
+  get 'recommend', to: 'events#recommend', as: 'recommend'
+  get 'follow', to: 'events#follow', as: 'follow'
 
   root 'pages#home'
 end
