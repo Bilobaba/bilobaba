@@ -28,36 +28,26 @@
 
       </table>
           <a type="button" data-toggle="modal" data-target="#EventDescription">
-            <span style="color: #339999">Description</span> : <%=  @event.description[0..400] %> (...)
+            <span style="color: #339999">Description</span> : <%=  @event.description[0..400] %>
+                <% if @event.description.size > 400 %> (...) <% end %>
           </a>
       <div>
 
+           <!-- Button Participate -->
+          <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', style: "display:none", remote: true %>
+          <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max %>
 
-          <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', remote: true %>
-          <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', remote: true if @event.attendees.size != @event.members_max %>
+           <!-- Button Like -->
+          <%= link_to 'Aimer : Oui', like_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventLikeY', style: "display:none", remote: true %>
+          <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventLikeN', style: "display:none", remote: true %>
 
-        <% if @event.participate?(current_member) %>
-        <% else %>
-        <% end %>
+          <%= link_to 'Recommander : Oui', recommend_path(id: @event.id, status: 'out'), class: 'badge',
+          id: 'EventRecommendY', style: "display:none",  remote: true %>
+          <%= link_to 'Recommander : Non', recommend_path(id: @event.id, status: 'in'), class: 'badge',
+          id: 'EventRecommendN', style: "display:none", remote: true %>
 
-        <% if @event.like?(current_member) %>
-          <%= link_to 'Aimer : Oui', like_path(id: @event.id, status: 'out'), class: 'badge', remote: true %>
-        <% else %>
-          <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge', remote: true %>
-        <% end %>
-
-
-        <% if @event.recommend?(current_member) %>
-          <%= link_to 'Recommander : Oui', recommend_path(id: @event.id, status: 'out'), class: 'badge', remote: true %>
-        <% else %>
-          <%= link_to 'Recommander : Non', recommend_path(id: @event.id, status: 'in'), class: 'badge', remote: true %>
-        <% end %>
-
-        <% if @event.follow?(current_member) %>
-          <%= link_to 'Suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge', remote: true %>
-        <% else %>
-            <%= link_to 'Suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge', remote: true %>
-        <% end %>
+          <%= link_to 'Suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventFollowY', style: "display:none", remote: true %>
+          <%= link_to 'Suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventFollowN', style: "display:none", remote: true %>
 
         </br>
         <% if member_signed_in? && (current_member == @event.organizer) %>
@@ -138,12 +128,21 @@
 async defer></script>
 
 
+<% if true %>
 <script>
-
 $(document).ready(function(){
 
-    $("#EventPartY").hide();
-    $("#EventPartN").hide();
+    $("#EventPartY").html('Y aller : <span style="font-family: Courier New"> Oui </span>');
+    $("#EventPartN").html('Y aller : <span style="font-family: Courier New"> Non </span>');
+
+    $("#EventLikeY").html('Aimer : <span style="font-family: Courier New"> Oui </span>');
+    $("#EventLikeN").html('Aimer : <span style="font-family: Courier New"> Non </span>');
+
+    $("#EventRecommendY").html('Recommander : <span style="font-family: Courier New"> Oui </span>');
+    $("#EventRecommendN").html('Recommander : <span style="font-family: Courier New"> Non </span>');
+
+    $("#EventFollowY").html('Suivre : <span style="font-family: Courier New"> Oui </span>');
+    $("#EventFollowN").html('Suivre : <span style="font-family: Courier New"> Non </span>');
 
     $("#EventPartY").click(function(){
         $("#EventPartY").hide();
@@ -154,12 +153,65 @@ $(document).ready(function(){
         $("#EventPartN").hide();
     });
 
+
     <% if @event.participate?(current_member) %>
         $("#EventPartN").click();
     <% else %>
         $("#EventPartY").click();
     <% end %>
+
+    $("#EventLikeY").click(function(){
+        $("#EventLikeY").hide();
+        $("#EventLikeN").show();
+    });
+    $("#EventLikeN").click(function(){
+        $("#EventLikeY").show();
+        $("#EventLikeN").hide();
+    });
+
+    <% if @event.like?(current_member) %>
+        $("#EventLikeN").click();
+    <% else %>
+        $("#EventLikeY").click();
+    <% end %>
+
+    $("#EventRecommendY").click(function(){
+        $("#EventRecommendY").hide();
+        $("#EventRecommendN").show();
+    });
+    $("#EventRecommendN").click(function(){
+        $("#EventRecommendY").show();
+        $("#EventRecommendN").hide();
+    });
+
+        $("#EventRecommendY").show();
+
+<% if true %>
+    <% if @event.recommend?(current_member) %>
+        $("#EventRecommendN").click();
+    <% else %>
+        $("#EventRecommendY").click();
+    <% end %>
+<% end %>
+
+    $("#EventFollowY").click(function(){
+        $("#EventFollowY").hide();
+        $("#EventFollowN").show();
+    });
+    $("#EventFollowN").click(function(){
+        $("#EventFollowY").show();
+        $("#EventFollowN").hide();
+    });
+
+    <% if @event.follow?(current_member) %>
+        $("#EventFollowN").click();
+    <% else %>
+        $("#EventFollowY").click();
+    <% end %>
+
 });
 </script>
+<% end %>
 
-<%= debug @event.participate?(current_member) %>
+<span style="font: Courier"> Hello </span> </br>
+<span style="font-family: Courier New"> iiiii </span>
