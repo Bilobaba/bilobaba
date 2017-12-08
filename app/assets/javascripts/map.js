@@ -30,7 +30,7 @@ function buildMap() {
     
     $('#map_close').css({
         width: boxWidth,
-        top: boxTop, left: boxLeft
+        top: boxHeight + boxTop, left: boxLeft
     });
 
     $('#map').show();

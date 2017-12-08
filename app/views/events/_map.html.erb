@@ -1,8 +1,6 @@
 <div id="map" onfocusout="hideMap()">
 </div>
-<div id="map_close" onclick="hideMap()">
-    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-</div>
+<div id="map_close" onclick="hideMap()">Close</div>
 
 <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'], async: true, defer: true, 'data-turbolinks-eval': false %>
 <%= javascript_include_tag 'map.js' %>

@@ -28,24 +28,21 @@
 #map {
     display: none;
     position: absolute;
-    border: solid 25px rgba(0, 0, 0, 0.562);
-    border-radius: 5px;
 }
 
 #map_close {
     display: none;
     position: absolute;
-    height: 20px;
     text-align: right;
-    font-size: 17px;
-    margin-top: 2px;
-    padding-right: 25px;
+    font-size: 14px;
     color: white;
+    padding: 5px;
+    background-color: #339999;
+    cursor: pointer;
 }
 
-#map_close > span:hover {
-    cursor: pointer;
-    color: rgba(0, 0, 0, 0.755);
+#map_close:hover {
+    color: #1b4f4f;
 }
 
 .location_icon {
