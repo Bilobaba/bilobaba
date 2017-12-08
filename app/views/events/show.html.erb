@@ -15,14 +15,20 @@
       <% end %>
 
       <table id="show_event">
-        <tr><td>Date et heure</td><td>: <%= @event.begin %></td></tr>
-        <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
+        <tr><td>Date et heure</td><td>: <%= @event.begin %></td><td rowspan=4 >
+            <%= link_to @event.organizer do %>
+              <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 50, radius: 5) %>
+
+            <% end %>
+          </td>
+        </tr>
+        <tr><td>Prix</td><td>: <%= @event.price_max %>€</td><td></td></tr>
         <% # TODO Display a maps picto, and show maps on mouse hover %>
-        <tr><td>Lieu</td><td>: <%= @event.zip %></td></tr>
-        <tr><td>Organisateur</td><td>: <%= @event.organizer.pseudo %></td></tr>
-        <tr><td>Description</td><td></td></tr>
+        <tr><td>Lieu</td><td>: <%= @event.zip %></td><td><span style="color: #339999">Organisateur</span></td></tr>
       </table>
-        <p> <%= @event.description[0..400] %> ... </p>
+          <a type="button" data-toggle="modal" data-target="#EventDescription">
+            <span style="color: #339999">Description</span> : <%=  @event.description[0..400] %> (...)
+          </a>
       <div>
 
 
@@ -62,7 +68,6 @@
       </div>
     </div>
     <!-- <div id="map"></div> -->
-        <%= cl_image_tag( @event.photos[0].file.filename, width: 824, height:182, radius: 10 ) %>
 
   </div>
 
@@ -83,6 +88,25 @@
 
   </div>
 
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="EventDescription" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="color: #339999">
+        <h4 class="modal-title" id="EventDescriptionLabel">Description détaillée de <em> <%= @event.title %> </em></h4>
+      </div>
+      <div class="modal-body">
+        <%= @event.description %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <%= javascript_tag do %>
