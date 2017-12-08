@@ -11,7 +11,7 @@
     <div>
 
       <% if @event.image.url.present? %>
-        <%= cl_image_tag( @event.image.file.filename, width: 824, height:182, radius: 10 ) %>
+        <%= cl_image_tag( @event.image.file.filename, width: 600, height:182, radius: 10 ) %>
       <% end %>
 
       <table id="show_event">
@@ -28,8 +28,8 @@
 
       </table>
           <a type="button" data-toggle="modal" data-target="#EventDescription">
-            <span style="color: #339999">Description</span> : <%=  @event.description[0..400] %>
-                <% if @event.description.size > 400 %> (...) <% end %>
+            <span style="color: #339999">Description</span> : <%=  @event.description[0..200] %>
+                <% if @event.description.size > 200 %> (...) <% end %>
           </a>
       <div>
 
@@ -213,5 +213,25 @@ $(document).ready(function(){
 </script>
 <% end %>
 
-<span style="font: Courier"> Hello </span> </br>
-<span style="font-family: Courier New"> iiiii </span>
+<div id="show_event">
+<div id="event">
+  <div>
+<% if @event.photo1.url.present? %>
+  <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10 ) %>
+<% end %>
+
+<% if @event.photo2.url.present? %>
+  <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10 ) %>
+<% end %>
+
+<% if @event.photo3.url.present? %>
+  <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10 ) %>
+<% end %>
+
+<% if @event.photo4.url.present? %>
+  <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10 ) %>
+<% end %>
+
+</div>
+</div>
+</div>
