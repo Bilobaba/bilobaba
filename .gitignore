@@ -23,3 +23,5 @@
 
 # Ignore cloudinary
 /config/cloudinary.yml
+
+/public/uploads/tmp/

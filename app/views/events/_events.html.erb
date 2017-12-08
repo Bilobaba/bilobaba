@@ -5,7 +5,7 @@
         <th>Date</th>
         <th>Prix</th>
         <th>Lieu</th>
-        <th>Organisateur</th>
+        <th>Orga</th>
         <th>Participants</th>
         <% if member_signed_in? && !current_member.has_role?(:professional) %>
             <th></th>
@@ -18,7 +18,7 @@
     <tr>
         <td>
             <%= link_to event do %>
-                <div id="clickable">
+                <div>
                     <%= event.title %>
                 </div>
             <% end %>
@@ -34,14 +34,15 @@
         </td>
         <td>
             <%= link_to event.organizer do %>
-                <div id="clickable">
-                    <% if event.organizer.has_role?(:professional) %>
-                        <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
-                    <% end %>
+                <div class="professional">
                     <% if event.organizer.avatar.url.present? %>
-                        <%= cl_image_tag event.organizer.avatar.file.filename, width: 30, height: 30, gravity: :face %>
+                        <%= cl_image_tag event.organizer.avatar.file.filename, width: 30, height: 30, title: event.organizer.pseudo %>
+                    <% else %>
+                        <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 30, height: 30, title: event.organizer.pseudo %>
                     <% end %>
-                    <span class="organizer"><%= event.organizer.pseudo %></span>
+                    <% if event.organizer.has_role?(:professional) %>
+                        <span>pro</span>
+                    <% end %>
                 </div>
             <% end %>
         </td>

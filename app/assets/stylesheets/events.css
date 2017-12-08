@@ -22,6 +22,7 @@
 #events td {
     padding-left: 0px;
     padding-right: 0px;
+    vertical-align: middle;
 }
 
 #map {
@@ -57,4 +58,19 @@
 
 .organizer {
     margin-left: 5px;
+}
+
+.professional > img {
+    border-radius: 5px;
+}
+
+.professional > span {
+    display: block;
+    font-size: 10px;
+    color: #ff9494;
+    font-weight: bold;
+}
+
+.professional:hover {
+    opacity: 0.8;
 }
