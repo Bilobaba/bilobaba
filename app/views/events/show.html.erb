@@ -15,16 +15,17 @@
       <% end %>
 
       <table id="show_event">
-        <tr><td>Date et heure</td><td>: <%= @event.begin %></td><td rowspan=4 >
+        <tr><td>Date et heure</td><td>: <%= @event.begin %></td><td rowspan=3 ">
             <%= link_to @event.organizer do %>
-              <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 50, radius: 5) %>
-
+              <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 50, radius: 20) %>
             <% end %>
           </td>
         </tr>
-        <tr><td>Prix</td><td>: <%= @event.price_max %>€</td><td></td></tr>
+        <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
         <% # TODO Display a maps picto, and show maps on mouse hover %>
-        <tr><td>Lieu</td><td>: <%= @event.zip %></td><td><span style="color: #339999">Organisateur</span></td></tr>
+        <tr><td>Lieu</td><td>: <%= @event.zip %></td><td></td></tr>
+        <tr><td>Organisateur</td><td></td><td><%= @event.organizer.pseudo %></td></tr>
+
       </table>
           <a type="button" data-toggle="modal" data-target="#EventDescription">
             <span style="color: #339999">Description</span> : <%=  @event.description[0..400] %> (...)
