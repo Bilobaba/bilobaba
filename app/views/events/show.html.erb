@@ -33,10 +33,11 @@
       <div>
 
 
+          <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', remote: true %>
+          <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', remote: true if @event.attendees.size != @event.members_max %>
+
         <% if @event.participate?(current_member) %>
-          <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', remote: true %>
         <% else %>
-          <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', remote: true if @event.attendees.size != @event.members_max %>
         <% end %>
 
         <% if @event.like?(current_member) %>
@@ -110,6 +111,8 @@
   </div>
 </div>
 
+
+
 <%= javascript_tag do %>
   var map;
   function initMap() {
@@ -134,3 +137,29 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API'] %>&callback=initMap"
 async defer></script>
 
+
+<script>
+
+$(document).ready(function(){
+
+    $("#EventPartY").hide();
+    $("#EventPartN").hide();
+
+    $("#EventPartY").click(function(){
+        $("#EventPartY").hide();
+        $("#EventPartN").show();
+    });
+    $("#EventPartN").click(function(){
+        $("#EventPartY").show();
+        $("#EventPartN").hide();
+    });
+
+    <% if @event.participate?(current_member) %>
+        $("#EventPartN").click();
+    <% else %>
+        $("#EventPartY").click();
+    <% end %>
+});
+</script>
+
+<%= debug @event.participate?(current_member) %>
