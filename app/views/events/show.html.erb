@@ -128,7 +128,6 @@
 async defer></script>
 
 
-<% if true %>
 <script>
 $(document).ready(function(){
 
@@ -150,9 +149,9 @@ $(document).ready(function(){
     });
     $("#EventPartN").click(function(){
         $("#EventPartY").show();
+        $("#EventPartY").attr("style","background-color:pink; color:black");
         $("#EventPartN").hide();
     });
-
 
     <% if @event.participate?(current_member) %>
         $("#EventPartN").click();
@@ -166,6 +165,7 @@ $(document).ready(function(){
     });
     $("#EventLikeN").click(function(){
         $("#EventLikeY").show();
+        $("#EventLikeY").attr("style","background-color:pink; color:black");
         $("#EventLikeN").hide();
     });
 
@@ -181,18 +181,17 @@ $(document).ready(function(){
     });
     $("#EventRecommendN").click(function(){
         $("#EventRecommendY").show();
+        $("#EventRecommendY").attr("style","background-color:pink; color:black");
         $("#EventRecommendN").hide();
     });
 
         $("#EventRecommendY").show();
 
-<% if true %>
     <% if @event.recommend?(current_member) %>
         $("#EventRecommendN").click();
     <% else %>
         $("#EventRecommendY").click();
     <% end %>
-<% end %>
 
     $("#EventFollowY").click(function(){
         $("#EventFollowY").hide();
@@ -200,6 +199,7 @@ $(document).ready(function(){
     });
     $("#EventFollowN").click(function(){
         $("#EventFollowY").show();
+        $("#EventFollowY").attr("style","background-color:pink; color:black");
         $("#EventFollowN").hide();
     });
 
@@ -211,7 +211,7 @@ $(document).ready(function(){
 
 });
 </script>
-<% end %>
+
 
 <div id="show_event">
 <div id="event">
