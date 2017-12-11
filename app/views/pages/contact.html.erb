@@ -3,7 +3,7 @@
   <h3>Partagez votre avis</h1>
 <%= simple_form_for :message, url: contact_path, method: 'POST' do |f|  %>
   <div class="form-inputs">
-    <%= f.input :name, required: false %>
+    <%= f.input :name, required: false, label: 'Nom',  value: 'Dang' %>
     <%= f.input :email, required: false %>
     <%= f.input :message, required: false, as: :text, :input_html => { :cols => 5, :rows => 3 } %>
   </div>

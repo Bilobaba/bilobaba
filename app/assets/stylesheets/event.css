@@ -35,3 +35,7 @@ map {
     border-bottom: solid 1px rgb(196, 196, 196);
     margin-bottom: 15px;
 }
+
+.member {
+    align-content: center;
+}
