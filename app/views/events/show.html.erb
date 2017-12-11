@@ -32,21 +32,21 @@
         <span style="color: #339999">Description</span>  <%=  @event.description[0..200] %>
             <% if @event.description.size > 200 %> (...) <% end %>
       </a>
-
-      <hr>
+      </br></br>
       <!-- La communauté -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EventAttendees">Participants</button>
-
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EventLikers">Ils aiment</button>
-
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EventRecommenders">Ils recommandent</button>
-
+       <div class="btn-group  btn-group-xs" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#EventAttendees">Ils participent</button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#EventLikers">Ils aiment</button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#EventRecommenders">Ils recommandent</button>
+      </div>
+      </br></br>
       <div>
 
            <!-- Button Participate -->
-          <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', style: "display:none", remote: true %>
-          <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max %>
-
+          <% if @event.attendees.count < @event.members_max %>
+            <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', style: "display:none", remote: true %>
+            <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max %>
+          <% end %>
            <!-- Button Like -->
           <%= link_to 'Aimer : Oui', like_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventLikeY', style: "display:none", remote: true %>
           <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventLikeN', style: "display:none", remote: true %>
@@ -290,4 +290,23 @@ $(document).ready(function(){
 </script>
 
 
+<div class="btn-group btn-group-sm" role="group" aria-label="...">
+...
+<!-- Modal for Attendees -->
+<div class="modal fade" id="EventAttendees2" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils participent', members: @event.attendees %>
+</div>
++++
+<!-- Modal for Likers -->
+<div class="modal fade" id="EventLikers" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils aiment', members: @event.likers %>
+</div>
+
+<!-- Modal for Recommenders -->
+<div class="modal fade" id="EventRecommenders" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils recommandent', members: @event.recommenders %>
+</div>
+
+
+</div>
 
