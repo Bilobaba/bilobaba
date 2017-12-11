@@ -19,11 +19,14 @@
         <td>
             <%= link_to event do %>
                 <div>
-                    <%= event.title %>
+                    <%= event.title[0..40] %>
+                    <% if event.title.length > 40 %>
+                         (...)
+                    <% end %>
                 </div>
             <% end %>
         </td>
-        <td><%= I18n.l(event.begin, format: '%-d %b - %Hh%M') %></td>
+        <td><%= I18n.l(event.begin, format: '%-d %b %Y - %Hh%M') %></td>
         <td>
             <%= event.price_min.to_s + '€ - ' if event.price_min != event.price_max %>
             <%= event.price_max.to_s + '€' %>

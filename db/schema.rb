@@ -60,6 +60,29 @@ ActiveRecord::Schema.define(version: 20171211112740) do
     t.index ["member_id"], name: "index_events_on_member_id"
   end
 
+  create_table "events_smihug", id: :serial, force: :cascade do |t|
+    t.string "titre"
+    t.text "description"
+    t.integer "prix"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "debut"
+    t.datetime "fin"
+    t.string "lieu"
+    t.string "adresse"
+    t.string "cp"
+    t.string "ville"
+    t.string "pays"
+    t.string "reduit"
+    t.string "contact"
+    t.string "transport"
+    t.integer "user_id"
+    t.text "search_text"
+    t.string "site"
+    t.string "complement"
+    t.index ["user_id"], name: "index_events_smihug_on_user_id"
+  end
+
   create_table "follow_events", force: :cascade do |t|
     t.bigint "event_id"
     t.bigint "member_id"
@@ -128,6 +151,21 @@ ActiveRecord::Schema.define(version: 20171211112740) do
     t.index ["role_id"], name: "index_members_roles_on_role_id"
   end
 
+  create_table "profils_smihug", id: :serial, force: :cascade do |t|
+    t.string "nom"
+    t.string "prenom"
+    t.string "pseudo"
+    t.text "detail"
+    t.string "site"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "activite"
+    t.text "search_text"
+    t.boolean "pro"
+    t.index ["user_id"], name: "index_profils_smihug_on_user_id"
+  end
+
   create_table "recommend_events", force: :cascade do |t|
     t.bigint "event_id"
     t.bigint "member_id"
@@ -148,15 +186,34 @@ ActiveRecord::Schema.define(version: 20171211112740) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
+  create_table "users_smihug", id: :serial, force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_smihug_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_smihug_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "attend_events", "events"
   add_foreign_key "attend_events", "members"
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "members", column: "autor_id"
   add_foreign_key "events", "members"
+  add_foreign_key "events_smihug", "users_smihug", column: "user_id"
   add_foreign_key "follow_events", "events"
   add_foreign_key "follow_events", "members"
   add_foreign_key "like_events", "events"
   add_foreign_key "like_events", "members"
+  add_foreign_key "profils_smihug", "users_smihug", column: "user_id"
   add_foreign_key "recommend_events", "events"
   add_foreign_key "recommend_events", "members"
 end
