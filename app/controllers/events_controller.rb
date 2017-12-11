@@ -1,10 +1,14 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :participate, :like, :recommend, :follow]
+  before_action :set_event, only: %i[show edit update destroy participate like recommend follow]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.includes(:attendees).includes(:comments)
+    @events = Event
+              .order(begin: :asc)
+              .where('begin >= ?', DateTime.now)
+              .includes(:attendees)
+              .includes(:comments)
   end
 
   # GET /events/1
@@ -19,8 +23,7 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /events
   # POST /events.json
@@ -83,27 +86,24 @@ class EventsController < ApplicationController
     @event.like(current_member, params[:status])
   end
 
-
   def recommend
     @event.recommend(current_member, params[:status])
   end
-
 
   def follow
     @event.follow(current_member, params[:status])
   end
 
-
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:title, :description, :begin, :end, :price_min, :price_max,
-        :adress, :town, :zip, :lat, :lng, {photos: []}, :image, :photo1, :photo2, :photo3, :photo4)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:title, :description, :begin, :end, :price_min, :price_max,
+                                  :adress, :town, :zip, :lat, :lng, { photos: [] }, :image, :photo1, :photo2, :photo3, :photo4)
+  end
 end
