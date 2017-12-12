@@ -3,7 +3,7 @@
 <p id="notice"><%= notice %></p>
 <div id="show_event">
   <div id="event">
-    <h3> <div style="float: left"> <%= @event.title %></div> <div style="float: right;">  <em> <%= @event.attendees.count %>/<%=@event.members_max %>  </em> </div></h3> </br>
+    <h4> <%= @event.title %></h4>
 
     <div>
       <% if @event.image.url.present? %>
@@ -15,9 +15,11 @@
           <td rowspan=3 ">
             <%= link_to @event.organizer do %>
               <% if @event.organizer.avatar.file %>
-              <div style="float: right;">
-                <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 50, radius: 20) %>
-              </div>
+                <div style="float: right;">
+                  <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 50, radius: 20) %>
+                </div>
+              <% else %>
+                  <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 50, height: 50, title: @event.organizer.pseudo %>
               <% end %>
             <% end %>
           </td>
@@ -43,10 +45,11 @@
       <div>
 
            <!-- Button Participate -->
-          <% if @event.attendees.count < @event.members_max %>
+          <% if (@event.attendees.count < @event.members_max) || (@event.members_max == 0) %>
             <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', style: "display:none", remote: true %>
-            <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max %>
+            <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max ||   @event.members_max == 0  %>
           <% end %>
+
            <!-- Button Like -->
           <%= link_to 'Aimer : Oui', like_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventLikeY', style: "display:none", remote: true %>
           <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventLikeN', style: "display:none", remote: true %>
@@ -56,8 +59,8 @@
           <%= link_to 'Recommander : Non', recommend_path(id: @event.id, status: 'in'), class: 'badge',
           id: 'EventRecommendN', style: "display:none", remote: true %>
 
-          <%= link_to 'Suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventFollowY', style: "display:none", remote: true %>
-          <%= link_to 'Suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventFollowN', style: "display:none", remote: true %>
+          <%= link_to 'A suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventFollowY', style: "display:none", remote: true %>
+          <%= link_to 'A suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventFollowN', style: "display:none", remote: true %>
 
         </br>
         <% if member_signed_in? && (current_member == @event.organizer) %>
@@ -65,7 +68,7 @@
           <%= link_to 'Supprimer', event_path, class: 'badge', method: 'DELETE', data: {confirm: 'Confirmez la suppression' } %>
         <% end %>
 
-        <%= link_to 'Retour', events_path, class: 'badge' %>
+        <%= link_to 'Retour', :back, class: 'badge' %>
 
       </div>
     </div>
@@ -73,7 +76,7 @@
   </div>
 
   <div id="discussion">
-        <h3>Des questions ? Envie d'en discuter ?</h3>
+        <h4>Des questions ? Envie d'en discuter ?</h4>
 
         <div id="comments">
           <% @event.comments.each do |comment| %>
@@ -126,32 +129,6 @@
 </div>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div id="show_event">
 <div id="event">
@@ -291,12 +268,12 @@ $(document).ready(function(){
 
 
 <div class="btn-group btn-group-sm" role="group" aria-label="...">
-...
+
 <!-- Modal for Attendees -->
 <div class="modal fade" id="EventAttendees2" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
   <%= render 'layouts/members', title: 'Ils participent', members: @event.attendees %>
 </div>
-+++
+
 <!-- Modal for Likers -->
 <div class="modal fade" id="EventLikers" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
   <%= render 'layouts/members', title: 'Ils aiment', members: @event.likers %>

@@ -4,7 +4,7 @@
 
     <div class="form-inputs">
       <%= f.input :title, label: 'Titre' %>
-      <%= f.text_area :description, class: "form-control string optional",label: 'Description' %> </br>
+      <%= f.input :description, as: :text, class: "form-control string optional", input_html: {rows: 5}, label: 'Description' %> </br>
       <% if @event.image.url.present? %>
         <%= cl_image_tag @event.image.file.filename, width: 824, height: 128, crop: :fill,
               radius: 5, :gravity => :face %>
@@ -14,6 +14,7 @@
       <%= f.input :end, label: 'Fin' %>
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>
+      <%= f.input :members_max, label: 'Nb de participants maxi' %>
       <%= f.input :adress, label: 'Adresse' %>
       <%= f.input :town, label: 'Ville' %>
       <%= f.input :zip, label: 'CP' %>

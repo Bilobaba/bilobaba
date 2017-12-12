@@ -143,15 +143,15 @@ fr:
     template:
       body: 'Veuillez vérifier les champs suivants : '
       header:
-        one: 'Impossible d''enregistrer ce(tte) %{model} : 1 erreur'
-        other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'
+        one: 'Impossible d''enregistrer : 1 erreur'
+        other: 'Impossible d''enregistrer : %{count} erreurs'
   helpers:
     select:
       prompt: Veuillez sélectionner
     submit:
-      create: Créer un(e) %{model}
-      submit: Enregistrer ce(tte) %{model}
-      update: Modifier ce(tte) %{model}
+      create: Créer
+      submit: Enregistrer
+      update: Modifier
   number:
     currency:
       format:
