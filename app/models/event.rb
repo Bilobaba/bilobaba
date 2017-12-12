@@ -25,11 +25,11 @@ class Event < ApplicationRecord
 
   has_many :comments, class_name: 'Comment', foreign_key: 'event_id'
 
-  def participate(current_member, status)
-    if status == 'in'
-      attendees << current_member unless attendees.include? current_member
-    elsif status == 'out'
+  def participate(current_member)
+    if attendees.include? current_member
       attendees.delete(current_member)
+    else
+      attendees << current_member
     end
   end
 
@@ -37,6 +37,17 @@ class Event < ApplicationRecord
     attendees.include? current_member
   end
 
+  def show_availability
+    if members_max > 0
+      if attendees.size == members_max
+        'complet'
+      else
+        attendees.size.to_s + ' / ' + members_max.to_s
+      end
+    else
+      attendees.size.to_s
+    end
+  end
 
   def like(current_member, status)
     if status == 'in'

@@ -1,1 +1,6 @@
-$("#events").html("<%= escape_javascript(render('events')) %>");
+if (<%= @event.participate?(current_member) %>)
+    $("#participate_<%= @event.id %>").html("Se désinscrire");
+else
+    $("#participate_<%= @event.id %>").html("Y participer");
+    
+$("#availability_<%= @event.id %>").html("<%= @event.show_availability %>");

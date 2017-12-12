@@ -63,7 +63,7 @@ class EventsController < ApplicationController
   end
 
   def participate
-    @event.participate(current_member, params[:status])
+    @event.participate(current_member)
 
     @author = current_member.pseudo
     @email = current_member.email
@@ -99,10 +99,10 @@ class EventsController < ApplicationController
 
   def get_events
     Event
-    .order(begin: :asc)
-    .where('begin >= ?', Time.now)
-    .includes(:attendees)
-    .includes(:comments)
+      .order(begin: :asc)
+      .where('begin >= ?', Time.now)
+      .includes(:attendees)
+      .includes(:comments)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
