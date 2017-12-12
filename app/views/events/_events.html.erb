@@ -50,10 +50,15 @@
             <% end %>
         </td>
         <td>
-            <% if event.attendees.size == event.members_max %>
+            <% if event.members_max > 0 && event.attendees.size == event.members_max %>
                 <%= 'complet' %>
             <% else %>
-                <%= event.attendees.size.to_s + ' / ' + event.members_max.to_s %>
+                <%= event.attendees.size.to_s + ' / ' %>
+                <% if event.members_max > 0 %>
+                    <%=  event.members_max.to_s %>
+                <% else %>
+                    <%= 'illimité' %>
+                <% end %>
             <% end %>
             </td>
         <% if member_signed_in? && !current_member.has_role?(:professional) %>
@@ -61,7 +66,7 @@
                 <% if event.participate?(current_member) %>
                     <%= link_to 'Se désinscrire', participate_path(id: event.id, status: 'out'), class: 'badge', remote: true %>
                 <% else %>
-                    <%= link_to 'Y participer', participate_path(id: event.id, status: 'in'), class: 'badge', remote: true if event.attendees.size != event.members_max %>
+                    <%= link_to 'Y participer', participate_path(id: event.id, status: 'in'), class: 'badge', remote: true if event.attendees.size != event.members_max || event.members_max == 0 %>
                 <% end %>
             </td>
         <% end %>

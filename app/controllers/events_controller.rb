@@ -4,11 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event
-              .order(begin: :asc)
-              .where('begin >= ?', DateTime.now)
-              .includes(:attendees)
-              .includes(:comments)
+    @events = get_events
   end
 
   # GET /events/1
@@ -79,7 +75,7 @@ class EventsController < ApplicationController
       ContactMailer.event_leave(@author, @email, @message).deliver_now
     end
 
-    @events = Event.all.includes(:attendees)
+    @events = get_events
   end
 
   def like
@@ -99,6 +95,14 @@ class EventsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def get_events
+    Event
+    .order(begin: :asc)
+    .where('begin >= ?', Time.now)
+    .includes(:attendees)
+    .includes(:comments)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
