@@ -15,7 +15,9 @@
           <td rowspan=3 ">
             <%= link_to @event.organizer do %>
               <% if @event.organizer.avatar.file %>
+              <div style="float: right;">
                 <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 50, radius: 20) %>
+              </div>
               <% end %>
             <% end %>
           </td>
@@ -27,16 +29,24 @@
       </table>
 
       <a type="button" data-toggle="modal" data-target="#EventDescription">
-        <span style="color: #339999">Description</span> : <%=  @event.description[0..200] %>
+        <span style="color: #339999">Description</span>  <%=  @event.description[0..200] %>
             <% if @event.description.size > 200 %> (...) <% end %>
       </a>
-
+      </br></br>
+      <!-- La communauté -->
+       <div class="btn-group  btn-group-xs" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#EventAttendees">Ils participent</button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#EventLikers">Ils aiment</button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#EventRecommenders">Ils recommandent</button>
+      </div>
+      </br></br>
       <div>
 
            <!-- Button Participate -->
-          <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', style: "display:none", remote: true %>
-          <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max %>
-
+          <% if @event.attendees.count < @event.members_max %>
+            <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', style: "display:none", remote: true %>
+            <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max %>
+          <% end %>
            <!-- Button Like -->
           <%= link_to 'Aimer : Oui', like_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventLikeY', style: "display:none", remote: true %>
           <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventLikeN', style: "display:none", remote: true %>
@@ -82,19 +92,62 @@
 </div>
 
 
-
-<!-- Modal -->
-<div class="modal fade" id="EventDescription" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+<!-- Modal for Event Description -->
+<div class="modal fade" id="EventDescription" tabindex="-1" role="dialog" aria-labelledby="EventAttendeesLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header" style="color: #339999">
-        <h4 class="modal-title" id="EventDescriptionLabel">Description détaillée de <em> <%= @event.title %> </em></h4>
+        <h4 class="modal-title" id="EventAttendeesLabel">Description détaillée de <em> <%= @event.title %> </em></h4>
       </div>
       <div class="modal-body">
         <%= @event.description %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal for Attendees -->
+<div class="modal fade" id="EventAttendees" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils participent', members: @event.attendees %>
+</div>
+
+<!-- Modal for Likers -->
+<div class="modal fade" id="EventLikers" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils aiment', members: @event.likers %>
+</div>
+
+<!-- Modal for Recommenders -->
+<div class="modal fade" id="EventRecommenders" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils recommandent', members: @event.recommenders %>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
       </div>
     </div>
   </div>
@@ -237,4 +290,23 @@ $(document).ready(function(){
 </script>
 
 
+<div class="btn-group btn-group-sm" role="group" aria-label="...">
+...
+<!-- Modal for Attendees -->
+<div class="modal fade" id="EventAttendees2" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils participent', members: @event.attendees %>
+</div>
++++
+<!-- Modal for Likers -->
+<div class="modal fade" id="EventLikers" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils aiment', members: @event.likers %>
+</div>
+
+<!-- Modal for Recommenders -->
+<div class="modal fade" id="EventRecommenders" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils recommandent', members: @event.recommenders %>
+</div>
+
+
+</div>
 

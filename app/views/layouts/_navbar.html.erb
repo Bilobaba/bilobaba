@@ -22,6 +22,9 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to 'Contact', pages_contact_path %>
+        </li>
         <% if member_signed_in? %>
           <li class="<%= 'active' if controller_name == 'members' %>"> <%= link_to "Profil", member_path(current_member) %> </li>
           <li> <%= link_to "Déconnexion", destroy_member_session_path, method: :DELETE %> </li>

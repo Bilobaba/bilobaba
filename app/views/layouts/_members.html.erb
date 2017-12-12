@@ -1,0 +1,26 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header" style="color: #339999">
+      <h4 class="modal-title" id="EventDescriptionLabel"><%= title %> </h4>
+        </div>
+          <div class="modal-body">
+            <div class="member">
+            <% if true %>
+              <% members.each do |m| %>
+                <%= link_to member_path(m) do %>
+                  <%= m.pseudo %>
+                  <% if m.avatar.url.present? %>
+                      <%= cl_image_tag(m.avatar.file.public_id, width: 30, height: 30, radius: :max) %>
+                  <% else %>
+                      <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 30, height: 30, title: m.pseudo %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+            </div>
+          </div>
+        <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
