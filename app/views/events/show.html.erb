@@ -1,3 +1,4 @@
+
 <%= stylesheet_link_tag 'event' %>
 
 <p id="notice"><%= notice %></p>
@@ -11,7 +12,7 @@
       <% end %>
 
       <table id="show_event">
-        <tr><td>Date et heure</td><td>: <%= @event.begin %></td>
+        <tr><td>Date et heure</td><td>: <%= I18n.l(@event.begin, format: '%a %-d %b %Y - %Hh%M') %></td>
           <td rowspan=3 ">
             <%= link_to @event.organizer do %>
               <% if @event.organizer.avatar.file %>
@@ -27,7 +28,7 @@
         <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
         <!-- # TODO Display a maps picto, and show maps on mouse hover -->
         <tr><td>Lieu</td><td>: <%= @event.zip %></td><td></td></tr>
-        <tr><td>Organisateur</td><td></td><td><%= @event.organizer.pseudo %></td></tr>
+        <tr><td>Organisateur</td><td></td><td><%= link_to @event.organizer do %> <%= @event.organizer.pseudo %> <% end %> </td></tr>
       </table>
 
       <a type="button" data-toggle="modal" data-target="#EventDescription">
