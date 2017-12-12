@@ -1,9 +1,87 @@
-<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag 'member' %>
 
-<h1><%= @member.email %></h1>
-<table id="show_member">
-  <tr><td>Email</td><td>: <%= @member.email %></td></tr>
-</table>
-<div>
-  <%= link_to 'Back', members_path, class: 'badge' %>
+<div class="container">
+  <div id="show_member">
+    <div id="avatar">
+      <% if @member.avatar.url.present? %>
+        <%= cl_image_tag @member.avatar.file.filename, width: 150, height: 150, title: @member.pseudo %>
+      <% else %>
+        <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 150, height: 150, title: @member.pseudo %>
+      <% end %>
+    </div>
+    <div id="description">
+      <p><span id="pseudo"><%= @member.pseudo %></span></p>
+      <p><%= @member.bio %></p>
+      <p></p>
+    </div> 
+  </div>
+
+  <div id="links">
+    <%= link_to 'Back', :back, class: 'badge' %>
+  </div>
+
+  <div id="events">
+    <h2>Cours à venir</h2>
+    <table class="table">
+      <thead>
+          <tr>
+              <th>Evènement</th>
+              <th>Date</th>
+              <th>Prix</th>
+              <th>Lieu</th>
+              <th>Participants</th>
+              <% if member_signed_in? && !current_member.has_role?(:professional) %>
+                  <th></th>
+              <% end %>
+          </tr>
+      </thead>
+
+      <tbody>
+          <% @member.organize_events.each do |event| %>
+          <tr>
+              <td>
+                  <%= link_to event do %>
+                      <div>
+                          <%= event.title[0..40] %>
+                          <% if event.title.length > 40 %>
+                              (...)
+                          <% end %>
+                      </div>
+                  <% end %>
+              </td>
+              <td><%= I18n.l(event.begin, format: '%-d %b %Y - %Hh%M') %></td>
+              <td>
+                  <%= event.price_min.to_s + '€ - ' if event.price_min != event.price_max %>
+                  <%= event.price_max.to_s + '€' %>
+              </td>
+              <td class="location pointer" onclick="showMap(<%= event.zip %>)">
+                  <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+                  <%= event.zip %>
+              </td>
+              <td>
+                  <% if event.members_max > 0 && event.attendees.size == event.members_max %>
+                      <%= 'complet' %>
+                  <% else %>
+                      <%= event.attendees.size.to_s + ' / ' %>
+                      <% if event.members_max > 0 %>
+                          <%=  event.members_max.to_s %>
+                      <% else %>
+                          <%= 'illimité' %>
+                      <% end %>
+                  <% end %>
+                  </td>
+              <% if member_signed_in? && !current_member.has_role?(:professional) %>
+                  <td>
+                      <% if event.participate?(current_member) %>
+                          <%= link_to 'Se désinscrire', participate_path(id: event.id, status: 'out'), class: 'badge', remote: true %>
+                      <% else %>
+                          <%= link_to 'Y participer', participate_path(id: event.id, status: 'in'), class: 'badge', remote: true if event.attendees.size != event.members_max || event.members_max == 0 %>
+                      <% end %>
+                  </td>
+              <% end %>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

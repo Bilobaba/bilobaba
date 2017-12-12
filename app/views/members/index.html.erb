@@ -13,7 +13,7 @@
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.email %></td>
+        <td><%= link_to member.pseudo, member %></td>
       </tr>
     <% end %>
   </tbody>

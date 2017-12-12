@@ -1,0 +1,21 @@
+#show_member {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+#description {
+    margin-left: 15px;
+}
+
+#pseudo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#links {
+    margin-top: 10px;
+    padding-bottom: 20px;
+    width: 100%;
+    border-bottom: solid 3px rgb(93, 92, 92);
+}
