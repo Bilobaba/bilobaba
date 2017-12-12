@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = get_events
+    @events = Event.next_events
   end
 
   # GET /events/1
@@ -63,7 +63,7 @@ class EventsController < ApplicationController
   end
 
   def participate
-    @event.participate(current_member, params[:status])
+    @event.participate(current_member)
 
     @author = current_member.pseudo
     @email = current_member.email
@@ -95,14 +95,6 @@ class EventsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
-  end
-
-  def get_events
-    Event
-    .order(begin: :asc)
-    .where('begin >= ?', Time.now)
-    .includes(:attendees)
-    .includes(:comments)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
