@@ -47,7 +47,7 @@
            <!-- Button Participate -->
           <% if (@event.attendees.count < @event.members_max) || (@event.members_max == 0) %>
             <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', style: "display:none", remote: true %>
-            <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max %>
+            <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max ||   @event.members_max == 0  %>
           <% end %>
 
            <!-- Button Like -->
@@ -59,8 +59,8 @@
           <%= link_to 'Recommander : Non', recommend_path(id: @event.id, status: 'in'), class: 'badge',
           id: 'EventRecommendN', style: "display:none", remote: true %>
 
-          <%= link_to 'Suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventFollowY', style: "display:none", remote: true %>
-          <%= link_to 'Suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventFollowN', style: "display:none", remote: true %>
+          <%= link_to 'A suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventFollowY', style: "display:none", remote: true %>
+          <%= link_to 'A suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventFollowN', style: "display:none", remote: true %>
 
         </br>
         <% if member_signed_in? && (current_member == @event.organizer) %>
@@ -68,7 +68,7 @@
           <%= link_to 'Supprimer', event_path, class: 'badge', method: 'DELETE', data: {confirm: 'Confirmez la suppression' } %>
         <% end %>
 
-        <%= link_to 'Retour', events_path, class: 'badge' %>
+        <%= link_to 'Retour', :back, class: 'badge' %>
 
       </div>
     </div>
