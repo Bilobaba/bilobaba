@@ -25,14 +25,14 @@
     vertical-align: middle;
 }
 
-#map {
+#map_container {
     display: none;
     position: absolute;
+    border: solid 2px #339999;
+    border-radius: 3px;
 }
 
 #map_close {
-    display: none;
-    position: absolute;
     text-align: right;
     font-size: 14px;
     color: white;

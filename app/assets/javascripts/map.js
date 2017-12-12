@@ -21,25 +21,25 @@ function buildMap() {
     var boxWidth = $(window).width() / 2,
     boxHeight = $(window).height() / 2;
     boxLeft = boxWidth - (boxWidth / 2),
-    boxTop = boxHeight - (boxHeight / 2);
+    boxTop = scrollY + boxHeight - (boxHeight / 2);
+
+    $('#map_container').css({
+        top: boxTop, left: boxLeft
+    });
 
     $('#map').css({
-        width: boxWidth, height: boxHeight,
-        top: boxTop, left: boxLeft
+        width: boxWidth, height: boxHeight
     });
     
     $('#map_close').css({
-        width: boxWidth,
-        top: boxHeight + boxTop, left: boxLeft
+        width: boxWidth
     });
 
-    $('#map').show();
-    $('#map_close').show();
+    $('#map_container').show();
 }
 
 function hideMap() {
-    $('#map').hide();
-    $('#map_close').hide();
+    $('#map_container').hide();
 }
 
 function showMap(zipCode){
