@@ -8,17 +8,16 @@ class Event < ApplicationRecord
   mount_uploader :photo5, ImageUploader
   mount_uploaders :photos, PhotoUploader
 
-
   belongs_to :organizer, class_name: :Member, foreign_key: :member_id
 
   has_many :follow_event_followers, class_name: :FollowEvent, foreign_key: :event_id, dependent: :destroy
-  has_many :followers , through: :follow_event_followers, source: :member, dependent: :destroy
+  has_many :followers, through: :follow_event_followers, source: :member, dependent: :destroy
 
   has_many :attend_event_attendees, class_name: :AttendEvent, foreign_key: :event_id, dependent: :destroy
-  has_many :attendees , through: :attend_event_attendees, source: :member, dependent: :destroy
+  has_many :attendees, through: :attend_event_attendees, source: :member, dependent: :destroy
 
   has_many :like_event_likers, class_name: :LikeEvent, foreign_key: :event_id, dependent: :destroy
-  has_many :likers , through: :like_event_likers, source: :member, dependent: :destroy
+  has_many :likers, through: :like_event_likers, source: :member, dependent: :destroy
 
   has_many :recommend_event_recommenders, class_name: :RecommendEvent, foreign_key: :event_id, dependent: :destroy
   has_many :recommenders , through: :recommend_event_recommenders, source: :member, dependent: :destroy
@@ -61,7 +60,6 @@ class Event < ApplicationRecord
     likers.include? current_member
   end
 
-
   def recommend(current_member, status)
     if status == 'in'
       recommenders << current_member unless recommenders.include? current_member
@@ -74,7 +72,6 @@ class Event < ApplicationRecord
     recommenders.include? current_member
   end
 
-
   def follow(current_member, status)
     if status == 'in'
       followers << current_member unless followers.include? current_member
@@ -85,6 +82,14 @@ class Event < ApplicationRecord
 
   def follow?(current_member)
     followers.include? current_member
+  end
+
+  def self.next_events
+    Event
+      .order(begin: :asc)
+      .where('begin >= ?', Time.now)
+      .includes(:attendees)
+      .includes(:comments)
   end
 
 end
