@@ -15,10 +15,6 @@
     width: 110px;
 }
 
-#events td:nth-child(even):not(:first-of-type) {
-    background-color: #ff61610f;
-}
-
 #events td {
     padding-left: 0px;
     padding-right: 0px;
