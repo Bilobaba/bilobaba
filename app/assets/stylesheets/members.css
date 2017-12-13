@@ -1,0 +1,13 @@
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px #339999;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.member:hover {
+    background-color: #3399995a;
+}

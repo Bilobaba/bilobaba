@@ -1,21 +1,15 @@
+<%= stylesheet_link_tag 'members' %>
+
 <h1>PROFESSIONNELS</h1>
 
 <div class="container">
-  <div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Email</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @members.each do |member| %>
-        <tr>
-          <td><%= link_to member.pseudo, member %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="row">
+    <% @members.each_with_index do |member, i| %>
+      <%= render partial: "member", locals: { member: member } %>
+    <% end %>
+  </div>
+
+    <div class="clearfix"></div>
   </div>
 </div>

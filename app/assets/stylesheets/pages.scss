@@ -8,6 +8,10 @@ body {
     font-family: 'Trirong', sans-serif;
 }
 
+.container {
+    padding-top: 0px;
+}
+
 a {
     color: #333333;
 }
@@ -55,20 +59,19 @@ a:hover {
 }
 
 .navbar-default .navbar-nav > li > a {
-    margin-left: 10px;
+    margin-left: 20px;
     color: white;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
     color: white;
-    border-radius: 10px;
+    border-bottom: solid 1px white;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background: none;
     color: white;
-    border-radius: 10px;
+    border-bottom: solid 1px white;
 }
 
 h1 {
@@ -77,6 +80,7 @@ h1 {
     height: 100px;
     line-height: 100px;
     text-align: center;
+    font-weight: bold;
 }
 
 .pointer {
@@ -98,6 +102,7 @@ h3 {
 
 .navbar-brand {
     padding: 0px;
+    margin-right: 10px;
 }
 
 .navbar-nav > li > a {
