@@ -10,23 +10,22 @@
       <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       <%= f.input :password_confirmation, required: true %>
       <%= f.input :pseudo %>
-      <%= f.input :avatar %>
-      <%= f.input :first_name %>
-      <%= f.input :name %>
-      <%= f.input :bio %>
-      <%= f.input :birth_date %>
-      <%= f.input :adress %>
-      <%= f.input :zip %>
-      <%= f.input :town %>
-      <%= f.country_select :country %>
-      <%= f.input :roles, as: :boolean %>
+      <%= f.input :avatar, :label => "Choisir une image" %>
+      <%= f.input :first_name, label: "Prénom" %>
+      <%= f.input :name, label: "Nom" %>
+      <%= f.input :bio, label: "Qui êstes-vous en quelques mots " %>
+      <%= f.input :birth_date, label: "Date de naissance" %>
+      <%= f.input :adress, label: "Adresse" %>
+      <%= f.input :zip, label: "Code postal" %>
+      <%= f.input :town, label: "Ville" %>
+      <%= f.country_select :country,  ["France"] %> </br></br>
+
+      <%= f.input :roles, as: :boolean, label: "Professionnel" %>
     </div>
 
     <div class="form-actions">
       <%= f.button :submit, "Sign up" %>
     </div>
   <% end %>
-
-  <%= render "members/shared/links" %>
 
 </div>
