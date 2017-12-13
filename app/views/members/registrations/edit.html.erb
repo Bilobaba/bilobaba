@@ -26,11 +26,11 @@
         <%= f.input :first_name, label: "Prénom" %>
         <%= f.input :name, label: "Nom" %>
         <%= f.input :bio, label: "Qui êstes-vous en quelques mots " %>
-        <%= f.input :birth_date, label: "Date de naissance" %>
+        <%= f.input :birth_date, label: "Date de naissance", start_year: Time.now.year - 8, end_year: Time.now.year - 90 %>
         <%= f.input :adress, label: "Adresse" %>
         <%= f.input :zip, label: "Code postal" %>
         <%= f.input :town, label: "Ville" %>
-        <%= f.country_select :country, label: "Pays", priority: [ "France" ] %> </br></br>
+        <%= f.country_select :country,  ["France"] %> </br></br>
       </div>
 
     </div>
@@ -47,3 +47,8 @@
 
 </div>
 
+<script>
+$(function() {
+  $("input#id_of_dob_field").datepicker();
+});
+</script>
