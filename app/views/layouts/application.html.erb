@@ -11,10 +11,9 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= render '/layouts/navbar' %>
-      <%= render 'shared/flashes' %>
-      <%= yield %>
-    </div>
+    <%= render '/layouts/navbar' %>
+    <%= render 'shared/flashes' %>
+    
+    <%= yield %>
   </body>
 </html>

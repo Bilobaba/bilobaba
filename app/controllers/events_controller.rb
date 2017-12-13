@@ -74,8 +74,6 @@ class EventsController < ApplicationController
     elsif params[:status] == 'out'
       ContactMailer.event_leave(@author, @email, @message).deliver_now
     end
-
-    @events = get_events
   end
 
   def like

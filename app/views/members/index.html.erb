@@ -1,21 +1,21 @@
-<p id="notice"><%= notice %></p>
+<h1>PROFESSIONNELS</h1>
 
-<h1>Professionnels</h1>
-
-<div class="table-responsive">
-<table class="table">
-  <thead>
-    <tr>
-      <th>Email</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @members.each do |member| %>
+<div class="container">
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= link_to member.pseudo, member %></td>
+        <th>Email</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @members.each do |member| %>
+        <tr>
+          <td><%= link_to member.pseudo, member %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
 </div>

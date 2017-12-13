@@ -15,10 +15,6 @@
     width: 110px;
 }
 
-#events td:nth-child(even):not(:first-of-type) {
-    background-color: #ff61610f;
-}
-
 #events td {
     padding-left: 0px;
     padding-right: 0px;
@@ -77,4 +73,17 @@
 
 .member {
     color: black;
+}
+
+#events td:nth-child(even):not(:first-of-type) {
+    /* background-color: rgba(198, 224, 125, 0.2); */
+    background-color: #ff61610f;
+}
+
+#events .participate {
+    background-color: #ff9494;
+}
+
+#events .participate:hover {
+    background-color: #ff6161;
 }

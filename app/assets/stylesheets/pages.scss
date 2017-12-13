@@ -46,35 +46,37 @@ a:hover {
 }
 
 .navbar-default {
-    background-color: transparent;
+    background-color: white;
     border: none;
+    padding: 10px 0px 10px 0px;
+    background-image: image-url("Ginkgo-biloba.jpg");
+    margin: 0px;
+    border-radius: 0px;
 }
 
 .navbar-default .navbar-nav > li > a {
     margin-left: 10px;
+    color: white;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    border-bottom: solid 6px #33999983;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 10px;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
-    border-bottom: solid 6px #339999;
-    background-color: transparent;
-}
-
-#logo {
-    padding-top: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 10px;
 }
 
 h1 {
-    font-size: 22px;
-    color: white;
-    margin-bottom: 20px;
-    background-image:linear-gradient(to right, #339999, #48d2d2);
-    padding: 10px;
-    border-radius: 4px;
-    margin-top: 40px;
+    font-size: 30px;
+    color: rgb(184, 216, 86);
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
 }
 
 .pointer {
@@ -86,10 +88,19 @@ h1 {
 }
 
 a.badge:hover {
-    background-color: #339999;
+    background-color: #ff6161;
     transition: 250ms;
 }
 
 h3 {
     margin-top: 0px;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
