@@ -7,6 +7,4 @@
     <%= render partial: "events", locals: { events_partial: @events } %>
   </div>
   <%= link_to 'Créer un évènement', new_event_path, class: 'badge' if member_signed_in? %>
-
-  <%= render 'map' %>
 </div>

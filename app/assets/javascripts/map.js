@@ -17,36 +17,11 @@ function initMap(latlng) {
     });
 }
 
-function buildMap() {
-    var boxWidth = $(window).width() / 2,
-    boxHeight = $(window).height() / 2;
-    boxLeft = boxWidth - (boxWidth / 2),
-    boxTop = scrollY + boxHeight - (boxHeight / 2);
-
-    $('#map_container').css({
-        top: boxTop, left: boxLeft
-    });
-
-    $('#map').css({
-        width: boxWidth, height: boxHeight
-    });
-    
-    $('#map_close').css({
-        width: boxWidth
-    });
-
-    $('#map_container').show();
-}
-
-function hideMap() {
-    $('#map_container').hide();
-}
-
 function showMap(zipCode){
-    buildMap();
     new google.maps.Geocoder().geocode( { 'address': String(zipCode) }, function(results, status) {
         if (status == 'OK') {
             initMap(results[0].geometry.location);
+            google.maps.event.trigger(map, "resize");
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }

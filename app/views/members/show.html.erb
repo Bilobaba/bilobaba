@@ -21,9 +21,10 @@
   </div>
 
   <div id="events">
-    <h2>Cours à venir (participant)</h2>
-    <%= render partial: "events/events", locals: { events_partial: @member.attend_events } %>
-
+    <% if !@member.has_role?(:professional) %>
+      <h2>Cours à venir (participant)</h2>
+      <%= render partial: "events/events", locals: { events_partial: @member.attend_events } %>
+    <% end %>
     <h2>Cours à venir (organisateur)</h2>
     <%= render partial: "events/events", locals: { events_partial: @member.organize_events } %>
   </div>

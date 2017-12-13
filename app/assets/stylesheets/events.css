@@ -21,24 +21,8 @@
     vertical-align: middle;
 }
 
-#map_container {
-    display: none;
-    position: absolute;
-    border: solid 2px #339999;
-    border-radius: 3px;
-}
-
-#map_close {
-    text-align: right;
-    font-size: 14px;
-    color: white;
-    padding: 5px;
-    background-color: #339999;
-    cursor: pointer;
-}
-
-#map_close:hover {
-    color: #1b4f4f;
+#map {
+    height: 300px;
 }
 
 .location_icon {
