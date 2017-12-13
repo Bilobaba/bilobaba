@@ -14,7 +14,8 @@
       <%= f.input :first_name, label: "Prénom" %>
       <%= f.input :name, label: "Nom" %>
       <%= f.input :bio, label: "Qui êstes-vous en quelques mots " %>
-      <%= f.input :birth_date, label: "Date de naissance" %>
+      <%= f.label  "Date de naissance" %> </br>
+      <%= f.date_field :birth_date, as: :date, label: "Date de naissance" %> </br></br>
       <%= f.input :adress, label: "Adresse" %>
       <%= f.input :zip, label: "Code postal" %>
       <%= f.input :town, label: "Ville" %>
