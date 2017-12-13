@@ -32,19 +32,23 @@
             <%= event.price_max.to_s + '€' %>
         </td>
         <td class="location pointer" onclick="showMap(<%= event.zip %>)">
-            <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+            <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
             <%= event.zip %>
         </td>
         <td>
-            <%= link_to event.organizer do %>
-                <div class="professional">
+            <% event.organizer.has_role?(:professional) ? @title = "pro-"+event.organizer.pseudo : @title = event.organizer.pseudo  %>
+
+            <%= link_to event.organizer, title: @title do %>
+                <div class="organizer">
                     <% if event.organizer.avatar.url.present? %>
-                        <%= cl_image_tag event.organizer.avatar.file.filename, width: 30, height: 30, title: event.organizer.pseudo %>
+                        <%= cl_image_tag event.organizer.avatar.file.filename, width: 30, height: 30 %>
                     <% else %>
-                        <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 30, height: 30, title: event.organizer.pseudo %>
+                        <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 30, height: 30 %>
                     <% end %>
                     <% if event.organizer.has_role?(:professional) %>
-                        <span>pro</span>
+                        <span class="professional"><%= event.organizer.pseudo[0..10] %> </span>
+                    <% else %>
+                        <span  class="member"> <%= event.organizer.pseudo[0..10] %> </span>
                     <% end %>
                 </div>
             <% end %>

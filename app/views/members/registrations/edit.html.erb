@@ -1,54 +1,49 @@
 <div class="container">
 
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <h2>Modifier votre compte</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true %>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      <% end %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
-      <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-      <%= f.input :password_confirmation, required: false %>
-      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-      <%= f.input :pseudo %>
+        <%= f.input :password, autocomplete: "off", hint: "ne rien écrire si vous gardez votre mot de passe", required: false, label: "Nouveau mot de passe" %>
+        <%= f.input :password_confirmation, required: false, label: "Nouveau mot de passe encore une fois"  %>
+        <%= f.input :current_password, hint: "nous avons besoin de votre mot de passe actuel pour confirmer les changements", required: true, label: "Mot de passe actuel" %>
+        <%= f.input :pseudo %>
 
-      <% if current_member.avatar.url.present? %>
-        <%= cl_image_tag current_member.avatar.url, width: 60, height: 60, crop: :fill,
-                          radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
-      <% end %>
+        <% if current_member.avatar.url.present? %>
+          <%= cl_image_tag current_member.avatar.url, width: 60, height: 60, crop: :fill,
+                            radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
+        <% end %>
 
-      <%= f.input :avatar, :label => "Changer d image" %>
-      <%= f.input :first_name %>
-      <%= f.input :name %>
-      <%= f.input :bio %>
-      <%= f.input :birth_date %>
-      <%= f.input :adress %>
-      <%= f.input :zip %>
-      <%= f.input :town %>
-      <%= f.country_select :country %>
-    </div>
+        <%= f.input :avatar, :label => "Changer d image" %>
+        <%= f.input :first_name, label: "Prénom" %>
+        <%= f.input :name, label: "Nom" %>
+        <%= f.input :bio, label: "Qui êstes-vous en quelques mots " %>
+        <%= f.input :birth_date, label: "Date de naissance" %>
+        <%= f.input :adress, label: "Adresse" %>
+        <%= f.input :zip, label: "Code postal" %>
+        <%= f.input :town, label: "Ville" %>
+        <%= f.country_select :country, label: "Pays", priority: [ "France" ] %> </br></br>
+      </div>
 
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Update" %>
+      <%= f.button :submit, "Enregistrer les modifications" %>
+      <%= link_to "Retour", :back %>
     </div>
   <% end %>
 
-<%= link_to destroy_member_session_path, method: :delete do %>
-  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Déconnexion") %>
-<% end %>
+</br>
+<p> <%= link_to(registration_path(resource_name), data: { confirm: "Etes-vous sûr ?" }, method: :delete) do  %> <h4>Supprimer mon compte</h4> <% end %></p>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
 
 </div>
 
