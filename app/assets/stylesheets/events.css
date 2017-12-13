@@ -57,17 +57,24 @@
     margin-left: 5px;
 }
 
-.professional > img {
+.organizer > img {
     border-radius: 5px;
 }
 
-.professional > span {
+.organizer > span {
     display: block;
     font-size: 10px;
-    color: #ff9494;
     font-weight: bold;
 }
 
-.professional:hover {
+.organizer:hover {
     opacity: 0.8;
+}
+
+.professional {
+    color: #ff9494;
+}
+
+.member {
+    color: black;
 }

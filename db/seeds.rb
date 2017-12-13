@@ -12,3 +12,15 @@ Member.create(email: 'hello.bilobaba@gmail.com', password: 'coucou', password_co
 Member.create(email: 'alex@gmail.com', password: 'coucou', password_confirmation: 'coucou', pseudo: 'alex')
 Member.create(email: 'juju@gmail.com', password: 'coucou', password_confirmation: 'coucou', pseudo: 'juju')
 Member.create(email: 'naula@gmail.com', password: 'coucou', password_confirmation: 'coucou', pseudo: 'naula')
+
+# Example to create an event to tests in Rails c
+# Event.create(
+#   title: 'Resto',
+#   organizer: Member.find_by_pseudo('didou'),
+#   begin: Time.now + 7.hours,
+#   end: Time.now + 9.hours,
+#   price_min: 15,
+#   price_max: 15,
+#   members_max: 10,
+#   zip: '94300'
+# )
