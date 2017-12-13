@@ -60,23 +60,20 @@ a:hover {
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    border-bottom: solid 3px white;
+    background-color: rgba(255, 255, 255, 0.1);
     color: white;
+    border-radius: 10px;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
-    border-bottom: solid 3px white;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.1);
     color: white;
-}
-
-#logo {
-    padding-top: 5px;
+    border-radius: 10px;
 }
 
 h1 {
     font-size: 30px;
-    color: #339999;
+    color: #8AA56C;
     margin: 20px 0px 20px 0px;
     height: 100px;
     line-height: 100px;
@@ -92,10 +89,19 @@ h1 {
 }
 
 a.badge:hover {
-    background-color: #339999;
+    background-color: rgba(255, 255, 255, 0.474);
     transition: 250ms;
 }
 
 h3 {
     margin-top: 0px;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
