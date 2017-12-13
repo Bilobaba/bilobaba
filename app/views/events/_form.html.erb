@@ -10,8 +10,10 @@
               radius: 5, :gravity => :face %>
       <% end %>
       <%= f.input :image, label: 'Image' %>
-      <%= f.input :begin, label: 'Début' %>
-      <%= f.input :end, label: 'Fin' %>
+      <%= f.label  "Début" %> </br>
+      <%= f.datetime_field :begin %> </br></br>
+      <%= f.label  "Fin" %> </br>
+      <%= f.datetime_field :end %> </br></br>
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
