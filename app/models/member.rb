@@ -32,4 +32,18 @@ class Member < ApplicationRecord
   has_many :recommend_event_recommends, class_name: :RecommendEvent, foreign_key: :member_id
   has_many :recommend_events , through: :recommend_event_recommends, source: :event
 
+  def next_events_organize
+    organize_events
+      .order(begin: :asc)
+      .where('begin >= ?', Time.now)
+      .includes(:attendees)
+  end
+
+  def next_events_attend
+    attend_events
+      .order(begin: :asc)
+      .where('begin >= ?', Time.now)
+      .includes(:attendees)
+  end
+
 end

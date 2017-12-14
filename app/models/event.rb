@@ -89,7 +89,6 @@ class Event < ApplicationRecord
       .order(begin: :asc)
       .where('begin >= ?', Time.now)
       .includes(:attendees)
-      .includes(:comments)
   end
 
 end
