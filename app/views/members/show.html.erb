@@ -13,11 +13,11 @@
       <p><span id="pseudo"><%= @member.pseudo %></span></p>
       <p><%= @member.bio %></p>
       <p></p>
-    </div> 
+    </div>
   </div>
 
   <div id="links">
-    <%= link_to 'Retour', :back, class: 'badge' %>
+    <%= link_to 'Retour', session[:request_back], class: 'badge' %>
     <%= link_to 'Editer', edit_member_registration_path, class: 'badge' if current_member == @member %>
   </div>
 

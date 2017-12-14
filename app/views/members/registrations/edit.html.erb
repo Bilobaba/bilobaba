@@ -58,6 +58,7 @@
     <div class="form-actions">
       <%= f.button :submit, "Enregistrer les modifications", class: 'btn btn-default' %><br/><br/>
       <%= link_to(registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Etes-vous sûr ?" }, method: :delete) do  %> Supprimer mon compte <% end %>
+      <%= link_to "Retour", session[:request_back] %>
     </div>
   <% end %>
 
