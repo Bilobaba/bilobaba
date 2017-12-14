@@ -16,9 +16,15 @@ a {
     color: #333333;
 }
 
+a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
 a:hover {
     color: #ff9494;
     text-decoration: none;
+    outline: none;
 }
 
 .image-mobile {
@@ -108,4 +114,12 @@ h3 {
 .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.location_icon {
+    color: #ff6161;
+}
+
+.location:hover {
+    color: #ff9494;
 }

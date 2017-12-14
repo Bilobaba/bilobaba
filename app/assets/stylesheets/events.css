@@ -25,14 +25,6 @@
     height: 300px;
 }
 
-.location_icon {
-    color: #ff6161;
-}
-
-.location:hover {
-    color: #ff9494;
-}
-
 .organizer {
     margin-left: 5px;
 }

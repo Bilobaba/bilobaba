@@ -32,8 +32,10 @@
             <%= event.price_max.to_s + '€' %>
         </td>
         <td class="location pointer">
-            <a data-toggle="modal" data-target="#showmap" data-zip="<%= event.zip %>"><%= event.zip %></a>
-            <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+            <%= link_to '#', 'data-toggle':'modal', 'data-target':'#showmap', 'data-zip': event.zip do %>
+                <%= event.zip %>
+                <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+            <% end %>
         </td>
         <td>
             <% event.organizer.has_role?(:professional) ? @title = "pro-"+event.organizer.pseudo : @title = event.organizer.pseudo  %>
@@ -54,7 +56,7 @@
             <% end %>
         </td>
         <td id="availability_<%= event.id %>">
-                  <a data-toggle="modal" data-target="#showmap" data-event="<%= event.id %>"><%= event.show_availability %></a>
+            <%= event.show_availability %>
         </td>
         <% if member_signed_in? && !current_member.has_role?(:professional) %>
             <td>

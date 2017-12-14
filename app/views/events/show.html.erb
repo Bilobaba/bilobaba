@@ -28,8 +28,13 @@
             </td>
           </tr>
           <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
-          <!-- # TODO Display a maps picto, and show maps on mouse hover -->
-          <tr><td>Lieu</td><td>: <%= @event.zip %></td><td></td></tr>
+          <tr><td>Lieu</td>
+          <td class="location pointer">: 
+            <%= link_to '#', 'data-toggle':'modal', 'data-target':'#showmap', 'data-zip': @event.zip do %>
+              <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+              <%= @event.zip %>
+            <% end %>
+          </td><td></td></tr>
           <tr><td>Organisateur</td><td></td><td><%= link_to @event.organizer do %> <%= @event.organizer.pseudo %> <% end %> </td></tr>
         </table>
 
@@ -160,31 +165,6 @@
   </div>
   </div>
 
-  <%= javascript_tag do %>
-    var map;
-    function initMap() {
-        var myLatlng = new google.maps.LatLng(40, 0);
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: myLatlng,
-            zoom: 5
-        });
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map
-        });
-        var infowindow = new google.maps.InfoWindow({
-            content: 'ici'
-        });
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
-    }
-  <% end  %>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API'] %>&callback=initMap"
-  async defer></script>
-
-
   <script>
   $(document).ready(function(){
 
@@ -269,24 +249,19 @@
   });
   </script>
 
-
   <div class="btn-group btn-group-sm" role="group" aria-label="...">
-
-  <!-- Modal for Attendees -->
-  <div class="modal fade" id="EventAttendees2" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
-    <%= render 'layouts/members', title: 'Ils participent', members: @event.attendees %>
-  </div>
-
-  <!-- Modal for Likers -->
-  <div class="modal fade" id="EventLikers" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
-    <%= render 'layouts/members', title: 'Ils aiment', members: @event.likers %>
-  </div>
-
-  <!-- Modal for Recommenders -->
-  <div class="modal fade" id="EventRecommenders" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
-    <%= render 'layouts/members', title: 'Ils recommandent', members: @event.recommenders %>
-  </div>
-
 
   </div>
 </div>
+
+<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'], async: true, defer: true, 'data-turbolinks-eval': false %>
+
+<div class="modal fade" id="showmap" tabindex="-1" role="dialog">
+    <%= render 'layouts/map', title: 'Localisation' %>
+</div>
+
+<script>
+    $('#showmap').on('shown.bs.modal', function (event) {
+        showMap($(event.relatedTarget).data('zip'));
+    })
+</script>
