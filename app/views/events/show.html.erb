@@ -15,6 +15,9 @@
 
         <table id="show_event">
           <tr><td>Date et heure</td><td>: <%= I18n.l(@event.begin, format: '%a %-d %b %Y - %Hh%M') %></td>
+          <tr><td>Durée</td><td>:
+              <% duration = @event.end - @event.begin %>
+              <%= (duration/1.hour).to_i %>h<%= (duration%1.hour/1.minute).to_i.to_s.rjust(2, '0') %></td>
             <td rowspan=3 ">
               <%= link_to @event.organizer do %>
                 <% if @event.organizer.avatar.file %>
@@ -29,7 +32,7 @@
           </tr>
           <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
           <tr><td>Lieu</td>
-          <td class="location pointer">: 
+          <td class="location pointer">:
             <%= link_to '#', 'data-toggle':'modal', 'data-target':'#showmap', 'data-zip': @event.zip do %>
               <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
               <%= @event.zip %>
