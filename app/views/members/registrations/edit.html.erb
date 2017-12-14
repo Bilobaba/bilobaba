@@ -7,8 +7,7 @@
         resource,
         as: resource_name,
         url: registration_path(resource_name),
-        html: { method: :put },
-        class: 'form-horizontal',
+        html: { method: :put, class: 'green_form' },
         defaults: {
           wrapper_html: { class: 'form-group' }
         }
@@ -55,10 +54,16 @@
     
     <hr />
 
-    <div class="form-actions">
-      <%= f.button :submit, "Enregistrer les modifications", class: 'btn btn-default' %><br/><br/>
-      <%= link_to(registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Etes-vous sûr ?" }, method: :delete) do  %> Supprimer mon compte <% end %>
-      <%= link_to "Retour", session[:request_back] %>
+    <div class="form-actions btn-group btn-group-justified" role="group">
+      <div class="btn-group" role="group">
+        <%= f.button :submit, "Enregistrer", class: 'btn btn-default' %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to 'Annuler', session[:request_back], class: 'btn btn-default' %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to 'Supprimer', registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Etes-vous sûr de vouloir supprimer votre compte ?" }, method: :delete %>
+      </div>
     </div>
   <% end %>
 

@@ -1,7 +1,7 @@
 
 <div class="container">
   <h1>Partagez votre avis</h1>
-<%= simple_form_for :message, url: contact_path, method: 'POST' do |f|  %>
+<%= simple_form_for :message, url: contact_path, method: 'POST', html: { class: 'green_form' } do |f|  %>
   <div class="form-inputs">
     <% if member_signed_in? %>
       <%= f.input :name, required: false, label: 'Nom', input_html: {value: "#{current_member.pseudo.capitalize}"} %>
