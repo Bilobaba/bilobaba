@@ -16,6 +16,10 @@
     width: 100px;
 }
 
+.member:hover {
+    background-color: #3399998c;
+}
+
 .member .pseudo {
     padding: 0px 10px 0px 10px;
     height: 100px;
@@ -28,13 +32,13 @@
 }
 
 .member:hover .avatar {
-    display: block;
-}
-
-.member:hover .pseudo {
     display: none;
 }
 
-.avatar {
+.member:hover .pseudo {
+    display: block;
+}
+
+.pseudo_hidden {
     display: none;
 }
