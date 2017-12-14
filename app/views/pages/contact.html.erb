@@ -1,6 +1,6 @@
 
 <div class="container">
-  <h3>Partagez votre avis</h1>
+  <h1>Partagez votre avis</h1>
 <%= simple_form_for :message, url: contact_path, method: 'POST' do |f|  %>
   <div class="form-inputs">
     <% if member_signed_in? %>

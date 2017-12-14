@@ -123,3 +123,22 @@ h3 {
 .location:hover {
     color: #ff9494;
 }
+
+.simple_form {
+    width: 500px;
+    margin: auto;
+    background-color: #bad85676;
+    border-radius : 5px;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.simple_form hr {
+    background-color: white;
+    height: 2px;
+}
+
+#form_avatar {
+    float: right;
+}
