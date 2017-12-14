@@ -1,12 +1,15 @@
 <%= link_to member do %>
-    <div class="col-xs-2">
-        <div class="member">
-            <% if member.avatar.url.present? %>
-                <%= cl_image_tag member.avatar.file.filename, width: 30, height: 30 %>
-            <% else %>
-                <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 30, height: 30 %>
-            <% end %>
+    <div class="member">
+        <div class="pseudo" id="pseudo_<%= member.id %>">
             <%= member.pseudo[0..10] %>
+        </div>
+        <div class="avatar" id="avatar_<%= member.id %>">
+            <% if member.avatar.url.present? %>
+                <%= cl_image_tag member.avatar.file.filename, width: 100, height: 100 %>
+            <% else %>
+                <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 100, height: 100 %>
+            <% end %>
         </div>
     </div>
 <% end %>
+

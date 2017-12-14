@@ -1,13 +1,40 @@
+#members {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .member {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid 1px #339999;
-    margin-bottom: 20px;
+    background-color: #339999;
+    color: white;
+    margin: 10px;
     border-radius: 5px;
-    padding: 10px;
+    height: 100px;
+    width: 100px;
 }
 
-.member:hover {
-    background-color: #3399995a;
+.member .pseudo {
+    padding: 0px 10px 0px 10px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.member .avatar img {
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+.member:hover .avatar {
+    display: block;
+}
+
+.member:hover .pseudo {
+    display: none;
+}
+
+.avatar {
+    display: none;
 }

@@ -20,7 +20,10 @@
           <%= link_to "Evènements", events_path %>
         </li>
         <li class="<%= 'active' if controller_name == 'members' %>">
-          <%= link_to "Professeurs", members_path %>
+          <%= link_to "Professeurs", members_path(pro: 1) %>
+        </li>
+        <li class="<%= 'active' if controller_name == 'members' %>">
+          <%= link_to "Membres", members_path(pro: 0) %>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
