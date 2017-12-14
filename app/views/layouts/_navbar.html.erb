@@ -1,3 +1,5 @@
+<% # TODO Show active elements %>
+
 <div class="navbar navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -16,13 +18,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left ">
-        <li class="<%= 'active' if controller_name == 'events' %>">
+        <li>
           <%= link_to "Evènements", events_path %>
         </li>
-        <li class="<%= 'active' if controller_name == 'members' %>">
+        <li>
           <%= link_to "Professeurs", members_path(pro: 1) %>
         </li>
-        <li class="<%= 'active' if controller_name == 'members' %>">
+        <li>
           <%= link_to "Membres", members_path(pro: 0) %>
         </li>
       </ul>
@@ -31,7 +33,7 @@
           <%= link_to 'Contact', pages_contact_path %>
         </li>
         <% if member_signed_in? %>
-          <li class="<%= 'active' if controller_name == 'members' %>"> <%= link_to "Profil", member_path(current_member) %> </li>
+          <li> <%= link_to "Profil", member_path(current_member) %> </li>
           <li> <%= link_to "Déconnexion", destroy_member_session_path, method: :DELETE %> </li>
         <% else %>
           <!-- Sign up text link -->
