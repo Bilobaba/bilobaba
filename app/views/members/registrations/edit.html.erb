@@ -38,7 +38,7 @@
 
     <div class="form-actions">
       <%= f.button :submit, "Enregistrer les modifications" %>
-      <%= link_to "Retour", :back %>
+      <%= link_to "Retour", session[:request_back] %>
     </div>
   <% end %>
 

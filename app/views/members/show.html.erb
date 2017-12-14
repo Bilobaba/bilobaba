@@ -13,11 +13,11 @@
       <p><span id="pseudo"><%= @member.pseudo %></span></p>
       <p><%= @member.bio %></p>
       <p></p>
-    </div> 
+    </div>
   </div>
 
   <div id="links">
-    <%= link_to 'Back', :back, class: 'badge' %>
+    <%= link_to 'Retour', session[:request_back], class: 'badge' %>
   </div>
 
   <div id="events">

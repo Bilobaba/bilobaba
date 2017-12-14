@@ -4,5 +4,5 @@
   <%= render 'form', event: @event %>
 
   <%= link_to 'Afficher', @event %> |
-  <%= link_to 'Retour', :back %>
+  <%= link_to 'Retour', session[:request_back] %>
 </div>

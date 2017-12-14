@@ -79,7 +79,7 @@
             <%= link_to 'Supprimer', event_path, class: 'badge', method: 'DELETE', data: {confirm: 'Confirmez la suppression' } %>
           <% end %>
 
-          <%= link_to 'Retour', :back, class: 'badge' %>
+          <%= link_to 'Retour', session[:request_back], class: 'badge' %>
 
         </div>
       </div>
@@ -268,3 +268,6 @@
         showMap($(event.relatedTarget).data('zip'));
     })
 </script>
+
+
+

@@ -19,7 +19,7 @@
       <%= f.input :adress, label: "Adresse" %>
       <%= f.input :zip, label: "Code postal" %>
       <%= f.input :town, label: "Ville" %>
-      <%= f.country_select :country,  ["France"] %> </br></br>
+      <%= f.input :country, priority:  ["France"] %> </br></br>
 
       <%= f.input :roles, as: :boolean, label: "Professionnel" %>
     </div>
