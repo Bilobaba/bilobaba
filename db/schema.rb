@@ -35,19 +35,20 @@ ActiveRecord::Schema.define(version: 20171211112740) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
+    t.string "title", default: "", null: false
+    t.string "description", default: "", null: false
     t.datetime "begin"
     t.datetime "end"
-    t.integer "price_min"
-    t.integer "price_max"
-    t.integer "members_max"
-    t.string "adress"
-    t.string "town"
-    t.string "zip"
+    t.integer "price_min", default: 0
+    t.integer "price_max", default: 0
+    t.integer "members_max", default: 0
+    t.string "adress", default: "", null: false
+    t.string "town", default: "", null: false
+    t.string "zip", default: "", null: false
     t.float "lat"
     t.float "lng"
     t.bigint "member_id"
+    t.string "encrypted_password", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -105,7 +106,7 @@ ActiveRecord::Schema.define(version: 20171211112740) do
     t.string "pseudo"
     t.string "first_name"
     t.string "name"
-    t.string "bio"
+    t.text "bio"
     t.datetime "birth_date"
     t.string "adress"
     t.string "zip"
