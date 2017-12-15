@@ -10,17 +10,26 @@
 
   </head>
 
-  <body>
+  <% if current_page?(root_path) %>
+    <body class="home">
+  <% else %>
+    <body>
+  <% end %>
 
-    <div id="background_top">
+    <% if current_page?(root_path) %>
       <%= render '/layouts/navbar' %>
-      <h1><%= @h1_title %></h1>
-    </div>
-
-    <%= render 'shared/flashes' %>
+    <% else %>
+      <div id="background_top">
+        <%= render '/layouts/navbar' %>
+        <h1><%= @h1_title %></h1>
+      </div>
+      <%= render 'shared/flashes' %>
+    <% end %>
 
     <%= yield %>
     
-    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'], async: true, defer: true, 'data-turbolinks-eval': false %>
+    <% if !current_page?(root_path) %>
+      <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'], async: true, defer: true, 'data-turbolinks-eval': false %>
+    <% end %>
   </body>
 </html>
