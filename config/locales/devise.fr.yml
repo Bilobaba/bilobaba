@@ -9,10 +9,10 @@ fr:
     failure:
       already_authenticated: "Vous êtes déjà connecté."
       inactive: "Votre compte n'a pas encore été activé."
-      invalid: "Votre %{authentication_keys} ou mot de passe n'est pas valide."
+      invalid: "Le mot de passe est incorrect."
       locked: "Your account is locked."
       last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
+      not_found_in_database: "Cet email n'est pas enregistré sur Bilobaba"
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "Vous avez besoin de vous connecter pour continuer."
       unconfirmed: "You have to confirm your email address before continuing."
