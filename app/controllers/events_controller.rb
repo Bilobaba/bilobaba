@@ -22,7 +22,9 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1/edit
-  def edit; end
+  def edit
+    @h1_title = 'Modifier mon évènement'
+  end
 
   # POST /events
   # POST /events.json
