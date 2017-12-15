@@ -42,8 +42,13 @@
         </table>
 
         <a type="button" data-toggle="modal" data-target="#EventDescription">
+          <span style="color: #339999">Adresse</span>  <%=  @event.adress[0..60] %>
+              <% if @event.adress.size > 60 %>...<% end %>
+        </a>
+        </br>
+        <a type="button" data-toggle="modal" data-target="#EventDescription">
           <span style="color: #339999">Description</span>  <%=  @event.description[0..200] %>
-              <% if @event.description.size > 200 %> (...) <% end %>
+              <% if @event.description.size > 200 %>...<% end %>
         </a>
         </br></br>
         <!-- La communauté -->
