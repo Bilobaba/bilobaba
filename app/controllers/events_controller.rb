@@ -30,6 +30,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.organizer = current_member
 
+binding.pry
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

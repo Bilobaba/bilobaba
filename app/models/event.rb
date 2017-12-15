@@ -1,5 +1,16 @@
 class Event < ApplicationRecord
 
+
+
+  validates :title, presence: true, length: { minimum: 5 }
+  validates :description, presence: true, length: { minimum: 10 }
+  validates :begin, presence: true
+  validates :end, presence: true
+  validates :adress, presence: true
+  validates :town, presence: true
+  validates :zip, presence: true, length: { is: 5 }
+
+
   mount_uploader :image, ImageUploader
   mount_uploader :photo1, ImageUploader
   mount_uploader :photo2, ImageUploader
