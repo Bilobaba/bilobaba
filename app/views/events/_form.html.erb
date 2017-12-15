@@ -36,9 +36,13 @@
 
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit %>
-      <%= link_to session[:request_back] do %> Retour <% end %>
+    <div class="form-actions btn-group btn-group-justified" role="group">
+      <div class="btn-group" role="group">
+        <%= f.button :submit, "Enregistrer", class: 'btn btn-default' %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to 'Annuler', session[:request_back], class: 'btn btn-default' %>
+      </div>
     </div>
   <% end %>
 </div>
