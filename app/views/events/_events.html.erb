@@ -76,8 +76,6 @@
 </tbody>
 </table>
 
-<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'], async: true, defer: true, 'data-turbolinks-eval': false %>
-
 <div class="modal fade" id="showmap" tabindex="-1" role="dialog">
     <%= render 'layouts/map', title: 'Localisation' %>
 </div>
