@@ -57,21 +57,21 @@
 
             <!-- Button Participate -->
             <% if (@event.attendees.count < @event.members_max) || (@event.members_max == 0) %>
-              <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', style: "display:none", remote: true %>
-              <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge participate', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max ||   @event.members_max == 0  %>
+              <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge enable', id: 'EventPartY', style: "display:none", remote: true %>
+              <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge enable participate', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max ||   @event.members_max == 0  %>
             <% end %>
 
             <!-- Button Like -->
-            <%= link_to 'Aimer : Oui', like_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventLikeY', style: "display:none", remote: true %>
-            <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge participate', id: 'EventLikeN', style: "display:none", remote: true %>
+            <%= link_to 'Aimer : Oui', like_path(id: @event.id, status: 'out'), class: 'badge enable', id: 'EventLikeY', style: "display:none", remote: true %>
+            <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge enable participate', id: 'EventLikeN', style: "display:none", remote: true %>
 
-            <%= link_to 'Recommander : Oui', recommend_path(id: @event.id, status: 'out'), class: 'badge',
+            <%= link_to 'Recommander : Oui', recommend_path(id: @event.id, status: 'out'), class: 'badge enable',
             id: 'EventRecommendY', style: "display:none",  remote: true %>
-            <%= link_to 'Recommander : Non', recommend_path(id: @event.id, status: 'in'), class: 'badge participate',
+            <%= link_to 'Recommander : Non', recommend_path(id: @event.id, status: 'in'), class: 'badge enable participate',
             id: 'EventRecommendN', style: "display:none", remote: true %>
 
-            <%= link_to 'A suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventFollowY', style: "display:none", remote: true %>
-            <%= link_to 'A suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge participate', id: 'EventFollowN', style: "display:none", remote: true %>
+            <%= link_to 'A suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge enable', id: 'EventFollowY', style: "display:none", remote: true %>
+            <%= link_to 'A suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge enable participate', id: 'EventFollowN', style: "display:none", remote: true %>
 
           </br>
           <% if member_signed_in? && (current_member == @event.organizer) %>
@@ -79,7 +79,7 @@
             <%= link_to 'Supprimer', event_path, class: 'badge', method: 'DELETE', data: {confirm: 'Confirmez la suppression' } %>
           <% end %>
 
-          <%= link_to 'Retour', session[:request_back], class: 'badge' %>
+          <%= link_to 'Retour', session[:request_back], class: 'badge enable' %>
 
         </div>
       </div>
@@ -264,4 +264,14 @@
 </script>
 
 
-
+<% if member_signed_in? %>
+  <script>
+    $( ".enable" ).onclick(function(){$(this).html('YYY')};);
+    $( ".enable" ).prop("disabled", true );
+  </script>
+<% else %>
+  <script>
+    $( ".enable" ).prop("disabled", true );
+    $( ".enable" ).onclick(function(){$(this).html('YYY')};);
+  </script>
+<% end %>
