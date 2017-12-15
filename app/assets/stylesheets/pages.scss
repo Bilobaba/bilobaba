@@ -56,10 +56,9 @@ a:hover {
 }
 
 .navbar-default {
-    background-color: white;
+    background: none;
     border: none;
     padding: 10px 0px 10px 0px;
-    background-image: image-url("Ginkgo-biloba.jpg");
     margin: 0px;
     border-radius: 0px;
 }
@@ -76,17 +75,19 @@ a:hover {
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
     background: none;
-    color: white;
+    color: rgba(45, 45, 45, 0.344);
     border-bottom: solid 1px white;
 }
 
 h1 {
     font-size: 30px;
-    color: rgb(184, 216, 86);
+    color: rgba(255, 255, 255, 0.8);
     height: 100px;
     line-height: 100px;
     text-align: center;
     font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 15px;
 }
 
 .pointer {
@@ -149,4 +150,8 @@ h3 {
 
 .participate:hover {
     background-color: #ff6161;
+}
+
+#background_top {
+    background-image: image-url("header/ginkgo_1.jpg");
 }

@@ -4,17 +4,20 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @h1_title = 'Les prochains évènements'
     @events = Event.next_events
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @h1_title = @event.title
     @comment = Comment.new
   end
 
   # GET /events/new
   def new
+    @h1_title = 'Ajout d\'un nouvel évènement'
     @event = Event.new
   end
 

@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @h1_title = 'Donnez-nous votre avis'
   end
 
   def send_mail_contact
