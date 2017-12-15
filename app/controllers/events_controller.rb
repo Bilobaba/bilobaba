@@ -34,7 +34,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to @event}
         format.json { render :show, status: :created, location: @event }
       else
         # simple_form doesn t show errors for :begin & :end because
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: "Les modications pour l'événement ont été enregistées." }
+        format.html { redirect_to @event}
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Evénement a été supprimé.' }
+      format.html { redirect_to events_url}
       format.json { head :no_content }
     end
   end

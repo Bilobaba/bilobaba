@@ -41,9 +41,14 @@
           <tr><td>Organisateur</td><td></td><td><%= link_to @event.organizer do %> <%= @event.organizer.pseudo %> <% end %> </td></tr>
         </table>
 
+        <a type="button" data-toggle="modal" data-target="#EventAddress">
+          <span style="color: #339999">Adresse</span>  <%=  @event.adress[0..60] %>
+              <% if @event.adress.size > 60 %>...<% end %>
+        </a>
+        </br>
         <a type="button" data-toggle="modal" data-target="#EventDescription">
           <span style="color: #339999">Description</span>  <%=  @event.description[0..200] %>
-              <% if @event.description.size > 200 %> (...) <% end %>
+              <% if @event.description.size > 200 %>...<% end %>
         </a>
         </br></br>
         <!-- La communauté -->
@@ -115,6 +120,23 @@
         </div>
         <div class="modal-body">
           <%= @event.description %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Event Address -->
+  <div class="modal fade" id="EventAddress" tabindex="-1" role="dialog" aria-labelledby="EventAttendeesLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="color: #339999">
+          <h4 class="modal-title" id="EventAttendeesLabel">Lieu pour <em> <%= @event.title %> </em></h4>
+        </div>
+        <div class="modal-body">
+          <%= @event.adress %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
