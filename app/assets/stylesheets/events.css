@@ -55,3 +55,8 @@
     /* background-color: rgba(198, 224, 125, 0.2); */
     background-color: #3399990f;
 }
+
+#add_event {
+    width: 100%;
+    text-align: center;
+}

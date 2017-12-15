@@ -4,5 +4,7 @@
   <div class="table-responsive" id="events">
     <%= render partial: "events", locals: { events_partial: @events } %>
   </div>
-  <%= link_to 'Créer un évènement', new_event_path, class: 'badge' if member_signed_in? %>
+  <div id="add_event">
+    <%= link_to 'Créer un évènement', new_event_path, class: 'btn btn-default btn-lg' if member_signed_in? %>
+  </div>
 </div>

@@ -54,14 +54,20 @@ a:hover {
     border-radius: 0px;
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar-default .navbar-nav > li > a, #dLabel {
+    cursor: pointer;
     margin-left: 20px;
     color: white;
+    border-top: solid 1px transparent;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
+#dLabel {
+    padding: 10px 15px 10px 15px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, #dLabel:hover {
     color: white;
-    border-bottom: solid 1px white;
+    border-top: solid 1px white;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
@@ -192,4 +198,12 @@ footer ul li {
 
 #copyright {
     float: right;
+}
+
+.dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.461);
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: rgba(255, 255, 255, 0.461);
 }
