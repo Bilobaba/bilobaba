@@ -155,6 +155,18 @@ h3 {
     font-size: 40px;
 }
 
+#home_title span {
+    font-size: 12px;
+}
+
+#home_title span a {
+    color: white;
+}
+
+#home_title span a:hover {
+    text-decoration: underline;
+}
+
 footer {
     margin-top: 15px;
     padding: 1.125rem 0;
