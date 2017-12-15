@@ -15,17 +15,31 @@
       </button>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left ">
         <li>
-          <%= link_to "Evènements", events_path %>
+          <div class="dropdown">
+            <div id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Evènements
+              <span class="caret"></span>
+            </div>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+              <li><%= link_to 'Liste des évènements', events_path %></li>
+              <li><%= link_to 'Créer un évènement', new_event_path %></li>
+            </ul>
+          </div>
         </li>
         <li>
-          <%= link_to "Professeurs", members_path(pro: 1) %>
-        </li>
-        <li>
-          <%= link_to "Membres", members_path(pro: 0) %>
+          <div class="dropdown">
+            <div id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              La communauté
+              <span class="caret"></span>
+            </div>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+              <li><%= link_to 'Professeurs', members_path(pro: 1) %></li>
+              <li><%= link_to 'Membres', members_path(pro: 0) %></li>
+            </ul>
+          </div>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
