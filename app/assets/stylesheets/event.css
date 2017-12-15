@@ -39,3 +39,7 @@ map {
 .member {
     align-content: center;
 }
+
+.help-block {
+    color: #a94442;
+}

@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag 'event' %>
+
+
 <div class="container">
   <%= simple_form_for @event, html: { class: 'green_form' } do |f| %>
     <%= f.error_notification %>
@@ -12,8 +15,10 @@
       <%= f.input :image, label: 'Image' %>
       <%= f.label  "Début" %> </br>
       <%= f.datetime_field :begin %> </br></br>
+      <span><%= f.error :begin %></span>
       <%= f.label  "Fin" %> </br>
       <%= f.datetime_field :end %> </br></br>
+      <span class="error-red"><%= f.error :end %></span>
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>

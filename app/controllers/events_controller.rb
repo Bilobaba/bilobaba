@@ -30,12 +30,12 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.organizer = current_member
 
-binding.pry
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
+        # simple_form doesn t show errors for :begin & :end because
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
