@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Trirong', sans-serif;
+    color: #333333;
 }
 
 .container {
@@ -22,7 +23,7 @@ a:focus {
 }
 
 a:hover {
-    color: #ff9494;
+    color: #339999;
     text-decoration: none;
     outline: none;
 }
@@ -89,7 +90,7 @@ h1 {
 }
 
 a.badge:hover {
-    background-color: #ff6161;
+    background-color: #2e8585;
     transition: 250ms;
 }
 
@@ -107,12 +108,8 @@ h3 {
     padding-bottom: 10px;
 }
 
-.location_icon {
-    color: #ff6161;
-}
-
 .location:hover {
-    color: #ff9494;
+    color: #339999;
 }
 
 .green_form {
@@ -135,11 +132,7 @@ h3 {
 }
 
 .participate {
-    background-color: #ff9494;
-}
-
-.participate:hover {
-    background-color: #ff6161;
+    background-color: #339999;
 }
 
 #background_top {

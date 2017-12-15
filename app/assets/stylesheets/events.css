@@ -44,7 +44,7 @@
 }
 
 .professional {
-    color: #ff9494;
+    color: #339999;
 }
 
 .member {
@@ -53,5 +53,5 @@
 
 #events td:nth-child(even):not(:first-of-type) {
     /* background-color: rgba(198, 224, 125, 0.2); */
-    background-color: #ff61610f;
+    background-color: #3399990f;
 }
