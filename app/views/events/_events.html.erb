@@ -61,9 +61,9 @@
         <% if member_signed_in? && !current_member.has_role?(:professional) %>
             <td>
                 <% if event.participate?(current_member) %>
-                    <%= link_to 'Se désinscrire', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge', remote: true %>
+                    <%= link_to 'Se désinscrire', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge participate', remote: true %>
                 <% else %>
-                    <%= link_to 'Y participer', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge participate', remote: true if event.attendees.size != event.members_max || event.members_max == 0 %>
+                    <%= link_to 'Y participer', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge', remote: true if event.attendees.size != event.members_max || event.members_max == 0 %>
                 <% end %>
             </td>
         <% end %>

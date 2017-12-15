@@ -58,20 +58,20 @@
             <!-- Button Participate -->
             <% if (@event.attendees.count < @event.members_max) || (@event.members_max == 0) %>
               <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventPartY', style: "display:none", remote: true %>
-              <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max ||   @event.members_max == 0  %>
+              <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge participate', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max ||   @event.members_max == 0  %>
             <% end %>
 
             <!-- Button Like -->
             <%= link_to 'Aimer : Oui', like_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventLikeY', style: "display:none", remote: true %>
-            <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventLikeN', style: "display:none", remote: true %>
+            <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge participate', id: 'EventLikeN', style: "display:none", remote: true %>
 
             <%= link_to 'Recommander : Oui', recommend_path(id: @event.id, status: 'out'), class: 'badge',
             id: 'EventRecommendY', style: "display:none",  remote: true %>
-            <%= link_to 'Recommander : Non', recommend_path(id: @event.id, status: 'in'), class: 'badge',
+            <%= link_to 'Recommander : Non', recommend_path(id: @event.id, status: 'in'), class: 'badge participate',
             id: 'EventRecommendN', style: "display:none", remote: true %>
 
             <%= link_to 'A suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge', id: 'EventFollowY', style: "display:none", remote: true %>
-            <%= link_to 'A suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge', id: 'EventFollowN', style: "display:none", remote: true %>
+            <%= link_to 'A suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge participate', id: 'EventFollowN', style: "display:none", remote: true %>
 
           </br>
           <% if member_signed_in? && (current_member == @event.organizer) %>
@@ -189,7 +189,6 @@
       });
       $("#EventPartN").click(function(){
           $("#EventPartY").show();
-          $("#EventPartY").attr("style","background-color:pink; color:black");
           $("#EventPartN").hide();
       });
 
@@ -205,7 +204,6 @@
       });
       $("#EventLikeN").click(function(){
           $("#EventLikeY").show();
-          $("#EventLikeY").attr("style","background-color:pink; color:black");
           $("#EventLikeN").hide();
       });
 
@@ -221,7 +219,6 @@
       });
       $("#EventRecommendN").click(function(){
           $("#EventRecommendY").show();
-          $("#EventRecommendY").attr("style","background-color:pink; color:black");
           $("#EventRecommendN").hide();
       });
 
@@ -239,7 +236,6 @@
       });
       $("#EventFollowN").click(function(){
           $("#EventFollowY").show();
-          $("#EventFollowY").attr("style","background-color:pink; color:black");
           $("#EventFollowN").hide();
       });
 
