@@ -1,5 +1,5 @@
 <div class="comment" id="comment_<%= comment.id %>">
-    <p><%= link_to comment.autor.pseudo.capitalize, '#' %> - le <%= comment.created_at.strftime("%H:%M le %d-%m-%Y") %></p>
+    <p><%= link_to comment.autor.pseudo.capitalize, '#' %> - le <%= comment.created_at.strftime("%H:%M à %d-%m-%Y") %></p>
     <p><%= comment.content %></p>
     <% if current_member.id == comment.autor.id %>
         <p><%= link_to ' ', event_comment_path(comment.event.id, comment.id), method: :DELETE, remote: true, class: 'glyphicon glyphicon-trash' %></p>
