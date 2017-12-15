@@ -154,3 +154,30 @@ h3 {
 #home_title {
     font-size: 40px;
 }
+
+footer {
+    margin-top: 15px;
+    padding: 1.125rem 0;
+}
+
+footer nav {
+    float: left;
+}
+
+footer ul {
+    padding-left: 0px;
+}
+
+footer ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer {
+    border-top: solid 2px #3399990f;
+    padding-top: 15px;
+}
+
+#copyright {
+    float: right;
+}
