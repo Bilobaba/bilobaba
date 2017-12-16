@@ -53,6 +53,7 @@
 
 #events td:nth-child(even):not(:first-of-type) {
     /* background-color: rgba(198, 224, 125, 0.2); */
+    background: #339999;
     background-color: #3399990f;
 }
 
