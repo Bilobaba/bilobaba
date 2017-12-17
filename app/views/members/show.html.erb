@@ -24,19 +24,19 @@
   <div id="events">
     <% if !@member.has_role?(:professional) %>
       <h2>Participation aux évènements</h2>
-      <% if @member.attend_events.size > 0 %>
+      <% if @member.attend_events.where('begin >= ?', Time.now).size > 0 %>
         <%= render partial: "events/events", locals: { events_partial: @member.next_events_attend } %>
       <% else %>
-        <p>Aucun évènement pour l'instant<br />
+        <p>Aucun évènement à venir<br />
           <%= link_to '> voir la liste des évènements', events_path %>
         </p>
       <% end %>
     <% end %>
     <h2>Organisation d'évènements</h2>
-     <% if @member.organize_events.size > 0 %>
+     <% if @member.organize_events.where('begin >= ?', Time.now).size > 0 %>
         <%= render partial: "events/events", locals: { events_partial: @member.next_events_organize } %>
       <% else %>
-        <p>Aucun évènement pour l'instant<br />
+        <p>Aucun évènement à venir<br />
           <%= link_to '> créer un évènement', new_event_path %>
         </p>
       <% end %>
