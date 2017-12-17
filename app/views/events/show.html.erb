@@ -1,4 +1,3 @@
-
 <%= stylesheet_link_tag 'event' %>
 
 <p id="notice"><%= notice %></p>
@@ -6,89 +5,116 @@
 <div class="container">
   <div id="show_event">
     <div id="event">
-      <h4> <%= @event.title %></h4>
+      <div id="event_title">
+        <h4><%= @event.title %></h4>
+        <div id="event_controls">
+          <% if member_signed_in? && (current_member == @event.organizer) %>
+          <%= link_to '(modifier)', edit_event_path %>
+          <%= link_to '(supprimer)', event_path, method: 'DELETE', data: {confirm: 'Confirmez la suppression' } %>
+          <% end %>
+          <%= link_to '(retour)', session[:request_back], class: 'enable' %>
+        </div>
+      </div>
 
-      <div>
+      <div id="event_content">
+
         <% if @event.image.url.present? %>
-          <%= cl_image_tag( @event.image.file.filename, width: 600, height:182, radius: 10 ) %>
+          <%= cl_image_tag( @event.image.file.filename, width: 600, height: 182, radius: 10 ) %>
+        <% end %>
+
+        <%= link_to @event.organizer do %>
+          <% if @event.organizer.avatar.file %>
+            <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar') %>
+          <% end %>
         <% end %>
 
         <table id="show_event">
-          <tr><td>Date et heure</td><td>: <%= I18n.l(@event.begin, format: '%a %-d %b %Y - %Hh%M') %></td>
-          <tr><td>Durée</td><td>:
+          <tr>
+            <td>Date et heure</td>
+            <td>: <%= I18n.l(@event.begin, format: '%a %-d %b %Y - %Hh%M') %></td>
+          </tr>
+          <tr>
+            <td>Durée</td>
+            <td>:
               <% duration = @event.end - @event.begin %>
-              <%= (duration/1.hour).to_i %>h<%= (duration%1.hour/1.minute).to_i.to_s.rjust(2, '0') %></td>
-            <td rowspan=3 ">
-              <%= link_to @event.organizer do %>
-                <% if @event.organizer.avatar.file %>
-                  <div style="float: right;">
-                    <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 50, radius: 20) %>
-                  </div>
-                <% else %>
-                    <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 50, height: 50, title: @event.organizer.pseudo %>
-                <% end %>
+              <%= (duration/1.hour).to_i %>h<%= (duration%1.hour/1.minute).to_i.to_s.rjust(2, '0') %>
+            </td>
+          </tr>
+          <tr>
+            <td>Prix</td>
+            <td>: <%= @event.price_max %>€</td>
+          </tr>
+          <tr>
+            <td>Lieu</td>
+            <td class="location pointer">:
+              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#showmap', 'data-zip': @event.zip do %>
+                <%= @event.zip %>
+                <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
               <% end %>
             </td>
           </tr>
-          <tr><td>Prix</td><td>: <%= @event.price_max %>€</td></tr>
-          <tr><td>Lieu</td>
-          <td class="location pointer">:
-            <%= link_to '#', 'data-toggle':'modal', 'data-target':'#showmap', 'data-zip': @event.zip do %>
-              <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-              <%= @event.zip %>
-            <% end %>
-          </td><td></td></tr>
-          <tr><td>Organisateur</td><td></td><td><%= link_to @event.organizer do %> <%= @event.organizer.pseudo %> <% end %> </td></tr>
+          <tr>
+            <td>Organisateur</td>
+            <td id="organizer">:
+              <%= link_to @event.organizer.pseudo, @event.organizer %>
+            </td>
+          </tr>
+          <tr>
+            <td>Adresse</td>
+            <td>
+              : 
+              <% if @event.adress.size > 50 %>
+                <%= link_to @event.adress[0..50] + ' (...)', '#', 'data-toggle': 'modal', 'data-target': '#EventAddress' %>
+              <% else %>
+                <%= @event.adress %>
+              <% end %>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>
+              : 
+              <% if @event.description.size > 50 %>
+                <%= link_to @event.description[0..50] + ' (...)', '#', 'data-toggle': 'modal', 'data-target': '#EventDescription' %>
+              <% else %>
+                <%= @event.description %>
+              <% end %>
+            </td>
+          </tr>
         </table>
 
-        <a type="button" data-toggle="modal" data-target="#EventAddress">
-          <span style="color: #339999">Adresse</span>  <%=  @event.adress[0..60] %>
-              <% if @event.adress.size > 60 %>...<% end %>
-        </a>
-        </br>
-        <a type="button" data-toggle="modal" data-target="#EventDescription">
-          <span style="color: #339999">Description</span>  <%=  @event.description[0..200] %>
-              <% if @event.description.size > 200 %>...<% end %>
-        </a>
-        </br></br>
         <!-- La communauté -->
-        <div class="btn-group  btn-group-xs" role="group" aria-label="...">
-          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#EventAttendees">Ils participent</button>
-          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#EventLikers">Ils aiment</button>
-          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#EventRecommenders">Ils recommandent</button>
+        <div class="btn-group btn-group-xs btn-centered" role="group">
+          <button type="button" id="attendees" class="btn btn-default" data-toggle="modal" data-target="#EventAttendees">Ils participent</button>
+          <button type="button" id="likers" class="btn btn-default" data-toggle="modal" data-target="#EventLikers">Ils aiment</button>
+          <button type="button" id="recommenders" class="btn btn-default" data-toggle="modal" data-target="#EventRecommenders">Ils recommandent</button>
         </div>
-        </br></br>
-        <div>
 
-            <!-- Button Participate -->
-            <% if (@event.attendees.count < @event.members_max) || (@event.members_max == 0) %>
-              <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge enable', id: 'EventPartY', style: "display:none", remote: true %>
-              <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge enable participate', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max ||   @event.members_max == 0  %>
-            <% end %>
+        <hr />
+        
+        <div class="btn-centered">
 
-            <!-- Button Like -->
-            <%= link_to 'Aimer : Oui', like_path(id: @event.id, status: 'out'), class: 'badge enable', id: 'EventLikeY', style: "display:none", remote: true %>
-            <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge enable participate', id: 'EventLikeN', style: "display:none", remote: true %>
-
-            <%= link_to 'Recommander : Oui', recommend_path(id: @event.id, status: 'out'), class: 'badge enable',
-            id: 'EventRecommendY', style: "display:none",  remote: true %>
-            <%= link_to 'Recommander : Non', recommend_path(id: @event.id, status: 'in'), class: 'badge enable participate',
-            id: 'EventRecommendN', style: "display:none", remote: true %>
-
-            <%= link_to 'A suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge enable', id: 'EventFollowY', style: "display:none", remote: true %>
-            <%= link_to 'A suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge enable participate', id: 'EventFollowN', style: "display:none", remote: true %>
-
-          </br>
-          <% if member_signed_in? && (current_member == @event.organizer) %>
-            <%= link_to 'Modifier', edit_event_path, class: 'badge' %>
-            <%= link_to 'Supprimer', event_path, class: 'badge', method: 'DELETE', data: {confirm: 'Confirmez la suppression' } %>
+          <!-- Button Participate -->
+          <% if (@event.attendees.count < @event.members_max) || (@event.members_max == 0) %>
+            <%= link_to 'Y aller : Oui', participate_path(id: @event.id, status: 'out'), class: 'badge enable', id: 'EventPartY', style: "display:none", remote: true %>
+            <%= link_to 'Y aller : Non', participate_path(id: @event.id, status: 'in'), class: 'badge enable participate', id: 'EventPartN', style: "display:none", remote: true if @event.attendees.size != @event.members_max ||   @event.members_max == 0  %>
           <% end %>
 
-          <%= link_to 'Retour', session[:request_back], class: 'badge enable' %>
+          <!-- Button Like -->
+          <%= link_to 'Aimer : Oui', like_path(id: @event.id, status: 'out'), class: 'badge enable', id: 'EventLikeY', style: "display:none", remote: true %>
+          <%= link_to 'Aimer : Non', like_path(id: @event.id, status: 'in'), class: 'badge enable participate', id: 'EventLikeN', style: "display:none", remote: true %>
+
+          <%= link_to 'Recommander : Oui', recommend_path(id: @event.id, status: 'out'), class: 'badge enable',
+          id: 'EventRecommendY', style: "display:none",  remote: true %>
+          <%= link_to 'Recommander : Non', recommend_path(id: @event.id, status: 'in'), class: 'badge enable participate',
+          id: 'EventRecommendN', style: "display:none", remote: true %>
+
+          <%= link_to 'A suivre : Oui', follow_path(id: @event.id, status: 'out'), class: 'badge enable', id: 'EventFollowY', style: "display:none", remote: true %>
+          <%= link_to 'A suivre : Non', follow_path(id: @event.id, status: 'in'), class: 'badge enable participate', id: 'EventFollowN', style: "display:none", remote: true %>
 
         </div>
       </div>
-      <!-- <div id="map"></div> -->
     </div>
 
     <div id="discussion">
@@ -108,89 +134,31 @@
 
     </div>
 
+  <div>
+    <% if @event.photo1.url.present? %>
+      <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10 ) %>
+    <% end %>
+
+    <% if @event.photo2.url.present? %>
+      <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10 ) %>
+    <% end %>
+
+    <% if @event.photo3.url.present? %>
+      <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10 ) %>
+    <% end %>
+
+    <% if @event.photo4.url.present? %>
+      <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10 ) %>
+    <% end %>
+
+    <% if @event.photo5.url.present? %>
+      <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10 ) %>
+    <% end %>
   </div>
 
+</div>
 
-  <!-- Modal for Event Description -->
-  <div class="modal fade" id="EventDescription" tabindex="-1" role="dialog" aria-labelledby="EventAttendeesLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header" style="color: #339999">
-          <h4 class="modal-title" id="EventAttendeesLabel">Description détaillée de <em> <%= @event.title %> </em></h4>
-        </div>
-        <div class="modal-body">
-          <%= @event.description %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal for Event Address -->
-  <div class="modal fade" id="EventAddress" tabindex="-1" role="dialog" aria-labelledby="EventAttendeesLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header" style="color: #339999">
-          <h4 class="modal-title" id="EventAttendeesLabel">Lieu pour <em> <%= @event.title %> </em></h4>
-        </div>
-        <div class="modal-body">
-          <%= @event.adress %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Modal for Attendees -->
-  <div class="modal fade" id="EventAttendees" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
-    <%= render 'layouts/members', title: 'Ils participent', members: @event.attendees %>
-  </div>
-
-  <!-- Modal for Likers -->
-  <div class="modal fade" id="EventLikers" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
-    <%= render 'layouts/members', title: 'Ils aiment', members: @event.likers %>
-  </div>
-
-  <!-- Modal for Recommenders -->
-  <div class="modal fade" id="EventRecommenders" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
-    <%= render 'layouts/members', title: 'Ils recommandent', members: @event.recommenders %>
-  </div>
-
-
-
-  <div id="show_event">
-  <div id="event">
-    <div>
-  <% if @event.photo1.url.present? %>
-    <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10 ) %>
-  <% end %>
-
-  <% if @event.photo2.url.present? %>
-    <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10 ) %>
-  <% end %>
-
-  <% if @event.photo3.url.present? %>
-    <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10 ) %>
-  <% end %>
-
-  <% if @event.photo4.url.present? %>
-    <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10 ) %>
-  <% end %>
-
-  <% if @event.photo5.url.present? %>
-    <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10 ) %>
-  <% end %>
-
-  </div>
-  </div>
-  </div>
-
-  <script>
+<script>
   $(document).ready(function(){
 
       $("#EventPartY").html('Y aller : <span style="font-family: Courier New"> Oui </span>');
@@ -268,32 +236,64 @@
       <% end %>
 
   });
-  </script>
+</script>
 
-  <div class="btn-group btn-group-sm" role="group" aria-label="...">
-
+<!-- Modal for Event Description -->
+<div class="modal fade" id="EventDescription" tabindex="-1" role="dialog" aria-labelledby="EventAttendeesLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="color: #339999">
+        <h4 class="modal-title" id="EventAttendeesLabel">Description détaillée de <em> <%= @event.title %> </em></h4>
+      </div>
+      <div class="modal-body">
+        <%= @event.description %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>
 
+<!-- Modal for Event Address -->
+<div class="modal fade" id="EventAddress" tabindex="-1" role="dialog" aria-labelledby="EventAttendeesLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="color: #339999">
+        <h4 class="modal-title" id="EventAttendeesLabel">Lieu pour <em> <%= @event.title %> </em></h4>
+      </div>
+      <div class="modal-body">
+        <%= @event.adress %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Attendees -->
+<div class="modal fade" id="EventAttendees" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils participent', members: @event.attendees %>
+</div>
+
+<!-- Modal for Likers -->
+<div class="modal fade" id="EventLikers" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils aiment', members: @event.likers %>
+</div>
+
+<!-- Modal for Recommenders -->
+<div class="modal fade" id="EventRecommenders" tabindex="-1" role="dialog" aria-labelledby="EventDescriptionLabel">
+  <%= render 'layouts/members', title: 'Ils recommandent', members: @event.recommenders %>
+</div>
+
+<!-- Google map -->
 <div class="modal fade" id="showmap" tabindex="-1" role="dialog">
-    <%= render 'layouts/map', title: 'Localisation' %>
+  <%= render 'layouts/map', title: 'Localisation' %>
 </div>
 
 <script>
-    $('#showmap').on('shown.bs.modal', function (event) {
-        showMap($(event.relatedTarget).data('zip'));
-    })
+  $('#showmap').on('shown.bs.modal', function (event) {
+      showMap($(event.relatedTarget).data('zip'));
+  })
 </script>
-
-
-<% if member_signed_in? %>
-  <script>
-    $( ".enable" ).onclick(function(){$(this).html('YYY')};);
-    $( ".enable" ).prop("disabled", true );
-  </script>
-<% else %>
-  <script>
-    $( ".enable" ).prop("disabled", true );
-    $( ".enable" ).onclick(function(){$(this).html('YYY')};);
-  </script>
-<% end %>

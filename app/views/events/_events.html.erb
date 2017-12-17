@@ -28,8 +28,7 @@
         </td>
         <td><%= I18n.l(event.begin, format: '%-d %b %Y - %Hh%M') %></td>
         <td>
-            <%= event.price_min.to_s + '€ - ' if event.price_min != event.price_max %>
-            <%= event.price_max.to_s + '€' %>
+            <%= event.show_price %>
         </td>
         <td class="location pointer">
             <%= link_to '#', 'data-toggle':'modal', 'data-target':'#showmap', 'data-zip': event.zip do %>
