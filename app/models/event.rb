@@ -60,11 +60,11 @@ class Event < ApplicationRecord
   end
 
   def show_price
-    if event.price_max > 0
-      if event.price_min != event.price_max
-        event.price_min.to_s + '€ - ' + event.price_max.to_s + '€'
+    if price_max && price_max > 0
+      if price_min && price_min != price_max
+        price_min.to_s + '€ - ' + price_max.to_s + '€'
       else
-        event.price_max.to_s + '€'
+        price_max.to_s + '€'
       end
     else
       '-'
