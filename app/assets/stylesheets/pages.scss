@@ -47,6 +47,7 @@ a:hover {
 }
 
 .navbar-default {
+    background-color: none;
     background: none;
     border: none;
     padding: 10px 0px 10px 0px;
@@ -72,6 +73,7 @@ a:hover {
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
     background: none;
+    background-color: none;
     color: rgba(45, 45, 45, 0.344);
     border-bottom: solid 1px white;
 }
@@ -96,6 +98,7 @@ h1 {
 }
 
 a.badge:hover {
+    background: #2e8585;
     background-color: #2e8585;
     transition: 250ms;
 }
@@ -121,6 +124,7 @@ h3 {
 .green_form {
     width: 500px;
     margin: auto;
+    background: #c5de6f;
     background-color: #bad85676;
     border-radius : 5px;
     padding: 15px;
@@ -129,6 +133,7 @@ h3 {
 }
 
 .green_form hr {
+    background: white;
     background-color: white;
     height: 2px;
 }
@@ -138,6 +143,7 @@ h3 {
 }
 
 .participate {
+    background: #339999;
     background-color: #339999;
 }
 
@@ -201,9 +207,11 @@ footer ul li {
 }
 
 .dropdown-menu {
+    background: rgba(255, 255, 255, 0.461);
     background-color: rgba(255, 255, 255, 0.461);
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background: rgba(255, 255, 255, 0.461);
     background-color: rgba(255, 255, 255, 0.461);
 }

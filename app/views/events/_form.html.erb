@@ -25,11 +25,15 @@
       <%= f.input :adress, label: 'Adresse' %>
       <%= f.input :town, label: 'Ville' %>
       <%= f.input :zip, label: 'CP' %>
-      <%= f.input :photo1 , label: 'Photos 1' %>
-      <%= f.input :photo2 , label: 'Photos 2' %>
-      <%= f.input :photo3 , label: 'Photos 3' %>
-      <%= f.input :photo4 , label: 'Photos 4' %>
-      <%= f.input :photo5 , label: 'Photos 5' %>
+
+      <% if @event.persisted? %>
+        <%= f.input :photo1 , label: 'Photos 1' %>
+        <%= f.input :photo2 , label: 'Photos 2' %>
+        <%= f.input :photo3 , label: 'Photos 3' %>
+        <%= f.input :photo4 , label: 'Photos 4' %>
+        <%= f.input :photo5 , label: 'Photos 5' %>
+      <% end %>
+
     </div>
 
     <div class="form-actions btn-group btn-group-justified" role="group">
