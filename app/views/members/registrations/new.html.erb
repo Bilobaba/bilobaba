@@ -11,7 +11,7 @@
     ) do |f| %>
 
     <div class="form-inputs">
-    
+
       <%= f.error_notification %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -19,14 +19,14 @@
       <% end %>
 
       <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, label: 'Mot de passe', autocomplete: "off", placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
-      <%= f.input :password_confirmation, label: 'Confirmation mot de passe', placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
+      <%= f.input :password, label: 'Mot de passe', autocomplete: "off", placeholder: "Votre mot de passe" %>
+      <%= f.input :password_confirmation, label: 'Confirmation mot de passe', placeholder: "Confirmez votre mot de passe" %>
       <%= f.input :pseudo %>
       <%= f.input :first_name, label: 'Prénom' %>
       <%= f.input :name, label: 'Nom' %>
       <div class="form-group"
         <%= f.label  "Date de naissance" %> </br>
-        <%= f.date_field :birth_date, as: :date, label: "Date de naissance" %> 
+        <%= f.date_field :birth_date, as: :date, label: "Date de naissance" %>
       </div>
       <%= f.input :adress, label: 'Adresse' %>
       <%= f.input :zip, label: 'Code postal' %>
@@ -38,7 +38,7 @@
       <%= f.input :bio, label: "Qui êtes-vous en quelques mots " %>
 
       <hr />
-      
+
       <%= f.input :avatar, label: 'Choisir une image' %>
 
       <hr />
@@ -46,7 +46,7 @@
       <%= f.input :roles, as: :boolean, label: "Je suis un professionnel" %>
 
     </div>
-    
+
     <hr />
 
     <div class="form-actions btn-group btn-group-justified" role="group">

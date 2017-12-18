@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag 'event' %>
 
+
 <p id="notice"><%= notice %></p>
 
 <div class="container">
@@ -17,12 +18,18 @@
       </div>
 
       <% if @event.image.url.present? %>
-        <%= cl_image_tag( @event.image.file.filename, width: 600, height: 182 ) %>
+        <%= link_to @event.image_url do %>
+          <%= cl_image_tag( @event.image.file.filename, width: 600, height: 182 ) %>
+        <% end %>
       <% end %>
 
       <div id="event_content">
-        <% if @event.organizer.avatar.file %>
-          <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar') %>
+        <%= link_to @event.organizer do %>
+          <% if @event.organizer.avatar.file %>
+            <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar') %>
+          <% else %>
+            <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 80, height: 80 %>
+          <% end %>
         <% end %>
 
         <table id="show_event">
@@ -63,7 +70,7 @@
           <tr>
             <td>Description</td>
             <td>
-              : 
+              :
               <% if @event.description.size > 50 %>
                 <%= link_to @event.description[0..50] + ' (...)', '#', 'data-toggle': 'modal', 'data-target': '#EventDescription' %>
               <% else %>
@@ -81,7 +88,7 @@
         </div>
 
         <hr />
-        
+
         <div class="btn-centered">
 
           <!-- Button Participate -->
@@ -126,22 +133,32 @@
 
   <% if @event.photo1.url.present? %>
     <div id="event_pictures">
-      <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10 ) %>
+      <%= link_to @event.photo1.url do %>
+        <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10 ) %>
+      <% end %>
 
       <% if @event.photo2.url.present? %>
-        <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10 ) %>
+        <%= link_to @event.photo2.url do %>
+          <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10 ) %>
+        <% end %>
       <% end %>
 
       <% if @event.photo3.url.present? %>
-        <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10 ) %>
+        <%= link_to @event.photo3.url do %>
+          <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10 ) %>
+        <% end %>
       <% end %>
 
       <% if @event.photo4.url.present? %>
-        <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10 ) %>
+        <%= link_to @event.photo4.url do %>
+          <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10 ) %>
+        <% end %>
       <% end %>
 
       <% if @event.photo5.url.present? %>
-        <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10 ) %>
+        <%= link_to @event.photo5.url do %>
+          <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10 ) %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
