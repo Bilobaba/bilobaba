@@ -16,12 +16,11 @@
         </div>
       </div>
 
+      <% if @event.image.url.present? %>
+        <%= cl_image_tag( @event.image.file.filename, width: 600, height: 182 ) %>
+      <% end %>
+
       <div id="event_content">
-
-        <% if @event.image.url.present? %>
-          <%= cl_image_tag( @event.image.file.filename, width: 600, height: 182, radius: 10 ) %>
-        <% end %>
-
         <%= link_to @event.organizer do %>
           <% if @event.organizer.avatar.file %>
             <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar') %>
@@ -133,8 +132,9 @@
           <% end %>
 
     </div>
+  </div>
 
-  <div>
+  <div id="event_pictures">
     <% if @event.photo1.url.present? %>
       <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10 ) %>
     <% end %>
@@ -155,7 +155,6 @@
       <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10 ) %>
     <% end %>
   </div>
-
 </div>
 
 <script>
