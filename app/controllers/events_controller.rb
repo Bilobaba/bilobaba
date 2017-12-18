@@ -1,3 +1,5 @@
+require 'pry'
+
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy participate like recommend follow]
 
@@ -6,6 +8,7 @@ class EventsController < ApplicationController
   def index
     @h1_title = 'Les prochains évènements'
     @events = Event.next_events
+binding.pry
   end
 
   # GET /events/1
