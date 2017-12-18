@@ -3,7 +3,7 @@
     <%= render 'form', event: @event %>
   <% else %>
     <div class="alert alert-warning" role="alert">
-      Vous devez <%= link_to 'vous connecter', new_member_registration_path %> ou <%= link_to 'vous inscrire', new_member_session_path %> pour ajouter un évènement
+      Vous devez <%= link_to 'vous connecter', new_member_session_path %> ou <%= link_to 'vous inscrire', new_member_registration_path %> pour ajouter un évènement
     </div>
   <% end %>
 </div>

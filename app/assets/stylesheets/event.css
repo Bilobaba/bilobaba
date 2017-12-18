@@ -9,8 +9,8 @@
     padding: 10px;
 }
 
-#event img {
-    margin-bottom: 10px;
+#event > img {
+    border-radius: 5px;
 }
 
 #event_title {
@@ -23,6 +23,19 @@
     border: solid 1px rgb(194, 194, 194);
     border-radius: 5px;
     padding: 10px;
+    margin-top: 10px;
+}
+
+#event_content > div {
+    position: relative;
+    margin-top: 10px;
+}
+
+#event_pictures {
+    border: solid 1px rgb(194, 194, 194);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
 }
 
 #event hr {
