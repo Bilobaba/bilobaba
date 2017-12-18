@@ -1,5 +1,7 @@
+require 'pry'
+
 class RegistrationsController < Devise::RegistrationsController
-  
+
   def new
     @h1_title = 'Formulaire d\'inscription'
     super
