@@ -1,7 +1,3 @@
-Member.create(email: 'kevin.arnoult@gmail.com', password: 'coucou', password_confirmation: 'coucou', pseudo: 'kevain', avatar: 'image/upload/v1513088284/kxwjxlmo878gnwibhqwx.jpg')
-Member.create(email: 'francoise.sauzet@gmail.com', password: 'coucou', password_confirmation: 'coucou', pseudo: 'francoise')
-Member.create(email: 'anonyme@gmail.com', password: 'coucou', password_confirmation: 'coucou', pseudo: 'anonyme')
-
 
 connection = ActiveRecord::Base.connection
 connection.execute(File.read('db//smihug_import/members.backup'))
