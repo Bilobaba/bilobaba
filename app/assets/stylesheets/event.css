@@ -13,10 +13,25 @@
     margin-bottom: 10px;
 }
 
-#event > div {
+#event_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#event_content {
+    position: relative;
     border: solid 1px rgb(194, 194, 194);
     border-radius: 5px;
     padding: 10px;
+}
+
+#event hr {
+    margin: 10px 0px 10px 0px;
+}
+
+#event_controls {
+    text-align: right;
+    margin-top: 10px;
 }
 
 #discussion {
@@ -42,4 +57,25 @@ map {
 
 .help-block {
     color: #a94442;
+}
+
+.btn-centered {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-centered a {
+    margin: 0px 5px 0px 5px;
+}
+
+#avatar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#avatar:hover {
+    opacity: 0.7;
 }

@@ -59,6 +59,18 @@ class Event < ApplicationRecord
     end
   end
 
+  def show_price
+    if price_max && price_max > 0
+      if price_min && price_min != price_max
+        price_min.to_s + '€ - ' + price_max.to_s + '€'
+      else
+        price_max.to_s + '€'
+      end
+    else
+      '-'
+    end
+  end
+
   def like(current_member, status)
     if status == 'in'
       likers << current_member unless likers.include? current_member
