@@ -9,8 +9,7 @@
       <%= f.input :title, label: 'Titre' %>
       <%= f.input :description, as: :text, class: "form-control string optional", input_html: {rows: 5}, label: 'Description' %> </br>
       <% if @event.image.url.present? %>
-        <%= cl_image_tag @event.image.file.filename, width: 824, height: 128, crop: :fill,
-              radius: 5, :gravity => :face %>
+        <%= cl_image_tag @event.image.file.filename, width: 470, height: 142 %>
       <% end %>
       <%= f.input :image, label: 'Image' %>
       <%= f.label  "Début" %> </br>
@@ -28,10 +27,25 @@
 
       <% if @event.persisted? %>
         <%= f.input :photo1 , label: 'Photos 1' %>
+        <% if @event.photo1.url.present? %>
+          <%= cl_image_tag @event.photo1.file.filename, width: 200, height: 200 %>
+        <% end %>
         <%= f.input :photo2 , label: 'Photos 2' %>
+        <% if @event.photo2.url.present? %>
+          <%= cl_image_tag @event.photo2.file.filename, width: 200, height: 200 %>
+        <% end %>
         <%= f.input :photo3 , label: 'Photos 3' %>
+        <% if @event.photo3.url.present? %>
+          <%= cl_image_tag @event.photo3.file.filename, width: 200, height: 200 %>
+        <% end %>
         <%= f.input :photo4 , label: 'Photos 4' %>
+        <% if @event.photo4.url.present? %>
+          <%= cl_image_tag @event.photo4.file.filename, width: 200, height: 200 %>
+        <% end %>
         <%= f.input :photo5 , label: 'Photos 5' %>
+        <% if @event.photo5.url.present? %>
+          <%= cl_image_tag @event.photo5.file.filename, width: 200, height: 200 %>
+        <% end %>
       <% end %>
 
     </div>

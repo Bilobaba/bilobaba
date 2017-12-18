@@ -2,6 +2,6 @@
     <p><%= link_to comment.autor.pseudo.capitalize, '#' %> - le <%= comment.created_at.strftime("%d-%m-%Y à %H:%M") %></p>
     <p><%= comment.content %></p>
     <% if current_member.id == comment.autor.id %>
-        <p><%= link_to ' ', event_comment_path(comment.event.id, comment.id), method: :DELETE, remote: true, class: 'glyphicon glyphicon-trash' %></p>
+        <p><%= link_to ' ', event_comment_path(comment.event.id, comment.id), method: :DELETE, remote: true, class: 'glyphicon glyphicon-trash', data: {confirm: 'Confirmez la suppression' } %></p>
     <% end %>
 </div>
