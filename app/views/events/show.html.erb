@@ -21,10 +21,8 @@
       <% end %>
 
       <div id="event_content">
-        <%= link_to @event.organizer do %>
-          <% if @event.organizer.avatar.file %>
-            <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar') %>
-          <% end %>
+        <% if @event.organizer.avatar.file %>
+          <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar') %>
         <% end %>
 
         <table id="show_event">
@@ -44,30 +42,22 @@
             <td>: <%= @event.show_price %></td>
           </tr>
           <tr>
-            <td>Lieu</td>
-            <td class="location pointer">:
-              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#showmap', 'data-zip': @event.zip do %>
-                <%= @event.zip %>
-                <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-              <% end %>
-            </td>
-          </tr>
-          <tr>
             <td>Organisateur</td>
             <td id="organizer">:
               <%= link_to @event.organizer.pseudo, @event.organizer %>
             </td>
           </tr>
           <tr>
-            <td>Adresse</td>
-            <td>
-              : 
-              <% if @event.adress.size > 50 %>
-                <%= link_to @event.adress[0..50] + ' (...)', '#', 'data-toggle': 'modal', 'data-target': '#EventAddress' %>
-              <% else %>
-                <%= @event.adress %>
+            <td>Lieu</td>
+            <td class="location pointer">:
+              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#showmap', 'data-zip': @event.zip do %>
+                <% if @event.adress.size > 50 %>
+                  <%= link_to (@event.adress + ' ' + @event.zip + ' ' + @event.town)[0..50] + ' (...)', '#', 'data-toggle': 'modal', 'data-target': '#EventAddress' %>
+                <% else %>
+                  <%= (@event.adress + ' ' + @event.zip + ' ' + @event.town)[0..50] %>
+                <% end %>
+                <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
               <% end %>
-              </a>
             </td>
           </tr>
           <tr>
@@ -134,27 +124,27 @@
     </div>
   </div>
 
-  <div id="event_pictures">
-    <% if @event.photo1.url.present? %>
+  <% if @event.photo1.url.present? %>
+    <div id="event_pictures">
       <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10 ) %>
-    <% end %>
 
-    <% if @event.photo2.url.present? %>
-      <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10 ) %>
-    <% end %>
+      <% if @event.photo2.url.present? %>
+        <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10 ) %>
+      <% end %>
 
-    <% if @event.photo3.url.present? %>
-      <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10 ) %>
-    <% end %>
+      <% if @event.photo3.url.present? %>
+        <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10 ) %>
+      <% end %>
 
-    <% if @event.photo4.url.present? %>
-      <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10 ) %>
-    <% end %>
+      <% if @event.photo4.url.present? %>
+        <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10 ) %>
+      <% end %>
 
-    <% if @event.photo5.url.present? %>
-      <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10 ) %>
-    <% end %>
-  </div>
+      <% if @event.photo5.url.present? %>
+        <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10 ) %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <script>
@@ -294,5 +284,12 @@
 <script>
   $('#showmap').on('shown.bs.modal', function (event) {
       showMap($(event.relatedTarget).data('zip'));
-  })
+  });
+  $('#organizer').hover(
+    function () {
+      $('#avatar').show();
+    },
+    function () {
+      $('#avatar').hide();
+    },);
 </script>

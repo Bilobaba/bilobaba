@@ -84,11 +84,8 @@ map {
 }
 
 #avatar {
+    display: none;
     position: absolute;
     top: 10px;
     right: 10px;
-}
-
-#avatar:hover {
-    opacity: 0.7;
 }
