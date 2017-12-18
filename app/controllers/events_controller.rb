@@ -8,7 +8,6 @@ class EventsController < ApplicationController
   def index
     @h1_title = 'Les prochains évènements'
     @events = Event.next_events
-binding.pry
   end
 
   # GET /events/1
