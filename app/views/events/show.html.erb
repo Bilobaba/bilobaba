@@ -134,30 +134,30 @@
   <% if @event.photo1.url.present? %>
     <div id="event_pictures">
       <%= link_to @event.photo1.url do %>
-        <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10 ) %>
+        <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
       <% end %>
 
       <% if @event.photo2.url.present? %>
         <%= link_to @event.photo2.url do %>
-          <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10 ) %>
+          <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
         <% end %>
       <% end %>
 
       <% if @event.photo3.url.present? %>
         <%= link_to @event.photo3.url do %>
-          <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10 ) %>
+          <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
         <% end %>
       <% end %>
 
       <% if @event.photo4.url.present? %>
         <%= link_to @event.photo4.url do %>
-          <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10 ) %>
+          <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
         <% end %>
       <% end %>
 
       <% if @event.photo5.url.present? %>
         <%= link_to @event.photo5.url do %>
-          <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10 ) %>
+          <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
         <% end %>
       <% end %>
     </div>
