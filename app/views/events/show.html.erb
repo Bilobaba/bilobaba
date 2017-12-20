@@ -1,10 +1,9 @@
 <%= stylesheet_link_tag 'event' %>
 
-
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <div id="show_event">
+  <div id="show">
     <div id="event">
       <div id="event_title">
         <h4><%= @event.title %></h4>
@@ -28,11 +27,11 @@
           <% if @event.organizer.avatar.file %>
             <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar') %>
           <% else %>
-            <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 80, height: 80 %>
+            <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 80, height: 80, id: 'avatar' %>
           <% end %>
         <% end %>
 
-        <table id="show_event">
+        <table>
           <tr>
             <td>Date et heure</td>
             <td>: <%= I18n.l(@event.begin, format: '%a %-d %b %Y - %Hh%M') %></td>
@@ -114,145 +113,147 @@
     </div>
 
     <div id="discussion">
-          <h4>Des questions ? Envie d'en discuter ?</h4>
+      <h4>Des questions ? Envie d'en discuter ?</h4>
 
-          <div id="comments">
-            <% @event.comments.each do |comment| %>
-                <%= render comment %>
-            <% end %>
-          </div>
+      <div id="comments">
+        <% @event.comments.each do |comment| %>
+            <%= render comment %>
+        <% end %>
+      </div>
 
-          <% # FIXME Only display this form is a user is connected %>
-          <%= simple_form_for [@event, @comment], remote: true do |f| %>
-              <%= f.input :content, label: false %>
-              <%= f.button :submit, 'Envoyer le commentaire' %>
-          <% end %>
+      <% # FIXME Only display this form is a user is connected %>
+      <%= simple_form_for [@event, @comment], remote: true do |f| %>
+          <%= f.input :content, label: false %>
+          <%= f.button :submit, 'Envoyer le commentaire' %>
+      <% end %>
 
     </div>
+
+    
   </div>
 
   <% if @event.photo1.url.present? %>
-    <div id="event_pictures">
-      <%= link_to @event.photo1.url do %>
-        <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
+        <div id="event_pictures">
+          <%= link_to @event.photo1.url do %>
+            <%= cl_image_tag( @event.photo1.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
+          <% end %>
+
+          <% if @event.photo2.url.present? %>
+            <%= link_to @event.photo2.url do %>
+              <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
+            <% end %>
+          <% end %>
+
+          <% if @event.photo3.url.present? %>
+            <%= link_to @event.photo3.url do %>
+              <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
+            <% end %>
+          <% end %>
+
+          <% if @event.photo4.url.present? %>
+            <%= link_to @event.photo4.url do %>
+              <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
+            <% end %>
+          <% end %>
+
+          <% if @event.photo5.url.present? %>
+            <%= link_to @event.photo5.url do %>
+              <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
+            <% end %>
+          <% end %>
+        </div>
       <% end %>
 
-      <% if @event.photo2.url.present? %>
-        <%= link_to @event.photo2.url do %>
-          <%= cl_image_tag( @event.photo2.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
-        <% end %>
-      <% end %>
+  <script>
+    $(document).ready(function(){
 
-      <% if @event.photo3.url.present? %>
-        <%= link_to @event.photo3.url do %>
-          <%= cl_image_tag( @event.photo3.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
-        <% end %>
-      <% end %>
+        $("#EventPartY").html('Y aller : <span style="font-family: Courier New"> Oui </span>');
+        $("#EventPartN").html('Y aller : <span style="font-family: Courier New"> Non </span>');
 
-      <% if @event.photo4.url.present? %>
-        <%= link_to @event.photo4.url do %>
-          <%= cl_image_tag( @event.photo4.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
-        <% end %>
-      <% end %>
+        $("#EventLikeY").html('Aimer : <span style="font-family: Courier New"> Oui </span>');
+        $("#EventLikeN").html('Aimer : <span style="font-family: Courier New"> Non </span>');
 
-      <% if @event.photo5.url.present? %>
-        <%= link_to @event.photo5.url do %>
-          <%= cl_image_tag( @event.photo5.file.filename, width: 200, height:200, radius: 10, crop: 'fill' ) %>
+        $("#EventRecommendY").html('Recommander : <span style="font-family: Courier New"> Oui </span>');
+        $("#EventRecommendN").html('Recommander : <span style="font-family: Courier New"> Non </span>');
+
+        $("#EventFollowY").html('Suivre : <span style="font-family: Courier New"> Oui </span>');
+        $("#EventFollowN").html('Suivre : <span style="font-family: Courier New"> Non </span>');
+
+        $("#EventPartY").click(function(){
+            $("#EventPartY").hide();
+            $("#EventPartN").show();
+        });
+        $("#EventPartN").click(function(){
+            $("#EventPartY").show();
+            $("#EventPartN").hide();
+        });
+
+        <% if @event.participate?(current_member) %>
+            $("#EventPartN").click();
+        <% else %>
+            $("#EventPartY").click();
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
+
+        $("#EventLikeY").click(function(){
+            $("#EventLikeY").hide();
+            $("#EventLikeN").show();
+        });
+        $("#EventLikeN").click(function(){
+            $("#EventLikeY").show();
+            $("#EventLikeN").hide();
+        });
+
+        <% if @event.like?(current_member) %>
+            $("#EventLikeN").click();
+        <% else %>
+            $("#EventLikeY").click();
+        <% end %>
+
+        $("#EventRecommendY").click(function(){
+            $("#EventRecommendY").hide();
+            $("#EventRecommendN").show();
+        });
+        $("#EventRecommendN").click(function(){
+            $("#EventRecommendY").show();
+            $("#EventRecommendN").hide();
+        });
+
+            $("#EventRecommendY").show();
+
+        <% if @event.recommend?(current_member) %>
+            $("#EventRecommendN").click();
+        <% else %>
+            $("#EventRecommendY").click();
+        <% end %>
+
+        $("#EventFollowY").click(function(){
+            $("#EventFollowY").hide();
+            $("#EventFollowN").show();
+        });
+        $("#EventFollowN").click(function(){
+            $("#EventFollowY").show();
+            $("#EventFollowN").hide();
+        });
+
+        <% if @event.follow?(current_member) %>
+            $("#EventFollowN").click();
+        <% else %>
+            $("#EventFollowY").click();
+        <% end %>
+
+    });
+  </script>
 </div>
-
-<script>
-  $(document).ready(function(){
-
-      $("#EventPartY").html('Y aller : <span style="font-family: Courier New"> Oui </span>');
-      $("#EventPartN").html('Y aller : <span style="font-family: Courier New"> Non </span>');
-
-      $("#EventLikeY").html('Aimer : <span style="font-family: Courier New"> Oui </span>');
-      $("#EventLikeN").html('Aimer : <span style="font-family: Courier New"> Non </span>');
-
-      $("#EventRecommendY").html('Recommander : <span style="font-family: Courier New"> Oui </span>');
-      $("#EventRecommendN").html('Recommander : <span style="font-family: Courier New"> Non </span>');
-
-      $("#EventFollowY").html('Suivre : <span style="font-family: Courier New"> Oui </span>');
-      $("#EventFollowN").html('Suivre : <span style="font-family: Courier New"> Non </span>');
-
-      $("#EventPartY").click(function(){
-          $("#EventPartY").hide();
-          $("#EventPartN").show();
-      });
-      $("#EventPartN").click(function(){
-          $("#EventPartY").show();
-          $("#EventPartN").hide();
-      });
-
-      <% if @event.participate?(current_member) %>
-          $("#EventPartN").click();
-      <% else %>
-          $("#EventPartY").click();
-      <% end %>
-
-      $("#EventLikeY").click(function(){
-          $("#EventLikeY").hide();
-          $("#EventLikeN").show();
-      });
-      $("#EventLikeN").click(function(){
-          $("#EventLikeY").show();
-          $("#EventLikeN").hide();
-      });
-
-      <% if @event.like?(current_member) %>
-          $("#EventLikeN").click();
-      <% else %>
-          $("#EventLikeY").click();
-      <% end %>
-
-      $("#EventRecommendY").click(function(){
-          $("#EventRecommendY").hide();
-          $("#EventRecommendN").show();
-      });
-      $("#EventRecommendN").click(function(){
-          $("#EventRecommendY").show();
-          $("#EventRecommendN").hide();
-      });
-
-          $("#EventRecommendY").show();
-
-      <% if @event.recommend?(current_member) %>
-          $("#EventRecommendN").click();
-      <% else %>
-          $("#EventRecommendY").click();
-      <% end %>
-
-      $("#EventFollowY").click(function(){
-          $("#EventFollowY").hide();
-          $("#EventFollowN").show();
-      });
-      $("#EventFollowN").click(function(){
-          $("#EventFollowY").show();
-          $("#EventFollowN").hide();
-      });
-
-      <% if @event.follow?(current_member) %>
-          $("#EventFollowN").click();
-      <% else %>
-          $("#EventFollowY").click();
-      <% end %>
-
-  });
-</script>
 
 <!-- Modal for Event Description -->
 <div class="modal fade" id="EventDescription" tabindex="-1" role="dialog" aria-labelledby="EventAttendeesLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header" style="color: #339999">
+      <div class="modal-header">
         <h4 class="modal-title" id="EventAttendeesLabel">Description détaillée de <em> <%= @event.title %> </em></h4>
       </div>
       <div class="modal-body">
-        <%= @event.description %>
+        <%= simple_format(@event.description) %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -265,7 +266,7 @@
 <div class="modal fade" id="EventAddress" tabindex="-1" role="dialog" aria-labelledby="EventAttendeesLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header" style="color: #339999">
+      <div class="modal-header">
         <h4 class="modal-title" id="EventAttendeesLabel">Lieu pour <em> <%= @event.title %> </em></h4>
       </div>
       <div class="modal-body">

@@ -5,7 +5,7 @@
             <div class="avatar" id="avatar_<%= member.id %>">
                 <%= cl_image_tag member.avatar.file.public_id, width: 300, height: 300, crop: :fill %>
             </div>
-            <div class="pseudo pseudo_hidden" id="pseudo_<%= member.id %>">
+            <div class="pseudo_hover" id="pseudo_<%= member.id %>">
                 <%= member.pseudo[0..10] %>
             </div>
         <% else %>
@@ -14,7 +14,5 @@
             </div>
         <% end %>
         
-        
     </div>
 <% end %>
-

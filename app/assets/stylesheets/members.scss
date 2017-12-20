@@ -1,0 +1,49 @@
+@import "default";
+
+#members {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.member {
+    align-items: center;
+    background: $fill_color;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    margin: 10px;
+    width: 100px;
+}
+
+.member:hover {
+    background: $hover_color;
+}
+
+.member:hover .avatar {
+    display: none;
+}
+
+.member:hover .pseudo_hover {
+    display: flex;
+}
+
+.pseudo, .pseudo_hover {
+    align-items: center;
+    display: flex;
+    height: 100px;
+    padding: 0px 5px 0px 5px;
+    text-align: center;
+}
+
+.pseudo_hover {
+    display: none;
+}
+
+.avatar img {
+    height: 100px;
+    width: 100px;
+}

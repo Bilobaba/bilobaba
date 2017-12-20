@@ -3,123 +3,91 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url('https://fonts.googleapis.com/css?family=Trirong');
+@import "default";
 
 body {
+    color: $primary_color;
     font-family: 'Trirong', sans-serif;
-    color: #333333;
-}
-
-.container {
-    padding-top: 0px;
-}
-
-a {
-    color: #333333;
-}
-
-a:focus {
-    text-decoration: none;
-    outline: none;
-}
-
-a:hover {
-    color: #339999;
-    text-decoration: none;
-    outline: none;
-}
-
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes example {
-    0%   {left:-100px; top:-100px;}
-    25%  {left:200px; top:-100px;}
-    50%  {left:200px; top:200px;}
-    75%  {left:-100px; top:200px;}
-    100% {left:-100px; top:-100px;}
-}
-
-/* Standard syntax */
-@keyframes example {
-    0%   {left:-100px; top:-100px;}
-    25%  {left:200px; top:-100px;}
-    50%  {left:200px; top:200px;}
-    75%  {left:-100px; top:200px;}
-    100% {left:-100px; top:-100px;}
-}
-
-.navbar-default {
-    background-color: none;
-    background: none;
-    border: none;
-    padding: 10px 0px 10px 0px;
-    margin: 0px;
-    border-radius: 0px;
-}
-
-.navbar-default .navbar-nav > li > a, #dLabel {
-    cursor: pointer;
-    margin-left: 20px;
-    color: white;
-    border-top: solid 1px transparent;
-}
-
-#dLabel {
-    padding: 10px 15px 10px 15px;
-}
-
-.navbar-default .navbar-nav > li > a:hover, #dLabel:hover {
-    color: white;
-    border-top: solid 1px white;
-}
-
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
-    background: none;
-    background-color: none;
-    color: rgba(45, 45, 45, 0.344);
-    border-bottom: solid 1px white;
 }
 
 h1 {
+    color: white;
     font-size: 30px;
-    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
     height: 100px;
     line-height: 100px;
-    text-align: center;
-    font-weight: bold;
     margin-bottom: 20px;
     margin-top: 15px;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-.container {
-    padding-top: 5px;
-}
-
-a.badge:hover {
-    background: #2e8585;
-    background-color: #2e8585;
-    transition: 250ms;
+    opacity: 0.8;
+    text-align: center;
 }
 
 h3 {
     margin-top: 0px;
 }
 
-.navbar-brand {
-    padding: 0px;
-    margin-right: 10px;
+a {
+    color: $primary_color;
 }
 
-.navbar-nav > li > a {
-    padding-top: 10px;
-    padding-bottom: 10px;
+a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+a:hover {
+    color: $fill_color;
+    outline: none;
+    text-decoration: none;
+}
+
+a.badge:hover {
+    background: $hover_color;
+    transition: 250ms;
+}
+
+img {
+    border-radius: 5px;
+}
+
+hr {
+    margin: 10px 0px 10px 0px;
+}
+
+.container {
+    padding-top: 5px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#background_top {
+    background-image: image-url("header/ginkgo_1.jpg");
+}
+
+#background_home {
+    background-image: image-url("header/ginkgo_home.jpg");
 }
 
 .location:hover {
-    color: #339999;
+    color: $hover_color;
 }
+
+.participate {
+    background: $fill_color;
+}
+
+.modal-header {
+    background: $fill_color;
+    color: white;
+}
+
+#map {
+    height: 300px;
+}
+
+// -------- FORM --------
 
 .green_form {
     width: 500px;
@@ -142,42 +110,7 @@ h3 {
     float: right;
 }
 
-.participate {
-    background: #339999;
-    background-color: #339999;
-}
-
-#background_top {
-    background-image: image-url("header/ginkgo_1.jpg");
-}
-
-.home {
-    background-image: image-url("header/ginkgo_home.jpg");
-}
-
-#home_content {
-    margin: auto;
-    max-width: 700px;
-    color: white;
-    font-size: 30px;
-    margin-top: 50px;
-}
-
-#home_title {
-    font-size: 40px;
-}
-
-#home_title span {
-    font-size: 12px;
-}
-
-#home_title span a {
-    color: white;
-}
-
-#home_title span a:hover {
-    text-decoration: underline;
-}
+// -------- FOOTER --------
 
 footer {
     margin-top: 15px;
@@ -198,20 +131,10 @@ footer ul li {
 }
 
 .footer {
-    border-top: solid 2px #3399990f;
+    border-top: solid 2px #e4e4e4;
     padding-top: 15px;
 }
 
 #copyright {
     float: right;
-}
-
-.dropdown-menu {
-    background: rgba(255, 255, 255, 0.461);
-    background-color: rgba(255, 255, 255, 0.461);
-}
-
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    background: rgba(255, 255, 255, 0.461);
-    background-color: rgba(255, 255, 255, 0.461);
 }

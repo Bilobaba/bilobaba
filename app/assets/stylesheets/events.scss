@@ -1,0 +1,37 @@
+@import "default";
+
+#events td {
+    padding-left: 0px;
+    padding-right: 0px;
+    vertical-align: middle;
+}
+
+#events th:not(:first-of-type), #events td:not(:first-of-type) {
+    text-align: center;
+}
+
+#events td:last-child{
+    width: 110px;
+}
+
+#events td:nth-child(even):not(:first-of-type) {
+    background: #F5F9F9;
+}
+
+.organizer > img:hover {
+    opacity: 0.8;
+}
+
+.organizer > span {
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.professional {
+    color: $fill_color;
+}
+
+#add_event {
+    text-align: center;
+}

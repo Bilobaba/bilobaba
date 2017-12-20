@@ -1,0 +1,40 @@
+@import "default";
+
+.navbar-default {
+    background: none;
+    border: none;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 10px 0px 10px 0px;
+}
+
+.navbar-brand {
+    padding: 0px;
+    margin-right: 10px;
+}
+
+.menu_item {
+    border-top: solid 1px transparent;
+    color: white;
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 15px;
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:hover {
+    color: white;
+}
+
+.menu_item:hover {
+    border-top: solid 1px white;
+    color: white;
+}
+
+.dropdown-menu {
+    background: rgba(255, 255, 255, 0.461);
+    margin-left: 20px;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background: rgba(255, 255, 255, 0.461);
+}

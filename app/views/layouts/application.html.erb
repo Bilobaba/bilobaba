@@ -3,28 +3,22 @@
   <head>
     <title>Bilobaba</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon.png' %>
-
   </head>
 
   <% if current_page?(root_path) %>
-    <body class="home">
+  <body id="background_home">
+    <%= render '/layouts/navbar' %>
   <% else %>
-    <body>
-  <% end %>
-
-    <% if current_page?(root_path) %>
+  <body>
+    <div id="background_top">
       <%= render '/layouts/navbar' %>
-    <% else %>
-      <div id="background_top">
-        <%= render '/layouts/navbar' %>
-        <h1><%= @h1_title %></h1>
-      </div>
-      <%= render 'shared/flashes' %>
-    <% end %>
+      <h1><%= @h1_title %></h1>
+    </div>
+    <%= render 'shared/flashes' %>
+  <% end %>
 
     <%= yield %>
 
@@ -32,6 +26,7 @@
       <%= render '/layouts/footer' %>
     <% end %>
     
+    <!-- load the google map API, only once (see data-turbolinks-eval = false) -->
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'], async: true, defer: true, 'data-turbolinks-eval': false %>
   </body>
 </html>

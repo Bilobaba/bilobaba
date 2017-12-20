@@ -7,9 +7,7 @@
         <th>Lieu</th>
         <th>Orga</th>
         <th>Participants</th>
-        <% if member_signed_in? && !current_member.has_role?(:professional) %>
-            <th></th>
-        <% end %>
+        <th></th>
     </tr>
 </thead>
 
@@ -57,15 +55,23 @@
         <td id="availability_<%= event.id %>">
             <%= event.show_availability %>
         </td>
-        <% if member_signed_in? && !current_member.has_role?(:professional) %>
-            <td>
-                <% if event.participate?(current_member) %>
-                    <%= link_to 'Se désinscrire', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge participate', remote: true %>
-                <% else %>
-                    <%= link_to 'Y participer', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge', remote: true if event.attendees.size != event.members_max || event.members_max == 0 %>
+            <% if member_signed_in? %>
+                <% if !current_member.has_role?(:professional) %>
+                    <td>
+                        <% if event.participate?(current_member) %>
+                            <% if member_signed_in? %>
+                                <%= link_to 'Se désinscrire', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge participate', remote: true %>
+                            <% end %>
+                        <% else %>
+                            <% if member_signed_in? %>
+                                <%= link_to 'Y participer', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge', remote: true if event.attendees.size != event.members_max || event.members_max == 0 %>
+                            <% end %>
+                        <% end %>
+                    </td>
                 <% end %>
-            </td>
-        <% end %>
+            <% else %>
+                <td>Y participer</td>
+            <% end %>
     </tr>
 
     <div class="modal fade" id="attendees" tabindex="-1" role="dialog">

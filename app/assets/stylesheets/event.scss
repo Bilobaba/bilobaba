@@ -1,0 +1,66 @@
+@import "default";
+
+#show {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#event {
+    flex: 1;
+    margin-right: 20px;
+}
+
+#event td {
+    padding-right: 10px;
+}
+
+#event_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#event_controls {
+    text-align: right;
+    margin-top: 10px;
+}
+
+#event_content, #event_pictures {
+    border: solid 1px $border_color;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#event_content {
+    position: relative;
+}
+#event_pictures img {
+    margin-right: 10px;
+}
+
+.btn-centered {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-centered a {
+    margin: 0px 5px 0px 5px;
+}
+
+#avatar {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#discussion {
+    flex: 1;
+}
+
+.comment {
+    border-bottom: solid 1px $border_color;
+    margin-bottom: 15px;
+}
