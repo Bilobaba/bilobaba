@@ -66,16 +66,14 @@
                     </td>
                 <% end %>
             <% else %>
-                <td><%= link_to 'Y participer', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'badge' if event.attendees.size != event.members_max || event.members_max == 0 %></td>
+                <td><%= link_to 'J\'y vais', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'badge' if event.attendees.size != event.members_max || event.members_max == 0 %></td>
             <% end %>
     </tr>
     <% end %>
 </tbody>
 </table>
 
-<div class="modal fade" id="modal_map" tabindex="-1" role="dialog">
-    <%= render 'layouts/map', title: 'Localisation' %>
-</div>
+<%= render 'layouts/map', title: 'Localisation' %>
 
 <script>
     $('#modal_map').on('shown.bs.modal', function (event) {
