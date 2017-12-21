@@ -36,25 +36,48 @@ gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'jquery-rails'
 
+# Form easily
 gem 'simple_form'
 
+# Authentification Login. Logout
 gem 'devise'
 
+# Hide KEYs in application.yml
 gem 'figaro'
 
+# Upload image
 gem 'carrierwave'
 
+# Store image in cloud
 gem 'cloudinary'
 
+# Simple form select country
 gem 'country_select'
 
+# Debug
 gem 'pry'
 
+# Send mails
 gem 'sendgrid-ruby'
 
+# Manage role 'professional'
 gem 'rolify'
 
+# Popup confirm more likes Bootsrap
 gem 'data-confirm-modal'
+
+# Search engine
+gem "algoliasearch-rails"
+
+# CSV
+gem 'csv'
+
+#JSON
+gem 'json'
+
+# Stripe
+gem 'stripe'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
