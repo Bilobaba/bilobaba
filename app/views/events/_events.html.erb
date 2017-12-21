@@ -29,7 +29,7 @@
             <%= event.show_price %>
         </td>
         <td class="location pointer">
-            <%= link_to '#', 'data-toggle':'modal', 'data-target':'#showmap', 'data-zip': event.zip do %>
+            <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-zip': event.zip do %>
                 <%= event.zip %>
                 <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
             <% end %>
@@ -59,34 +59,26 @@
                 <% if !current_member.has_role?(:professional) %>
                     <td>
                         <% if event.participate?(current_member) %>
-                            <% if member_signed_in? %>
-                                <%= link_to 'Se désinscrire', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge participate', remote: true %>
-                            <% end %>
+                            <%= link_to 'J\'y vais', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge active', 'aria-pressed': 'true', remote: true %>
                         <% else %>
-                            <% if member_signed_in? %>
-                                <%= link_to 'Y participer', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge', remote: true if event.attendees.size != event.members_max || event.members_max == 0 %>
-                            <% end %>
+                            <%= link_to 'J\'y vais', participate_path(id: event.id), id: 'participate_' + event.id.to_s, class: 'badge', 'aria-pressed': 'true', remote: true if event.attendees.size != event.members_max || event.members_max == 0 %>
                         <% end %>
                     </td>
                 <% end %>
             <% else %>
-                <td>Y participer</td>
+                <td><%= link_to 'Y participer', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'badge' if event.attendees.size != event.members_max || event.members_max == 0 %></td>
             <% end %>
     </tr>
-
-    <div class="modal fade" id="attendees" tabindex="-1" role="dialog">
-        <%= render 'layouts/members', title: 'Ils aiment', members: event.attendees %>
-    </div>
     <% end %>
 </tbody>
 </table>
 
-<div class="modal fade" id="showmap" tabindex="-1" role="dialog">
+<div class="modal fade" id="modal_map" tabindex="-1" role="dialog">
     <%= render 'layouts/map', title: 'Localisation' %>
 </div>
 
 <script>
-    $('#showmap').on('shown.bs.modal', function (event) {
+    $('#modal_map').on('shown.bs.modal', function (event) {
         showMap($(event.relatedTarget).data('zip'));
     })
 </script>

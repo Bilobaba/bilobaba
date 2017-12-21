@@ -30,20 +30,23 @@ a {
     color: $primary_color;
 }
 
-a:focus {
-    outline: none;
-    text-decoration: none;
-}
-
 a:hover {
     color: $fill_color;
     outline: none;
     text-decoration: none;
 }
 
-a.badge:hover {
-    background: $hover_color;
-    transition: 250ms;
+a.reverse {
+    color: $fill_color;
+}
+
+a.reverse:hover {
+    color: $primary_color;
+}
+
+a:focus {
+    outline: none;
+    text-decoration: none;
 }
 
 img {
@@ -74,12 +77,13 @@ hr {
     color: $hover_color;
 }
 
-.participate {
+.participate, .active {
     background: $fill_color;
 }
 
 .modal-header {
     background: $fill_color;
+    border-radius: 5px 5px 0px 0px;
     color: white;
 }
 

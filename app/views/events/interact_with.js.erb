@@ -1,0 +1,7 @@
+$("#<%= @link_id %>").button('toggle');
+
+<% if @link_id  == 'go' %>
+    $("#modal_attendees").html("<%= j render 'layouts/members', id: 'attendees', title: 'Ils participent', members: @event.attendees %>");
+<% elsif @link_id  == 'like' %>
+    $("#modal_likers").html("<%= j render 'layouts/members', id: 'likers', title: 'Ils aiment', members: @event.likers %>");
+<% end %>
