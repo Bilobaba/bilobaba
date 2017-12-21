@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :members, only: %i[show index]
   end
 
+  # Stripe
+  resources :charges
+
   get 'pages/home', as: 'home'
   get 'pages/contact', as: 'contact'
   post 'pages/contact', to: 'pages#send_mail_contact'
