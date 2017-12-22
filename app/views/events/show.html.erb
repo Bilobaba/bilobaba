@@ -18,7 +18,7 @@
 
       <% if @event.image.url.present? %>
         <%= link_to @event.image_url do %>
-          <%= cl_image_tag( @event.image.file.filename, width: 600, height: 182 ) %>
+          <%= cl_image_tag( @event.image.file.filename, width: 600, height: 182, crop: :fill ) %>
         <% end %>
       <% end %>
 
