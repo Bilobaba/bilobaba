@@ -1,7 +1,6 @@
-require 'pry'
-
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit update destroy participate like recommend follow]
+  before_action :require_login, only: %i[new edit update destroy participate interact_with]
+  before_action :set_event, only: %i[show edit update destroy participate interact_with]
 
   # GET /events
   # GET /events.json
@@ -73,27 +72,29 @@ class EventsController < ApplicationController
   def participate
     @event.participate(current_member)
 
-    @author = current_member.pseudo
-    @email = current_member.email
-    @message = 'yoyo'
+    # @author = current_member.pseudo
+    # @email = current_member.email
+    # @message = 'yoyo'
 
-    if params[:status] == 'in'
-      ContactMailer.event_participate(@author, @email, @message).deliver_now
-    elsif params[:status] == 'out'
-      ContactMailer.event_leave(@author, @email, @message).deliver_now
+    # if params[:status] == 'in'
+    #   ContactMailer.event_participate(@author, @email, @message).deliver_now
+    # elsif params[:status] == 'out'
+    #   ContactMailer.event_leave(@author, @email, @message).deliver_now
+    # end
+  end
+
+  def interact_with
+    @link_id = params.permit(:type)[:type]
+    case @link_id
+    when 'go'
+      participate
+    when 'like'
+      @event.like(current_member)
+    when 'recommend'
+      @event.recommend(current_member)
+    when 'follow'
+      @event.follow(current_member)
     end
-  end
-
-  def like
-    @event.like(current_member, params[:status])
-  end
-
-  def recommend
-    @event.recommend(current_member, params[:status])
-  end
-
-  def follow
-    @event.follow(current_member, params[:status])
   end
 
   private
@@ -107,5 +108,9 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :description, :begin, :end, :price_min, :price_max, :members_max,
                                   :adress, :town, :zip, :lat, :lng, { photos: [] }, :image, :photo1, :photo2, :photo3, :photo4)
+  end
+
+  def require_login
+    redirect_to forbidden_path unless member_signed_in?
   end
 end

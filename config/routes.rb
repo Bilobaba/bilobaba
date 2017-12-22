@@ -18,11 +18,10 @@ Rails.application.routes.draw do
   get 'pages/home', as: 'home'
   get 'pages/contact', as: 'contact'
   post 'pages/contact', to: 'pages#send_mail_contact'
+  get 'pages/forbidden', as: 'forbidden'
 
   get 'participate', to: 'events#participate', as: 'participate'
-  get 'like', to: 'events#like', as: 'like'
-  get 'recommend', to: 'events#recommend', as: 'recommend'
-  get 'follow', to: 'events#follow', as: 'follow'
+  get 'interact_with/:id/:type', to: 'events#interact_with', as: 'interact_with'
 
   root 'pages#home'
 end

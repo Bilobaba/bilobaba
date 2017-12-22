@@ -1,0 +1,16 @@
+<div class="modal fade" id="connection" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h4 class="modal-title" id="EventDescriptionLabel"><%= title %> </h4>
+            </div>
+            <div class="modal-body">
+                Vous devez être connecté pour effectuer cette action !<br />
+                Pour se connecter, c'est <%= link_to 'ici', new_member_session_path, class: 'reverse' %>, et pour s'inscrire c'est par <%= link_to 'là', new_member_registration_path, class: 'reverse' %>
+            </div>
+            <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div>
+    </div>
+    </div>
+</div>

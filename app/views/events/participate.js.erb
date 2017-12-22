@@ -1,9 +1,2 @@
-if (<%= @event.participate?(current_member) %>) {
-    $("#participate_<%= @event.id %>").html("Se désinscrire");
-    $("#participate_<%= @event.id %>").addClass('participate');
-} else {
-    $("#participate_<%= @event.id %>").html("Y participer");
-    $("#participate_<%= @event.id %>").removeClass('participate');
-}
-    
+$("#participate_<%= @event.id %>").button('toggle');
 $("#availability_<%= @event.id %>").html("<%= @event.show_availability %>");

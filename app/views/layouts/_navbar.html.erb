@@ -25,7 +25,13 @@
             </div>
             <ul class="dropdown-menu" aria-labelledby="dLabel">
               <li><%= link_to 'Liste des évènements', events_path %></li>
-              <li><%= link_to 'Créer un évènement', new_event_path %></li>
+              <li>
+                <% if member_signed_in? %>
+                  <%= link_to 'Créer un évènement', new_event_path %>
+                <% else %>
+                  <%= link_to 'Créer un évènement', '#', 'data-toggle':'modal', 'data-target':'#connection' %>
+                <% end %>
+              </li>
             </ul>
           </div>
         </li>
@@ -57,3 +63,5 @@
     </div>
   </div>
 </div>
+
+<%= render 'layouts/connection', title: 'Se connecter / S\'inscrire' %>

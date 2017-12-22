@@ -60,7 +60,21 @@
     flex: 1;
 }
 
+#comments {
+    margin-top: 20px;
+}
+
 .comment {
     border-bottom: solid 1px $border_color;
     margin-bottom: 15px;
+}
+
+.event_action {
+    text-align: center;
+    margin: 0px 7px 0px 7px;
+    font-size: 12px;
+}
+
+.event_action p {
+    margin: 5px 0px 0px 0px;
 }
