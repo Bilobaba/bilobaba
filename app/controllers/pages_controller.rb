@@ -4,6 +4,10 @@ class PagesController < ApplicationController
   def home
   end
 
+  def team
+    @h1_title = 'Notre équipe'
+  end
+
   def contact
     @h1_title = 'Donnez-nous votre avis'
   end
