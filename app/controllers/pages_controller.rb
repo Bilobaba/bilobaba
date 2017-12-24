@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def search
-    @h1_title = 'Chercher vos envies'
+    @h1_title = 'Trouvez vos envies'
   end
 
   def contact
