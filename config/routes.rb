@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'pages/home', as: 'home'
   get 'pages/team', as: 'team'
+  get 'pages/search', as: 'search'
   get 'pages/contact', as: 'contact'
   post 'pages/contact', to: 'pages#send_mail_contact'
   get 'pages/forbidden', as: 'forbidden'

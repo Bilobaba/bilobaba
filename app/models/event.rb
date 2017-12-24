@@ -1,5 +1,9 @@
 class Event < ApplicationRecord
 
+  include Rails.application.routes.url_helpers
+  include AlgoliaSearch
+
+
   validates :title, presence: true, length: { minimum: 5 }
   validates :description, presence: true, length: { minimum: 10 }
   validates :begin, presence: true
@@ -114,11 +118,51 @@ class Event < ApplicationRecord
     return pictures
   end
 
-  def self.next_events
+  def self.next_events(time = Time.now)
     Event
       .order(begin: :asc)
-      .where('begin >= ?', Time.now)
+      .where('begin >= ?', time)
       .includes(:attendees)
+  end
+
+  algoliasearch do
+
+    # list of attribute used to build an Algolia record
+    attributes :id, :title, :description, :adress, :town, :zip
+
+    # extra_attr will be sent
+    add_attribute :member_name, :member_first_name, :event_begin, :event_url
+
+    # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
+    # you want to search in: here `title`, `subtitle` & `description`.
+    # You need to list them by order of importance. `description` is tagged as
+    # `unordered` to avoid taking the position of a match into account in that attribute.
+    searchableAttributes ['title', 'member_name', 'member_first_name', 'adress', 'town', 'zip',
+      'unordered(description)', 'event_url']
+
+    # the `customRanking` setting defines the ranking criteria use to compare two matching
+    # records in case their text-relevance is equal. It should reflect your record popularity.
+    #customRanking ['desc(likes_count)']
+
+    # Use the geoloc method to localize
+    geoloc :lat, :lng
+
+  end
+
+  def member_name
+    self.organizer.name
+  end
+
+  def member_first_name
+    self.organizer.first_name
+  end
+
+  def event_begin
+    self.begin.to_i
+  end
+
+  def event_url
+    'www.bilobaba.com' + event_path(self)
   end
 
 end

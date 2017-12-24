@@ -8,6 +8,10 @@ class PagesController < ApplicationController
     @h1_title = 'Notre équipe'
   end
 
+  def search
+    @h1_title = 'Chercher vos envies'
+  end
+
   def contact
     @h1_title = 'Donnez-nous votre avis'
   end
