@@ -4,7 +4,7 @@ class ContactMailer < ApplicationMailer
     @author = author
     @email = email
     @message = message
-    mail(to: 'tao.zen.duy@gmail.com', subject: 'Message de contact')
+    mail(to: 'hello.bilobaba@gmail.com', subject: 'Message de contact de Duy')
   end
 
   def contact_confirm(author, email, message)
