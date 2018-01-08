@@ -4,6 +4,14 @@ class PagesController < ApplicationController
   def home
   end
 
+  def team
+    @h1_title = 'Notre équipe'
+  end
+
+  def smihug
+    @h1_title = 'Smihug devient Bilobaba'
+  end
+
   def contact
     @h1_title = 'Donnez-nous votre avis'
   end
@@ -13,8 +21,8 @@ class PagesController < ApplicationController
     @email = params[:message][:email]
     @message = params[:message][:message]
 
-    ContactMailer.contact(@author,@email,@message).deliver_now
     ContactMailer.contact_confirm(@author,@email,@message).deliver_now
+    ContactMailer.contact(@author,@email,@message).deliver_now
 
     flash[:notice] = "Votre message a bien été envoyé."
     redirect_to root_path
