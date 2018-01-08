@@ -23,15 +23,14 @@
 
 
 var hitTemplate =
-  '<div class="hit media">' +
+  '<div class="hit media">' +'<a href="//{{event_url}}">' +
     '<div class="media-left">' +
-      '<div class="media-object" style="background-image: url(\'{{image}}\');"></div>' +
+      '<div class="media-object" style="background-image: url(\'{{image}}\');"> Left </div>' +
     '</div>' +
-    '<div class="media-body">' + '<a href="//{{event_url}}">' +
-      '<h4 class="media-heading"> {{{_highlightResult.event_summary.value}}} {{#stars}}<span class="ais-star-rating--star{{^.}}__empty{{/.}}"></span>{{/stars}}</h4>' +
-      '<p class="year">{{year}}</p><p class="genre">{{#genre}}<span class="badge">{{.}}</span> {{/genre}}</p>' + '</a>'
-    '</div>' +
-  '</div>';
+    '<div class="media-body">' +
+      '<h4 class="media-heading"> {{{_highlightResult.event_summary.value}}} </h4>' +
+    '</div>' + '</a>' + '<hr> '
+  '</div>' ;
 
 var noResultsTemplate =
   '<div class="text-center">Nous n\'avons trouvé aucun réusultat pour <strong>{{query}}</strong>.</div>';

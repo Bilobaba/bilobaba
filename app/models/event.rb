@@ -138,7 +138,7 @@ class Event < ApplicationRecord
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute.
     searchableAttributes ['title', 'member_name', 'member_first_name', 'adress', 'town', 'zip',
-      'ordered(event_begin)']
+      'event_summary', 'description','ordered(event_begin)']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
