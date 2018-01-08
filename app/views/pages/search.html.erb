@@ -9,7 +9,10 @@
   var search = instantsearch({
     appId: '83N3URNY53',
     apiKey: 'c429a3d14fd4af659f01c6017a7b9fc9',
-    indexName: 'Event'
+    indexName: 'Event',
+    searchParameters: {
+    filters: ''
+    }
   });
 
   search.addWidget(
