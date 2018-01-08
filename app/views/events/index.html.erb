@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag 'events' %>
 
 <div class="container">
+  <%= link_to 'A venir', events_path(events: 'next'), class: 'btn_events', remote: true %>
+  <%= link_to 'Passés', events_path(events: 'past'), class: 'btn_events btn_selectable', remote: true %>
   <div class="table-responsive" id="events">
     <%= render partial: "events", locals: { events_partial: @events } %>
   </div>

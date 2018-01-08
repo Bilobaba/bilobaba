@@ -5,8 +5,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @h1_title = 'Les prochains évènements'
-    @events = Event.next_events
+    if params.permit(:events)[:events] == 'past'
+      @h1_title = 'Evènements passés'
+      @events = Event.past_events
+    else
+      @h1_title = 'Evènements à venir'
+      @events = Event.next_events
+    end
   end
 
   # GET /events/1

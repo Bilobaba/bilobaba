@@ -121,4 +121,12 @@ class Event < ApplicationRecord
       .includes(:attendees)
   end
 
+  def self.past_events
+    Event
+      .order(begin: :desc)
+      .where('begin < ?', Time.now)
+      .includes(:attendees)
+      .limit(20)
+  end
+
 end

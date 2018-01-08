@@ -1,6 +1,27 @@
 @import "default";
 
+#events {
+    border: solid 1px #399;
+    border-radius: 5px;
+    padding: 20px 20px 10px 20px;
+    margin: 4px 0px 20px 0px;
+}
+
+#events table {
+   margin-bottom: 0px;
+}
+
+#events thead > tr {
+    background-color: #399;
+    color: white;
+}
+
+#events thead th {
+    border: none;
+}
+
 #events td {
+    
     padding-left: 0px;
     padding-right: 0px;
     vertical-align: middle;
@@ -8,10 +29,6 @@
 
 #events th:not(:first-of-type), #events td:not(:first-of-type) {
     text-align: center;
-}
-
-#events td:nth-child(even):not(:first-of-type) {
-    background: #F5F9F9;
 }
 
 .organizer > img:hover {
@@ -30,4 +47,36 @@
 
 #add_event {
     text-align: center;
+}
+
+.btn_events {
+    background-color: $hover_color;
+    border-radius: 5px 5px 0px 0px;
+    color: white;
+    cursor: default;
+    font-size: 14px;
+    padding: 5px 5px 2px 5px;
+    text-transform: uppercase;
+}
+
+.btn_events:hover, .btn_events:focus {
+    color: white;
+}
+
+.btn_events:nth-child(1) {
+    margin-left: 21px;
+}
+
+.btn_events:nth-child(2) {
+    margin-left: 5px;
+}
+
+.btn_selectable {
+    background-color: #96d6d6;
+    cursor: pointer;
+}
+
+.btn_selectable:hover {
+    background-color: $hover_color;
+    color: white;
 }
