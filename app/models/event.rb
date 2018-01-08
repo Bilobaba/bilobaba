@@ -171,7 +171,7 @@ class Event < ApplicationRecord
 
   def event_summary
     text = I18n.l(self.begin, format: '%a %-d %b %Y - %Hh%M') + " " + self.title[0..20].capitalize + "... organisé par " +
-    self.organizer.first_name + " " + self.organizer.name
+    self.organizer.first_name + " " + self.organizer.name + " à " + self.town
     return text
   end
 
