@@ -131,14 +131,14 @@ class Event < ApplicationRecord
     attributes :id, :title, :description, :adress, :town, :zip
 
     # extra_attr will be sent
-    add_attribute :member_name, :member_first_name, :event_begin, :event_url
+    add_attribute :member_name, :member_first_name, :event_begin, :event_url, :event_summary
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute.
     searchableAttributes ['title', 'member_name', 'member_first_name', 'adress', 'town', 'zip',
-      'unordered(description)', 'event_url']
+      'event_summary','ordered(event_begin)']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
@@ -162,7 +162,17 @@ class Event < ApplicationRecord
   end
 
   def event_url
-    'www.bilobaba.com' + event_path(self)
+    if Rails.env == "development"
+      return 'localhost:3000' + event_path(self)
+    else
+      return 'www.bilobaba.com' + event_path(self)
+    end
+  end
+
+  def event_summary
+    text = I18n.l(self.begin, format: '%a %-d %b %Y - %Hh%M') + " " + self.title[0..20].capitalize + "... organisé par " +
+    self.organizer.first_name + " " + self.organizer.name
+    return text
   end
 
 end

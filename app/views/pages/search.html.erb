@@ -1,51 +1,25 @@
 <div class="container">
-  <header class="row">
-    <div class="">
-      <a href="https://www.algolia.com/" class="logo">Rechercher avec Algolia<i class="fa fa-youtube-play"></i></a>
-    </div>
-    <div class="searchbox-container">
-      <div class="input-group">
-        <input type="text" class="form-control" id="q" />
-        <span class="input-group-btn">
-          <button class="btn btn-default"><a href="https://community.algolia.com/instantsearch.js/" class="is-logo"><%= image_tag "logo-is.png", width: 17 %></a></button>
-        </span>
-      </div>
-    </div>
-  </header>
-  <section class="">
-    <aside>
-      <ul class="nav nav-list">
-        <li class="separator"></li>
-      </ul>
-    </aside>
-    <article>
-      <div id="stats" class="text-right text-muted"></div>
-      <hr />
-      <div id="hits"></div>
-      <div id="pagination" class="text-center"></div>
-    </article>
-  </section>
-
+<input type="text" id="search-box" />
+<div id="hits-container"></div>
+<div id="pagination-container"></div>
 </div>
-  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
 
-  <script src="search.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
 <script>
+  var search = instantsearch({
+    appId: '83N3URNY53',
+    apiKey: 'c429a3d14fd4af659f01c6017a7b9fc9',
+    indexName: 'Event'
+  });
 
-
-var search = instantsearch({
-  appId: '83N3URNY53',
-  apiKey: 'c429a3d14fd4af659f01c6017a7b9fc9',
-  indexName: 'Event',
-  urlSync: {}
-});
-
-search.addWidget(
-  instantsearch.widgets.searchBox({
-    container: '#q'
-  })
-);
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#search-box',
+      placeholder: 'Trouver mes envies ...',
+      autofocus: true,
+      poweredBy: true
+    })
+  );
 
 
 var hitTemplate =
@@ -54,45 +28,31 @@ var hitTemplate =
       '<div class="media-object" style="background-image: url(\'{{image}}\');"></div>' +
     '</div>' +
     '<div class="media-body">' + '<a href="//{{event_url}}">' +
-      '<h4 class="media-heading">{{{_highlightResult.title.value}}} {{{_highlightResult.zip.value}}} {{#stars}}<span class="ais-star-rating--star{{^.}}__empty{{/.}}"></span>{{/stars}}</h4>' +
+      '<h4 class="media-heading"> {{{_highlightResult.event_summary.value}}} {{#stars}}<span class="ais-star-rating--star{{^.}}__empty{{/.}}"></span>{{/stars}}</h4>' +
       '<p class="year">{{year}}</p><p class="genre">{{#genre}}<span class="badge">{{.}}</span> {{/genre}}</p>' + '</a>'
     '</div>' +
   '</div>';
 
 var noResultsTemplate =
-  '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>';
+  '<div class="text-center">Nous n\'avons trouvé aucun réusultat pour <strong>{{query}}</strong>.</div>';
+
 
 search.addWidget(
   instantsearch.widgets.hits({
-    container: '#hits',
-    hitsPerPage: 10,
+    container: '#hits-container',
     templates: {
       empty: noResultsTemplate,
       item: hitTemplate
     },
-    transformData: function(hit) {
-      hit.stars = [];
-      for (var i = 1; i <= 5; ++i) {
-        hit.stars.push(i <= hit.rating);
-      }
-      return hit;
-    }
+    hitsPerPage: 10
   })
 );
 
-search.addWidget(
-  instantsearch.widgets.pagination({
-    container: '#pagination',
-    cssClasses: {
-      root: 'pagination',
-      active: 'active'
-    }
-  })
-);
+  search.addWidget(
+    instantsearch.widgets.pagination({
+      container: '#pagination-container'
+    })
+  );
 
-
-search.start();
-
+  search.start();
 </script>
-
-</body>
