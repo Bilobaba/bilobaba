@@ -137,12 +137,13 @@ class Event < ApplicationRecord
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute.
-    searchableAttributes ['title', 'member_name', 'member_first_name', 'adress', 'town', 'zip',
-      'event_summary', 'description','ordered(event_begin)']
+    searchableAttributes ['event_begin','title', 'member_name', 'member_first_name', 'adress', 'town', 'zip',
+      'event_summary', 'description']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
     #customRanking ['desc(likes_count)']
+    customRanking ['desc(event_begin)']
 
     # Use the geoloc method to localize
     geoloc :lat, :lng
