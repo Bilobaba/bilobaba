@@ -1,5 +1,5 @@
 <div class="container">
-<input type="text" id="search-box" />
+<input type="text" id="search-box" style="width: 600px; height: 30px; margin: auto; " />
 <div id="hits-container"></div>
 <div id="pagination-container"></div>
 </div>
@@ -11,14 +11,14 @@
     apiKey: 'c429a3d14fd4af659f01c6017a7b9fc9',
     indexName: 'Event',
     searchParameters: {
-    filters: ''
+    filters: 'event_begin > <%= Time.now.to_i %>'
     }
   });
 
   search.addWidget(
     instantsearch.widgets.searchBox({
       container: '#search-box',
-      placeholder: 'Trouver mes envies ...',
+      placeholder: ' Trouver mes envies ...',
       autofocus: true,
       poweredBy: true
     })
@@ -28,7 +28,7 @@
 var hitTemplate =
   '<div class="hit media">' +'<a href="//{{event_url}}">' +
     '<div class="media-left">' +
-      '<div class="media-object" style="background-image: url(\'{{image}}\');"> Left </div>' +
+      '<div class="media-object" style="background-image: url(\'{{member_avatar}}\');"></div>' +
     '</div>' +
     '<div class="media-body">' +
       '<h4 class="media-heading"> {{{_highlightResult.event_summary.value}}} </h4>' +

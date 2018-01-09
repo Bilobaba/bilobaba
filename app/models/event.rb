@@ -131,19 +131,20 @@ class Event < ApplicationRecord
     attributes :id, :title, :description, :adress, :town, :zip
 
     # extra_attr will be sent
-    add_attribute :member_name, :member_first_name, :event_begin, :event_url, :event_summary
+    add_attribute :member_name, :member_first_name, :event_begin, :event_url, :event_summary,
+                  :member_avatar
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute.
     searchableAttributes ['event_begin','title', 'member_name', 'member_first_name', 'adress', 'town', 'zip',
-      'event_summary', 'description']
+      'event_summary', 'description', 'member_avatar']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
     #customRanking ['desc(likes_count)']
-    customRanking ['desc(event_begin)']
+    customRanking ['asc(event_begin)']
 
     # Use the geoloc method to localize
     geoloc :lat, :lng
@@ -174,6 +175,10 @@ class Event < ApplicationRecord
     text = I18n.l(self.begin, format: '%a %-d %b %Y - %Hh%M') + " " + self.title[0..20].capitalize + "... organisé par " +
     self.organizer.first_name + " " + self.organizer.name + " à " + self.town
     return text
+  end
+
+  def member_avatar
+    return self.organizer.avatar.url
   end
 
 end
