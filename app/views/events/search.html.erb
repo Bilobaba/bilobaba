@@ -11,8 +11,13 @@
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
 <script>
   var search = instantsearch({
-    appId: '83N3URNY53',
-    apiKey: 'c429a3d14fd4af659f01c6017a7b9fc9',
+    <% if Rails.env == "production" %>
+      appId: '83N3URNY53',
+      apiKey: 'c429a3d14fd4af659f01c6017a7b9fc9',
+    <% else %>
+      appId: 'OMM51UN985',
+      apiKey: 'c31ad4e0a66a9a9fc18462db22626d77',
+    <% end %>
     indexName: 'Event',
     searchParameters: {
     filters: 'event_begin > <%= Time.now.to_i %>'
