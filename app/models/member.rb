@@ -33,15 +33,15 @@ class Member < ApplicationRecord
 
   def next_events_organize
     organize_events
-      .order(begin: :asc)
-      .where('begin >= ?', Time.now)
+      .order(begin_at: :asc)
+      .where('begin_at >= ?', Time.now)
       .includes(:attendees)
   end
 
   def next_events_attend
     attend_events
-      .order(begin: :asc)
-      .where('begin >= ?', Time.now)
+      .order(begin_at: :asc)
+      .where('begin_at >= ?', Time.now)
       .includes(:attendees)
   end
 

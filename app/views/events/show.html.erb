@@ -34,12 +34,12 @@
         <table>
           <tr>
             <td>Date et heure</td>
-            <td>: <%= I18n.l(@event.begin, format: '%a %-d %b %Y - %Hh%M') %></td>
+            <td>: <%= I18n.l(@event.begin_at, format: '%a %-d %b %Y - %Hh%M') %></td>
           </tr>
           <tr>
             <td>Durée</td>
             <td>:
-              <% duration = @event.end - @event.begin %>
+              <% duration = @event.end_at - @event.begin_at %>
               <%= (duration/1.hour).to_i %>h<%= (duration%1.hour/1.minute).to_i.to_s.rjust(2, '0') %>
             </td>
           </tr>
@@ -57,10 +57,10 @@
             <td>Lieu</td>
             <td class="location pointer">:
               <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-zip': @event.zip do %>
-                <% if @event.adress.size > 50 %>
-                  <%= (@event.adress + ' ' + @event.zip + ' ' + @event.town)[0..50] + ' (...)' %>
+                <% if @event.address.size > 50 %>
+                  <%= (@event.address + ' ' + @event.zip + ' ' + @event.city)[0..50] + ' (...)' %>
                 <% else %>
-                  <%= (@event.adress + ' ' + @event.zip + ' ' + @event.town)[0..50] %>
+                  <%= (@event.address + ' ' + @event.zip + ' ' + @event.city)[0..50] %>
                 <% end %>
                 <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
               <% end %>

@@ -40,7 +40,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event}
         format.json { render :show, status: :created, location: @event }
       else
-        # simple_form doesn t show errors for :begin & :end because
+        # simple_form doesn t show errors for :begin_at & :end_at because
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -108,8 +108,8 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:title, :description, :begin, :end, :price_min, :price_max, :members_max,
-                                  :adress, :town, :zip, :lat, :lng, { photos: [] }, :image, :photo1, :photo2, :photo3, :photo4)
+    params.require(:event).permit(:title, :description, :begin_at, :end_at, :price_min, :price_max, :members_max,
+                                  :address, :city, :zip, :lat, :lng, { photos: [] }, :image, :photo1, :photo2, :photo3, :photo4)
   end
 
   def require_login

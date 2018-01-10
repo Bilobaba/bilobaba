@@ -6,10 +6,10 @@ class Event < ApplicationRecord
 
   validates :title, presence: true, length: { minimum: 5 }
   validates :description, presence: true, length: { minimum: 10 }
-  validates :begin, presence: true
-  validates :end, presence: true
-  validates :adress, presence: true
-  validates :town, presence: true
+  validates :begin_at, presence: true
+  validates :end_at, presence: true
+  validates :address, presence: true
+  validates :city, presence: true
   validates :zip, presence: true, length: { is: 5 }
 
   mount_uploader :image, ImageUploader
@@ -120,31 +120,31 @@ class Event < ApplicationRecord
 
   def self.next_events(time = Time.now)
     Event
-      .order(begin: :asc)
-      .where('begin >= ?', time)
+      .order(begin_at: :asc)
+      .where('begin_at >= ?', time)
       .includes(:attendees)
   end
 
   algoliasearch do
 
     # list of attribute used to build an Algolia record
-    attributes :id, :title, :description, :adress, :town, :zip
+    attributes :id, :title, :description, :address, :city, :zip
 
     # extra_attr will be sent
-    add_attribute :member_name, :member_first_name, :event_begin, :event_url, :event_summary,
+    add_attribute :member_name, :member_first_name, :event_begin_at, :event_url, :event_summary,
                   :member_avatar
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute.
-    searchableAttributes ['event_begin','title', 'member_name', 'member_first_name', 'adress', 'town', 'zip',
+    searchableAttributes ['event_begin_at','title', 'member_name', 'member_first_name', 'address', 'city', 'zip',
       'event_summary', 'description', 'member_avatar']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
     #customRanking ['desc(likes_count)']
-    customRanking ['asc(event_begin)']
+    customRanking ['asc(event_begin_at)']
 
     # Use the geoloc method to localize
     geoloc :lat, :lng
@@ -159,8 +159,8 @@ class Event < ApplicationRecord
     self.organizer.first_name
   end
 
-  def event_begin
-    self.begin.to_i
+  def event_begin_at
+    self.begin_at.to_i
   end
 
   def event_url
@@ -172,8 +172,8 @@ class Event < ApplicationRecord
   end
 
   def event_summary
-    text = I18n.l(self.begin, format: '%a %-d %b %Y - %Hh%M') + " " + self.title[0..20].capitalize + "... organisé par " +
-    self.organizer.first_name + " " + self.organizer.name + " à " + self.town
+    text = I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M') + " " + self.title[0..20].capitalize + "... organisé par " +
+    self.organizer.first_name + " " + self.organizer.name + " à " + self.city
     return text
   end
 

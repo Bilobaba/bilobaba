@@ -13,16 +13,16 @@
       <% end %>
       <%= f.input :image, label: 'Image' %>
       <%= f.label  "Début" %> </br>
-      <%= f.datetime_field :begin %> </br></br>
-      <span><%= f.error :begin %></span>
+      <%= f.datetime_field :begin_at %> </br></br>
+      <span><%= f.error :begin_at %></span>
       <%= f.label  "Fin" %> </br>
-      <%= f.datetime_field :end %> </br></br>
-      <span class="error-red"><%= f.error :end %></span>
+      <%= f.datetime_field :end_at %> </br></br>
+      <span class="error-red"><%= f.error :end_at %></span>
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
-      <%= f.input :adress, label: 'Adresse' %>
-      <%= f.input :town, label: 'Ville' %>
+      <%= f.input :address, label: 'Adresse' %>
+      <%= f.input :city, label: 'Ville' %>
       <%= f.input :zip, label: 'CP' %>
 
       <% if @event.persisted? %>

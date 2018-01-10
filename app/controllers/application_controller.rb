@@ -8,10 +8,10 @@ class ApplicationController < ActionController::Base
   def configure_devise_parameters
     devise_parameter_sanitizer.permit(:sign_up){|u| u.permit(:email, :password, :password_confirmation,
                                                               :pseudo, :first_name, :name,:bio, :birth_date,
-                                                              :adress, :zip, :town, :country, :avatar, roles: [] )}
+                                                              :address, :zip, :city, :country, :avatar, roles: [] )}
     devise_parameter_sanitizer.permit(:account_update){|u| u.permit(:email, :password, :password_confirmation,
                                                               :pseudo, :first_name, :name,:bio, :birth_date,
-                                                              :adress, :zip, :town, :country, :avatar, :current_password )}
+                                                              :address, :zip, :city, :country, :avatar, :current_password )}
   end
 
   def last_request
