@@ -1,10 +1,11 @@
 class ContactMailer < ApplicationMailer
 
-  def contact(author, email, message)
+  def contact(contact_bilobaba,author, email, message)
     @author = author
     @email = email
     @message = message
-    mail(to: 'hello.bilobaba@gmail.com', subject: 'Message de contact de Duy')
+    @contact = contact_bilobaba
+    mail(to: @contact, subject: 'Message de contact de Bilobaba')
   end
 
   def contact_confirm(author, email, message)
