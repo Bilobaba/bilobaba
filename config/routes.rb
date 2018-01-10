@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # if route defined after, it will be interpreted as events/(:id = search)
+  get 'events/search', as: 'search'
   resources :events do
     resources :comments
   end

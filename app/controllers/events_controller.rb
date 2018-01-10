@@ -1,3 +1,5 @@
+require 'pry'
+
 class EventsController < ApplicationController
   before_action :require_login, only: %i[new edit update destroy participate interact_with]
   before_action :set_event, only: %i[show edit update destroy participate interact_with]

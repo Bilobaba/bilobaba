@@ -1,5 +1,9 @@
 class Event < ApplicationRecord
 
+  include Rails.application.routes.url_helpers
+  include AlgoliaSearch
+
+
   validates :title, presence: true, length: { minimum: 5 }
   validates :description, presence: true, length: { minimum: 10 }
   validates :begin, presence: true
@@ -114,11 +118,67 @@ class Event < ApplicationRecord
     return pictures
   end
 
-  def self.next_events
+  def self.next_events(time = Time.now)
     Event
       .order(begin: :asc)
-      .where('begin >= ?', Time.now)
+      .where('begin >= ?', time)
       .includes(:attendees)
+  end
+
+  algoliasearch do
+
+    # list of attribute used to build an Algolia record
+    attributes :id, :title, :description, :adress, :town, :zip
+
+    # extra_attr will be sent
+    add_attribute :member_name, :member_first_name, :event_begin, :event_url, :event_summary,
+                  :member_avatar
+
+    # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
+    # you want to search in: here `title`, `subtitle` & `description`.
+    # You need to list them by order of importance. `description` is tagged as
+    # `unordered` to avoid taking the position of a match into account in that attribute.
+    searchableAttributes ['event_begin','title', 'member_name', 'member_first_name', 'adress', 'town', 'zip',
+      'event_summary', 'description', 'member_avatar']
+
+    # the `customRanking` setting defines the ranking criteria use to compare two matching
+    # records in case their text-relevance is equal. It should reflect your record popularity.
+    #customRanking ['desc(likes_count)']
+    customRanking ['asc(event_begin)']
+
+    # Use the geoloc method to localize
+    geoloc :lat, :lng
+
+  end
+
+  def member_name
+    self.organizer.name
+  end
+
+  def member_first_name
+    self.organizer.first_name
+  end
+
+  def event_begin
+    self.begin.to_i
+  end
+
+  def event_url
+    if Rails.env == "development"
+      return 'localhost:3000' + event_path(self)
+    else
+      return 'www.bilobaba.com' + event_path(self)
+    end
+  end
+
+  def event_summary
+    text = I18n.l(self.begin, format: '%a %-d %b %Y - %Hh%M') + " " + self.title[0..20].capitalize + "... organisé par " +
+    self.organizer.first_name + " " + self.organizer.name + " à " + self.town
+    return text
+  end
+
+  def member_avatar
+    return self.organizer.avatar.url
   end
 
 end

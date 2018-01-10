@@ -12,6 +12,10 @@ class PagesController < ApplicationController
     @h1_title = 'Smihug devient Bilobaba'
   end
 
+  def search
+    @h1_title = 'Trouvez vos envies'
+  end
+
   def contact
     @h1_title = 'Donnez-nous votre avis'
   end
