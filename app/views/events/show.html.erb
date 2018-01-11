@@ -56,11 +56,12 @@
           <tr>
             <td>Lieu</td>
             <td class="location pointer">:
-              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-zip': @event.zip do %>
-                <% if @event.address.size > 50 %>
-                  <%= (@event.address + ' ' + @event.zip + ' ' + @event.city)[0..50] + ' (...)' %>
+              <% full_address = @event.address + ' ' + @event.zip + ' ' + @event.city %>
+              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-zip': full_address do %>
+                <% if full_address.size > 50 %>
+                  <%= full_address[0..50] + ' (...)' %>
                 <% else %>
-                  <%= (@event.address + ' ' + @event.zip + ' ' + @event.city)[0..50] %>
+                  <%= full_address %>
                 <% end %>
                 <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
               <% end %>
