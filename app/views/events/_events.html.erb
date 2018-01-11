@@ -29,7 +29,8 @@
             <%= event.show_price %>
         </td>
         <td class="location pointer">
-            <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-zip': event.zip do %>
+            <% address = event.address + ' ' + event.zip + ' ' + event.city %>
+            <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-address': address do %>
                 <%= event.zip %>
                 <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
             <% end %>
@@ -77,6 +78,6 @@
 
 <script>
     $('#modal_map').on('shown.bs.modal', function (event) {
-        showMap($(event.relatedTarget).data('zip'));
+        showMap($(event.relatedTarget).data('address'));
     })
 </script>

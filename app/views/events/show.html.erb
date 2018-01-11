@@ -57,7 +57,7 @@
             <td>Lieu</td>
             <td class="location pointer">:
               <% full_address = @event.address + ' ' + @event.zip + ' ' + @event.city %>
-              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-zip': full_address do %>
+              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-address': full_address do %>
                 <% if full_address.size > 50 %>
                   <%= full_address[0..50] + ' (...)' %>
                 <% else %>
@@ -161,7 +161,7 @@
 
 <script>
   $('#modal_map').on('shown.bs.modal', function (event) {
-    showMap($(event.relatedTarget).data('zip'));
+    showMap($(event.relatedTarget).data('address'));
   });
   $('#organizer').hover(
     function () {
