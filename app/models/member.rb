@@ -7,6 +7,9 @@ class Member < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  validates :avatar, presence: true
+
+
   has_many :organize_events, class_name: :Event, foreign_key: :member_id
 
   # follower_follows "names" the Follow join table for accessing through the follower association

@@ -10,7 +10,8 @@ class Event < ApplicationRecord
   validates :end_at, presence: true
   validates :address, presence: true
   validates :city, presence: true
-  validates :zip, presence: true, length: { is: 5 }
+  validates :zip, presence: true
+  validates :image, presence: true
 
   mount_uploader :image, ImageUploader
   mount_uploader :photo1, ImageUploader
