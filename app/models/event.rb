@@ -133,7 +133,7 @@ class Event < ApplicationRecord
 
     # extra_attr will be sent
     add_attribute :member_name, :member_first_name, :unix_begin_at, :url, :summary,
-                  :member_avatar, :full_adress, :short_title, :show_begin_at
+                  :member_avatar, :full_address, :short_title, :show_begin_at
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
@@ -145,7 +145,7 @@ class Event < ApplicationRecord
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
     #customRanking ['desc(likes_count)']
-    customRanking ['asc(event_begin_at)']
+    customRanking ['asc(unix_begin_at)']
 
     # Use the geoloc method to localize
     geoloc :lat, :lng

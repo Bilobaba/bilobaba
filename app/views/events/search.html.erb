@@ -11,16 +11,11 @@
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
 <script>
   var search = instantsearch({
-    <% if Rails.env == "production" %>
-      appId: '83N3URNY53',
-      apiKey: 'c429a3d14fd4af659f01c6017a7b9fc9',
-    <% else %>
-      appId: 'OMM51UN985',
-      apiKey: 'c31ad4e0a66a9a9fc18462db22626d77',
-    <% end %>
+    apiKey: '<%= ENV['ALGOLIA_SEARCH_ONLY_API_KEY'] %>',
+    appId: '<%= ENV['ALGOLIASEARCH_APPLICATION_ID'] %>',
     indexName: 'Event',
     searchParameters: {
-    filters: 'event_begin_at > <%= Time.now.to_i %>'
+    filters: 'unix_begin_at > <%= Time.now.to_i %>'
     }
   });
 
@@ -40,7 +35,7 @@ var hitTemplate =
       '<div class="media-object" style="background-image: url(\'{{member_avatar}}\');"></div>' +
     '</div>' +
     '<div class="media-body">' +
-      '<h4 class="media-heading"> {{{_highlightResult.event_summary.value}}} </h4>' +
+      '<h4 class="media-heading"> {{{_highlightResult.summary.value}}} </h4>' +
     '</div>' + '</a>' + '<hr> '
   '</div>' ;
 
