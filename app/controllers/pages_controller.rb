@@ -27,7 +27,6 @@ class PagesController < ApplicationController
 
     ContactMailer.contact_confirm(@author,@email,@message).deliver_now
     ContactMailer.contact('hello.bilobaba@gmail.com',@author,@email,@message).deliver_now
-    ContactMailer.contact('tao.zen.duy@gmail.com',@author,@email,@message).deliver_now
 
     flash[:notice] = "Votre message a bien été envoyé."
     redirect_to root_path
