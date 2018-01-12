@@ -132,15 +132,15 @@ class Event < ApplicationRecord
     attributes :id, :title, :description, :address, :city, :zip
 
     # extra_attr will be sent
-    add_attribute :member_name, :member_first_name, :event_begin_at, :event_url, :event_summary,
-                  :member_avatar
+    add_attribute :member_name, :member_first_name, :unix_begin_at, :url, :summary,
+                  :member_avatar, :full_adress, :short_title, :show_begin_at
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute.
-    searchableAttributes ['event_begin_at','title', 'member_name', 'member_first_name', 'address', 'city', 'zip',
-      'event_summary', 'description', 'member_avatar']
+    searchableAttributes ['unix_begin_at','title', 'member_name', 'member_first_name', 'address', 'city', 'zip',
+      'summary', 'description', 'member_avatar']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
@@ -160,11 +160,11 @@ class Event < ApplicationRecord
     self.organizer.first_name
   end
 
-  def event_begin_at
+  def unix_begin_at
     self.begin_at.to_i
   end
 
-  def event_url
+  def url
     if Rails.env == "development"
       return 'localhost:3000' + event_path(self)
     else
@@ -172,7 +172,7 @@ class Event < ApplicationRecord
     end
   end
 
-  def event_summary
+  def summary
     text = I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M') + " " + self.title[0..20].capitalize + "... organisé par " +
     self.organizer.first_name + " " + self.organizer.name + " à " + self.city
     return text
@@ -182,4 +182,20 @@ class Event < ApplicationRecord
     return self.organizer.avatar.url
   end
 
+  def full_address
+    self.address + ' ' + self.zip + ' ' + self.city
+  end
+
+  def short_title
+    self.title.length > 44 ? self.title[0..40] + '...' : self.title
+  end
+
+  def show_begin_at
+    I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M')
+  end
+
+  def show_duration
+    duration = self.end_at - self.begin_at
+    show_duration = (duration/1.hour).to_i.to_s + 'h' + (duration%1.hour/1.minute).to_i.to_s.rjust(2, '0')
+  end
 end

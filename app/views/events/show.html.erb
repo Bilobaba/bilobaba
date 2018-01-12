@@ -34,13 +34,12 @@
         <table>
           <tr>
             <td>Date et heure</td>
-            <td>: <%= I18n.l(@event.begin_at, format: '%a %-d %b %Y - %Hh%M') %></td>
+            <td>: <%= @event.show_begin_at %></td>
           </tr>
           <tr>
             <td>Durée</td>
             <td>:
-              <% duration = @event.end_at - @event.begin_at %>
-              <%= (duration/1.hour).to_i %>h<%= (duration%1.hour/1.minute).to_i.to_s.rjust(2, '0') %>
+              <%= @event.show_duration %>
             </td>
           </tr>
           <tr>

@@ -15,22 +15,14 @@
     <% events_partial.each do |event| %>
     <tr>
         <td>
-            <%= link_to event do %>
-                <div>
-                    <%= event.title[0..40] %>
-                    <% if event.title.length > 40 %>
-                         (...)
-                    <% end %>
-                </div>
-            <% end %>
+            <%= link_to(event.short_title,event) %>
         </td>
-        <td><%= I18n.l(event.begin_at, format: '%-d %b %Y - %Hh%M') %></td>
+        <td><%= event.show_begin_at %></td>
         <td>
             <%= event.show_price %>
         </td>
         <td class="location pointer">
-            <% address = event.address + ' ' + event.zip + ' ' + event.city %>
-            <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-address': address do %>
+            <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-address': event.full_address do %>
                 <%= event.zip %>
                 <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
             <% end %>
