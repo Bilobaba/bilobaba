@@ -11,8 +11,8 @@
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
 <script>
   var search = instantsearch({
-    apiKey: '<%= ENV['ALGOLIA_SEARCH_ONLY_API_KEY'] %>',
-    appId: '<%= ENV['ALGOLIASEARCH_APPLICATION_ID'] %>',
+    apiKey: '<%= ENV['ALGOLIA_SEARCH_API_KEY_SEARCH'] %>',
+    appId: '<%= ENV['ALGOLIA_SEARCH_APPLICATION_ID'] %>',
     indexName: 'Event',
     searchParameters: {
     filters: 'unix_begin_at > <%= Time.now.to_i %>'
