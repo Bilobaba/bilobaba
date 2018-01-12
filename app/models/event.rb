@@ -133,14 +133,16 @@ class Event < ApplicationRecord
 
     # extra_attr will be sent
     add_attribute :member_name, :member_first_name, :unix_begin_at, :url, :summary,
-                  :member_avatar, :full_address, :short_title, :show_begin_at
+                  :member_avatar, :full_address, :short_title, :show_begin_at, :member_pseudo,
+                  :show_price
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute.
-    searchableAttributes ['unix_begin_at','title', 'member_name', 'member_first_name', 'address', 'city', 'zip',
-      'summary', 'description', 'member_avatar']
+    searchableAttributes ['unix_begin_at','title', 'member_name', 'member_first_name', 'address',
+                          'city', 'zip','summary', 'description', 'member_avatar','short_title',
+                          'show_begin_at', 'member_pseudo', 'show_price']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
@@ -158,6 +160,14 @@ class Event < ApplicationRecord
 
   def member_first_name
     self.organizer.first_name
+  end
+
+  def member_avatar
+    return self.organizer.avatar.url
+  end
+
+  def member_pseudo
+    return self.organizer.pseudo
   end
 
   def unix_begin_at
@@ -178,9 +188,6 @@ class Event < ApplicationRecord
     return text
   end
 
-  def member_avatar
-    return self.organizer.avatar.url
-  end
 
   def full_address
     self.address + ' ' + self.zip + ' ' + self.city

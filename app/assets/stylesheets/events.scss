@@ -1,9 +1,22 @@
 @import "default";
 
+
 #events td {
-    padding-left: 0px;
-    padding-right: 0px;
     vertical-align: middle;
+}
+
+
+#events table tbody tr a {
+    display:block;
+    height:100%;
+    width:100%;
+}
+
+#events tbody tr:hover{
+  cursor: pointer;
+  font-weight: bold;
+  color: $hover_color;
+  color: red;
 }
 
 #events th:not(:first-of-type), #events td:not(:first-of-type) {
@@ -31,3 +44,4 @@
 #add_event {
     text-align: center;
 }
+
