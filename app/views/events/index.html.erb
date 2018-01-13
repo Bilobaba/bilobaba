@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="table-responsive" id="events">
-    <%= render partial: "events", locals: { events_partial: @events } %>
+    <%= render partial: "events_search" %>
   </div>
   <div id="add_event">
     <%= link_to 'Créer un évènement', new_event_path, class: 'btn btn-default btn-lg' if member_signed_in? %>

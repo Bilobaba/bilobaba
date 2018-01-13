@@ -1,0 +1,74 @@
+coucou
+<div class="container container-search-box">
+<input type="text" id="search-box" style="width: 600px; height: 30px; margin: auto; ">
+</div>
+<br>
+<br>
+<div class="container">
+  <div id="hits-container"></div>
+  <div id="pagination-container"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
+<script>
+  var search = instantsearch({
+    apiKey: '<%= ENV['ALGOLIA_SEARCH_API_KEY_SEARCH'] %>',
+    appId: '<%= ENV['ALGOLIA_SEARCH_APPLICATION_ID'] %>',
+    indexName: 'Event',
+    searchParameters: {
+    filters: 'unix_begin_at > <%= Time.now.to_i %>'
+    }
+  });
+
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#search-box',
+      placeholder: ' Trouver mes envies ...',
+      autofocus: true,
+      poweredBy: true
+    })
+  );
+
+var hitTemplate =
+'<table class="table" id="events">' +
+  '<thead>' +
+    '<tr><th>Evènement</th><th>Date</th><th>Prix</th><th>Lieu</th><th>Orga.</th></tr>' +
+  '</thead>' +
+  '<tbody>' +
+  '{{#hits}}' +
+    '<tr onclick="document.location=\'{{url}}\'">' +
+      '<td>{{{short_title}}}</td>' +
+      '<td>{{{show_begin_at}}}</td>' +
+      '<td>{{{show_price}}}</td>' +
+      '<td>{{{zip}}}</td>' +
+      '<td>{{{member_pseudo}}}</td>' +
+      '</tr>' +
+  '{{/hits}}' +
+  '</tbody>' +
+'</table>';
+// var hitTemplate = '<tr><td> Hello world ! </td></tr>'
+
+var noResultsTemplate =
+  '<div class="text-center">Nous n\'avons trouvé aucun réusultat pour <strong>{{query}}</strong>.</div>';
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits-container',
+    templates: {
+      empty: noResultsTemplate,
+      allItems: hitTemplate
+    }
+  })
+);
+
+  search.addWidget(
+    instantsearch.widgets.pagination({
+      container: '#pagination-container'
+    })
+  );
+
+  search.start();
+
+</script>
