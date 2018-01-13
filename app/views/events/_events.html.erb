@@ -13,9 +13,9 @@
 
 <tbody>
     <% events_partial.each do |event| %>
-    <tr>
+    <tr onclick="document.location='<%= event.url %>'">
         <td>
-            <%= link_to(event.short_title,event) %>
+            <%= event.short_title %>
         </td>
         <td><%= event.show_begin_at %></td>
         <td>

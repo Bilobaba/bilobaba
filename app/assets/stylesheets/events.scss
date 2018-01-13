@@ -16,6 +16,7 @@
   cursor: pointer;
   font-weight: bold;
   color: $hover_color;
+  border: solid 2px;
 }
 
 #events th:not(:first-of-type), #events td:not(:first-of-type) {
