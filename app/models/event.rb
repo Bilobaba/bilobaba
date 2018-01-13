@@ -176,9 +176,9 @@ class Event < ApplicationRecord
 
   def url
     if Rails.env == "development"
-      return 'localhost:3000' + event_path(self)
+      return 'http://localhost:3000' + event_path(self)
     else
-      return 'www.bilobaba.com' + event_path(self)
+      return 'http://www.bilobaba.com/' + event_path(self)
     end
   end
 

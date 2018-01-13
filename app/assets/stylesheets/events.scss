@@ -16,7 +16,6 @@
   cursor: pointer;
   font-weight: bold;
   color: $hover_color;
-  color: red;
 }
 
 #events th:not(:first-of-type), #events td:not(:first-of-type) {
@@ -45,3 +44,9 @@
     text-align: center;
 }
 
+.container-search-box{
+  margin: auto;
+  width: 700px;
+  background-color: $hover_color;
+  border-radius: 3px;
+}
