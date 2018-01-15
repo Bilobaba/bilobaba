@@ -34,9 +34,9 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.organizer = current_member
-
     respond_to do |format|
       if @event.save
+        @event.algolia_index!
         format.html { redirect_to @event}
         format.json { render :show, status: :created, location: @event }
       else
@@ -52,6 +52,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
+        @event.algolia_index!
         format.html { redirect_to @event}
         format.json { render :show, status: :ok, location: @event }
       else
@@ -64,6 +65,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    @event.algolia_remove_from_index!
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url}
