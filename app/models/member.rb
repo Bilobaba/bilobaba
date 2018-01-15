@@ -7,16 +7,16 @@ class Member < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  validates :avatar, presence: true
-  validates :pseudo, presence: true
-  validates :first_name, presence: true
-  validates :name, presence: true
-  validates :bio, presence: true
-  validates :birth_date, presence: true
-  validates :address, presence: true
-  validates :zip, presence: true
-  validates :city, presence: true
-  validates :country, presence: true
+  # validates :avatar, presence: true
+  # validates :pseudo, presence: true
+  # validates :first_name, presence: true
+  # validates :name, presence: true
+  # validates :bio, presence: true
+  # validates :birth_date, presence: true
+  # validates :address, presence: true
+  # validates :zip, presence: true
+  # validates :city, presence: true
+  # validates :country, presence: true
 
   has_many :organize_events, class_name: :Event, foreign_key: :member_id
 
