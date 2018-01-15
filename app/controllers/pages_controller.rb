@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
   def search
     @h1_title = 'Trouvez vos envies'
+    render partial "events_search"
   end
 
   def contact
