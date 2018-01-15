@@ -25,7 +25,6 @@
             </div>
             <ul class="dropdown-menu" aria-labelledby="dLabel">
               <li><%= link_to 'Liste des évènements', events_path %></li>
-              <li><%= link_to 'Rechercher un évènement', search_path %></li>
               <li>
                 <% if member_signed_in? %>
                   <%= link_to 'Créer un évènement', new_event_path %>
