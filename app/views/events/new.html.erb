@@ -6,7 +6,17 @@
 <div class="container" style="display: flex">
   <div><input id="getSetMultiPicker" style="margin: 20px; background: black; color: black"></div>
   <div type="text" id="resultDatePicker" style="margin: 20px; background: green" ></div>
+  <div type="text" id="resultDatePicker2" style="margin: 20px; background: green" ></div>
 </div>
+
+<p> *************************************************** </p>
+
+<div class="container" style="display: flex">
+<input type="text" size="10" id="l10nPicker" >
+<input type="text" size="30" id="l10nAlternate" readonly="readonly">
+</div>
+
+<p> *************************************************** </p>
 <script>
 
   var tabShow = [];
@@ -16,7 +26,7 @@
   $('resultDatePicker').attr("disabled", true);
 
   // $('#getSetMultiPicker').calendarsPicker({multiSelect: 400, dateFormat: 'dd/mm/yyyy'});
-  $('#getSetMultiPicker').calendarsPicker({multiSelect: 400});
+  $('#getSetMultiPicker').calendarsPicker({multiSelect: 400, multiSelect: 2});
   $('#getSetMultiPicker').change(function(){
     var result = $('#getSetMultiPicker')[0].value;
 
@@ -43,5 +53,17 @@
     return Days[day.getDay()];
   }
 
+
+$('#l10nPicker').datepick($.extend({
+    showTrigger: '#calImg',
+    altField: '#l10nAlternate', altFormat: 'DD, d MM, yyyy'},
+    $.datepick.regionalOptions['fr']));
+
+$('#l10nLanguage').change(function() {
+    var language = $(this).val();
+    $.localise('js/jquery.datepick', language);
+    $('#l10nPicker').datepick('option', $.datepick.regionalOptions[language]);
+    $.datepick.setDefaults($.datepick.regionalOptions['']);
+});
 
 </script>

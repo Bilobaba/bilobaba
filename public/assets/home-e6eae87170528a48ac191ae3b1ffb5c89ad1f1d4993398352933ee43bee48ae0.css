@@ -1,0 +1,39 @@
+/* line 1, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home {
+  color: white;
+  font-size: 20px;
+  margin: 50px auto 0px auto;
+  max-width: 700px;
+  text-shadow: 1px 1px 5px black;
+}
+
+/* line 10, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home_title {
+  font-size: 40px;
+}
+
+/* line 14, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home_title span a {
+  font-size: 12px;
+  color: white;
+}
+
+/* line 19, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home_title span a:hover {
+  text-decoration: underline;
+}
+
+/* line 23, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home_news_img {
+  margin: 50px auto 0px auto;
+  width: 50%;
+  padding: 10px;
+}
+
+/* line 28, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home_news_title {
+  color: white;
+  font-size: 20px;
+  margin: 50px auto 0px auto;
+  max-width: 700px;
+}

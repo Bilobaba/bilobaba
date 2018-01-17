@@ -1,0 +1,59 @@
+/* line 4, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#events td {
+  vertical-align: middle;
+}
+
+/* line 9, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#events table tbody tr a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 15, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#events tbody tr:hover {
+  cursor: pointer;
+  font-weight: bold;
+  color: #2e8585;
+  border: solid 2px;
+}
+
+/* line 22, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#events th:not(:first-of-type), #events td:not(:first-of-type) {
+  text-align: center;
+}
+
+/* line 26, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#events td:nth-child(even):not(:first-of-type) {
+  background: #F5F9F9;
+}
+
+/* line 30, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+.organizer > img:hover {
+  opacity: 0.8;
+}
+
+/* line 34, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+.organizer > span {
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* line 40, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+.professional {
+  color: #339999;
+}
+
+/* line 44, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#add_event {
+  text-align: center;
+}
+
+/* line 48, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+.container-search-box {
+  margin: auto;
+  width: 700px;
+  background-color: #2e8585;
+  border-radius: 3px;
+}
