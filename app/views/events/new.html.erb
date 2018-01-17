@@ -1,3 +1,47 @@
-<div class="container">
+<!-- <div class="container">
   <%= render 'form', event: @event %>
 </div>
+ -->
+
+<div class="container" style="display: flex">
+  <div><input id="getSetMultiPicker" style="margin: 20px; background: black; color: black"></div>
+  <div type="text" id="resultDatePicker" style="margin: 20px; background: green" ></div>
+</div>
+<script>
+
+  var tabShow = [];
+
+  valeur = $('#mdp').calendarsPicker();
+  valeur = $('#mdp2').calendarsPicker();
+  $('resultDatePicker').attr("disabled", true);
+
+  // $('#getSetMultiPicker').calendarsPicker({multiSelect: 400, dateFormat: 'dd/mm/yyyy'});
+  $('#getSetMultiPicker').calendarsPicker({multiSelect: 400});
+  $('#getSetMultiPicker').change(function(){
+    var result = $('#getSetMultiPicker')[0].value;
+
+    tab = result.split(',');
+
+    tabShowed = "";
+    tabShow = [];
+
+    if (tab[0] != ""){
+      tab.forEach(function(element,index) {
+        day = new Date(tab[index]);
+        dayString = day.toLocaleDateString('fr')
+        tabShow[index] = DayWeek(day) + ' ' + day.toLocaleDateString('fr');
+      });
+    }
+
+    tabShowed = tabShow.join('<br>');
+    $('#resultDatePicker')[0].innerHTML = tabShowed;
+  });
+
+  // Define the callback function.
+  function DayWeek(day) {
+    Days = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"];
+    return Days[day.getDay()];
+  }
+
+
+</script>
