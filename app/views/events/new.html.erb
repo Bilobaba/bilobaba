@@ -54,13 +54,13 @@
   }
 
 
-$('#l10nPicker').datepick($.extend({
+$('#l10nPicker').calendarsPicker($.extend({
     showTrigger: '#calImg',
-    altField: '#l10nAlternate', altFormat: 'DD, d MM, yyyy'},
-    $.datepick.regionalOptions['fr']));
+    multiSelect: 400,
+    altField: '#l10nAlternate', altFormat: 'DD, d MM, yyyy'}));
 
 $('#l10nLanguage').change(function() {
-    var language = $(this).val();
+    var language = 'fr';
     $.localise('js/jquery.datepick', language);
     $('#l10nPicker').datepick('option', $.datepick.regionalOptions[language]);
     $.datepick.setDefaults($.datepick.regionalOptions['']);
