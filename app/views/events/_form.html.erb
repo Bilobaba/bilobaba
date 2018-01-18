@@ -12,12 +12,6 @@
         <%= cl_image_tag @event.image.file.filename, width: 470, height: 142 %>
       <% end %>
       <%= f.input :image, label: 'Image' %>
-      <%= f.label  "Début" %> </br>
-      <%= f.datetime_field :begin_at %> </br></br>
-      <span><%= f.error :begin_at %></span>
-      <%= f.label  "Fin" %> </br>
-      <%= f.datetime_field :end_at %> </br></br>
-      <span class="error-red"><%= f.error :end_at %></span>
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
@@ -48,6 +42,38 @@
         <% end %>
       <% end %>
 
+<p> *************************************************** </p>
+
+      <%= f.input :calendar_string, label: 'Calendrier', readonly: true %>
+
+      <div id="uniqueDate">
+        <h4>Calendrier pour événement avec une seule date</h4>
+        <%= f.label  "Début" %> </br>
+        <%= f.datetime_field :begin_at %> </br></br>
+        <span><%= f.error :begin_at %></span>
+        <%= f.label  "Fin" %> </br>
+        <%= f.datetime_field :end_at %> </br></br>
+        <span class="error-red"><%= f.error :end_at %></span>
+
+        <span type="button" onclick="showMultiDate()" class="btn btn-info">Pour saisir plusieurs dates</span>
+
+      </div>
+      <div id="multiDate">
+        <h4>Calendrier pour événement avec plusieurs dates</h4>
+        <div class="container" style="display: flex;">
+          <div style="margin: 30px">
+            <input type="text" size="10" id="l10nPicker" >
+          </div>
+          <div style="margin: 30px">
+            <div type="text" size="30" id="l10nAlternate" readonly="readonly"></div>
+          </div>
+        </div>
+        <span type="button" onclick="showUniqueDate()" class="btn btn-info">Evénement avec une seule date</span>
+      </div>
+
+
+<p> *************************************************** </p>
+
     </div>
 
     <div class="form-actions btn-group btn-group-justified" role="group">
@@ -60,3 +86,33 @@
     </div>
   <% end %>
 </div>
+
+<script>
+
+// Set Event.calendar_string by #ln10Picker
+$('#event_calendar_string').hide();
+
+$('#l10nPicker').calendarsPicker($.extend({
+    showTrigger: '#calImg',
+    multiSelect: 400,
+    dateFormat: 'dd/mm/yyyy',
+    altField: '#event_calendar_string', altFormat: 'dd/mm/yyyy'}));
+
+$('#l10nPicker').change(function(){
+  tabString = $('#event_calendar_string')[0].value.split(',').sort();
+  $('#l10nAlternate').html(tabString.join('<br>'));
+});
+
+function showUniqueDate() {
+  $('#multiDate').hide();
+  $('#uniqueDate').show();
+};
+
+function showMultiDate() {
+  $('#multiDate').show();
+  $('#uniqueDate').hide();
+};
+
+showUniqueDate();
+
+</script>
