@@ -3,7 +3,7 @@
    Stéphane Nahmani (sholby@sholby.net). */
 (function($) {
 	'use strict';
-	$.datepick.regionalOptions.fr = {
+	$.datepicker.regionalOptions = {
 		monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
 		'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
 		monthNamesShort: ['Jan','Fév','Mar','Avr','Mai','Jun',
@@ -13,7 +13,7 @@
 		dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
 		dateFormat: 'dd/mm/yyyy',
 		firstDay: 1,
-		renderer: $.datepick.defaultRenderer,
+		renderer: $.datepicker.defaultRenderer,
 		prevText: '&#x3c;Préc',
 		prevStatus: 'Voir le mois précédent',
 		prevJumpText: '&#x3c;&#x3c;',
@@ -38,5 +38,5 @@
 		defaultStatus: 'Choisir la date',
 		isRTL: false
 	};
-	$.datepick.setDefaults($.datepick.regionalOptions.fr);
+	$.datepicker.setDefaults($.datepicker.regionalOptions);
 })(jQuery);
