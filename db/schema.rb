@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117173502) do
+ActiveRecord::Schema.define(version: 20180118143400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 20180117173502) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_attend_events_on_event_id"
     t.index ["member_id"], name: "index_attend_events_on_member_id"
-  end
-
-  create_table "calendars", force: :cascade do |t|
-    t.datetime "begin_at"
-    t.datetime "end_at"
-    t.bigint "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_calendars_on_event_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -161,7 +152,6 @@ ActiveRecord::Schema.define(version: 20180117173502) do
 
   add_foreign_key "attend_events", "events"
   add_foreign_key "attend_events", "members"
-  add_foreign_key "calendars", "events"
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "members", column: "autor_id"
   add_foreign_key "events", "members"

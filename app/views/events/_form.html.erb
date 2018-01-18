@@ -20,7 +20,7 @@
       <%= f.input :zip, label: 'CP' %>
 
       <% if @event.persisted? %>
-        <%= f.input :photo1 , label: 'Photos 1' %>
+<!--         <%= f.input :photo1 , label: 'Photos 1' %>
         <% if @event.photo1.url.present? %>
           <%= cl_image_tag @event.photo1.file.filename, width: 200, height: 200 %>
         <% end %>
@@ -40,42 +40,37 @@
         <% if @event.photo5.url.present? %>
           <%= cl_image_tag @event.photo5.file.filename, width: 200, height: 200 %>
         <% end %>
-      <% end %>
+ -->      <% end %>
 
-<p> *************************************************** </p>
+      <hr>
 
-      <%= f.input :calendar_string, label: 'Calendrier', readonly: true %>
+      <!-- Warning  Event.calendar_string set by calendarsPicker-->
+      <%= f.input :calendar_string, label: 'Calendrier' %>
 
-      <div id="uniqueDate">
-        <h4>Calendrier pour événement avec une seule date</h4>
-        <%= f.label  "Début" %> </br>
-        <%= f.datetime_field :begin_at %> </br></br>
-        <span><%= f.error :begin_at %></span>
-        <%= f.label  "Fin" %> </br>
-        <%= f.datetime_field :end_at %> </br></br>
-        <span class="error-red"><%= f.error :end_at %></span>
+      Heure de début :
+      <%= f.time_select :begin_at, minute_step: 15 %>
 
-        <span type="button" onclick="showMultiDate()" class="btn btn-info">Pour saisir plusieurs dates</span>
+      Heure de fin :
+      <%= f.time_select :end_at, minute_step: 15 %>
 
-      </div>
-      <div id="multiDate">
-        <h4>Calendrier pour événement avec plusieurs dates</h4>
-        <div class="container" style="display: flex;">
-          <div style="margin: 30px">
-            <input type="text" size="10" id="l10nPicker" >
+      <div class="container" style="display: block; text-align: center; width: 100%; background-color: red">
+        <div style="display: flex; justify-content: space-around;">
+          <div style="align-items: center;">
+            <div>Choisir une datene ou plusieurs</div>
+            <div>
+              <input type="text" size="7" id="l10nPicker">
+            </div>
           </div>
-          <div style="margin: 30px">
-            <div type="text" size="30" id="l10nAlternate" readonly="readonly"></div>
+          <div  style="align-items: center;">
+            <div>Les dates choisies</div>
+            <div type="text" size="30" id="l10nAlternate" readonly="readonly" style="border: solid 1px; margin-left: 20px "></div>
           </div>
         </div>
-        <span type="button" onclick="showUniqueDate()" class="btn btn-info">Evénement avec une seule date</span>
+      </br>
       </div>
-
-
-<p> *************************************************** </p>
-
     </div>
-
+    </br>
+    </br>
     <div class="form-actions btn-group btn-group-justified" role="group">
       <div class="btn-group" role="group">
         <%= f.button :submit, "Enregistrer", class: 'btn btn-default' %>
@@ -90,29 +85,34 @@
 <script>
 
 // Set Event.calendar_string by #ln10Picker
-$('#event_calendar_string').hide();
+  $('#event_calendar_string').hide();
 
-$('#l10nPicker').calendarsPicker($.extend({
+  // Get value from model
+  $('#l10nPicker')[0].value = $('#event_calendar_string')[0].value;
+
+  $('#l10nPicker').calendarsPicker($.extend({
     showTrigger: '#calImg',
     multiSelect: 400,
     dateFormat: 'dd/mm/yyyy',
     altField: '#event_calendar_string', altFormat: 'dd/mm/yyyy'}));
 
-$('#l10nPicker').change(function(){
-  tabString = $('#event_calendar_string')[0].value.split(',').sort();
-  $('#l10nAlternate').html(tabString.join('<br>'));
-});
+  $('#l10nPicker').change(function(){
+   tabString = $('#event_calendar_string')[0].value.split(',').sort(function(a, b){
+    var aDate = a.split("/");
+    var date1 = aDate[2]+aDate[1]+ aDate[0];
+    var bDate = b.split("/");
+    var date2 = bDate[2] + bDate[1] + bDate[0];
+    return date1 > date2;
+    });
+    $('#l10nAlternate').html(tabString.join('<br>'));
+  });
 
-function showUniqueDate() {
-  $('#multiDate').hide();
-  $('#uniqueDate').show();
-};
+  showDates();
 
-function showMultiDate() {
-  $('#multiDate').show();
-  $('#uniqueDate').hide();
-};
+  function showDates() {
+    tabString = $('#event_calendar_string')[0].value.split(',').sort();
+    $('#l10nAlternate').html(tabString.join('<br>'));
+  }
 
-showUniqueDate();
 
 </script>

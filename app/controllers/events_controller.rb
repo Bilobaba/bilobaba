@@ -32,14 +32,46 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+
     @event = Event.new(event_params)
-    @event.organizer = current_member
+
+    # One only date
+    if @event.calendar_string == ""
+      create_event(@event)
+
+    # Loop for all calendar_string
+    else
+      tab_dates = @event.calendar_string.split(',')
+
+      tab_dates.each do |d|
+        @event = Event.new(event_params)
+
+        time_at = I18n.l(@event.begin_at, format: '%H:%M')
+        @event.begin_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
+
+        time_at = I18n.l(@event.end_at, format: '%H:%M')
+        @event.end_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
+
+        create_event(@event)
+      end
+    end
+
     respond_to do |format|
-      if @event.save
-        @event.algolia_index!
-        format.html { redirect_to @event}
-        format.json { render :show, status: :created, location: @event }
-      else
+      format.html { redirect_to @event}
+      format.json { render :show, status: :created, location: @event }
+    end
+
+  end
+
+  def create_event(event)
+    @event = event
+    @event.organizer = current_member
+
+    if @event.save
+      @event.algolia_index!
+      # not respond, wait create end loop multi creating
+    else
+      respond_to do |format|
         # simple_form doesn t show errors for :begin_at & :end_at because
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -111,7 +143,8 @@ class EventsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
     params.require(:event).permit(:title, :description, :begin_at, :end_at, :price_min, :price_max, :members_max,
-                                  :address, :city, :zip, :lat, :lng, { photos: [] }, :image, :photo1, :photo2, :photo3, :photo4)
+                                  :address, :city, :zip, :lat, :lng, { photos: [] },
+                                  :calendar_string, :image, :photo1, :photo2, :photo3, :photo4)
   end
 
   def require_login
