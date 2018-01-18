@@ -35,6 +35,8 @@ class EventsController < ApplicationController
 
     @event = Event.new(event_params)
 
+    # multi_dates_id is Id group of all items
+
     # One only date
     if @event.calendar_string == ""
       create_event(@event)
@@ -42,9 +44,11 @@ class EventsController < ApplicationController
     # Loop for all calendar_string
     else
       tab_dates = @event.calendar_string.split(',')
+      time_stamp = Time.new()
 
       tab_dates.each do |d|
         @event = Event.new(event_params)
+        @event.multi_dates_id = time_stamp
 
         time_at = I18n.l(@event.begin_at, format: '%H:%M')
         @event.begin_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
@@ -79,9 +83,28 @@ class EventsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
   def update
+    list_events = case params[:type_update]
+      when UPDATE_TYPE_ONLY_ONE   then [@event]
+      when UPDATE_TYPE_ALL_ITEMS  then Event.where(multi_dates_id: a)
+      when UPDATE_TYPE_ALL_AFTER  then Event.where(multi_dates_id: a).where("begin_at >= ?", @event.begin_at)
+    end
+
+    @event = Event.find(params[:id])
+
+    list_events.each do |event|
+      update_event(id,event,begin_at,end_at)
+    end
+  end
+
+
+  def update_event(event)
+    @event = Event.find(event.id)
+    event_new = event_params
+    event_new.begin_at = event.begin_at
+    event_new.end_at= event.end_at
+    # PATCH/PUT /events/1
+    # PATCH/PUT /events/1.json IIIICCCCIIIIII ***********************
     respond_to do |format|
       if @event.update(event_params)
         @event.algolia_index!

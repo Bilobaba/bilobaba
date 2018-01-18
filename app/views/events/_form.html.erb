@@ -56,7 +56,7 @@
       <div class="container" style="display: block; text-align: center; width: 100%; background-color: red">
         <div style="display: flex; justify-content: space-around;">
           <div style="align-items: center;">
-            <div>Choisir une datene ou plusieurs</div>
+            <div>Choisir une date ou plusieurs</div>
             <div>
               <input type="text" size="7" id="l10nPicker">
             </div>
@@ -68,6 +68,14 @@
         </div>
       </br>
       </div>
+      <h4> *************************** Type de modif ************</h4>
+      <%= radio_button_tag(:type_update, UPDATE_TYPE_ONLY_ONE) %>
+      <%= label_tag(:Only, "Modifier que cet événement") %>
+      <%= radio_button_tag(:type_update, UPDATE_TYPE_ALL_AFTER) %>
+      <%= label_tag(:All_after, "Modifier tous les événements postérieurs") %>
+      <%= radio_button_tag(:type_update, UPDATE_TYPE_ALL_ITEMS) %>
+      <%= label_tag(:All_items, "Modifier tous les événements") %>
+
     </div>
     </br>
     </br>
