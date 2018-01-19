@@ -45,7 +45,8 @@
       <hr>
 
       <!-- Warning  Event.calendar_string set by calendarsPicker-->
-      <%= f.input :calendar_string, label: 'Calendrier' %>
+      <p><label class="control-label" >Calendrier</label></p>
+      <input type="hidden" id="event_calendar_string", label: 'Calendrier' >
 
       Heure de début :
       <%= f.time_select :begin_at, minute_step: 15 %>
@@ -53,29 +54,40 @@
       Heure de fin :
       <%= f.time_select :end_at, minute_step: 15 %>
 
-      <div class="container" style="display: block; text-align: center; width: 100%; background-color: red">
+      <div class="container" style="display: block; text-align: center; width: 100%;">
         <div style="display: flex; justify-content: space-around;">
           <div style="align-items: center;">
-            <div>Choisir une date ou plusieurs</div>
+            <div>Choisir une ou plusieurs dates</div>
             <div>
               <input type="text" size="7" id="l10nPicker">
             </div>
           </div>
           <div  style="align-items: center;">
-            <div>Les dates choisies</div>
-            <div type="text" size="30" id="l10nAlternate" readonly="readonly" style="border: solid 1px; margin-left: 20px "></div>
+            <div>Les dates choisies :</div>
+            <div type="text" size="30" id="l10nAlternate" readonly="readonly" style=" margin-left: 20px "></div>
           </div>
         </div>
       </br>
       </div>
-      <h4> *************************** Type de modif ************</h4>
-      <%= radio_button_tag(:type_update, UPDATE_TYPE_ONLY_ONE) %>
-      <%= label_tag(:Only, "Modifier que cet événement") %>
-      <%= radio_button_tag(:type_update, UPDATE_TYPE_ALL_AFTER) %>
-      <%= label_tag(:All_after, "Modifier tous les événements postérieurs") %>
-      <%= radio_button_tag(:type_update, UPDATE_TYPE_ALL_ITEMS) %>
-      <%= label_tag(:All_items, "Modifier tous les événements") %>
-
+      <% if @event.persisted? %>
+        <h4> Type de modification</h4>
+        <div style="text-align: left">
+          <ul style="list-style-type:none">
+            <li>
+              <%= radio_button_tag(:type_update, UPDATE_TYPE_ONLY_ONE) %>
+              <%= label_tag(:Only, "Modifier que cet événement") %>
+            </li>
+            <li>
+              <%= radio_button_tag(:type_update, UPDATE_TYPE_ALL_AFTER) %>
+              <%= label_tag(:All_after, "Modifier tous les événements postérieurs") %>
+            </li>
+            <li>
+              <%= radio_button_tag(:type_update, UPDATE_TYPE_ALL_ITEMS) %>
+              <%= label_tag(:All_items, "Modifier tous les événements") %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
     </div>
     </br>
     </br>
