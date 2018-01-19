@@ -22,6 +22,7 @@ class EventsController < ApplicationController
   def new
     @h1_title = 'Ajout d\'un nouvel évènement'
     @event = Event.new
+    @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
   end
 
   # GET /events/1/edit
@@ -33,87 +34,94 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
 
+    # multi_dates_id = Time.new is Id group of all items
     @event = Event.new(event_params)
+    tab_dates = @event.calendar_string.split(',')
+    time_stamp = Time.new
 
-    # multi_dates_id is Id group of all items
+    $save_is_ok = true
 
-    # One only date
-    if @event.calendar_string == ""
+    tab_dates.each do |d|
+      @event = Event.new(event_params)
+      @event.multi_dates_id = time_stamp if tab_dates.count > 1
+      @event.organizer = current_member
+
+      time_at = I18n.l(@event.begin_at, format: '%H:%M')
+      @event.begin_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
+
+      time_at = I18n.l(@event.end_at, format: '%H:%M')
+      @event.end_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
+
       create_event(@event)
 
-    # Loop for all calendar_string
-    else
-      tab_dates = @event.calendar_string.split(',')
-      time_stamp = Time.new()
-
-      tab_dates.each do |d|
-        @event = Event.new(event_params)
-        @event.multi_dates_id = time_stamp
-
-        time_at = I18n.l(@event.begin_at, format: '%H:%M')
-        @event.begin_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
-
-        time_at = I18n.l(@event.end_at, format: '%H:%M')
-        @event.end_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
-
-        create_event(@event)
-      end
     end
 
     respond_to do |format|
-      format.html { redirect_to @event}
-      format.json { render :show, status: :created, location: @event }
+      if $save_is_ok
+        format.html { redirect_to @event}
+        format.json { render :show, status: :created, location: @event }
+      else
+        # simple_form doesn t show errors for :begin_at & :end_at because
+        flash[:error] = "Problème dans la création de l événement"
+        format.html { render :new }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
     end
 
   end
 
   def create_event(event)
     @event = event
-    @event.organizer = current_member
 
     if @event.save
       @event.algolia_index!
-      # not respond, wait create end loop multi creating
     else
-      respond_to do |format|
-        # simple_form doesn t show errors for :begin_at & :end_at because
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+      $save_is_ok = false
     end
   end
 
   def update
+    $update_is_ok = true
     list_events = case params[:type_update]
-      when UPDATE_TYPE_ONLY_ONE   then [@event]
-      when UPDATE_TYPE_ALL_ITEMS  then Event.where(multi_dates_id: a)
-      when UPDATE_TYPE_ALL_AFTER  then Event.where(multi_dates_id: a).where("begin_at >= ?", @event.begin_at)
+      when UPDATE_TYPE_ALL_ITEMS  then Event.where(multi_dates_id: @event.multi_dates_id)
+      when UPDATE_TYPE_ALL_AFTER  then Event.where(multi_dates_id: @event.multi_dates_id).where("begin_at >= ?", @event.begin_at)
+      else [@event]
     end
-
-    @event = Event.find(params[:id])
 
     list_events.each do |event|
-      update_event(id,event,begin_at,end_at)
+      update_event(event)
     end
-  end
 
-
-  def update_event(event)
-    @event = Event.find(event.id)
-    event_new = event_params
-    event_new.begin_at = event.begin_at
-    event_new.end_at= event.end_at
-    # PATCH/PUT /events/1
-    # PATCH/PUT /events/1.json IIIICCCCIIIIII ***********************
     respond_to do |format|
-      if @event.update(event_params)
-        @event.algolia_index!
+      if $update_is_ok
         format.html { redirect_to @event}
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+
+  def update_event(event)
+
+    @event = event
+
+    #update with params from view
+    $update_is_ok &&= @event.update(event_params)
+
+    # for multi dates get old values date begin_at & end_at but not time
+    if event.multi_dates_id
+      #get day as old value
+      change_day(@event,event.begin_at)
+
+      #save again
+      $update_is_ok &&= @event.save
+    end
+
+    if $update_is_ok
+      @event.algolia_index!
     end
   end
 
@@ -165,6 +173,20 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
+
+    # in the form, there are field for day/date AND fiel for time/hh:mm
+    params[:event]["begin_at"] = DateTime.new(params[:event]["begin_at(1i)"].to_i,
+                                  params[:event]["begin_at(2i)"].to_i,
+                                  params[:event]["begin_at(3i)"].to_i,
+                                  params[:event]["begin_at(4i)"].to_i,
+                                  params[:event]["begin_at(5i)"].to_i)
+
+    params[:event]["end_at"] = DateTime.new(params[:event]["end_at(1i)"].to_i,
+                                  params[:event]["end_at(2i)"].to_i,
+                                  params[:event]["end_at(3i)"].to_i,
+                                  params[:event]["end_at(4i)"].to_i,
+                                  params[:event]["end_at(5i)"].to_i)
+
     params.require(:event).permit(:title, :description, :begin_at, :end_at, :price_min, :price_max, :members_max,
                                   :address, :city, :zip, :lat, :lng, { photos: [] },
                                   :calendar_string, :image, :photo1, :photo2, :photo3, :photo4)
@@ -172,5 +194,16 @@ class EventsController < ApplicationController
 
   def require_login
     redirect_to forbidden_path unless member_signed_in?
+  end
+
+  # change only the day of DateTime
+  def change_day(event,day)
+      day_at = I18n.l(day, format: '%d/%m/%Y')
+
+      time_at = I18n.l(event.begin_at, format: '%H:%M')
+      event.begin_at  = DateTime.strptime(day_at+' '+time_at, '%d/%m/%Y %H:%M')
+
+      time_at = I18n.l(event.end_at, format: '%H:%M')
+      event.end_at  = DateTime.strptime(day_at+' '+time_at, '%d/%m/%Y %H:%M')
   end
 end

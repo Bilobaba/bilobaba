@@ -12,6 +12,7 @@ class Event < ApplicationRecord
   validates :city, presence: true
   validates :zip, presence: true
   validates :image, presence: true
+  validates :calendar_string, presence: true
 
   mount_uploader :image, ImageUploader
   mount_uploader :photo1, ImageUploader

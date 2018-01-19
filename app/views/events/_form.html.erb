@@ -6,7 +6,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :title, label: 'Titre' %>
+      <%= f.input :title, label: 'Titre', required: true %>
       <%= f.input :description, as: :text, class: "form-control string optional", input_html: {rows: 5}, label: 'Description' %> </br>
       <% if @event.image.url.present? %>
         <%= cl_image_tag @event.image.file.filename, width: 470, height: 142 %>
@@ -45,8 +45,7 @@
       <hr>
 
       <!-- Warning  Event.calendar_string set by calendarsPicker-->
-      <p><label class="control-label" >Calendrier</label></p>
-      <input type="hidden" id="event_calendar_string", label: 'Calendrier' >
+      <%= f.input :calendar_string, label: 'Calendrier' %>
 
       Heure de début :
       <%= f.time_select :begin_at, minute_step: 15 %>
@@ -59,7 +58,7 @@
           <div style="align-items: center;">
             <div>Choisir une ou plusieurs dates</div>
             <div>
-              <input type="text" size="7" id="l10nPicker">
+              <input type="text" size="7" id="l10nPicker" class="btn btn-default">
             </div>
           </div>
           <div  style="align-items: center;">
@@ -69,7 +68,7 @@
         </div>
       </br>
       </div>
-      <% if @event.persisted? %>
+      <% if @event.multi_dates_id %>
         <h4> Type de modification</h4>
         <div style="text-align: left">
           <ul style="list-style-type:none">
@@ -112,7 +111,12 @@
 
   $('#l10nPicker').calendarsPicker($.extend({
     showTrigger: '#calImg',
-    multiSelect: 400,
+    // only if edit & no multi dates
+    <% if @event.persisted? && !@event.multi_dates_id %>
+      multiSelect: 0,
+    <% else %>
+      multiSelect: 400,
+    <% end %>
     dateFormat: 'dd/mm/yyyy',
     altField: '#event_calendar_string',
     altFormat: 'dd/mm/yyyy',
@@ -142,6 +146,7 @@
   }));
 
   $('#l10nPicker').change(function(){
+    console.log('Changed');
    tabString = $('#event_calendar_string')[0].value.split(',').sort(function(a, b){
     var aDate = a.split("/");
     var date1 = aDate[2]+aDate[1]+ aDate[0];
@@ -151,6 +156,10 @@
     });
     $('#l10nAlternate').html(tabString.join('<br>'));
   });
+
+  // $('#l10nPicker').autocomplete(function(){});
+
+  // $('#event_begin_at_4i').autocomplete(function(){});
 
   showDates();
 
