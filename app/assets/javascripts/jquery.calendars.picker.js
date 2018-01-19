@@ -1,7 +1,7 @@
 ﻿/* http://keith-wood.name/calendars.html
    Calendars date picker for jQuery v2.1.0.
    Written by Keith Wood (wood.keith{at}optusnet.com.au) August 2009.
-   Available under the MIT (http://keith-wood.name/licence.html) license. 
+   Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
 (function($) { // Hide scope, no $ conflict
@@ -1440,7 +1440,7 @@ $(selector).datepick('setDate', [date1, date2, date3]) */
 				var calendar = inst.options.calendar;
 				var show = this._checkMinMax(typeof year !== 'undefined' && year !== null ?
 					calendar.newDate(year, month, 1) : calendar.today(), inst);
-				inst.drawDate.date(show.year(), show.month(), 
+				inst.drawDate.date(show.year(), show.month(),
 					typeof day !== 'undefined' && day !== null ? day : Math.min(inst.drawDate.day(),
 					calendar.daysInMonth(show.year(), show.month())));
 				this._update(elem);

@@ -3,7 +3,7 @@
 /* http://keith-wood.name/calendars.html
    Calendars for jQuery v2.1.0.
    Written by Keith Wood (wood.keith{at}optusnet.com.au) August 2009.
-   Available under the MIT (http://keith-wood.name/licence.html) license. 
+   Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
 (function($) { // Hide scope, no $ conflict
@@ -450,7 +450,7 @@ var today = calendar.newDate() */
 			@param {CDate|number} year The date to examine or the year to examine.
 			@return {string} The current epoch.
 			@throws Error if an invalid year or a different calendar is used.
-			@example var epoch = calendar.epoch(date) 
+			@example var epoch = calendar.epoch(date)
 var epoch = calendar.epoch(2014) */
 		epoch: function(year) {
 			var date = this._validate(year, this.minMonth, this.minDay,
@@ -829,12 +829,12 @@ var jsd = calendar.toJSDate(2014, 1, 26) */
 			'': {
 				name: 'Gregorian',
 				epochs: ['BCE', 'CE'],
-				monthNames: ['January', 'February', 'March', 'April', 'May', 'June',
-				'July', 'August', 'September', 'October', 'November', 'December'],
-				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-				dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-				dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-				dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+				monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+				'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+				monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
+				dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+				dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+				dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
 				digits: null,
 				dateFormat: 'mm/dd/yyyy',
 				firstDay: 0,
@@ -986,7 +986,7 @@ var jsd = calendar.toJSDate(2014, 1, 26) */
 /* http://keith-wood.name/calendars.html
    Calendars extras for jQuery v2.1.0.
    Written by Keith Wood (wood.keith{at}optusnet.com.au) August 2009.
-   Available under the MIT (http://keith-wood.name/licence.html) license. 
+   Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
 (function($) { // Hide scope, no $ conflict
@@ -1450,7 +1450,7 @@ var jsd = calendar.toJSDate(2014, 1, 26) */
 /* http://keith-wood.name/calendars.html
    Calendars date picker for jQuery v2.1.0.
    Written by Keith Wood (wood.keith{at}optusnet.com.au) August 2009.
-   Available under the MIT (http://keith-wood.name/licence.html) license. 
+   Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
 (function($) { // Hide scope, no $ conflict
@@ -2000,7 +2000,7 @@ $(selector).calendarsPicker({minDate: $.calendars.newDate(2001, 1, 1),
 				nextJumpStatus: 'Show the next year',
 				currentText: 'Current',
 				currentStatus: 'Show the current month',
-				todayText: 'Today',
+				todayText: 'Today1',
 				todayStatus: 'Show today\'s month',
 				clearText: 'Clear',
 				clearStatus: 'Clear all the dates',
@@ -2889,7 +2889,7 @@ $(selector).datepick('setDate', [date1, date2, date3]) */
 				var calendar = inst.options.calendar;
 				var show = this._checkMinMax(typeof year !== 'undefined' && year !== null ?
 					calendar.newDate(year, month, 1) : calendar.today(), inst);
-				inst.drawDate.date(show.year(), show.month(), 
+				inst.drawDate.date(show.year(), show.month(),
 					typeof day !== 'undefined' && day !== null ? day : Math.min(inst.drawDate.day(),
 					calendar.daysInMonth(show.year(), show.month())));
 				this._update(elem);
