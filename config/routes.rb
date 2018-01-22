@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # if route defined after, it will be interpreted as events/(:id = search)
   get 'events/search', as: 'search'
+  # delete event or events with multi dates
+  get 'events/delete/:id/:type_update(.:format)', to: 'events#destroy_events', as: 'delete_events'
+
   resources :events do
     resources :comments
   end

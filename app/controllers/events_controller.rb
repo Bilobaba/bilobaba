@@ -39,7 +39,10 @@ class EventsController < ApplicationController
     tab_dates = @event.calendar_string.split(',')
     time_stamp = Time.new
 
-    $save_is_ok = true
+    $save_is_ok = tab_dates.count > 0
+
+    flash[:alert] = "Il faut choisir une ou plusieurs dates" unless $save_is_ok
+
 
     tab_dates.each do |d|
       @event = Event.new(event_params)
@@ -62,7 +65,7 @@ class EventsController < ApplicationController
         format.json { render :show, status: :created, location: @event }
       else
         # simple_form doesn t show errors for :begin_at & :end_at because
-        flash[:error] = "Problème dans la création de l événement"
+        flash[:alert] = "Problème dans la création de l événement"
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -72,15 +75,17 @@ class EventsController < ApplicationController
 
   def create_event(event)
     @event = event
-
-    if @event.save
-      @event.algolia_index!
-    else
-      $save_is_ok = false
-    end
+    $save_is_ok &&= @event.save
   end
 
   def update
+
+    # if delete, we need form to get type_upadte
+    if params[:commit] == ACTION_SUPPRIMER
+      destroy_events
+      return
+    end
+
     $update_is_ok = true
     list_events = case params[:type_update]
       when UPDATE_TYPE_ALL_ITEMS  then Event.where(multi_dates_id: @event.multi_dates_id)
@@ -89,7 +94,9 @@ class EventsController < ApplicationController
     end
 
     list_events.each do |event|
+      # binding.pry
       update_event(event)
+      # binding.pry
     end
 
     respond_to do |format|
@@ -101,39 +108,65 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+
+    # binding.pry
   end
 
 
   def update_event(event)
 
     @event = event
-
+# binding.pry
     #update with params from view
     $update_is_ok &&= @event.update(event_params)
-
+# binding.pry
     # for multi dates get old values date begin_at & end_at but not time
     if event.multi_dates_id
+      #get new record which is != @event since CarrierWave change the update
+      @event.reload
+
       #get day as old value
       change_day(@event,event.begin_at)
 
       #save again
+      # binding.pry
       $update_is_ok &&= @event.save
+      # binding.pry
+    end
+  end
+
+  def destroy_events
+
+    $delete_is_ok = true
+
+    list_events = case params[:type_update]
+      when UPDATE_TYPE_ALL_ITEMS  then Event.where(multi_dates_id: @event.multi_dates_id)
+      when UPDATE_TYPE_ALL_AFTER  then Event.where(multi_dates_id: @event.multi_dates_id).where("begin_at >= ?", @event.begin_at)
+      else [@event]
     end
 
-    if $update_is_ok
-      @event.algolia_index!
+    list_events.each do |event|
+      destroy(event)
+    end
+
+    respond_to do |format|
+      if $delete_is_ok
+        format.html { redirect_to @event}
+        format.json { render :show, status: :created, location: @event }
+      else
+        # simple_form doesn t show errors for :begin_at & :end_at because
+        flash.now[:alert] = "Problème dans la suppression de l évènement"
+        format.html { render :new }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   # DELETE /events/1
   # DELETE /events/1.json
-  def destroy
-    @event.algolia_remove_from_index!
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url}
-      format.json { head :no_content }
-    end
+  def destroy(event)
+    @event = event
+    $delete_is_ok &&= @event.destroy
   end
 
   def participate
@@ -198,6 +231,7 @@ class EventsController < ApplicationController
 
   # change only the day of DateTime
   def change_day(event,day)
+    # binding.pry
       day_at = I18n.l(day, format: '%d/%m/%Y')
 
       time_at = I18n.l(event.begin_at, format: '%H:%M')
@@ -205,5 +239,6 @@ class EventsController < ApplicationController
 
       time_at = I18n.l(event.end_at, format: '%H:%M')
       event.end_at  = DateTime.strptime(day_at+' '+time_at, '%d/%m/%Y %H:%M')
+    # binding.pry
   end
 end

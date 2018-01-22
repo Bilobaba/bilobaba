@@ -4,3 +4,6 @@
 UPDATE_TYPE_ONLY_ONE = "only one"
 UPDATE_TYPE_ALL_AFTER = "all after"
 UPDATE_TYPE_ALL_ITEMS = "all items"
+
+# Action Supprimer
+ACTION_SUPPRIMER = "Supprimer"
