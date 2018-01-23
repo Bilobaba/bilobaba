@@ -57,7 +57,6 @@ class EventsController < ApplicationController
       @event.end_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
 
       create_event(@event)
-
     end
 
     respond_to do |format|
@@ -95,9 +94,7 @@ class EventsController < ApplicationController
     end
 
     list_events.each do |event|
-      # binding.pry
       update_event(event)
-      # binding.pry
     end
 
     respond_to do |format|
@@ -110,17 +107,14 @@ class EventsController < ApplicationController
       end
     end
 
-    # binding.pry
   end
 
 
   def update_event(event)
 
     @event = event
-# binding.pry
     #update with params from view
     @update_is_ok &&= @event.update(event_params)
-# binding.pry
     # for multi dates get old values date begin_at & end_at but not time
     if event.multi_dates_id
       #get new record which is != @event since CarrierWave change the update
@@ -130,9 +124,7 @@ class EventsController < ApplicationController
       change_day(@event,event.begin_at)
 
       #save again
-      # binding.pry
       @update_is_ok &&= @event.save
-      # binding.pry
     end
   end
 
@@ -233,7 +225,6 @@ class EventsController < ApplicationController
 
   # change only the day of DateTime
   def change_day(event,day)
-    # binding.pry
       day_at = I18n.l(day, format: '%d/%m/%Y')
 
       time_at = I18n.l(event.begin_at, format: '%H:%M')
@@ -241,6 +232,5 @@ class EventsController < ApplicationController
 
       time_at = I18n.l(event.end_at, format: '%H:%M')
       event.end_at  = DateTime.strptime(day_at+' '+time_at, '%d/%m/%Y %H:%M')
-    # binding.pry
   end
 end
