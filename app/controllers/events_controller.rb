@@ -208,6 +208,9 @@ class EventsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
 
+    if (@event.multi_dates_id && @event.persisted?)
+
+    end
     # in the form, there are field for day/date AND fiel for time/hh:mm
     params[:event]["begin_at"] = DateTime.new(params[:event]["begin_at(1i)"].to_i,
                                   params[:event]["begin_at(2i)"].to_i,

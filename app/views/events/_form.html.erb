@@ -119,6 +119,10 @@
   <% if @event.persisted? && @event.multi_dates_id %>
     // If update not allow l10nPicker for multi dates
     $('#l10nPicker').prop('disabled', true);
+    $('#event_begin_at_4i').prop('disabled', true);
+    $('#event_begin_at_5i').prop('disabled', true);
+    $('#event_end_at_4i').prop('disabled', true);
+    $('#event_end_at_5i').prop('disabled', true);
   <% end %>
 
   // Get value from model
