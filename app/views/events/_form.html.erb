@@ -6,18 +6,12 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :title, label: 'Titre' %>
+      <%= f.input :title, label: 'Titre', required: true %>
       <%= f.input :description, as: :text, class: "form-control string optional", input_html: {rows: 5}, label: 'Description' %> </br>
       <% if @event.image.url.present? %>
         <%= cl_image_tag @event.image.file.filename, width: 470, height: 142 %>
       <% end %>
       <%= f.input :image, label: 'Image' %>
-      <%= f.label  "Début" %> </br>
-      <%= f.datetime_field :begin_at %> </br></br>
-      <span><%= f.error :begin_at %></span>
-      <%= f.label  "Fin" %> </br>
-      <%= f.datetime_field :end_at %> </br></br>
-      <span class="error-red"><%= f.error :end_at %></span>
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
@@ -25,8 +19,8 @@
       <%= f.input :city, label: 'Ville' %>
       <%= f.input :zip, label: 'CP' %>
 
-      <% if @event.persisted? %>
-        <%= f.input :photo1 , label: 'Photos 1' %>
+      <% if @event.persisted? && false %> # not now yet
+<!--         <%= f.input :photo1 , label: 'Photos 1' %>
         <% if @event.photo1.url.present? %>
           <%= cl_image_tag @event.photo1.file.filename, width: 200, height: 200 %>
         <% end %>
@@ -46,17 +40,190 @@
         <% if @event.photo5.url.present? %>
           <%= cl_image_tag @event.photo5.file.filename, width: 200, height: 200 %>
         <% end %>
+ -->      <% end %>
+
+      <hr>
+
+      <!-- Warning  Event.calendar_string set by calendarsPicker-->
+
+      <%= f.input :calendar_string, label: 'Calendrier' %>
+
+      Heure de début :
+      <%= f.time_select :begin_at, minute_step: 15 %>
+
+      Heure de fin :
+      <%= f.time_select :end_at, minute_step: 15 %>
+
+      <div class="container" style="display: block; text-align: center; width: 100%;">
+        <div style="display: flex; justify-content: space-around;">
+          <div style="align-items: center;">
+            <div>Choisir une ou plusieurs dates</div>
+            <div>
+              <input type="text" size="7" id="l10nPicker" class="btn btn-default">
+            </div>
+          </div>
+          <div  style="align-items: center;">
+            <div>Les dates choisies :</div>
+            <div type="text" size="30" id="l10nAlternate" readonly="readonly" style=" margin-left: 20px "></div>
+          </div>
+        </div>
+      </br>
+      </div>
+      <% if @event.multi_dates_id && @event.persisted? %>
+        <h4> Type de modification</h4>
+        <div style="text-align: left">
+          <ul style="list-style-type:none">
+            <li>
+              <%= radio_button_tag(:type_update, UPDATE_TYPE_ONLY_ONE, checked: true ) %>
+              <%= label_tag(:Only, "Modifier que cet événement") %>
+            </li>
+            <li>
+              <%= radio_button_tag(:type_update, UPDATE_TYPE_ALL_AFTER) %>
+              <%= label_tag(:All_after, "Modifier tous les événements postérieurs") %>
+            </li>
+            <li>
+              <%= radio_button_tag(:type_update, UPDATE_TYPE_ALL_ITEMS) %>
+              <%= label_tag(:All_items, "Modifier tous les événements") %>
+            </li>
+          </ul>
+        </div>
       <% end %>
-
     </div>
-
+    </br>
+    </br>
     <div class="form-actions btn-group btn-group-justified" role="group">
       <div class="btn-group" role="group">
         <%= f.button :submit, "Enregistrer", class: 'btn btn-default' %>
       </div>
+      <% if @event.persisted? %>
+        <div class="btn-group" role="group">
+          <%= f.button :submit, ACTION_SUPPRIMER, class: 'btn btn-default',  data: {confirm: 'Confirmez la/les suppressions' }  %>
+        </div>
+      <% end %>
       <div class="btn-group" role="group">
         <%= link_to 'Annuler', session[:request_back], class: 'btn btn-default' %>
       </div>
     </div>
   <% end %>
 </div>
+
+<script>
+
+// Set Event.calendar_string by #ln10Picker
+  $('#event_calendar_string').hide();
+
+  <% if @event.persisted? && @event.multi_dates_id %>
+    // If update not allow l10nPicker for multi dates
+    $('#l10nPicker').prop('disabled', true);
+  <% end %>
+
+  // Get value from model
+  $('#l10nPicker')[0].value = $('#event_calendar_string')[0].value;
+
+  $('#l10nPicker').calendarsPicker($.extend({
+    showTrigger: '#calImg',
+    // only if edit & no multi dates
+    <% if @event.persisted? && !@event.multi_dates_id %>
+      multiSelect: 0,
+    <% else %>
+      multiSelect: 400,
+    <% end %>
+    dateFormat: 'dd/mm/yyyy',
+    altField: '#event_calendar_string',
+    altFormat: 'dd/mm/yyyy',
+    prevText: '&#x3c;Préc',
+    prevStatus: 'Voir le mois précédent',
+    prevJumpText: '&#x3c;&#x3c;',
+    prevJumpStatus: 'Voir l\'année précédent',
+    nextText: 'Suiv&#x3e;',
+    nextStatus: 'Voir le mois suivant',
+    nextJumpText: '&#x3e;&#x3e;',
+    nextJumpStatus: 'Voir l\'année suivant',
+    currentText: 'Courant',
+    currentStatus: 'Voir le mois courant',
+    todayText: 'Aujourd\'hui',
+    todayStatus: 'Voir aujourd\'hui',
+    clearText: 'Effacer',
+    clearStatus: 'Effacer la date sélectionnée',
+    closeText: 'Fermer',
+    closeStatus: 'Fermer sans modifier',
+    yearStatus: 'Voir une autre année',
+    monthStatus: 'Voir un autre mois',
+    weekText: 'Sm',
+    weekStatus: 'Semaine de l\'année',
+    dayStatus: '\'Choisir\' le DD d MM',
+    defaultStatus: 'Choisir la date',
+
+  }));
+
+  $('#l10nPicker').change(function(){
+    console.log('Changed');
+   tabString = $('#event_calendar_string')[0].value.split(',').sort(function(a, b){
+    var aDate = a.split("/");
+    var date1 = aDate[2]+aDate[1]+ aDate[0];
+    var bDate = b.split("/");
+    var date2 = bDate[2] + bDate[1] + bDate[0];
+    return date1 > date2;
+    });
+    $('#l10nAlternate').html(tabString.join('<br>'));
+    $('#l10nPicker').html(tabString.join(','));
+  });
+
+  // $('#l10nPicker').autocomplete(function(){});
+
+  // $('#event_begin_at_4i').autocomplete(function(){});
+
+  showDates();
+
+  function showDates() {
+    tabString = $('#event_calendar_string')[0].value.split(',').sort();
+    $('#l10nAlternate').html(tabString.join('<br>'));
+  }
+
+  ($.datepicker.regionalOptions['fr']);
+
+  /* http://keith-wood.name/datepick.html
+   French localisation for jQuery Datepicker.
+   Stéphane Nahmani (sholby@sholby.net). */
+(function($) {
+  'use strict';
+  $.datepicker.regionalOptions = {
+    monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+    'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+    monthNamesShort: ['Jan','Fév','Mar','Avr','Mai','Jun',
+    'Jul','Aoû','Sep','Oct','Nov','Déc'],
+    dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+    dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+    dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+    dateFormat: 'dd/mm/yyyy',
+    firstDay: 1,
+    renderer: $.datepicker.defaultRenderer,
+    prevText: '&#x3c;Préc',
+    prevStatus: 'Voir le mois précédent',
+    prevJumpText: '&#x3c;&#x3c;',
+    prevJumpStatus: 'Voir l\'année précédent',
+    nextText: 'Suiv&#x3e;',
+    nextStatus: 'Voir le mois suivant',
+    nextJumpText: '&#x3e;&#x3e;',
+    nextJumpStatus: 'Voir l\'année suivant',
+    currentText: 'Courant',
+    currentStatus: 'Voir le mois courant',
+    todayText: 'Aujourd\'hui',
+    todayStatus: 'Voir aujourd\'hui',
+    clearText: 'Effacer',
+    clearStatus: 'Effacer la date sélectionnée',
+    closeText: 'Fermer',
+    closeStatus: 'Fermer sans modifier',
+    yearStatus: 'Voir une autre année',
+    monthStatus: 'Voir un autre mois',
+    weekText: 'Sm',
+    weekStatus: 'Semaine de l\'année',
+    dayStatus: '\'Choisir\' le DD d MM',
+    defaultStatus: 'Choisir la date',
+    isRTL: false
+  };
+
+  $.datepicker.setDefaults($.datepicker.regionalOptions);
+})(jQuery);
+
+</script>

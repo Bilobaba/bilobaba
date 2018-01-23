@@ -1,0 +1,45 @@
+/* line 3, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/navbar.scss */
+.navbar-default {
+  background: none;
+  border: none;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 10px 0px 10px 0px;
+}
+
+/* line 11, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/navbar.scss */
+.navbar-brand {
+  padding: 0px;
+  margin-right: 10px;
+}
+
+/* line 16, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/navbar.scss */
+.menu_item {
+  border-top: solid 1px transparent;
+  color: white;
+  cursor: pointer;
+  margin-left: 20px;
+  padding: 15px;
+}
+
+/* line 24, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:hover {
+  color: white;
+}
+
+/* line 28, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/navbar.scss */
+.menu_item:hover {
+  border-top: solid 1px white;
+  color: white;
+}
+
+/* line 33, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/navbar.scss */
+.dropdown-menu {
+  background: rgba(255, 255, 255, 0.461);
+  margin-left: 20px;
+}
+
+/* line 38, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/navbar.scss */
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  background: rgba(255, 255, 255, 0.461);
+}

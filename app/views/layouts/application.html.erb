@@ -3,6 +3,10 @@
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112119547-1"></script>
+
+    <!-- jquery & Calendar-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -22,6 +26,14 @@
     <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch-preact.min.js"></script>
+
+    <%= stylesheet_link_tag "jquery.calendars.picker.css" %>
+    <%= javascript_include_tag "jquery.plugin.js" %>
+    <%= javascript_include_tag "jquery.calendars.js" %>
+    <%= javascript_include_tag "jquery.calendars.all.js" %>
+    <%= javascript_include_tag "jquery.calendars.plus.js" %>
+    <%= javascript_include_tag "jquery.calendars.picker.js" %>
+    <%= javascript_include_tag "jquery.datepick-fr.js" %>
 
   </head>
 

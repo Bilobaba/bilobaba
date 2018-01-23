@@ -9,8 +9,7 @@
         <h4><%= @event.title %></h4>
         <div id="event_controls">
           <% if member_signed_in? && (current_member == @event.organizer) %>
-          <%= link_to '(modifier)', edit_event_path %>
-          <%= link_to '(supprimer)', event_path, method: 'DELETE', data: {confirm: 'Confirmez la suppression' } %>
+            <%= link_to '(modifier)', edit_event_path %>
           <% end %>
           <%= link_to '(retour)', session[:request_back], class: 'enable' %>
         </div>

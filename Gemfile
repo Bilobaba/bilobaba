@@ -36,6 +36,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'jquery-rails'
 
+gem 'jquery-ui-rails'
+
 # Form easily
 gem 'simple_form'
 
@@ -79,6 +81,7 @@ gem 'json'
 
 # Stripe
 gem 'stripe'
+
 
 
 group :development, :test do
