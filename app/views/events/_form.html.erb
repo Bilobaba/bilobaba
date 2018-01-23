@@ -51,6 +51,10 @@
       Heure de début :
       <%= f.time_select :begin_at, minute_step: 15 %>
 
+      <% if browser.firefox? %>
+        </br>
+      <% end %>
+
       Heure de fin :
       <%= f.time_select :end_at, minute_step: 15 %>
 

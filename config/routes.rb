@@ -30,5 +30,5 @@ Rails.application.routes.draw do
   get 'participate', to: 'events#participate', as: 'participate'
   get 'interact_with/:id/:type', to: 'events#interact_with', as: 'interact_with'
 
-  root 'pages#home'
+  root 'events#index'
 end

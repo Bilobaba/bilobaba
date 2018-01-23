@@ -37,7 +37,7 @@
 
   </head>
 
-  <% if current_page?(root_path) %>
+  <% if current_page?(home_path) %>
   <body id="background_home">
     <%= render '/layouts/navbar' %>
   <% else %>
@@ -51,7 +51,7 @@
 
     <%= yield %>
 
-    <% if !current_page?(root_path) %>
+    <% if !current_page?(home_path) %>
       <%= render '/layouts/footer' %>
     <% end %>
 

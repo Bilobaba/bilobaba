@@ -1,5 +1,6 @@
 require 'pry'
 
+
 class EventsController < ApplicationController
   before_action :require_login, only: %i[new edit update destroy participate interact_with]
   before_action :set_event, only: %i[show edit update destroy participate interact_with]
@@ -39,9 +40,9 @@ class EventsController < ApplicationController
     tab_dates = @event.calendar_string.split(',')
     time_stamp = Time.new
 
-    $save_is_ok = tab_dates.count > 0
+    @save_is_ok = tab_dates.count > 0
 
-    flash[:alert] = "Il faut choisir une ou plusieurs dates" unless $save_is_ok
+    flash[:alert] = "Il faut choisir une ou plusieurs dates" unless @save_is_ok
 
 
     tab_dates.each do |d|
@@ -60,7 +61,7 @@ class EventsController < ApplicationController
     end
 
     respond_to do |format|
-      if $save_is_ok
+      if @save_is_ok
         format.html { redirect_to @event}
         format.json { render :show, status: :created, location: @event }
       else
@@ -75,7 +76,7 @@ class EventsController < ApplicationController
 
   def create_event(event)
     @event = event
-    $save_is_ok &&= @event.save
+    @save_is_ok &&= @event.save
   end
 
   def update
@@ -86,7 +87,7 @@ class EventsController < ApplicationController
       return
     end
 
-    $update_is_ok = true
+    @update_is_ok = true
     list_events = case params[:type_update]
       when UPDATE_TYPE_ALL_ITEMS  then Event.where(multi_dates_id: @event.multi_dates_id)
       when UPDATE_TYPE_ALL_AFTER  then Event.where(multi_dates_id: @event.multi_dates_id).where("begin_at >= ?", @event.begin_at)
@@ -100,7 +101,7 @@ class EventsController < ApplicationController
     end
 
     respond_to do |format|
-      if $update_is_ok
+      if @update_is_ok
         format.html { redirect_to @event}
         format.json { render :show, status: :ok, location: @event }
       else
@@ -118,7 +119,7 @@ class EventsController < ApplicationController
     @event = event
 # binding.pry
     #update with params from view
-    $update_is_ok &&= @event.update(event_params)
+    @update_is_ok &&= @event.update(event_params)
 # binding.pry
     # for multi dates get old values date begin_at & end_at but not time
     if event.multi_dates_id
@@ -130,14 +131,14 @@ class EventsController < ApplicationController
 
       #save again
       # binding.pry
-      $update_is_ok &&= @event.save
+      @update_is_ok &&= @event.save
       # binding.pry
     end
   end
 
   def destroy_events
 
-    $delete_is_ok = true
+    @delete_is_ok = true
 
     list_events = case params[:type_update]
       when UPDATE_TYPE_ALL_ITEMS  then Event.where(multi_dates_id: @event.multi_dates_id)
@@ -150,7 +151,7 @@ class EventsController < ApplicationController
     end
 
     respond_to do |format|
-      if $delete_is_ok
+      if @delete_is_ok
         format.html { redirect_to @event}
         format.json { render :show, status: :created, location: @event }
       else
@@ -166,7 +167,7 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy(event)
     @event = event
-    $delete_is_ok &&= @event.destroy
+    @delete_is_ok &&= @event.destroy
   end
 
   def participate

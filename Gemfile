@@ -82,7 +82,8 @@ gem 'json'
 # Stripe
 gem 'stripe'
 
-
+# To know the browser
+gem 'browser'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
