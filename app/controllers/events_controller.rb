@@ -4,6 +4,7 @@ require 'pry'
 class EventsController < ApplicationController
   before_action :require_login, only: %i[new edit update destroy participate interact_with]
   before_action :set_event, only: %i[show edit update destroy participate interact_with]
+  before_action :set_list_events, only: %i[update destroy]
 
   # GET /events
   # GET /events.json
@@ -56,7 +57,7 @@ class EventsController < ApplicationController
       time_at = I18n.l(@event.end_at, format: '%H:%M')
       @event.end_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
 
-      create_event(@event)
+      @save_is_ok &&= @event.save
     end
 
     respond_to do |format|
@@ -73,11 +74,6 @@ class EventsController < ApplicationController
 
   end
 
-  def create_event(event)
-    @event = event
-    @save_is_ok &&= @event.save
-  end
-
   def update
 
     # if delete, we need form to get type_upadte
@@ -87,14 +83,10 @@ class EventsController < ApplicationController
     end
 
     @update_is_ok = true
-    list_events = case params[:type_update]
-      when UPDATE_TYPE_ALL_ITEMS  then Event.where(multi_dates_id: @event.multi_dates_id)
-      when UPDATE_TYPE_ALL_AFTER  then Event.where(multi_dates_id: @event.multi_dates_id).where("begin_at >= ?", @event.begin_at)
-      else [@event]
-    end
 
-    list_events.each do |event|
-      update_event(event)
+    @list_events.each do |event|
+      @event = event
+      @update_is_ok &&= @event.update(event_params)
     end
 
     respond_to do |format|
@@ -110,46 +102,45 @@ class EventsController < ApplicationController
   end
 
 
-  def update_event(event)
+#   def update_event
 
-    @event = event
-    #update with params from view
-    @update_is_ok &&= @event.update(event_params)
-    # for multi dates get old values date begin_at & end_at but not time
-    if event.multi_dates_id
-      #get new record which is != @event since CarrierWave change the update
-      @event.reload
+#     @day_begin_at = @event.begin_at
 
-      #get day as old value
-      change_day(@event,event.begin_at)
+#     #update with params from view
+#     @update_is_ok &&= @event.update(event_params)
+#     # for multi dates get old values date begin_at & end_at but not time
+#     if event.multi_dates_id
 
-      #save again
-      @update_is_ok &&= @event.save
-    end
-  end
+#       #CarrierWave change the update so
+#       @event.reload
+
+#       #get day as old value
+# #      change_day(@event,@begin_at)
+
+#       #save again
+#       @update_is_ok &&= @event.save
+#     end
+#   end
 
   def destroy_events
 
     @delete_is_ok = true
+    @multi_dates_id = @event.multi_dates_id
 
-    list_events = case params[:type_update]
-      when UPDATE_TYPE_ALL_ITEMS  then Event.where(multi_dates_id: @event.multi_dates_id)
-      when UPDATE_TYPE_ALL_AFTER  then Event.where(multi_dates_id: @event.multi_dates_id).where("begin_at >= ?", @event.begin_at)
-      else [@event]
-    end
-
-    list_events.each do |event|
+    @list_events.each do |event|
       destroy(event)
     end
 
+    set_update_calendar_string
+
     respond_to do |format|
       if @delete_is_ok
-        format.html { redirect_to @event}
-        format.json { render :show, status: :created, location: @event }
+      format.html { redirect_to events_url}
+      format.json { head :no_content }
       else
         # simple_form doesn t show errors for :begin_at & :end_at because
         flash.now[:alert] = "Problème dans la suppression de l évènement"
-        format.html { render :new }
+        format.html { render @event }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -158,8 +149,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy(event)
-    @event = event
-    @delete_is_ok &&= @event.destroy
+    @delete_is_ok &&= event.destroy
   end
 
   def participate
@@ -197,22 +187,70 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  # Set the list of events / TYPE_UPADTE
+  def set_list_events
+    @list_events = case params[:type_update]
+      when UPDATE_TYPE_ALL_ITEMS  then Event.where(multi_dates_id: @event.multi_dates_id)
+      when UPDATE_TYPE_ALL_AFTER  then Event.where(multi_dates_id: @event.multi_dates_id).where("begin_at >= ?", @event.begin_at)
+      else [@event]
+      end
+  end
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
 
+    # # in the form, there are field for day/date AND fiel for time/hh:mm
+    # params[:event]["begin_at"] = DateTime.new(params[:event]["begin_at(1i)"].to_i,
+    #                               params[:event]["begin_at(2i)"].to_i,
+    #                               params[:event]["begin_at(3i)"].to_i,
+    #                               params[:event]["begin_at(4i)"].to_i,
+    #                               params[:event]["begin_at(5i)"].to_i)
 
-    # in the form, there are field for day/date AND fiel for time/hh:mm
-    params[:event]["begin_at"] = DateTime.new(params[:event]["begin_at(1i)"].to_i,
-                                  params[:event]["begin_at(2i)"].to_i,
-                                  params[:event]["begin_at(3i)"].to_i,
-                                  params[:event]["begin_at(4i)"].to_i,
-                                  params[:event]["begin_at(5i)"].to_i)
+    # params[:event]["end_at"] = DateTime.new(params[:event]["end_at(1i)"].to_i,
+    #                               params[:event]["end_at(2i)"].to_i,
+    #                               params[:event]["end_at(3i)"].to_i,
+    #                               params[:event]["end_at(4i)"].to_i,
+    #                               params[:event]["end_at(5i)"].to_i)
 
-    params[:event]["end_at"] = DateTime.new(params[:event]["end_at(1i)"].to_i,
-                                  params[:event]["end_at(2i)"].to_i,
-                                  params[:event]["end_at(3i)"].to_i,
-                                  params[:event]["end_at(4i)"].to_i,
-                                  params[:event]["end_at(5i)"].to_i)
+
+    # if persisted & multi date : not change the day but only hh:mm
+    if (@event && @event.persisted?)
+      # if persisted & multi date : not change the day but only hh:mm
+      if (@event.multi_dates_id)
+        binding.pry
+        @begin_at = DateTime.new(@event.begin_at.year, @event.begin_at.month, @event.begin_at.day,
+                                              params[:event]["begin_at(4i)"].to_i,params[:event]["begin_at(5i)"].to_i)
+        params[:event]["begin_at(1i)"] = @begin_at.year.to_s
+        params[:event]["begin_at(2i)"] = @begin_at.month.to_s
+        params[:event]["begin_at(3i)"] = @begin_at.day.to_s
+
+        @end_at = DateTime.new(@event.end_at.year, @event.end_at.month, @event.end_at.day,
+                                              params[:event]["end_at(4i)"].to_i,params[:event]["end_at(5i)"].to_i)
+        params[:event]["end_at(1i)"] = @end_at.year.to_s
+        params[:event]["end_at(2i)"] = @end_at.month.to_s
+        params[:event]["end_at(3i)"] = @end_at.day.to_s
+
+      # else mono date : get the date in calendar_string
+      else
+        # day is given by calendar_string = 1 only date
+        @begin_at = DateTime.strptime(params[:event][:calendar_string] + ' ' +
+                                              params[:event]["begin_at(4i)"] + ':' + params[:event]["begin_at(5i)"],
+                                              '%d/%m/%Y %H:%M')
+
+        @end_at = DateTime.strptime(params[:event][:calendar_string] + ' ' +
+                                              params[:event]["end_at(4i)"] + ':' + params[:event]["end_at(5i)"],
+                                              '%d/%m/%Y %H:%M')
+      end
+    # if create
+    else
+      @begin_at = DateTime.new(params[:event]['begin_at(1i)'].to_i, params[:event]['begin_at(2i)'].to_i,
+                                params[:event]['begin_at(3i)'].to_i, params[:event]['begin_at(4i)'].to_i,
+                                params[:event]['begin_at(5i)'].to_i)
+
+      @end_at = DateTime.new(params[:event]['end_at(1i)'].to_i, params[:event]['end_at(2i)'].to_i,
+                                params[:event]['end_at(3i)'].to_i, params[:event]['end_at(4i)'].to_i,
+                                params[:event]['end_at(5i)'].to_i)
+
+    end
 
     params.require(:event).permit(:title, :description, :begin_at, :end_at, :price_min, :price_max, :members_max,
                                   :address, :city, :zip, :lat, :lng, { photos: [] },
@@ -223,7 +261,7 @@ class EventsController < ApplicationController
     redirect_to forbidden_path unless member_signed_in?
   end
 
-  # change only the day of DateTime
+  # change only the day of DateTime but not hh:mm
   def change_day(event,day)
       day_at = I18n.l(day, format: '%d/%m/%Y')
 
@@ -233,4 +271,21 @@ class EventsController < ApplicationController
       time_at = I18n.l(event.end_at, format: '%H:%M')
       event.end_at  = DateTime.strptime(day_at+' '+time_at, '%d/%m/%Y %H:%M')
   end
+
+  # remove dates from calendar_string after delete events
+  def set_update_calendar_string
+    list_events = Event.where(multi_dates_id: @multi_dates_id)
+    calendar_string_tab = []
+    list_events.each do |event|
+      calendar_string_tab << I18n.l(event.begin_at, format: '%d/%m/%Y')
+    end
+
+    calendar_string = calendar_string_tab.reverse!.join(',')
+
+    list_events.each do |event|
+      event.calendar_string = calendar_string
+      @delete_is_ok &&= event.save
+    end
+  end
+
 end

@@ -48,6 +48,11 @@
 
       <%= f.input :calendar_string, label: 'Calendrier' %>
 
+      <% if @event.persisted? %>
+        L'événement est prévu le : <span class="btn btn-default"> <%= I18n.l(@event.begin_at, format: '%d/%m/%Y') %> </span>
+      <% end %>
+
+      </br>
       Heure de début :
       <%= f.time_select :begin_at, minute_step: 15 %>
 
@@ -57,10 +62,10 @@
 
       Heure de fin :
       <%= f.time_select :end_at, minute_step: 15 %>
-
+      </br>
       <div class="container" style="display: block; text-align: center; width: 100%;">
         <div style="display: flex; justify-content: space-around;">
-          <div style="align-items: center;">
+          <div style="align-items: center;" id="choiceDate">
             <div>Choisir une ou plusieurs dates</div>
             <div>
               <input type="text" size="7" id="l10nPicker" class="btn btn-default">
@@ -79,15 +84,15 @@
           <ul style="list-style-type:none">
             <li>
               <%= radio_button_tag(:type_update, UPDATE_TYPE_ONLY_ONE, checked: true ) %>
-              <%= label_tag(:Only, "Modifier que cet événement") %>
+              <%= label_tag(:Only, "Appliquer uniquement à cet événement") %>
             </li>
             <li>
               <%= radio_button_tag(:type_update, UPDATE_TYPE_ALL_AFTER) %>
-              <%= label_tag(:All_after, "Modifier tous les événements postérieurs") %>
+              <%= label_tag(:All_after, "Appliquer à cet événement et les suivants") %>
             </li>
             <li>
               <%= radio_button_tag(:type_update, UPDATE_TYPE_ALL_ITEMS) %>
-              <%= label_tag(:All_items, "Modifier tous les événements") %>
+              <%= label_tag(:All_items, "Appliquer à tous les événements") %>
             </li>
           </ul>
         </div>
@@ -118,11 +123,11 @@
 
   <% if @event.persisted? && @event.multi_dates_id %>
     // If update not allow l10nPicker for multi dates
-    $('#l10nPicker').prop('disabled', true);
-    $('#event_begin_at_4i').prop('disabled', true);
-    $('#event_begin_at_5i').prop('disabled', true);
-    $('#event_end_at_4i').prop('disabled', true);
-    $('#event_end_at_5i').prop('disabled', true);
+    $('#choiceDate').hide();
+    // $('#event_begin_at_4i').prop('disabled', true);
+    // $('#event_begin_at_5i').prop('disabled', true);
+    // $('#event_end_at_4i').prop('disabled', true);
+    // $('#event_end_at_5i').prop('disabled', true);
   <% end %>
 
   // Get value from model
