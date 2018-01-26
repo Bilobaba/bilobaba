@@ -21,7 +21,7 @@
         <% end %>
       <% end %>
 
-      <% if @event.cloudy.identifier.present? %>
+      <% if @event.cloudy? && @event.cloudy.identifier ? %>
         <%= link_to @event.cloudy.identifier do %>
           <%= cl_image_tag(@event.cloudy.identifier, width: 600, height: 182, crop: :fill ) %>
         <% end %>
