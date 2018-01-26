@@ -24,6 +24,7 @@ class EventsController < ApplicationController
   def new
     @h1_title = 'Ajout d\'un nouvel évènement'
     @event = Event.new
+    @event.cloudy = @cloudy
     @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
   end
 
@@ -38,6 +39,9 @@ class EventsController < ApplicationController
 
     # multi_dates_id = Time.new is Id group of all items
     @event = Event.new(event_params)
+    @cloudy = Cloudy.create
+
+
     tab_dates = @event.calendar_string.split(',')
     time_stamp = Time.new
 
@@ -50,6 +54,8 @@ class EventsController < ApplicationController
       @event = Event.new(event_params)
       @event.multi_dates_id = time_stamp if tab_dates.count > 1
       @event.organizer = current_member
+      @event.cloudy = @cloudy
+
 
       time_at = I18n.l(@event.begin_at, format: '%H:%M')
       @event.begin_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
@@ -57,7 +63,16 @@ class EventsController < ApplicationController
       time_at = I18n.l(@event.end_at, format: '%H:%M')
       @event.end_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
 
+      # force image to avoid uplaod a new image per event created
       @save_is_ok &&= @event.save
+
+      unless @cloudy.identifier
+        @event.reload
+        @cloudy.identifier = @event.image.filename
+        @cloudy.save
+        params[:event].delete(:image)
+      end
+
     end
 
     respond_to do |format|
@@ -216,7 +231,6 @@ class EventsController < ApplicationController
     if (@event && @event.persisted?)
       # if persisted & multi date : not change the day but only hh:mm
       if (@event.multi_dates_id)
-        binding.pry
         @begin_at = DateTime.new(@event.begin_at.year, @event.begin_at.month, @event.begin_at.day,
                                               params[:event]["begin_at(4i)"].to_i,params[:event]["begin_at(5i)"].to_i)
         params[:event]["begin_at(1i)"] = @begin_at.year.to_s

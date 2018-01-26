@@ -11,6 +11,8 @@
       <% if @event.image.url.present? %>
         <%= cl_image_tag @event.image.file.filename, width: 470, height: 142 %>
       <% end %>
+
+      <!-- upload the image but not recorded directly : association with cloudy record -->
       <%= f.input :image, label: 'Image' %>
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118181338) do
+ActiveRecord::Schema.define(version: 20180126084009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20180118181338) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_attend_events_on_event_id"
     t.index ["member_id"], name: "index_attend_events_on_member_id"
+  end
+
+  create_table "cloudies", force: :cascade do |t|
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -60,6 +66,8 @@ ActiveRecord::Schema.define(version: 20180118181338) do
     t.string "photo5"
     t.string "calendar_string"
     t.datetime "multi_dates_id"
+    t.bigint "cloudy_id"
+    t.index ["cloudy_id"], name: "index_events_on_cloudy_id"
     t.index ["member_id"], name: "index_events_on_member_id"
   end
 

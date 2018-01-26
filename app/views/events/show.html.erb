@@ -21,6 +21,15 @@
         <% end %>
       <% end %>
 
+      <% if @event.cloudy.identifier.present? %>
+        <%= link_to @event.cloudy.identifier do %>
+          <%= cl_image_tag(@event.cloudy.identifier, width: 600, height: 182, crop: :fill ) %>
+        <% end %>
+      <% end %>
+
+
+
+
       <div id="event_content">
         <%= link_to @event.organizer do %>
           <% if @event.organizer.avatar.file %>

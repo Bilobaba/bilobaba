@@ -11,7 +11,6 @@ class Event < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :zip, presence: true
-  validates :image, presence: true
   validates :calendar_string, presence: true
 
   mount_uploader :image, ImageUploader
@@ -23,6 +22,7 @@ class Event < ApplicationRecord
   mount_uploaders :photos, PhotoUploader
 
   belongs_to :organizer, class_name: :Member, foreign_key: :member_id
+  belongs_to :cloudy
 
   has_many :follow_event_followers, class_name: :FollowEvent, foreign_key: :event_id, dependent: :destroy
   has_many :followers, through: :follow_event_followers, source: :member, dependent: :destroy
