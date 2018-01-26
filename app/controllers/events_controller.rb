@@ -24,7 +24,6 @@ class EventsController < ApplicationController
   def new
     @h1_title = 'Ajout d\'un nouvel évènement'
     @event = Event.new
-    @event.cloudy = @cloudy
     @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
   end
 
