@@ -39,8 +39,11 @@ class EventsController < ApplicationController
     # multi_dates_id = Time.new is Id group of all items
     @event = Event.new(event_params)
     @cloudy = Cloudy.create
+binding.pry
 
+    if @event.calendar_string.include?('-')
 
+    end
     tab_dates = @event.calendar_string.split(',')
     time_stamp = Time.new
 
@@ -225,45 +228,60 @@ class EventsController < ApplicationController
     #                               params[:event]["end_at(4i)"].to_i,
     #                               params[:event]["end_at(5i)"].to_i)
 
+binding.pry
+    # if range, event during several days
+    if params[:event][:calendar_string].include?('-')
+      calendar_string = params[:event][:calendar_string].delete(' ').split('-')
 
-    # if persisted & multi date : not change the day but only hh:mm
-    if (@event && @event.persisted?)
-      # if persisted & multi date : not change the day but only hh:mm
-      if (@event.multi_dates_id)
-        @begin_at = DateTime.new(@event.begin_at.year, @event.begin_at.month, @event.begin_at.day,
-                                              params[:event]["begin_at(4i)"].to_i,params[:event]["begin_at(5i)"].to_i)
-        params[:event]["begin_at(1i)"] = @begin_at.year.to_s
-        params[:event]["begin_at(2i)"] = @begin_at.month.to_s
-        params[:event]["begin_at(3i)"] = @begin_at.day.to_s
-
-        @end_at = DateTime.new(@event.end_at.year, @event.end_at.month, @event.end_at.day,
-                                              params[:event]["end_at(4i)"].to_i,params[:event]["end_at(5i)"].to_i)
-        params[:event]["end_at(1i)"] = @end_at.year.to_s
-        params[:event]["end_at(2i)"] = @end_at.month.to_s
-        params[:event]["end_at(3i)"] = @end_at.day.to_s
-
-      # else mono date : get the date in calendar_string
-      else
-        # day is given by calendar_string = 1 only date
-        @begin_at = DateTime.strptime(params[:event][:calendar_string] + ' ' +
-                                              params[:event]["begin_at(4i)"] + ':' + params[:event]["begin_at(5i)"],
-                                              '%d/%m/%Y %H:%M')
-
-        @end_at = DateTime.strptime(params[:event][:calendar_string] + ' ' +
-                                              params[:event]["end_at(4i)"] + ':' + params[:event]["end_at(5i)"],
-                                              '%d/%m/%Y %H:%M')
-      end
-    # if create
+      @begin_at  = DateTime.strptime(calendar_string[0]+params[:event]["begin_at(4i)"]+params[:event]["begin_at(5i)"],
+        '%d/%m/%Y%H%M')
+      @end_at  = DateTime.strptime(calendar_string[1]+params[:event]["end_at(4i)"]+params[:event]["end_at(5i)"],
+        '%d/%m/%Y%H%M')
+binding.pry
+    # mono or multidate
     else
-      @begin_at = DateTime.new(params[:event]['begin_at(1i)'].to_i, params[:event]['begin_at(2i)'].to_i,
-                                params[:event]['begin_at(3i)'].to_i, params[:event]['begin_at(4i)'].to_i,
-                                params[:event]['begin_at(5i)'].to_i)
+      # if persisted & multi date & not range : not change the day but only hh:mm
+      if (@event && @event.persisted? && !params[:event][:calendar_string].include?('-'))
+        # if persisted & multi date : not change the day but only hh:mm
+        if (@event.multi_dates_id)
+          @begin_at = DateTime.new(@event.begin_at.year, @event.begin_at.month, @event.begin_at.day,
+                                                params[:event]["begin_at(4i)"].to_i,params[:event]["begin_at(5i)"].to_i)
+          params[:event]["begin_at(1i)"] = @begin_at.year.to_s
+          params[:event]["begin_at(2i)"] = @begin_at.month.to_s
+          params[:event]["begin_at(3i)"] = @begin_at.day.to_s
 
-      @end_at = DateTime.new(params[:event]['end_at(1i)'].to_i, params[:event]['end_at(2i)'].to_i,
-                                params[:event]['end_at(3i)'].to_i, params[:event]['end_at(4i)'].to_i,
-                                params[:event]['end_at(5i)'].to_i)
+          @end_at = DateTime.new(@event.end_at.year, @event.end_at.month, @event.end_at.day,
+                                                params[:event]["end_at(4i)"].to_i,params[:event]["end_at(5i)"].to_i)
+          params[:event]["end_at(1i)"] = @end_at.year.to_s
+          params[:event]["end_at(2i)"] = @end_at.month.to_s
+          params[:event]["end_at(3i)"] = @end_at.day.to_s
 
+        # else mono date : get the date in calendar_string
+        else
+          # day is given by calendar_string = 1 only date
+          @begin_at = DateTime.strptime(params[:event][:calendar_string] + ' ' +
+                                                params[:event]["begin_at(4i)"] + ':' + params[:event]["begin_at(5i)"],
+                                                '%d/%m/%Y %H:%M')
+
+          @end_at = DateTime.strptime(params[:event][:calendar_string] + ' ' +
+                                                params[:event]["end_at(4i)"] + ':' + params[:event]["end_at(5i)"],
+                                                '%d/%m/%Y %H:%M')
+        end
+      # if create
+      else
+        @begin_at = DateTime.new(params[:event]['begin_at(1i)'].to_i, params[:event]['begin_at(2i)'].to_i,
+                                  params[:event]['begin_at(3i)'].to_i, params[:event]['begin_at(4i)'].to_i,
+                                  params[:event]['begin_at(5i)'].to_i)
+
+        @end_at = DateTime.new(params[:event]['end_at(1i)'].to_i, params[:event]['end_at(2i)'].to_i,
+                                  params[:event]['end_at(3i)'].to_i, params[:event]['end_at(4i)'].to_i,
+                                  params[:event]['end_at(5i)'].to_i)
+
+      end
     end
+
+    params[:event][:begin] = @begin_at
+    params[:event][:end_at] = @end_at
 
     params.require(:event).permit(:title, :description, :begin_at, :end_at, :price_min, :price_max, :members_max,
                                   :address, :city, :zip, :lat, :lng, { photos: [] },

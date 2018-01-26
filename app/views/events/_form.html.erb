@@ -48,38 +48,52 @@
 
       <!-- Warning  Event.calendar_string set by calendarsPicker-->
 
-      <%= f.input :calendar_string, label: 'Calendrier' %>
+      <%= f.input :calendar_string, label: 'Calendrier pour des événements sur une journée' %>
 
       <% if @event.persisted? %>
         L'événement est prévu le : <span class="btn btn-default"> <%= I18n.l(@event.begin_at, format: '%d/%m/%Y') %> </span>
       <% end %>
 
-      </br>
-      Heure de début :
-      <%= f.time_select :begin_at, minute_step: 15 %>
 
       <% if browser.firefox? %>
         </br>
       <% end %>
 
+      Heure de début :
+      <%= f.time_select :begin_at, minute_step: 15 %>
+
       Heure de fin :
       <%= f.time_select :end_at, minute_step: 15 %>
       </br>
-      <div class="container" style="display: block; text-align: center; width: 100%;">
+      <div class="container" style="display: block; text-align: center; width: 100%;" id="daysPickerBlock">
         <div style="display: flex; justify-content: space-around;">
           <div style="align-items: center;" id="choiceDate">
             <div>Choisir une ou plusieurs dates</div>
             <div>
-              <input type="text" size="7" id="l10nPicker" class="btn btn-default">
+              <input type="text" size="7" id="dayPicker" class="btn btn-default">
             </div>
           </div>
           <div  style="align-items: center;">
             <div>Les dates choisies :</div>
-            <div type="text" size="30" id="l10nAlternate" readonly="readonly" style=" margin-left: 20px "></div>
+            <div type="text" size="30" id="dayAlternate" readonly="readonly" style=" margin-left: 20px "></div>
           </div>
         </div>
       </br>
       </div>
+
+      <div class="container" style="display: block; text-align: center; width: 100%;" id="rangePickerBlock">
+        <div style="display: flex; justify-content: space-around;">
+          <div style="align-items: center;" id="choiceRange">
+            <div>Choisir un intervalle</div>
+            <div>
+              <input type="text" size="18" id="range2Picker" class="btn btn-default">
+            </div>
+          </div>
+
+        </div>
+      </br>
+      </div>
+
       <% if @event.multi_dates_id && @event.persisted? %>
         <h4> Type de modification</h4>
         <div style="text-align: left">
@@ -124,7 +138,7 @@
   $('#event_calendar_string').hide();
 
   <% if @event.persisted? && @event.multi_dates_id %>
-    // If update not allow l10nPicker for multi dates
+    // If update not allow dayPicker for multi dates
     $('#choiceDate').hide();
     // $('#event_begin_at_4i').prop('disabled', true);
     // $('#event_begin_at_5i').prop('disabled', true);
@@ -132,10 +146,42 @@
     // $('#event_end_at_5i').prop('disabled', true);
   <% end %>
 
-  // Get value from model
-  $('#l10nPicker')[0].value = $('#event_calendar_string')[0].value;
+  $('#range2Picker').calendarsPicker({
+    rangeSelect: true,
+    monthsToShow: 2,
+    showTrigger: '#calImg',
+    dateFormat: 'dd/mm/yyyy',
+    altField: '#event_calendar_string',
+    altFormat: 'dd/mm/yyyy',
+    prevText: '&#x3c;Préc',
+    prevStatus: 'Voir le mois précédent',
+    prevJumpText: '&#x3c;&#x3c;',
+    prevJumpStatus: 'Voir l\'année précédent',
+    nextText: 'Suiv&#x3e;',
+    nextStatus: 'Voir le mois suivant',
+    nextJumpText: '&#x3e;&#x3e;',
+    nextJumpStatus: 'Voir l\'année suivant',
+    currentText: 'Courant',
+    currentStatus: 'Voir le mois courant',
+    todayText: 'Aujourd\'hui',
+    todayStatus: 'Voir aujourd\'hui',
+    clearText: 'Effacer',
+    clearStatus: 'Effacer la date sélectionnée',
+    closeText: 'Fermer',
+    closeStatus: 'Fermer sans modifier',
+    yearStatus: 'Voir une autre année',
+    monthStatus: 'Voir un autre mois',
+    weekText: 'Sm',
+    weekStatus: 'Semaine de l\'année',
+    dayStatus: '\'Choisir\' le DD d MM',
+    defaultStatus: 'Choisir la date',
+  });
 
-  $('#l10nPicker').calendarsPicker($.extend({
+  // Get value from model
+  $('#dayPicker')[0].value = $('#event_calendar_string')[0].value;
+
+
+  $('#dayPicker').calendarsPicker($.extend({
     showTrigger: '#calImg',
     // only if edit & no multi dates
     <% if @event.persisted? && !@event.multi_dates_id %>
@@ -171,7 +217,7 @@
 
   }));
 
-  $('#l10nPicker').change(function(){
+  $('#dayPicker').change(function(){
     console.log('Changed');
    tabString = $('#event_calendar_string')[0].value.split(',').sort(function(a, b){
     var aDate = a.split("/");
@@ -180,11 +226,16 @@
     var date2 = bDate[2] + bDate[1] + bDate[0];
     return date1 > date2;
     });
-    $('#l10nAlternate').html(tabString.join('<br>'));
-    $('#l10nPicker').html(tabString.join(','));
+
+//  KEVIN : Je ne sais pas pourquoi on a besoin des deux ??? Premier pour recaluler day Picker, le deuxieme pour afficher dayAltenate
+    $('#dayAlternate')[0].value =tabString.join('<br>');
+    $('#dayPicker')[0].value = tabString.join(',');
+
+    $('#dayAlternate').html(tabString.join('<br>'));
+    $('#dayPicker').html(tabString.join(','));
   });
 
-  // $('#l10nPicker').autocomplete(function(){});
+  // $('#dayPicker').autocomplete(function(){});
 
   // $('#event_begin_at_4i').autocomplete(function(){});
 
@@ -192,7 +243,7 @@
 
   function showDates() {
     tabString = $('#event_calendar_string')[0].value.split(',').sort();
-    $('#l10nAlternate').html(tabString.join('<br>'));
+    $('#dayAlternate').html(tabString.join('<br>'));
   }
 
   ($.datepicker.regionalOptions['fr']);
