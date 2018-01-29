@@ -51,7 +51,7 @@
       <hr>
 
       <!-- Warning  fields hidden but set by daysPicker é rangePicker-->
-      <div class="hiddenXXX">
+      <div class="hidden">
         <%= f.input :calendar_string, label: 'Calendrier pour des événements sur une journée' %>
         <%= f.input :calendar_range_string, label: 'Choisir date de début et date de fin' %>
       </div>
@@ -148,13 +148,22 @@
 
 <script>
 
-// Set Event.calendar_string by #ln10Picker
-  // $('#event_calendar_string').hide();
+  initDates();
+
+  function initDates() {
+    $('#daysPicker')[0].value = $('#event_calendar_string')[0].value;
+    tabString = $('#event_calendar_string')[0].value.split(',');
+    $('#dayAlternate').html(tabString.join('<br>'));
+    $('#rangePicker')[0].value = $('#event_calendar_range_string')[0].value;
+    durationRange();
+  };
+
 
   <% if @event.persisted? && @event.multi_dates_id %>
     // If update not allow daysPicker for multi dates
     $('#choiceDate').hide();
   <% end %>
+
 
   $('#rangePicker').calendarsPicker({
     rangeSelect: true,
@@ -187,8 +196,6 @@
     defaultStatus: 'Choisir la date',
   });
 
-  // Get value from model
-  $('#daysPicker')[0].value = $('#event_calendar_string')[0].value;
 
 
   $('#daysPicker').calendarsPicker($.extend({
@@ -243,29 +250,31 @@
   });
 
   $('#rangePicker').change(function(){
-    tabString = $('#event_calendar_range_string')[0].value.split('-');
-    day = tabString[0].split('/');
-    begin_day = new Date(day[2],day[1],day[0]);
-    day = tabString[1].split('/');
-    end_day = new Date(day[2],day[1],day[0]);
-    diffDays = parseInt((end_day - begin_day) / (1000 * 60 * 60 * 24)) + 1;
-    $('#rangeDuration').html(diffDays + ' jours');
 
+    durationRange();
     console.log('Range picker change');
     $('#daysPicker')[0].value = "";
     $('#event_calendar_string')[0].value = "";
     $('#dayAlternate').html("");
   });
 
-  showDates();
+  initDates();
 
-  function showDates() {
-    tabString = $('#event_calendar_string')[0].value.split(',');
-    $('#dayAlternate').html(tabString.join('<br>'));
-    $('#rangePicker')[0].value = $('#event_calendar_range_string')[0].value
+  function durationRange() {
+    if($('#event_calendar_range_string')[0].value.length > 0)
+    {
+      tabString = $('#event_calendar_range_string')[0].value.split('-');
+      day = tabString[0].split('/');
+      begin_day = new Date(day[2],day[1],day[0]);
+      day = tabString[1].split('/');
+      end_day = new Date(day[2],day[1],day[0]);
+      diffDays = parseInt((end_day - begin_day) / (1000 * 60 * 60 * 24)) + 1;
+      $('#rangeDuration').html(diffDays + ' jours');
+    };
   };
 
-  $('#event_calendar_string').trigger("change");
-  $('#event_calendar_range_string').trigger("change");
 
+  // if $('#event_calendar_string')[0].value
+  // $('#event_calendar_string').trigger("change");
+  // $('#event_calendar_range_string').trigger("change");
 </script>
