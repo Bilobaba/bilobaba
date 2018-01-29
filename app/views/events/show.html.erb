@@ -22,7 +22,7 @@
       <div id="event_content">
         <%= link_to @event.organizer do %>
           <% if @event.organizer.avatar.file %>
-            <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar') %>
+            <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, crop: :fill, id: 'avatar') %>
           <% else %>
             <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 80, height: 80, id: 'avatar' %>
           <% end %>
