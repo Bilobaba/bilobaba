@@ -21,6 +21,10 @@
         <% end %>
       <% end %>
 
+      <% if @event.image.url.present? %>
+        <%= cl_image_tag @event.image.file.filename, width: 600, height: 182, crop: :fill  %>
+      <% end %>
+
       <div id="event_content">
         <%= link_to @event.organizer do %>
           <% if @event.organizer.avatar.file %>

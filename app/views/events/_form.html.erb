@@ -8,9 +8,13 @@
     <div class="form-inputs">
       <%= f.input :title, label: 'Titre', required: true %>
       <%= f.input :description, as: :text, class: "form-control string optional", input_html: {rows: 5}, label: 'Description' %> </br>
+      <% if @event.cloudy.present? %>
+        <%= cl_image_tag(@event.cloudy.identifier, width: 400, height: 120, crop: :fill ) %>
+      <% end %>
       <% if @event.image.url.present? %>
         <%= cl_image_tag @event.image.file.filename, width: 470, height: 142 %>
       <% end %>
+
 
       <!-- upload the image but not recorded directly : association with cloudy record -->
       <%= f.input :image, label: 'Image' %>
@@ -46,9 +50,11 @@
 
       <hr>
 
-      <!-- Warning  Event.calendar_string set by calendarsPicker-->
-
-      <%= f.input :calendar_string, label: 'Calendrier pour des événements sur une journée' %>
+      <!-- Warning  fields hidden but set by daysPicker é rangePicker-->
+      <div class="hiddenXXX">
+        <%= f.input :calendar_string, label: 'Calendrier pour des événements sur une journée' %>
+        <%= f.input :calendar_range_string, label: 'Choisir date de début et date de fin' %>
+      </div>
 
       <% if @event.persisted? %>
         L'événement est prévu le : <span class="btn btn-default"> <%= I18n.l(@event.begin_at, format: '%d/%m/%Y') %> </span>
@@ -65,12 +71,15 @@
       Heure de fin :
       <%= f.time_select :end_at, minute_step: 15 %>
       </br>
-      <div class="container" style="display: block; text-align: center; width: 100%;" id="daysPickerBlock">
+      </br>
+
+      <div class="container" style="display: block; text-align: center; width: 100%; border-radius: 5px; border: solid 1px lightgrey" id="daysPickerBlock">
+        <div>Pour des événements pontuels ou réguliers </div>
         <div style="display: flex; justify-content: space-around;">
           <div style="align-items: center;" id="choiceDate">
             <div>Choisir une ou plusieurs dates</div>
             <div>
-              <input type="text" size="7" id="dayPicker" class="btn btn-default">
+              <input type="text" size="7" id="daysPicker" class="btn btn-default">
             </div>
           </div>
           <div  style="align-items: center;">
@@ -81,15 +90,20 @@
       </br>
       </div>
 
-      <div class="container" style="display: block; text-align: center; width: 100%;" id="rangePickerBlock">
-        <div style="display: flex; justify-content: space-around;">
-          <div style="align-items: center;" id="choiceRange">
-            <div>Choisir un intervalle</div>
-            <div>
-              <input type="text" size="18" id="range2Picker" class="btn btn-default">
-            </div>
-          </div>
+      </br>
 
+
+      <div class="container" style="display: block; text-align: center; width: 100%;  border-radius: 5px; border: solid 1px lightgrey" id="rangePickerBlock">
+        <div>Pour des stages ou séjours </div>
+        <div style="display: flex; justify-content: space-around;">
+          <div style="align-items: center;" >
+            <div>date de début - date de fin </div>
+            <input type="text" size="19" id="rangePicker" class="btn btn-default">
+          </div>
+          <div  style="align-items: center;">
+            <div>La durée choisie :</div>
+            <div type="text" size="10" id="rangeDuration" readonly="readonly" style=" margin-left: 20px; "></div>
+          </div>
         </div>
       </br>
       </div>
@@ -135,24 +149,20 @@
 <script>
 
 // Set Event.calendar_string by #ln10Picker
-  $('#event_calendar_string').hide();
+  // $('#event_calendar_string').hide();
 
   <% if @event.persisted? && @event.multi_dates_id %>
-    // If update not allow dayPicker for multi dates
+    // If update not allow daysPicker for multi dates
     $('#choiceDate').hide();
-    // $('#event_begin_at_4i').prop('disabled', true);
-    // $('#event_begin_at_5i').prop('disabled', true);
-    // $('#event_end_at_4i').prop('disabled', true);
-    // $('#event_end_at_5i').prop('disabled', true);
   <% end %>
 
-  $('#range2Picker').calendarsPicker({
+  $('#rangePicker').calendarsPicker({
     rangeSelect: true,
-    monthsToShow: 2,
+    monthsToShow: 1,
     showTrigger: '#calImg',
     dateFormat: 'dd/mm/yyyy',
-    altField: '#event_calendar_string',
     altFormat: 'dd/mm/yyyy',
+    altField: '#event_calendar_range_string',
     prevText: '&#x3c;Préc',
     prevStatus: 'Voir le mois précédent',
     prevJumpText: '&#x3c;&#x3c;',
@@ -178,10 +188,10 @@
   });
 
   // Get value from model
-  $('#dayPicker')[0].value = $('#event_calendar_string')[0].value;
+  $('#daysPicker')[0].value = $('#event_calendar_string')[0].value;
 
 
-  $('#dayPicker').calendarsPicker($.extend({
+  $('#daysPicker').calendarsPicker($.extend({
     showTrigger: '#calImg',
     // only if edit & no multi dates
     <% if @event.persisted? && !@event.multi_dates_id %>
@@ -190,8 +200,8 @@
       multiSelect: 400,
     <% end %>
     dateFormat: 'dd/mm/yyyy',
-    altField: '#event_calendar_string',
     altFormat: 'dd/mm/yyyy',
+    altField: '#event_calendar_string',
     prevText: '&#x3c;Préc',
     prevStatus: 'Voir le mois précédent',
     prevJumpText: '&#x3c;&#x3c;',
@@ -214,82 +224,48 @@
     weekStatus: 'Semaine de l\'année',
     dayStatus: '\'Choisir\' le DD d MM',
     defaultStatus: 'Choisir la date',
-
   }));
 
-  $('#dayPicker').change(function(){
-    console.log('Changed');
+  $('#daysPicker').change(function(){
    tabString = $('#event_calendar_string')[0].value.split(',').sort(function(a, b){
     var aDate = a.split("/");
     var date1 = aDate[2]+aDate[1]+ aDate[0];
     var bDate = b.split("/");
     var date2 = bDate[2] + bDate[1] + bDate[0];
-    return date1 > date2;
+    if (date1 < date2){return -1;} else {return 1;}
     });
-
-//  KEVIN : Je ne sais pas pourquoi on a besoin des deux ??? Premier pour recaluler day Picker, le deuxieme pour afficher dayAltenate
-    $('#dayAlternate')[0].value =tabString.join('<br>');
-    $('#dayPicker')[0].value = tabString.join(',');
-
     $('#dayAlternate').html(tabString.join('<br>'));
-    $('#dayPicker').html(tabString.join(','));
+
+    console.log('Day picker change');
+    $('#rangePicker')[0].value = "";
+    $('#event_calendar_range_string')[0].value = "";
+    $('#rangeDuration').html("");
   });
 
-  // $('#dayPicker').autocomplete(function(){});
+  $('#rangePicker').change(function(){
+    tabString = $('#event_calendar_range_string')[0].value.split('-');
+    day = tabString[0].split('/');
+    begin_day = new Date(day[2],day[1],day[0]);
+    day = tabString[1].split('/');
+    end_day = new Date(day[2],day[1],day[0]);
+    diffDays = parseInt((end_day - begin_day) / (1000 * 60 * 60 * 24)) + 1;
+    $('#rangeDuration').html(diffDays + ' jours');
 
-  // $('#event_begin_at_4i').autocomplete(function(){});
+    console.log('Range picker change');
+    $('#daysPicker')[0].value = "";
+    $('#event_calendar_string')[0].value = "";
+    $('#dayAlternate').html("");
+  });
 
   showDates();
 
   function showDates() {
-    tabString = $('#event_calendar_string')[0].value.split(',').sort();
+    tabString = $('#event_calendar_string')[0].value.split(',');
     $('#dayAlternate').html(tabString.join('<br>'));
-  }
-
-  ($.datepicker.regionalOptions['fr']);
-
-  /* http://keith-wood.name/datepick.html
-   French localisation for jQuery Datepicker.
-   Stéphane Nahmani (sholby@sholby.net). */
-(function($) {
-  'use strict';
-  $.datepicker.regionalOptions = {
-    monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
-    'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
-    monthNamesShort: ['Jan','Fév','Mar','Avr','Mai','Jun',
-    'Jul','Aoû','Sep','Oct','Nov','Déc'],
-    dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
-    dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
-    dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
-    dateFormat: 'dd/mm/yyyy',
-    firstDay: 1,
-    renderer: $.datepicker.defaultRenderer,
-    prevText: '&#x3c;Préc',
-    prevStatus: 'Voir le mois précédent',
-    prevJumpText: '&#x3c;&#x3c;',
-    prevJumpStatus: 'Voir l\'année précédent',
-    nextText: 'Suiv&#x3e;',
-    nextStatus: 'Voir le mois suivant',
-    nextJumpText: '&#x3e;&#x3e;',
-    nextJumpStatus: 'Voir l\'année suivant',
-    currentText: 'Courant',
-    currentStatus: 'Voir le mois courant',
-    todayText: 'Aujourd\'hui',
-    todayStatus: 'Voir aujourd\'hui',
-    clearText: 'Effacer',
-    clearStatus: 'Effacer la date sélectionnée',
-    closeText: 'Fermer',
-    closeStatus: 'Fermer sans modifier',
-    yearStatus: 'Voir une autre année',
-    monthStatus: 'Voir un autre mois',
-    weekText: 'Sm',
-    weekStatus: 'Semaine de l\'année',
-    dayStatus: '\'Choisir\' le DD d MM',
-    defaultStatus: 'Choisir la date',
-    isRTL: false
+    $('#rangePicker')[0].value = $('#event_calendar_range_string')[0].value
   };
 
-  $.datepicker.setDefaults($.datepicker.regionalOptions);
-})(jQuery);
+  $('#event_calendar_string').trigger("change");
+  $('#event_calendar_range_string').trigger("change");
 
 </script>
