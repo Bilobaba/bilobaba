@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180126084009) do
+ActiveRecord::Schema.define(version: 20180129104937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20180126084009) do
     t.string "calendar_string"
     t.datetime "multi_dates_id"
     t.bigint "cloudy_id"
+    t.string "calendar_range_string"
     t.index ["cloudy_id"], name: "index_events_on_cloudy_id"
     t.index ["member_id"], name: "index_events_on_member_id"
   end
