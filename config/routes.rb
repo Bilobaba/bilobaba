@@ -27,8 +27,5 @@ Rails.application.routes.draw do
   post 'pages/contact', to: 'pages#send_mail_contact'
   get 'pages/forbidden', as: 'forbidden'
 
-  get 'participate', to: 'events#participate', as: 'participate'
-  get 'interact_with/:id/:type', to: 'events#interact_with', as: 'interact_with'
-
   root 'events#index'
 end

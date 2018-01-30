@@ -70,37 +70,6 @@
             </td>
           </tr>
         </table>
-
-        <hr />
-
-        <div class="btn-centered">
-          <div class="event_action">
-            <% if member_signed_in? %>
-              <% if @event.participate?(current_member) %>
-                <%= link_to 'J\'y vais', interact_with_path(@event.id, 'go'), id: 'go', class: 'badge active', 'aria-pressed': 'true', remote: true %>
-              <% else %>
-                <%= link_to 'J\'y vais', interact_with_path(@event.id, 'go'), id: 'go', class: 'badge', remote: true %>
-              <% end %>
-              <p><%= link_to '(ils participent)', '#',  'data-toggle': 'modal', 'data-target': '#modal_attendees' %></p>
-            <% else %>
-              <%= link_to 'J\'y vais', '#', 'data-toggle': 'modal', 'data-target': '#connection', class: 'badge' %>
-              <p><%= link_to '(ils participent)', '#', 'data-toggle': 'modal', 'data-target': '#connection' %></p>
-            <% end %>
-          </div>
-          <div class="event_action">
-            <% if member_signed_in? %>
-              <% if @event.like?(current_member) %>
-                <%= link_to 'J\'aime', interact_with_path(@event.id, 'like'), id: 'like', class: 'badge active', 'aria-pressed': 'true', remote: true %>
-              <% else %>
-                <%= link_to 'J\'aime', interact_with_path(@event.id, 'like'), id: 'like', class: 'badge', remote: true %>
-              <% end %>
-              <p><%= link_to '(ils aiment)', '#',  'data-toggle': 'modal', 'data-target': '#modal_likers' %></p>
-            <% else %>
-              <%= link_to 'J\'aime', '#', 'data-toggle': 'modal', 'data-target': '#connection', class: 'badge' %>
-              <p><%= link_to '(ils aiment)', '#', 'data-toggle': 'modal', 'data-target': '#connection' %></p>
-            <% end %>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -139,14 +108,6 @@
 
 <!-- Modals -->
 <%= render 'layouts/modal', title: 'Description détaillée de <em>' + @event.title + '</em>', content: @event.description %>
-
-<div class="modal fade" id="modal_attendees" tabindex="-1" role="dialog">
-  <%= render 'layouts/members', title: 'Ils participent', members: @event.attendees %></div>
-</div>
-
-<div class="modal fade" id="modal_likers" tabindex="-1" role="dialog">
-  <%= render 'layouts/members', title: 'Ils aiment', members: @event.likers %>
-</div>
 
 <%= render 'layouts/map', title: 'Localisation' %>
 
