@@ -1,10 +1,8 @@
 @import "default";
 
-
 #events td {
     vertical-align: middle;
 }
-
 
 #events table tbody tr a {
     display:block;
@@ -13,18 +11,13 @@
 }
 
 #events tbody tr:hover{
+  background-color: $hover_color;
+  color: white;
   cursor: pointer;
-  font-weight: bold;
-  color: $hover_color;
-  border: solid 2px;
 }
 
 #events th:not(:first-of-type), #events td:not(:first-of-type) {
     text-align: center;
-}
-
-#events td:nth-child(even):not(:first-of-type) {
-    background: #F5F9F9;
 }
 
 .organizer > img:hover {
@@ -45,9 +38,35 @@
     text-align: center;
 }
 
-.container-search-box{
-  margin: auto;
-  width: 700px;
-  background-color: $hover_color;
-  border-radius: 3px;
+#add_event > a:hover {
+    background-color: $hover_color;
+    border-color: $hover_color;
+    color: white;
+}
+
+#search-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#search-box {
+    border-color: $hover_color;
+    color: $hover_color;
+    margin: auto;
+    width: 700px;
+}
+
+#hits-container table > thead > tr {
+    background-color: $hover_color;
+    color: white;
+    font-weight: bold;
+}
+
+#hits-container table > thead > tr > th {
+    border: none;
+}
+
+#pagination-container ul {
+    padding: 0px;
 }

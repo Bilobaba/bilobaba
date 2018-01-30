@@ -3,31 +3,23 @@
     font-size: 20px;
     margin: 50px auto 0px auto;
     max-width: 700px;
-    text-shadow: 1px 1px 5px black;
-
 }
 
-#home_title {
-    font-size: 40px;
+#home h1 {
+    font-size: 44px;
+    font-weight: normal;
+    height: 44px;
+    line-height: 44px;
+    margin: 0px;
+    opacity: 1;
+    text-align: left;
 }
 
-#home_title span a {
-    font-size: 12px;
-    color: white;
+#home em {
+    font-size: 17px;
 }
 
-#home_title span a:hover {
-    text-decoration: underline;
-}
-
-#home_news_img {
-    margin: 50px auto 0px auto;
-    width: 50%;
-    padding: 10px;
-}
-#home_news_title {
-    color: white;
-    font-size: 20px;
-    margin: 50px auto 0px auto;
-    max-width: 700px;
+#home_content {
+    font-size: 25px;
+    margin-top: 20px;
 }

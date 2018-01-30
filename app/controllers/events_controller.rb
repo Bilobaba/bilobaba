@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @h1_title = 'Les prochains évènements'
+    @h1_title = 'Evènements à venir'
     @events = Event.next_events
   end
 
@@ -39,7 +39,6 @@ class EventsController < ApplicationController
     # multi_dates_id = Time.new is Id group of all items
     @event = Event.new(event_params)
     @cloudy = Cloudy.create
-binding.pry
 
     if @event.calendar_string.include?('-')
 
@@ -228,7 +227,6 @@ binding.pry
     #                               params[:event]["end_at(4i)"].to_i,
     #                               params[:event]["end_at(5i)"].to_i)
 
-binding.pry
     # if range, event during several days
     if params[:event][:calendar_string].include?('-')
       calendar_string = params[:event][:calendar_string].delete(' ').split('-')
@@ -237,7 +235,7 @@ binding.pry
         '%d/%m/%Y%H%M')
       @end_at  = DateTime.strptime(calendar_string[1]+params[:event]["end_at(4i)"]+params[:event]["end_at(5i)"],
         '%d/%m/%Y%H%M')
-binding.pry
+        
     # mono or multidate
     else
       # if persisted & multi date & not range : not change the day but only hh:mm

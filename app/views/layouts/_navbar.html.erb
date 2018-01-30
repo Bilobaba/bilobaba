@@ -4,7 +4,7 @@
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <%= link_to '/', class: 'navbar-brand' do %>
+      <%= link_to home_path, class: 'navbar-brand' do %>
         <%= image_tag 'logo.png', width: "200px" %>
       <% end %>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -17,24 +17,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left ">
-        <li>
-          <div class="dropdown">
-            <div type="button" class="menu_item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Evènements
-              <span class="caret"></span>
-            </div>
-            <ul class="dropdown-menu" aria-labelledby="dLabel">
-              <li><%= link_to 'Liste des évènements', events_path %></li>
-              <li>
-                <% if member_signed_in? %>
-                  <%= link_to 'Créer un évènement', new_event_path %>
-                <% else %>
-                  <%= link_to 'Créer un évènement', '#', 'data-toggle':'modal', 'data-target':'#connection' %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </li>
+        <li><%= link_to 'Evènements', events_path, class: 'menu_item' %></li>
         <li>
           <div class="dropdown">
             <div type="button" class="menu_item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

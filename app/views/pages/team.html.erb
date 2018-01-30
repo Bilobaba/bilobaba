@@ -1,68 +1,39 @@
-<%= stylesheet_link_tag 'home' %>
-
+<%= stylesheet_link_tag 'team' %>
 
 <div id="team" class="team-box">
-    <div class="member-team" style="border-color: orange">
-      <div class="member-bio">
-        <h4>Duy <em style="font-size: 80%">(CEO) dit le Sage</em></h4>
-        <p>
-          Il a exploré de nombreux domaines dans la psychologie et la spiritualité tels que la PNL,  l'hypnose, différents tantras, le bouddhisme zen, le taoïsme. Après des années de travail d'accompagnement comme coach-formateur, il a décidé de contribuer à plus grande échelle ceux qui explorent une démarche personnelle ce site.
-        </p>
-        </br></br></br></br>
-      </div>
-      <div class="member-image rotate90"> <%= image_tag("duy-moine.jpg", size: "302x200") %> </div>
-    </div>
-    <div class="member-team"  style="border-color: blue">
-      <div class="member-bio">
-        <h4>Kévin <em style="font-size: 80%">(CTO) dit le Génie</em></h4>
-        <p>
-        Dans l'équipe, on l'appelle comme ça parce qu'il réussit à faire des choses qui semblaient impossibles avec une facilité et rapidité déconcertantes. Un esprit vif dans un corps sain par la pratique de nombreux sports tels que la randonnée, le surf, le tennis, l'escalade et bien d'autres. Tout ceci au service d'un grand coeur tourné vers l''économie sociale et solidaire.
+  <div class="member">
+    <div class="member-bio">
+      <h4>Duy <em>(CEO) dit le Sage</em></h4>
+      <p>
+        Il a exploré de nombreux domaines dans la psychologie et la spiritualité tels que la PNL, l'hypnose, différents tantras, le bouddhisme zen, le taoïsme.
+        Après des années de travail d'accompagnement comme coach-formateur, il a décidé de contribuer à plus grande échelle ceux qui explorent une démarche personnelle ce site.
       </p>
-      </div>
-      <div class="member-image"> <%= image_tag("kevin-genie.png", size: "200x293") %> </div>
-      <div style="text-align: center">   &copy Juliette AUVRAY </div>
     </div>
-    <div class="member-team" style="border-color: brown">
-      <div class="member-bio">
-        <h4>Souya <em style="font-size: 80%">(Growth Hacker) dit le Mineur</em></h4>
-        <p>
-        Le travail qu'il a fait pour le site est comparable à celui des mineurs de fond. C'est invisible. C'est souterrain. Pour arriver à naviguer dans les API Nokigiri, Watir, Koala, FBGraph : il faut, comme être lui, patient, déterminé et persévérant. C'est caché. C'est discret. Mais il est en train de nous découvrir des joyaux ... presque normal pour un site en ruby avec des super gems.
+    <div class="member-image"><%= image_tag("duy-moine.jpg") %></div>
+  </div>
+  <div class="member">
+    <div class="member-bio">
+      <h4>Kévin <em>(CTO) dit le Génie</em></h4>
+      <p>
+        Dans l'équipe, on l'appelle comme ça parce qu'il réussit à faire des choses qui semblaient impossibles avec une facilité et rapidité déconcertantes.
+        Un esprit vif dans un corps sain par la pratique de nombreux sports tels que le trail, la randonnée, l'escalade, le tennis et bien d'autres.
+        Tout ceci au service d'un grand cœur tourné vers l'économie sociale et solidaire.
       </p>
-      </br></br></br>
-      </div>
-      <div class="member-image rotate90"> <%= image_tag("souya-mineur.jpg", size: "302x200") %> </div>
     </div>
+    <div class="member-image"><%= image_tag("kevin-genie.png") %></div>
+    <p class="copyright">&copy Juliette AUVRAY</p>
+  </div>
+  <div class="member">
+    <div class="member-bio">
+      <h4>Souya <em>(Growth Hacker) dit le Mineur</em></h4>
+      <p>
+        Le travail qu'il a fait pour le site est comparable à celui des mineurs de fond.
+        C'est invisible. C'est souterrain.
+        Pour arriver à naviguer dans les API Nokigiri, Watir, Koala, FBGraph : il faut, comme lui, être patient, déterminé et persévérant.
+        C'est caché. C'est discret.
+        Mais il est en train de nous découvrir des joyaux... presque normal pour un site en ruby avec des super gems.
+      </p>
+    </div>
+    <div class="member-image"><%= image_tag("souya-mineur.jpg") %></div>
+  </div>
 </div>
-<style>
-
-
-/*          Il a exploré de nombreux domaines dans la psychologie et la spiritualité tels que la PNL, l'hypnose, différents tantras, le bouddhisme zen, le taoïsme. Après des années de travail d'accompagnement comme coach-formateur, il décide de contribuer a plus grande échelle ceux qui explorent une démarche personnelle en impulsant ce site.
-*/
-.member-team{
-  min-width: 300px;
-  max-width: 300px;
-  height: 580px;
-  margin: 30px;
-  border: solid 2px;
-  border-radius: 7px;
-  padding: 10px;
-}
-
-.team-box{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.rotate90 {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-}
-
-
-</style>
