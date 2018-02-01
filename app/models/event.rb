@@ -3,14 +3,11 @@ class Event < ApplicationRecord
   include Rails.application.routes.url_helpers
   include AlgoliaSearch
 
-
   validates :title, presence: true, length: { minimum: 5 }
   validates :description, presence: true, length: { minimum: 10 }
   validates :begin_at, presence: true
   validates :end_at, presence: true
   validates :address, presence: true
-  validates :city, presence: true
-  validates :zip, presence: true
 
   mount_uploader :image, ImageUploader
   mount_uploader :photo1, ImageUploader
@@ -133,7 +130,7 @@ class Event < ApplicationRecord
 
     # extra_attr will be sent
     add_attribute :member_name, :member_first_name, :unix_begin_at, :url, :summary,
-                  :member_avatar, :full_address, :short_title, :show_begin_at, :member_pseudo,
+                  :member_avatar, :address, :short_title, :show_begin_at, :member_pseudo,
                   :show_price
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
@@ -184,11 +181,6 @@ class Event < ApplicationRecord
     text = I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M') + " " + self.title[0..20].capitalize + "... organisé par " +
     self.organizer.first_name + " " + self.organizer.name + " à " + self.city
     return text
-  end
-
-
-  def full_address
-    self.address + ' ' + self.zip + ' ' + self.city
   end
 
   def short_title

@@ -1,6 +1,5 @@
 <%= stylesheet_link_tag 'event' %>
 
-
 <div class="container">
   <%= simple_form_for @event, html: { class: 'green_form' } do |f| %>
     <%= f.error_notification %>
@@ -15,16 +14,17 @@
         <%= cl_image_tag @event.image.file.filename, width: 470, height: 142 %>
       <% end %>
 
-
       <!-- upload the image but not recorded directly : association with cloudy record -->
       <%= f.input :image, label: 'Image' %>
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
-      <%= f.input :address, label: 'Adresse' %>
-      <%= f.input :city, label: 'Ville' %>
-      <%= f.input :zip, label: 'CP' %>
 
+      <%= f.input :address, label: 'Lieu ou Adresse' %>
+      <!-- lat, and lng are hidden and filled in JS using the Google JS API -->
+      <%= f.input :lat %>
+      <%= f.input :lng %>
+      
       <% if @event.persisted? && false %> # not now yet
 <!--         <%= f.input :photo1 , label: 'Photos 1' %>
         <% if @event.photo1.url.present? %>
@@ -60,7 +60,6 @@
         L'événement est prévu le : <span class="btn btn-default"> <%= I18n.l(@event.begin_at, format: '%d/%m/%Y') %> </span>
       <% end %>
 
-
       <% if browser.firefox? %>
         </br>
       <% end %>
@@ -91,7 +90,6 @@
       </div>
 
       </br>
-
 
       <div class="container" style="display: block; text-align: center; width: 100%;  border-radius: 5px; border: solid 1px lightgrey" id="rangePickerBlock">
         <div>Pour des stages ou séjours </div>
@@ -277,4 +275,10 @@
   // if $('#event_calendar_string')[0].value
   // $('#event_calendar_string').trigger("change");
   // $('#event_calendar_range_string').trigger("change");
+</script>
+
+<script>
+  $(document).ready(function() {
+    initAutocomplete();
+  });
 </script>

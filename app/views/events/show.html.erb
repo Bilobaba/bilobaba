@@ -52,8 +52,8 @@
           <tr>
             <td>Lieu</td>
             <td class="location pointer">:
-              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-address': @event.full_address do %>
-                  <%= @event.full_address %>
+              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-lat': @event.lat, 'data-lng': @event.lng do %>
+                <%= @event.address %>
                 <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
               <% end %>
             </td>
@@ -152,7 +152,7 @@
 
 <script>
   $('#modal_map').on('shown.bs.modal', function (event) {
-    showMap($(event.relatedTarget).data('address'));
+    showMap($(event.relatedTarget).data('lat'), $(event.relatedTarget).data('lng'));
   });
   $('#organizer').hover(
     function () {
