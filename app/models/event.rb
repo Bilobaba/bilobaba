@@ -58,54 +58,6 @@ class Event < ApplicationRecord
     end
   end
 
-  def participate(current_member)
-    if participate? current_member
-      attendees.delete(current_member)
-    else
-      attendees << current_member
-    end
-  end
-
-  def participate?(current_member)
-    attendees.include? current_member
-  end
-
-  def like(current_member)
-    if like? current_member
-      likers.delete(current_member)
-    else
-      likers << current_member
-    end
-  end
-
-  def like?(current_member)
-    likers.include? current_member
-  end
-
-  def recommend(current_member)
-    if recommend? current_member
-      recommenders.delete(current_member)
-    else
-      recommenders << current_member
-    end
-  end
-
-  def recommend?(current_member)
-    recommenders.include? current_member
-  end
-
-  def follow(current_member)
-    if follow? current_member
-      followers.delete(current_member)
-    else
-      followers << current_member
-    end
-  end
-
-  def follow?(current_member)
-    followers.include? current_member
-  end
-
   def return_pictures
     pictures = []
     pictures << { url: photo1.url, filename: photo1.file.filename } if photo1.url.present?

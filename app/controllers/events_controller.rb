@@ -2,14 +2,14 @@ require 'pry'
 
 
 class EventsController < ApplicationController
-  before_action :require_login, only: %i[new edit update destroy participate interact_with]
-  before_action :set_event, only: %i[show edit update destroy participate interact_with]
+  before_action :require_login, only: %i[new edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy]
   before_action :set_list_events, only: %i[update destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @h1_title = 'Les prochains évènements'
+    @h1_title = 'Evènements à venir'
     @events = Event.next_events
   end
 
@@ -177,34 +177,6 @@ class EventsController < ApplicationController
     @delete_is_ok &&= event.destroy
   end
 
-  def participate
-    @event.participate(current_member)
-
-    # @author = current_member.pseudo
-    # @email = current_member.email
-    # @message = 'yoyo'
-
-    # if params[:status] == 'in'
-    #   ContactMailer.event_participate(@author, @email, @message).deliver_now
-    # elsif params[:status] == 'out'
-    #   ContactMailer.event_leave(@author, @email, @message).deliver_now
-    # end
-  end
-
-  def interact_with
-    @link_id = params.permit(:type)[:type]
-    case @link_id
-    when 'go'
-      participate
-    when 'like'
-      @event.like(current_member)
-    when 'recommend'
-      @event.recommend(current_member)
-    when 'follow'
-      @event.follow(current_member)
-    end
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -271,7 +243,6 @@ class EventsController < ApplicationController
     params[:event]["end_at(1i)"] = @end_at.year.to_s
     params[:event]["end_at(2i)"] = @end_at.month.to_s
     params[:event]["end_at(3i)"] = @end_at.day.to_s
-
 
   end
 

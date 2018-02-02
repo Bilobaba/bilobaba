@@ -1,0 +1,40 @@
+@import "default";
+
+em {
+    font-size: 80%;
+}
+
+h4 {
+    border-bottom: solid 4px;
+    border-color: $hover_color;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.team-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.member {
+    margin: 0 30px;
+    min-width: 300px;
+    max-width: 300px;
+    padding: 10px;
+}
+
+.member-image {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.member-image > img {
+    width: 200px;
+}
+
+.copyright {
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+}
