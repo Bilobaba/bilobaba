@@ -296,6 +296,7 @@ DEPENDENCIES
   pry
   puma (~> 3.7)
   rails (~> 5.1.4)
+  rest-client
   rolify
   sass-rails (~> 5.0)
   selenium-webdriver
