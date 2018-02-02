@@ -19,11 +19,18 @@
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
-
-      <%= f.input :address, label: 'Lieu ou Adresse' %>
-      <!-- lat, and lng are hidden and filled in JS using the Google JS API -->
+      <div class="form-group string required address_autocomplete">
+        <label class="control-label string required" for="address_autocomplete">
+          <abbr title="required">*</abbr> Lieu ou Adresse
+        </label>
+        <input class="form-control string required" type="text" id="address_autocomplete" placeholder="Indiquez un lieu" autocomplete="off"></input>
+      </div>
+      <!-- the following input are hidden and filled in JS using the Google JS API -->
       <%= f.input :lat %>
       <%= f.input :lng %>
+      <%= f.input :address %>
+      <%= f.input :city %>
+      <%= f.input :zip %>
       
       <% if @event.persisted? && false %> # not now yet
 <!--         <%= f.input :photo1 , label: 'Photos 1' %>

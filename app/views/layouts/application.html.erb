@@ -55,38 +55,8 @@
       <%= render '/layouts/footer' %>
     <% end %>
 
-    <script>
-      var autocomplete;
-      
-      function initAutocomplete() {
-
-        if(typeof google == 'undefined' || !document.getElementById('event_address')) {
-          return;
-        }
-
-        var input = document.getElementById('event_address');
-        var options = {
-            bounds: new google.maps.LatLngBounds(
-              new google.maps.LatLng(48.6, 1.9),
-              new google.maps.LatLng(49.2, 2.9)
-            ),
-            componentRestrictions: {country: 'fr'}
-            //, types: ['establishment']
-        };
-
-        autocomplete = new google.maps.places.Autocomplete(input, options);
-        autocomplete.addListener('place_changed', fillInLatLng);
-      }
-
-      function fillInLatLng() {
-        var location = autocomplete.getPlace().geometry.location;
-        document.getElementById('event_lat').value = location.lat();
-        document.getElementById('event_lng').value = location.lng();
-      }
-    </script>
-
     <!-- load the google map API, only once (see data-turbolinks-eval = false) -->
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'] + '&libraries=places&callback=initAutocomplete', async: true, defer: true, 'data-turbolinks-eval': false %>
-
+    <%= javascript_include_tag 'map.js' %>
   </body>
 </html>
