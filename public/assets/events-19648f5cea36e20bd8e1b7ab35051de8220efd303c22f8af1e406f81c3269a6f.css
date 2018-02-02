@@ -1,0 +1,84 @@
+/* line 3, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#events td {
+  vertical-align: middle;
+}
+
+/* line 7, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#events table tbody tr a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 13, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#events tbody tr:hover {
+  background-color: #2e8585;
+  color: white;
+  cursor: pointer;
+}
+
+/* line 19, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#events th:not(:first-of-type), #events td:not(:first-of-type) {
+  text-align: center;
+}
+
+/* line 23, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+.organizer > img:hover {
+  opacity: 0.8;
+}
+
+/* line 27, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+.organizer > span {
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* line 33, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+.professional {
+  color: #339999;
+}
+
+/* line 37, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#add_event {
+  text-align: center;
+}
+
+/* line 41, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#add_event > a:hover {
+  background-color: #2e8585;
+  border-color: #2e8585;
+  color: white;
+}
+
+/* line 47, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#search-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* line 53, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#search-box {
+  border-color: #2e8585;
+  color: #2e8585;
+  margin: auto;
+  width: 700px;
+}
+
+/* line 60, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#hits-container table > thead > tr {
+  background-color: #2e8585;
+  color: white;
+  font-weight: bold;
+}
+
+/* line 66, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#hits-container table > thead > tr > th {
+  border: none;
+}
+
+/* line 70, /Users/karnoult/Dev/bilobaba/app/assets/stylesheets/events.scss */
+#pagination-container ul {
+  padding: 0px;
+}
