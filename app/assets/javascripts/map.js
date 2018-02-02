@@ -1,6 +1,6 @@
 var autocomplete, map;
 
-function showMap(lat, lng) {
+function showMap(lat, lng, address) {
     latlng = new google.maps.LatLng({lat: lat, lng: lng}); 
 
     map = new google.maps.Map($("#map")[0], {
@@ -11,14 +11,6 @@ function showMap(lat, lng) {
     var marker = new google.maps.Marker({
         position: latlng,
         map: map
-    });
-
-    var infowindow = new google.maps.InfoWindow({
-        content: 'ici'
-    });
-
-    marker.addListener('click', function() {
-        infowindow.open(map, marker);
     });
 
     google.maps.event.trigger(map, "resize");

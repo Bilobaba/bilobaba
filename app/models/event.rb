@@ -135,6 +135,10 @@ class Event < ApplicationRecord
     return text
   end
 
+  def full_address
+    self.address + ', ' + self.zip + ' ' + self.city
+  end
+
   def short_title
     self.title.length > 44 ? self.title[0..40] + '...' : self.title
   end
