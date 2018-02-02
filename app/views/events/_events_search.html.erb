@@ -1,7 +1,11 @@
 <div id="search-bar">
   <input type="text" class="form-control" id="search-box"></input>
   <div id="add_event">
-    <%= link_to 'Créer un évènement', new_event_path, class: 'btn btn-default' if member_signed_in? %>
+    <% if member_signed_in? %>
+      <%= link_to 'Créer un évènement', new_event_path, class: 'btn btn-default' %>
+    <% else %>
+      <%= link_to 'Créer un évènement', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default' %>
+    <% end %>
   </div>
 </div>
 <div id="hits-container"></div>
