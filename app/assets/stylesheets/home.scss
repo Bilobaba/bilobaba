@@ -5,6 +5,12 @@
     max-width: 700px;
 }
 
+@media all and (max-device-width: 600px) {
+    #home {
+        text-shadow: 1px 1px 5px black;
+    }
+}
+
 #home h1 {
     font-size: 44px;
     font-weight: normal;
