@@ -18,11 +18,11 @@ function showMap(lat, lng, address) {
 
 
 function initAutocomplete() {
-    if(typeof google == 'undefined' || !document.getElementById('address_autocomplete')) {
+    if(typeof google == 'undefined' || !document.getElementById('event_address')) {
         return;
     }
 
-    var input = document.getElementById('address_autocomplete');
+    var input = document.getElementById('event_address');
     var options = {
         bounds: new google.maps.LatLngBounds(
             new google.maps.LatLng(48.6, 1.9),
@@ -40,7 +40,6 @@ function fillInLatLng() {
     var place = autocomplete.getPlace();
     document.getElementById('event_lat').value = place.geometry.location.lat();
     document.getElementById('event_lng').value = place.geometry.location.lng();
-    document.getElementById('event_address').value = place.name;
     for (var i = 0; i < place.address_components.length; i++) {
         switch (place.address_components[i].types[0]) {
         case 'locality':
