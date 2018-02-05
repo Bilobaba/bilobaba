@@ -1,0 +1,17 @@
+# base on https://devcenter.heroku.com/articles/heroku-postgres-import-export
+
+# go to the db folder of the bilobaba app
+cd ./db
+
+# dump the heroku database
+heroku pg:backups:capture
+
+# download the dump
+heroku pg:backups:download
+
+# replace your local data with this dump
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -d bilobaba_development latest.dump
+
+# reset Algolia db
+rails c
+Event.reindex!
