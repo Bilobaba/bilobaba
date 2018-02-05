@@ -1,62 +1,21 @@
 <table class="table">
-<thead>
-    <tr>
-        <th>Evènement</th>
-        <th>Date</th>
-        <th>Prix</th>
-        <th>Lieu</th>
-        <th>Orga</th>
-        <th>Participants</th>
-        <th></th>
-    </tr>
-</thead>
+    <thead>
+        <tr>
+            <th>Evènement</th>
+            <th>Date</th>
+            <th>Prix</th>
+            <th>Lieu</th>
+        </tr>
+    </thead>
 
-<tbody>
-    <% events_partial.each do |event| %>
-    <tr onclick="document.location='<%= event.url %>'">
-        <td>
-            <%= event.short_title %>
-        </td>
-        <td><%= event.show_begin_at %></td>
-        <td>
-            <%= event.show_price %>
-        </td>
-        <td class="location pointer">
-            <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-address': event.address do %>
-                <%= event.zip %>
-                <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-            <% end %>
-        </td>
-        <td>
-            <% event.organizer.has_role?(:professional) ? @title = "pro-"+event.organizer.pseudo : @title = event.organizer.pseudo  %>
-
-            <%= link_to event.organizer, title: @title do %>
-                <div class="organizer">
-                    <% if event.organizer.avatar.url.present? %>
-                        <%= cl_image_tag event.organizer.avatar.file.filename, width: 30, height: 30 %>
-                    <% else %>
-                        <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 30, height: 30 %>
-                    <% end %>
-                    <% if event.organizer.has_role?(:professional) %>
-                        <span class="professional"><%= event.organizer.pseudo[0..10] %> </span>
-                    <% else %>
-                        <span  class="member"> <%= event.organizer.pseudo[0..10] %> </span>
-                    <% end %>
-                </div>
-            <% end %>
-        </td>
-        <td id="availability_<%= event.id %>">
-            <%= event.show_availability %>
-        </td>
-    </tr>
-    <% end %>
-</tbody>
+    <tbody>
+        <% events_partial.each do |event| %>
+            <tr onclick="document.location='<%= event.url %>'">
+                <td><%= event.short_title %></td>
+                <td><%= event.show_begin_at %></td>
+                <td><%= event.show_price %>
+                <td><%= event.zip %></td>
+            </tr>
+        <% end %>
+    </tbody>
 </table>
-
-<%= render 'layouts/map', title: 'Localisation' %>
-
-<script>
-    $('#modal_map').on('shown.bs.modal', function (event) {
-        showMap($(event.relatedTarget).data('address'));
-    })
-</script>

@@ -19,6 +19,7 @@
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
+      <!-- address is the full address (incl. zip and city that are redundant for display purpose in the events list) -->
       <%= f.input :address, label: 'Lieu ou Adresse' %>
       <!-- the following input are hidden and filled in JS using the Google JS API -->
       <%= f.input :lat %>
