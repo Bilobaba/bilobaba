@@ -12,6 +12,9 @@ heroku pg:backups:download
 # replace your local data with this dump
 pg_restore --verbose --clean --no-acl --no-owner -h localhost -d bilobaba_development latest.dump
 
+# delete the dump (that you don't need anymore)
+rm latest.dump
+
 # reset Algolia db
 rails c
 Event.reindex!
