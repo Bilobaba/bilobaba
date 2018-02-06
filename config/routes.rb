@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+
+  get 'members/index_pros', as: 'index_pros'
+  get 'members/index_members', as: 'index_members'
+
   devise_for :members, controllers: {
     registrations: 'registrations',
     sessions: 'sessions'
@@ -26,6 +30,5 @@ Rails.application.routes.draw do
   get 'pages/contact', as: 'contact'
   post 'pages/contact', to: 'pages#send_mail_contact'
   get 'pages/forbidden', as: 'forbidden'
-
   root 'events#index'
 end

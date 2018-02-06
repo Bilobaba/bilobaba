@@ -2,9 +2,9 @@
   <input type="text" class="form-control" id="search-box"></input>
   <div id="add_event">
     <% if member_signed_in? %>
-      <%= link_to 'Créer un évènement', new_event_path, class: 'btn btn-default' %>
+      <%= link_to 'Créer un partage', new_event_path, class: 'btn btn-default' %>
     <% else %>
-      <%= link_to 'Créer un évènement', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default' %>
+      <%= link_to 'Créer un partage', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default' %>
     <% end %>
   </div>
 </div>
@@ -34,7 +34,7 @@
   var hitTemplate =
       '<table class="table">' +
       '<thead>' +
-        '<tr><th>Evènement</th><th>Date</th><th>Prix</th><th>Lieu</th><th>Orga.</th></tr>' +
+        '<tr><th>Les partages</th><th>Date</th><th>Prix</th><th>Lieu</th><th>Orga.</th></tr>' +
       '</thead>' +
       '<tbody>' +
         '{{#hits}}' +

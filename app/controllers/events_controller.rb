@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @h1_title = 'Evènements à venir'
+    @h1_title = 'Les partages à venir'
     @events = Event.next_events
   end
 
@@ -22,14 +22,14 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @h1_title = 'Ajout d\'un nouvel évènement'
+    @h1_title = 'Ajouter un partage'
     @event = Event.new
     @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
   end
 
   # GET /events/1/edit
   def edit
-    @h1_title = 'Modifier mon évènement'
+    @h1_title = 'Modifier mon partage'
   end
 
   # POST /events

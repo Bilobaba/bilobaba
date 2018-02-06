@@ -11,7 +11,8 @@
       <% end %>
     </div>
     <div id="description">
-      <p><span id="pseudo"><%= @member.pseudo %></span></p>
+      <p><span id="pseudo"><%= @member.first_name.capitalize %> <%= @member.name.upcase %>
+          </span></p>
       <p><%= simple_format(@member.bio) %></p>
       <p></p>
     </div>

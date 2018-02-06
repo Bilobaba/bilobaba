@@ -4,15 +4,27 @@ class MembersController < ApplicationController
   def index
     if params.permit('pro')['pro'] == '1'
       @members = Member.with_role(:professional).order(pseudo: :asc)
-      @h1_title = 'Les professionnels'
+      @h1_title = 'Les biloprocools'
     else
       @members = Member.without_role(:professional).order(pseudo: :asc)
-      @h1_title = 'Les membres'
+      @h1_title = 'Les bilobabacools'
     end
   end
 
+  def index_pros
+      @members = Member.with_role(:professional).order(pseudo: :asc)
+      @h1_title = 'Les biloprocools'
+      render :index
+  end
+
+  def index_members
+      @members = Member.without_role(:professional).order(pseudo: :asc)
+      @h1_title = 'Les bilobabacools'
+      render :index
+  end
+
   def show
-    @h1_title = 'Page membre'
+    @h1_title = 'Page bilobabacool'
   end
 
   private
