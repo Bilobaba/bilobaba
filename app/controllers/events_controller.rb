@@ -52,6 +52,7 @@ class EventsController < ApplicationController
       @save_is_ok &&= @event.save
 
       if @save_is_ok
+        ContactMailer.new_user_action('Nouvel évènement', 'http://www.bilobaba.com/events/' + @event.id.to_s).deliver_now
         @event.reload
         @cloudy.identifier = @event.image.filename
         @cloudy.save
@@ -67,13 +68,11 @@ class EventsController < ApplicationController
 
       flash[:alert] = "Il faut choisir une ou plusieurs dates" unless @save_is_ok
 
-
       tab_dates.each do |d|
         @event = Event.new(event_params)
         @event.multi_dates_id = time_stamp if tab_dates.count > 1
         @event.organizer = current_member
         @event.cloudy = @cloudy
-
 
         time_at = I18n.l(@event.begin_at, format: '%H:%M')
         @event.begin_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
@@ -84,12 +83,14 @@ class EventsController < ApplicationController
         # save once to get cloudinary infos, break if save not ok
         break unless @save_is_ok &&= @event.save
 
-        if !@cloudy.identifier && @save_is_ok
-
-          @event.reload
-          @cloudy.identifier = @event.image.filename
-          @cloudy.save
-          params[:event].delete(:image)
+        if @save_is_ok
+          ContactMailer.new_user_action('Nouvel évènement', 'http://www.bilobaba.com/events/' + @event.id.to_s).deliver_now
+          if !@cloudy.identifier
+            @event.reload
+            @cloudy.identifier = @event.image.filename
+            @cloudy.save
+            params[:event].delete(:image)
+          end
         end
       end
     end
@@ -146,7 +147,6 @@ class EventsController < ApplicationController
 
   end
 
-
   def destroy_events
 
     @delete_is_ok = true
@@ -164,7 +164,7 @@ class EventsController < ApplicationController
       format.json { head :no_content }
       else
         # simple_form doesn t show errors for :begin_at & :end_at because
-        flash.now[:alert] = "Problème dans la suppression de l évènement"
+        flash.now[:alert] = "Problème dans la suppression de l'évènement"
         format.html { render @event }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
