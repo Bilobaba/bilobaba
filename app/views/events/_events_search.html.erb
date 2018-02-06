@@ -32,7 +32,7 @@
   );
 
   var hitTemplate =
-      '<table class="table">' +
+    '<table class="table">' +
       '<thead>' +
         '<tr><th>Les partages</th><th>Date</th><th>Prix</th><th>Lieu</th><th>Orga.</th></tr>' +
       '</thead>' +
@@ -43,7 +43,9 @@
             '<td>{{show_begin_at}}</td>' +
             '<td>{{show_price}}</td>' +
             '<td>{{zip}}</td>' +
-            '<td>{{member_pseudo}}</td>' +
+            '<td>' +
+              '<img src="{{member_avatar}}" class="organizer"></img>' +
+            '</td>' +
           '</tr>' +
         '{{/hits}}' +
       '</tbody>' +
