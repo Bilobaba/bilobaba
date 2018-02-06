@@ -160,8 +160,8 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @delete_is_ok
-      format.html { redirect_to events_url}
-      format.json { head :no_content }
+        format.html { redirect_to events_url}
+        format.json { head :no_content }
       else
         # simple_form doesn t show errors for :begin_at & :end_at because
         flash.now[:alert] = "Problème dans la suppression de l'évènement"
@@ -275,7 +275,12 @@ class EventsController < ApplicationController
 
   # remove dates from calendar_string after delete events
   def set_update_calendar_string
-    list_events = Event.where(multi_dates_id: @multi_dates_id)
+    if (@multi_dates_id)
+      list_events = Event.where(multi_dates_id: @multi_dates_id)
+    else
+      list_events = []
+    end
+
     calendar_string_tab = []
     list_events.each do |event|
       calendar_string_tab << I18n.l(event.begin_at, format: '%d/%m/%Y')
