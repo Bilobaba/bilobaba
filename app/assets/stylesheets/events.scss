@@ -4,12 +4,6 @@
     vertical-align: middle;
 }
 
-#events table tbody tr a {
-    display:block;
-    height:100%;
-    width:100%;
-}
-
 #events tbody tr:hover{
   background-color: $hover_color;
   color: white;
@@ -20,18 +14,14 @@
     text-align: center;
 }
 
-.organizer > img:hover {
-    opacity: 0.8;
-}
-
-.organizer > span {
-    display: block;
-    font-size: 10px;
+#events thead > tr {
+    background-color: $hover_color;
+    color: white;
     font-weight: bold;
 }
 
-.professional {
-    color: $fill_color;
+#events thead > tr > th {
+    border: none;
 }
 
 #add_event {
@@ -55,16 +45,6 @@
     color: $hover_color;
     margin: auto;
     width: 700px;
-}
-
-#hits-container table > thead > tr {
-    background-color: $hover_color;
-    color: white;
-    font-weight: bold;
-}
-
-#hits-container table > thead > tr > th {
-    border: none;
 }
 
 #pagination-container ul {

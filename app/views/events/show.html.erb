@@ -53,10 +53,10 @@
             <td>Lieu</td>
             <td class="location pointer">:
               <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-lat': @event.lat, 'data-lng': @event.lng do %>
-                <% if @event.full_address.size > 50 %>
-                  <%= @event.full_address[0..50] + ' (...)' %>
+                <% if @event.address.size > 50 %>
+                  <%= @event.address[0..50] + ' (...)' %>
                 <% else %>
-                  <%= @event.full_address %>
+                  <%= @event.address %>
                 <% end %>
                 <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
               <% end %>
@@ -113,7 +113,7 @@
 <!-- Modals -->
 <%= render 'layouts/modal', title: 'Description détaillée de <em>' + @event.title + '</em>', content: @event.description %>
 
-<%= render 'layouts/map', title: @event.full_address %>
+<%= render 'layouts/map', title: @event.address %>
 
 <script>
   $('#modal_map').on('shown.bs.modal', function (event) {
