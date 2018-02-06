@@ -1,5 +1,3 @@
-require 'pry'
-
 class RegistrationsController < Devise::RegistrationsController
 
   def new
@@ -9,6 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    ContactMailer.new_user_action('Nouveau membre', 'http://www.bilobaba.com/members/' + resource.id.to_s).deliver_now
     resource.add_role(:professional) if params[:member][:roles] == '1'
   end
 end

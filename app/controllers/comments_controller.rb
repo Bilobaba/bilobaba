@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment.content = comment_params[:content]
     @comment.autor = current_member
     @comment.event_id = params[:event_id]
-    @comment.save
+    ContactMailer.new_user_action('Nouveau commentaire', 'http://www.bilobaba.com/events/' + @comment.event_id.to_s).deliver_now if @comment.save
   end
 
   # deletes a comment

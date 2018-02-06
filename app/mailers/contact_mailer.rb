@@ -1,5 +1,7 @@
 class ContactMailer < ApplicationMailer
 
+  #OPTIMIZE use a tool like Sidekiq to avoid latency due to emails sending
+
   def contact(contact_bilobaba,author, email, message)
     @author = author
     @email = email
@@ -15,11 +17,9 @@ class ContactMailer < ApplicationMailer
     mail(to: @email, subject: 'Confirmation de votre formulaire Bilobaba')
   end
 
-  def event_leave(author, email, message)
-    @author = author
-    @email = email
-    @message = message
-    mail(to: 'hello.bilobaba@gmail.com', subject: 'Désinscription évènement')
+  def new_user_action(action, link)
+    @link = link
+    mail(to: 'hello.bilobaba@gmail.com', subject: 'Nouvelle action : ' + action)
   end
 
 end
