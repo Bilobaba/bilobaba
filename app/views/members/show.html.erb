@@ -5,7 +5,7 @@
   <div id="show_member">
     <div id="avatar">
       <% if @member.avatar.url.present? %>
-        <%= cl_image_tag @member.avatar.file.filename, width: 150, height: 150, title: @member.pseudo %>
+        <%= cl_image_tag member.avatar.file.public_id, width: 150, height: 150, crop: :fill, title: @member.pseudo  %>
       <% else %>
         <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 150, height: 150, title: @member.pseudo %>
       <% end %>
