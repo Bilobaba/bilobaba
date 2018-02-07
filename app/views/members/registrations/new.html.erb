@@ -43,7 +43,19 @@
 
       <hr />
 
-      <%= f.input :roles, as: :boolean, label: "Je suis un professionnel" %>
+        <h4> Type de membre </h4>
+        <div style="text-align: left">
+          <ul style="list-style-type:none">
+            <li>
+              <%= radio_button_tag(:type_member, MEMBER_TYPE_AMATEUR, checked: true ) %>
+              <%= label_tag(:Amateur, "Vous êtes amateur et vous ne faites rien payer") %>
+            </li>
+            <li>
+              <%= radio_button_tag(:type_member, MEMBER_TYPE_PRO) %>
+              <%= label_tag(:Pro, "Vous êtes professionnel et faites payer vos cours") %>
+            </li>
+          </ul>
+        </div>
 
     </div>
 
