@@ -9,6 +9,7 @@ class Member < ApplicationRecord
 
   validates :avatar, presence: true
   validates :pseudo, presence: true
+  validates :pseudo, uniqueness: true
   validates :first_name, presence: true
   validates :name, presence: true
   validates :bio, presence: true
