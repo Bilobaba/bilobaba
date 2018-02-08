@@ -38,9 +38,7 @@
      <% if @member.organize_events.where('\'end\' >= ?', Time.now).size > 0 %>
         <%= render partial: "events/events", locals: { events_partial: @member.next_events_organize } %>
       <% else %>
-        <p>Aucun évènement à venir<br />
-          <%= link_to '> créer un évènement', new_event_path %>
-        </p>
+        <p>Aucun évènement à venir </p>
       <% end %>
   </div>
 </div>
