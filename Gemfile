@@ -80,7 +80,7 @@ gem "algoliasearch-rails"
 gem 'json'
 
 # Stripe
-# gem 'stripe'
+gem 'stripe'
 
 # To know the browser
 gem 'browser'
