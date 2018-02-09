@@ -78,23 +78,23 @@ class Event < ApplicationRecord
   algoliasearch do
 
     # list of attribute used to build an Algolia record
-    attributes :id, :title, :description, :address, :city, :zip
+    attributes :id, :title, :address, :city, :zip
 
     # extra_attr will be sent
     add_attribute :member_name, :member_first_name, :unix_begin_at, :url, :summary,
                   :member_avatar, :address, :short_title, :show_begin_at, :member_pseudo,
-                  :show_price
+                  :show_price, :member_bio
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute.
     searchableAttributes ['title', 'member_name', 'member_first_name', 'address',
-                          'city', 'zip','summary', 'description', 'member_avatar','short_title',
-                          'show_begin_at', 'member_pseudo', 'show_price']
+                          'city', 'zip','summary', 'member_avatar','short_title',
+                          'show_begin_at', 'member_pseudo', 'show_price', 'member_bio']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
-    # records in case their text-relevance is equal. It should reflect your record popularity.
+    # records in case their text-relevance is equal. It should reflect ,your record popularity.
     #customRanking ['desc(likes_count)']
     # customRanking ['asc(unix_begin_at)']
 
@@ -121,6 +121,10 @@ class Event < ApplicationRecord
     return self.organizer.pseudo
   end
 
+  def member_bio
+    return self.organizer.bio
+  end
+
   def unix_begin_at
     self.begin_at.to_i
   end
@@ -144,8 +148,7 @@ class Event < ApplicationRecord
     if duration < 1.day
       show_begin_at = I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M')
     else
-      show_begin_at = 'Du ' + I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M') + ' au ' +
-                      I18n.l(self.end_at, format: '%a %-d %b %Y - %Hh%M')
+      show_begin_at = I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M') + ' (' + ((duration/1.day).to_i + 1).to_s + ' jours)'
     end
   end
 

@@ -7,3 +7,5 @@ UPDATE_TYPE_ALL_ITEMS = "all items"
 
 # Action Supprimer
 ACTION_SUPPRIMER = "Supprimer"
+MEMBER_TYPE_AMATEUR = "1"
+MEMBER_TYPE_PRO = "2"

@@ -8,8 +8,9 @@ class Member < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  validates :avatar, presence: true
+  # validates :avatar, presence: true
   validates :pseudo, presence: true
+  validates :pseudo, uniqueness: true
   validates :first_name, presence: true
   validates :name, presence: true
   validates :bio, presence: true

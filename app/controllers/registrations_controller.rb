@@ -16,6 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+<<<<<<< HEAD
     binding.pry
     # OPTIMIZE only send email if member is actually really created (saved)
     ContactMailer.new_user_action('Nouveau membre', 'http://www.bilobaba.com/members/' + resource.id.to_s).deliver_now
@@ -23,5 +24,11 @@ class RegistrationsController < Devise::RegistrationsController
     resource.facebook_id = session['facebook_id']
     session['facebook_id'] = nil
     resource.save(validate: false)
+=======
+    resource.add_role(:professional) if params[:type_member] == MEMBER_TYPE_PRO
+    resource.add_role(:amateur) if params[:type_member] == MEMBER_TYPE_AMATEUR
+    # OPTIMIZE only send email if member is actually really created (saved)
+    ContactMailer.new_user_action('Nouveau membre', 'http://www.bilobaba.com/members/' + resource.id.to_s).deliver_now
+>>>>>>> 3c6f99a442ef8136795452cec97f2ce79fd383d9
   end
 end

@@ -5,7 +5,7 @@
   <div id="show_member">
     <div id="avatar">
       <% if @member.avatar.url.present? %>
-        <%= cl_image_tag @member.avatar.file.filename, width: 150, height: 150, title: @member.pseudo %>
+        <%= cl_image_tag @member.avatar.file.public_id, width: 150, height: 150, crop: :fill, title: @member.pseudo  %>
       <% else %>
         <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 150, height: 150, title: @member.pseudo %>
       <% end %>
@@ -38,9 +38,7 @@
      <% if @member.organize_events.where('\'end\' >= ?', Time.now).size > 0 %>
         <%= render partial: "events/events", locals: { events_partial: @member.next_events_organize } %>
       <% else %>
-        <p>Aucun évènement à venir<br />
-          <%= link_to '> créer un évènement', new_event_path %>
-        </p>
+        <p>Aucun évènement à venir </p>
       <% end %>
   </div>
 </div>
