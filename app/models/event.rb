@@ -78,7 +78,7 @@ class Event < ApplicationRecord
   algoliasearch do
 
     # list of attribute used to build an Algolia record
-    attributes :id, :title, :description, :address, :city, :zip
+    attributes :id, :title, :address, :city, :zip
 
     # extra_attr will be sent
     add_attribute :member_name, :member_first_name, :unix_begin_at, :url, :summary,
@@ -90,7 +90,7 @@ class Event < ApplicationRecord
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute.
     searchableAttributes ['title', 'member_name', 'member_first_name', 'address',
-                          'city', 'zip','summary', 'description', 'member_avatar','short_title',
+                          'city', 'zip','summary', 'member_avatar','short_title',
                           'show_begin_at', 'member_pseudo', 'show_price']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
