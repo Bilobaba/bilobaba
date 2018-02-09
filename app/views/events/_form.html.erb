@@ -5,8 +5,8 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :title, label: 'Titre', required: true %>
-      <%= f.input :description, as: :text, class: "form-control string optional", input_html: {rows: 5}, label: 'Description' %> </br>
+      <%= f.input :title, label: 'Titre (obligatoire)', required: true %>
+      <%= f.input :description, as: :text, class: "form-control string optional", input_html: {rows: 5}, label: 'Description (obligatoire)' %> </br>
       <% if @event.cloudy.present? %>
         <%= cl_image_tag(@event.cloudy.identifier, width: 400, height: 120, crop: :fill ) %>
       <% end %>
@@ -15,18 +15,18 @@
       <% end %>
 
       <!-- upload the image but not recorded directly : association with cloudy record -->
-      <%= f.input :image, label: 'Image' %>
+      <%= f.input :image, label: 'Image (obligatoire)' %>
       <%= f.input :price_min, label: 'Prix min' %>
       <%= f.input :price_max, label: 'Prix max' %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
       <!-- address is the full address (incl. zip and city that are redundant for display purpose in the events list) -->
-      <%= f.input :address, label: 'Lieu ou Adresse' %>
+      <%= f.input :address, label: 'Lieu ou Adresse (essayez de choisir dans les adresses Google)' %>
       <!-- the following input are hidden and filled in JS using the Google JS API -->
       <%= f.input :lat %>
       <%= f.input :lng %>
       <%= f.input :city %>
       <%= f.input :zip %>
-      
+
       <% if @event.persisted? && false %> # not now yet
 <!--         <%= f.input :photo1 , label: 'Photos 1' %>
         <% if @event.photo1.url.present? %>
