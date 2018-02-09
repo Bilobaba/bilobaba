@@ -4,6 +4,7 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  devise :omniauthable, omniauth_providers: [:facebook]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -56,4 +57,7 @@ class Member < ApplicationRecord
       .includes(:attendees)
   end
 
+  def self.from_facebook(auth)
+    where(email: auth.info.email).first
+  end
 end

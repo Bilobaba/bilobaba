@@ -1,5 +1,7 @@
 <div class="container">
-
+  <% if !@facebook_login %>
+    <p class="gray_form">Pour utiliser votre compte Facebook, c'est par <%= link_to 'ici', omniauth_authorize_path(resource_name, 'facebook') %></p>
+  <% end %>
   <%= simple_form_for(
         resource,
         as: resource_name,
@@ -17,13 +19,21 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, label: 'Mot de passe', autocomplete: "off", placeholder: "Votre mot de passe" %>
-      <%= f.input :password_confirmation, label: 'Confirmation mot de passe', placeholder: "Confirmez votre mot de passe" %>
+      <% if @facebook_login %>
+        <%= f.input :email, wrapper_html: { style: 'display: none' }, input_html: { value: @facebook_login[:email] } %>
+        <%= f.input :password, wrapper_html: { style: 'display: none' }, input_html: { value: @facebook_login[:password_auto_generated] } %>
+        <%= f.input :password_confirmation, wrapper_html: { style: 'display: none' }, input_html: { value: @facebook_login[:password_auto_generated] } %>
+      <% else %>
+        <%= f.input :email, autofocus: true %>
+        <%= f.input :password, label: 'Mot de passe', placeholder: "Votre mot de passe" %>
+        <%= f.input :password_confirmation, label: 'Confirmation mot de passe', placeholder: "Confirmez votre mot de passe" %>
+      <% end %>
       <%= f.input :pseudo %>
       <%= f.input :first_name, label: 'Prénom' %>
       <%= f.input :name, label: 'Nom' %>
+      <%= f.input :bio, label: "Qui êtes-vous en quelques mots " %>
+      <%= f.input :avatar, label: 'Choisir une photo' %>
+      <hr />
       <div class="form-group"
         <%= f.label  "Date de naissance" %> </br>
         <%= f.date_field :birth_date, as: :date, label: "Date de naissance" %>
@@ -32,19 +42,8 @@
       <%= f.input :zip, label: 'Code postal' %>
       <%= f.input :city, label: 'Ville' %>
       <%= f.input :country, priority: [ "France" ], label: 'Pays' %>
-
       <hr />
-
-      <%= f.input :bio, label: "Qui êtes-vous en quelques mots " %>
-
-      <hr />
-
-      <%= f.input :avatar, label: 'Choisir une photo' %>
-
-      <hr />
-
       <%= f.input :roles, as: :boolean, label: "Je suis un professionnel" %>
-
     </div>
 
     <hr />

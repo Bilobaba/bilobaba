@@ -18,16 +18,16 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-        <% if current_member.avatar.url.present? %>
-          <%= cl_image_tag current_member.avatar.url, width: 60, height: 60, crop: :fill, radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
-        <% end %>
-
-      <%= f.input :avatar, label: 'Changer d\'image' %>
-
       <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :pseudo %>
       <%= f.input :first_name, label: 'Prénom' %>
       <%= f.input :name, label: 'Nom' %>
+      <%= f.input :bio, label: "Qui êtes-vous en quelques mots " %>
+      <% if current_member.avatar.url.present? %>
+        <%= cl_image_tag current_member.avatar.url, width: 60, height: 60, crop: :fill, radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
+      <% end %>
+      <%= f.input :avatar, label: 'Changer d\'image' %>
+      <hr />
       <div class="form-group"
         <%= f.label  "Date de naissance" %> </br>
         <%= f.date_field :birth_date, as: :date, label: "Date de naissance" %>
@@ -36,20 +36,14 @@
       <%= f.input :zip, label: 'Code postal' %>
       <%= f.input :city, label: 'Ville' %>
       <%= f.input :country, priority: [ "France" ], label: 'Pays' %>
-
       <hr />
-
-      <%= f.input :bio, label: "Qui êtes-vous en quelques mots " %>
-
+      <%= f.input :roles, as: :boolean, label: "Je suis un professionnel" %>
       <hr />
-
       <%= f.input :password, label: 'Nouveau mot de passe', autocomplete: "off", placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
       <%= f.input :password_confirmation, label: 'Confirmation nouveau mot de passe', placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
+      <hr />
       <%= f.input :current_password, label: 'Mot de passe actuel', placeholder: "veuillez indiquer votre mot de passe actuel pour confirmer les changements", required: true %>
-
     </div>
-
-    <hr />
 
     <div class="form-actions btn-group btn-group-justified" role="group">
       <div class="btn-group" role="group">

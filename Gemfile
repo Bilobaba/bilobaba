@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
@@ -32,14 +31,30 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Search engine
+gem 'algoliasearch-rails'
+
 gem 'bootstrap-sass', '~> 3.3.7'
 
-gem 'jquery-rails'
+# To know the browser
+gem 'browser'
 
-gem 'jquery-ui-rails'
+# Upload image
+gem 'carrierwave'
+# Store image in cloud
+gem 'cloudinary'
 
-# Form easily
-gem 'simple_form'
+# Simple form select country
+gem 'country_select'
+
+# CSV
+# commented as it's not compatible with Heroku
+# csv-1.0.0 requires ruby version >= 2.4.0, which is incompatible with the current version, ruby 2.3.4p301
+# gem 'csv'
+
+# Popup confirm more likes Bootsrap
+gem 'data-confirm-modal'
 
 # Authentification Login. Logout
 gem 'devise'
@@ -47,45 +62,29 @@ gem 'devise'
 # Hide KEYs in application.yml
 gem 'figaro'
 
-# Upload image
-gem 'carrierwave'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
-# Store image in cloud
-gem 'cloudinary'
+gem 'json'
 
-# Simple form select country
-gem 'country_select'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
-# Debug
 gem 'pry'
 
-# Send mails
-gem 'sendgrid-ruby'
+gem 'rest-client'
 
 # Manage role 'professional'
 gem 'rolify'
 
-# Popup confirm more likes Bootsrap
-gem 'data-confirm-modal'
+# Send mails
+gem 'sendgrid-ruby'
 
-# Search engine
-gem "algoliasearch-rails"
-
-# CSV
-# commented as it's not compatible with Heroku
-# csv-1.0.0 requires ruby version >= 2.4.0, which is incompatible with the current version, ruby 2.3.4p301
-# gem 'csv'
-
-#JSON
-gem 'json'
+# Form easily
+gem 'simple_form'
 
 # Stripe
-gem 'stripe'
-
-# To know the browser
-gem 'browser'
-
-gem 'rest-client'
+# gem 'stripe'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
