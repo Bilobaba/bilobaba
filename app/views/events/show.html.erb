@@ -62,10 +62,12 @@
               <% end %>
             </td>
           </tr>
-          <tr>
-            <td>Complément </td>
-            <td>: <%= @event.info_location %>  </td>
-          </tr>
+          <% if @event.info_location %>
+            <tr>
+              <td>Complément </td>
+              <td>: <%= @event.info_location %>  </td>
+            </tr>
+          <% end %>
           <tr>
             <td>Description</td>
             <td>
