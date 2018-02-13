@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   validates :begin_at, presence: true
   validates :end_at, presence: true
   validates :address, presence: true
+  validates :info_location, length: { maximum: 50 }
 
   mount_uploader :image, ImageUploader
   mount_uploader :photo1, ImageUploader

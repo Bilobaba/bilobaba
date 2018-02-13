@@ -25,6 +25,7 @@
       <%= f.input :avatar, label: 'Changer d\'image' %>
 
       <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :gender, collection: ['Monsieur','Madame'] %>
       <%= f.input :pseudo %>
       <%= f.input :first_name, label: 'Prénom' %>
       <%= f.input :name, label: 'Nom' %>
@@ -40,6 +41,9 @@
       <hr />
 
       <%= f.input :bio, label: "Qui êtes-vous en quelques mots " %>
+
+      <%= f.input :site, label: "Votre site ou page pour les pros " %>
+
 
       <hr />
 

@@ -21,6 +21,7 @@
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
       <!-- address is the full address (incl. zip and city that are redundant for display purpose in the events list) -->
       <%= f.input :address, label: 'Lieu ou Adresse (essayez de choisir dans les adresses Google)' %>
+      <%= f.input :info_location, label: 'Compléments pour le lieu : code, escalier, ...' %>
       <!-- the following input are hidden and filled in JS using the Google JS API -->
       <%= f.input :lat %>
       <%= f.input :lng %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129104937) do
+ActiveRecord::Schema.define(version: 20180213152853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180129104937) do
     t.datetime "multi_dates_id"
     t.bigint "cloudy_id"
     t.string "calendar_range_string"
+    t.string "info_location"
     t.index ["cloudy_id"], name: "index_events_on_cloudy_id"
     t.index ["member_id"], name: "index_events_on_member_id"
   end
@@ -126,6 +127,8 @@ ActiveRecord::Schema.define(version: 20180129104937) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
+    t.string "site"
+    t.string "gender"
     t.index ["confirmation_token"], name: "index_members_on_confirmation_token", unique: true
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["pseudo"], name: "index_members_on_pseudo", unique: true

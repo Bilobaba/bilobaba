@@ -21,6 +21,28 @@
       <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :password, label: 'Mot de passe', autocomplete: "off", placeholder: "Votre mot de passe" %>
       <%= f.input :password_confirmation, label: 'Confirmation mot de passe', placeholder: "Confirmez votre mot de passe" %>
+
+      <hr />
+
+
+      <h4> Type de membre </h4>
+
+      <div style="text-align: left">
+        <ul style="list-style-type:none">
+          <li>
+            <%= radio_button_tag(:type_member, MEMBER_TYPE_AMATEUR, checked: true ) %>
+            <%= label_tag(:Amateur, "Vous êtes amateur et vous ne faites rien payer") %>
+          </li>
+          <li>
+            <%= radio_button_tag(:type_member, MEMBER_TYPE_PRO) %>
+            <%= label_tag(:Pro, "Vous êtes professionnel et faites payer vos cours") %>
+          </li>
+        </ul>
+      </div>
+      <hr />
+
+      <br />
+      <%= f.input :gender, collection: ['Monsieur','Madame'] %>
       <%= f.input :pseudo %>
       <%= f.input :first_name, label: 'Prénom' %>
       <%= f.input :name, label: 'Nom' %>
@@ -35,31 +57,19 @@
 
       <hr />
 
-      <%= f.input :bio, label: "Qui êtes-vous en quelques mots " %>
+      <%= f.input :bio, label: "Qui êtes-vous en plein de mots ", :input_html => {:rows => 10} %>
+
+      <%= f.input :site, label: "Pour les pros seulement, votre site ou page web " %>
 
       <hr />
 
       <%= f.input :avatar, label: 'Choisir une photo (obligatoire)' %>
 
-      <hr />
 
-        <h4> Type de membre </h4>
-        <div style="text-align: left">
-          <ul style="list-style-type:none">
-            <li>
-              <%= radio_button_tag(:type_member, MEMBER_TYPE_AMATEUR, checked: true ) %>
-              <%= label_tag(:Amateur, "Vous êtes amateur et vous ne faites rien payer") %>
-            </li>
-            <li>
-              <%= radio_button_tag(:type_member, MEMBER_TYPE_PRO) %>
-              <%= label_tag(:Pro, "Vous êtes professionnel et faites payer vos cours") %>
-            </li>
-          </ul>
-        </div>
 
     </div>
 
-    <hr />
+
 
     <div class="form-actions btn-group btn-group-justified" role="group">
       <div class="btn-group" role="group">

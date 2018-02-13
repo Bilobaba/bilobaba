@@ -13,6 +13,7 @@ class Member < ApplicationRecord
   validates :first_name, presence: true
   validates :name, presence: true
   validates :bio, presence: true
+  validates :gender, presence: true
   # validates :birth_date, presence: true
   # validates :address, presence: true
   # validates :zip, presence: true
