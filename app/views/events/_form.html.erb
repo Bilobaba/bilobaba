@@ -75,8 +75,10 @@
       </br>
       </br>
 
+      <h4>Choisir une/des dates</h4>
       <div class="container" style="display: block; text-align: center; width: 100%; border-radius: 5px; border: solid 1px grey" id="daysPickerBlock">
-        <div>Pour des événements pontuels ou réguliers </div>
+        <div>Pour des événements dont la durée < 1j</div>
+        <br />
         <div style="display: flex; justify-content: space-around;">
           <div style="align-items: center;" id="choiceDate">
             <div>Choisir une ou plusieurs dates</div>
@@ -91,13 +93,11 @@
         </div>
       </br>
       </div>
-      </br>
-
-          OU
-      </br>
+          -OU-
       </br>
       <div class="container" style="display: block; text-align: center; width: 100%;  border-radius: 5px; border: solid 1px grey" id="rangePickerBlock">
-        <div>Pour des stages ou séjours </div>
+        <div>Pour des événements dont la durée > 1j </div>
+        <br />
         <div style="display: flex; justify-content: space-around;">
           <div style="align-items: center;" >
             <div>date de début - date de fin </div>
@@ -273,8 +273,11 @@
       end_day = new Date(day[2],day[1],day[0]);
       diffDays = parseInt((end_day - begin_day) / (1000 * 60 * 60 * 24)) + 1;
       $('#rangeDuration').html(diffDays + ' jours');
-    };
+    } else {
+      $('#rangeDuration').html('');
+    }
   };
+
 
 
   // if $('#event_calendar_string')[0].value
