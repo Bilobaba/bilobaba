@@ -71,6 +71,9 @@ gem 'data-confirm-modal'
 # Search engine
 gem "algoliasearch-rails"
 
+# Validate file size
+gem 'file_validators'
+
 # CSV
 # commented as it's not compatible with Heroku
 # csv-1.0.0 requires ruby version >= 2.4.0, which is incompatible with the current version, ruby 2.3.4p301
