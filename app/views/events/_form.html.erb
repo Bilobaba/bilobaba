@@ -16,8 +16,8 @@
 
       <!-- upload the image but not recorded directly : association with cloudy record -->
       <%= f.input :image, label: 'Image (obligatoire)' %>
-      <%= f.input :price_min, label: 'Prix min' %>
-      <%= f.input :price_max, label: 'Prix max' %>
+      <%= f.input :price_min, label: 'Tarif réduit' %>
+      <%= f.input :price_max, label: 'Plein tarif' %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
       <!-- address is the full address (incl. zip and city that are redundant for display purpose in the events list) -->
       <%= f.input :address, label: 'Lieu ou Adresse (essayez de choisir dans les adresses Google)' %>
