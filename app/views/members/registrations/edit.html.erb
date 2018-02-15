@@ -37,12 +37,26 @@
       <%= f.input :city, label: 'Ville' %>
       <%= f.input :country, priority: [ "France" ], label: 'Pays' %>
       <hr />
-      <%= f.input :roles, as: :boolean, label: "Je suis un professionnel" %>
-      <hr />
-      <%= f.input :password, label: 'Nouveau mot de passe', autocomplete: "off", placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
-      <%= f.input :password_confirmation, label: 'Confirmation nouveau mot de passe', placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
-      <hr />
-      <%= f.input :current_password, label: 'Mot de passe actuel', placeholder: "veuillez indiquer votre mot de passe actuel pour confirmer les changements", required: true %>
+      <h4> Type de membre </h4>
+      <div style="text-align: left">
+        <ul style="list-style-type:none">
+          <li>
+            <%= radio_button_tag(:type_member, MEMBER_TYPE_AMATEUR, checked: true ) %>
+            <%= label_tag(:Amateur, "Vous êtes amateur et vous ne faites rien payer") %>
+          </li>
+          <li>
+            <%= radio_button_tag(:type_member, MEMBER_TYPE_PRO) %>
+            <%= label_tag(:Pro, "Vous êtes professionnel et faites payer vos cours") %>
+          </li>
+        </ul>
+      </div>
+      <% if !current_member.facebook_id %>
+        <hr />
+        <%= f.input :password, label: 'Nouveau mot de passe', autocomplete: "off", placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
+        <%= f.input :password_confirmation, label: 'Confirmation nouveau mot de passe', placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
+        <hr />
+        <%= f.input :current_password, label: 'Mot de passe actuel', placeholder: "veuillez indiquer votre mot de passe actuel pour confirmer les changements", required: true %>
+      <% end %>
     </div>
 
     <div class="form-actions btn-group btn-group-justified" role="group">

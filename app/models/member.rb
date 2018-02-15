@@ -61,4 +61,14 @@ class Member < ApplicationRecord
   def self.from_facebook(auth)
     where(email: auth.info.email).first
   end
+
+  def self.new_with_session(params, session)
+    super.tap do |member|
+      if facebook_data = session['devise.facebook_data']
+        member.facebook_id = facebook_data['uid']
+        member.email = facebook_data['info']['email']
+        member.password = member.password_confirmation = Devise.friendly_token
+      end
+    end
+  end
 end

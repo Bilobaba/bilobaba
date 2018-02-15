@@ -1,7 +1,11 @@
 <div class="container">
-  <% if !@facebook_login %>
-    <p class="gray_form">Pour utiliser votre compte Facebook, c'est par <%= link_to 'ici', omniauth_authorize_path(resource_name, 'facebook') %></p>
+
+  <% if !session['devise.facebook_data'] %>
+    <p class="gray_form">Pour <strong>utiliser</strong> votre compte Facebook, c'est par <%= link_to 'ici', omniauth_authorize_path(resource_name, 'facebook') %></p>
+  <% else %>
+    <p class="gray_form">Pour <strong>annuler</strong> la connexion via Facebook, cliquez <%= link_to 'ici', cancel_member_registration_path %></p>
   <% end %>
+
   <%= simple_form_for(
         resource,
         as: resource_name,
@@ -19,14 +23,10 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-      <% if @facebook_login %>
-        <%= f.input :email, wrapper_html: { style: 'display: none' }, input_html: { value: @facebook_login[:email] } %>
-        <%= f.input :password, wrapper_html: { style: 'display: none' }, input_html: { value: @facebook_login[:password_auto_generated] } %>
-        <%= f.input :password_confirmation, wrapper_html: { style: 'display: none' }, input_html: { value: @facebook_login[:password_auto_generated] } %>
-      <% else %>
+      <% if !session['devise.facebook_data'] %>
         <%= f.input :email, autofocus: true %>
-        <%= f.input :password, label: 'Mot de passe', placeholder: "Votre mot de passe" %>
-        <%= f.input :password_confirmation, label: 'Confirmation mot de passe', placeholder: "Confirmez votre mot de passe" %>
+        <%= f.input :password, label: 'Mot de passe' %>
+        <%= f.input :password_confirmation, label: 'Confirmation mot de passe' %>
       <% end %>
       <%= f.input :pseudo %>
       <%= f.input :first_name, label: 'Prénom' %>
@@ -43,19 +43,19 @@
       <%= f.input :city, label: 'Ville' %>
       <%= f.input :country, priority: [ "France" ], label: 'Pays' %>
       <hr />
-        <h4> Type de membre </h4>
-        <div style="text-align: left">
-          <ul style="list-style-type:none">
-            <li>
-              <%= radio_button_tag(:type_member, MEMBER_TYPE_AMATEUR, checked: true ) %>
-              <%= label_tag(:Amateur, "Vous êtes amateur et vous ne faites rien payer") %>
-            </li>
-            <li>
-              <%= radio_button_tag(:type_member, MEMBER_TYPE_PRO) %>
-              <%= label_tag(:Pro, "Vous êtes professionnel et faites payer vos cours") %>
-            </li>
-          </ul>
-        </div>
+      <h4> Type de membre </h4>
+      <div style="text-align: left">
+        <ul style="list-style-type:none">
+          <li>
+            <%= radio_button_tag(:type_member, MEMBER_TYPE_AMATEUR, checked: true ) %>
+            <%= label_tag(:Amateur, "Vous êtes amateur et vous ne faites rien payer") %>
+          </li>
+          <li>
+            <%= radio_button_tag(:type_member, MEMBER_TYPE_PRO) %>
+            <%= label_tag(:Pro, "Vous êtes professionnel et faites payer vos cours") %>
+          </li>
+        </ul>
+      </div>
 
     </div>
 
