@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   validates :begin_at, presence: true
   validates :end_at, presence: true
   validates :address, presence: true
+  validates :info_location, length: { maximum: 50 }
 
   mount_uploader :image, ImageUploader
   mount_uploader :photo1, ImageUploader
@@ -16,6 +17,8 @@ class Event < ApplicationRecord
   mount_uploader :photo4, ImageUploader
   mount_uploader :photo5, ImageUploader
   mount_uploaders :photos, PhotoUploader
+
+  validates :image, file_size: { less_than: 1.megabytes, message: 'L\'avatar doit faire moins de 1 megabytes' }
 
   belongs_to :organizer, class_name: :Member, foreign_key: :member_id
   belongs_to :cloudy

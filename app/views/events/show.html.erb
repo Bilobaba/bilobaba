@@ -62,6 +62,12 @@
               <% end %>
             </td>
           </tr>
+          <% if @event.info_location.to_s != '' %>
+            <tr>
+              <td>Complément </td>
+              <td>: <%= @event.info_location %>  </td>
+            </tr>
+          <% end %>
           <tr>
             <td>Description</td>
             <td>

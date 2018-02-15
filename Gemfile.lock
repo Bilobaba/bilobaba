@@ -109,6 +109,9 @@ GEM
     ffi (1.9.21)
     figaro (1.1.1)
       thor (~> 0.14)
+    file_validators (2.1.0)
+      activemodel (>= 3.0)
+      mime-types (>= 1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.7)
@@ -302,6 +305,7 @@ DEPENDENCIES
   data-confirm-modal
   devise
   figaro
+  file_validators
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails

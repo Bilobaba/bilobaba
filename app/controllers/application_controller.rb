@@ -7,15 +7,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) {
       |u| u.permit(
         :email, :password, :password_confirmation,
-        :pseudo, :first_name, :name,:bio, :birth_date,
-        :address, :zip, :city, :country, :avatar
+        :gender, :pseudo, :first_name, :name,:bio, :birth_date,
+        :address, :zip, :city, :country, :avatar, :site
       )
     }
     devise_parameter_sanitizer.permit(:account_update) {
       |u| u.permit(
         :email, :password, :password_confirmation,
-        :pseudo, :first_name, :name, :bio, :birth_date,
-        :address, :zip, :city, :country, :avatar, :current_password
+        :gender, :pseudo, :first_name, :name, :bio, :birth_date,
+        :address, :zip, :city, :country, :avatar, :site, :current_password
       )
     }
   end

@@ -28,12 +28,14 @@
         <%= f.input :password, label: 'Mot de passe' %>
         <%= f.input :password_confirmation, label: 'Confirmation mot de passe' %>
       <% end %>
+      <%= f.input :gender, collection: ['Monsieur','Madame'] %>
       <%= f.input :pseudo %>
       <%= f.input :first_name, label: 'Prénom' %>
       <%= f.input :name, label: 'Nom' %>
       <%= f.input :bio, label: "Qui êtes-vous en quelques mots " %>
       <%= f.input :avatar, label: 'Choisir une photo (obligatoire)' %>
       <hr />
+      <%= f.input :site, label: "Pour les pros seulement, votre site ou page web ", placeholder: 'www.monsupersite.com (sans le http://)' %>
       <div class="form-group"
         <%= f.label  "Date de naissance" %> </br>
         <%= f.date_field :birth_date, as: :date, label: "Date de naissance" %>
@@ -58,8 +60,6 @@
       </div>
 
     </div>
-
-    <hr />
 
     <div class="form-actions btn-group btn-group-justified" role="group">
       <div class="btn-group" role="group">

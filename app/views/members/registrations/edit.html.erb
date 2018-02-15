@@ -19,6 +19,7 @@
       <% end %>
 
       <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :gender, collection: ['Monsieur','Madame'] %>
       <%= f.input :pseudo %>
       <%= f.input :first_name, label: 'Prénom' %>
       <%= f.input :name, label: 'Nom' %>
@@ -36,6 +37,7 @@
       <%= f.input :zip, label: 'Code postal' %>
       <%= f.input :city, label: 'Ville' %>
       <%= f.input :country, priority: [ "France" ], label: 'Pays' %>
+      <%= f.input :site, label: "Votre site ou page pour les pros " , placeholder: 'www.monsupersite.com (sans le http://)' %>
       <hr />
       <h4> Type de membre </h4>
       <div style="text-align: left">

@@ -62,6 +62,9 @@ gem 'devise'
 # Hide KEYs in application.yml
 gem 'figaro'
 
+# Validate file size
+gem 'file_validators'
+
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
