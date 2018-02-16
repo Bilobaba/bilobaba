@@ -52,7 +52,7 @@
           </li>
         </ul>
       </div>
-      <% if !current_member.facebook_id %>
+      <% if !session['facebook_login'] %>
         <hr />
         <%= f.input :password, label: 'Nouveau mot de passe', autocomplete: "off", placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
         <%= f.input :password_confirmation, label: 'Confirmation nouveau mot de passe', placeholder: "ne rien écrire si vous gardez votre mot de passe" %>

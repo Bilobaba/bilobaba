@@ -69,6 +69,7 @@ class Member < ApplicationRecord
         member.facebook_id = facebook_data['uid']
         member.email = facebook_data['info']['email']
         member.password = member.password_confirmation = Devise.friendly_token
+        session['facebook_login'] = 1
       end
     end
   end
