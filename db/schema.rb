@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213152853) do
+ActiveRecord::Schema.define(version: 20180216100916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20180213152853) do
     t.string "zip", default: "", null: false
     t.float "lat"
     t.float "lng"
-    t.bigint "member_id"
+    t.bigint "organizer_id"
     t.string "encrypted_password", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,8 +69,10 @@ ActiveRecord::Schema.define(version: 20180213152853) do
     t.bigint "cloudy_id"
     t.string "calendar_range_string"
     t.string "info_location"
+    t.bigint "teacher_id"
     t.index ["cloudy_id"], name: "index_events_on_cloudy_id"
-    t.index ["member_id"], name: "index_events_on_member_id"
+    t.index ["organizer_id"], name: "index_events_on_organizer_id"
+    t.index ["teacher_id"], name: "index_events_on_teacher_id"
   end
 
   create_table "follow_events", force: :cascade do |t|
@@ -163,15 +165,27 @@ ActiveRecord::Schema.define(version: 20180213152853) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
+  create_table "teachings", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_teachings_on_event_id"
+    t.index ["member_id"], name: "index_teachings_on_member_id"
+  end
+
   add_foreign_key "attend_events", "events"
   add_foreign_key "attend_events", "members"
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "members", column: "autor_id"
-  add_foreign_key "events", "members"
+  add_foreign_key "events", "members", column: "organizer_id"
+  add_foreign_key "events", "members", column: "teacher_id"
   add_foreign_key "follow_events", "events"
   add_foreign_key "follow_events", "members"
   add_foreign_key "like_events", "events"
   add_foreign_key "like_events", "members"
   add_foreign_key "recommend_events", "events"
   add_foreign_key "recommend_events", "members"
+  add_foreign_key "teachings", "events"
+  add_foreign_key "teachings", "members"
 end

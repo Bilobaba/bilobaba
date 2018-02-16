@@ -22,9 +22,13 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    @teachers = []
     @h1_title = 'Ajouter un partage'
     @event = Event.new
     @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
+    # $teachers is global because if !create return view with @teachers wrong
+    $teachers = (Member.pros << current_member).reverse.uniq
+# binding.pry
   end
 
   # GET /events/1/edit
@@ -256,7 +260,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :description, :begin_at, :end_at, :price_min, :price_max, :members_max,
                                   :address, :city, :zip, :lat, :lng, { photos: [] },:calendar_string,
                                   :calendar_range_string, :image, :photo1, :photo2, :photo3, :photo4,
-                                  :info_location)
+                                  :info_location, :teacher_id)
   end
 
   def require_login

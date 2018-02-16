@@ -20,7 +20,8 @@ class Member < ApplicationRecord
   # validates :city, presence: true
   # validates :country, presence: true
 
-  has_many :organize_events, class_name: :Event, foreign_key: :member_id
+  has_many :organize_events, class_name: :Event, foreign_key: :organizer_id
+  has_many :teach_events, class_name: :Event, foreign_key: :teacher_id
 
   # follower_follows "names" the Follow join table for accessing through the follower association
   has_many :follower_follows, foreign_key: :followee_id, class_name: "Follow"
@@ -58,4 +59,7 @@ class Member < ApplicationRecord
       .includes(:attendees)
   end
 
+  def self.pros
+    pros = Member.with_role(:professional).order(pseudo: :desc).uniq
+  end
 end

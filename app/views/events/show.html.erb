@@ -23,11 +23,16 @@
         <%= link_to @event.organizer do %>
           <% if @event.organizer.avatar.file %>
             <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar') %>
-          <% else %>
-            <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 80, height: 80, id: 'avatar' %>
           <% end %>
         <% end %>
 
+        <% if @event.teacher %>
+          <%= link_to @event.teacher do %>
+            <% if @event.teacher.avatar.file %>
+              <%= cl_image_tag(@event.teacher.avatar.file.public_id, width: 80, radius: 20, id: 'avatar_teacher') %>
+            <% end %>
+          <% end %>
+        <% end %>
         <table>
           <tr>
             <td>Date et heure</td>
@@ -49,6 +54,14 @@
               <%= link_to @event.organizer.pseudo, @event.organizer, id: 'organizer' %>
             </td>
           </tr>
+          <% if @event.teacher %>
+            <tr>
+              <td>Animateur</td>
+              <td>:
+                <%= link_to @event.teacher.pseudo, @event.teacher, id: 'teacher' %>
+              </td>
+            </tr>
+          <% end %>
           <tr>
             <td>Lieu</td>
             <td class="location pointer">:
@@ -122,9 +135,11 @@
 <%= render 'layouts/map', title: @event.address %>
 
 <script>
-  $('#modal_map').on('shown.bs.modal', function (event) {
-    showMap($(event.relatedTarget).data('lat'), $(event.relatedTarget).data('lng'), $(event.relatedTarget).data('address'));
-  });
+  <% if @event.lat %>
+    $('#modal_map').on('shown.bs.modal', function (event) {
+      showMap($(event.relatedTarget).data('lat'), $(event.relatedTarget).data('lng'), $(event.relatedTarget).data('address'));
+    });
+  <% end %>
   $('#organizer').hover(
     function () {
       $('#avatar').show();
@@ -132,4 +147,11 @@
     function () {
       $('#avatar').hide();
     },);
-</script>
+
+  $('#teacher').hover(
+    function () {
+      $('#avatar_teacher').show();
+    },
+    function () {
+      $('#avatar_teacher').hide();
+    },);</script>
