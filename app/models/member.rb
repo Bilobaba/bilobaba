@@ -59,8 +59,12 @@ class Member < ApplicationRecord
       .includes(:attendees)
   end
 
-  def self.from_facebook(auth)
-    where(email: auth.info.email).first
+  def self.from_email(email)
+    where(email: email).first
+  end
+
+  def self.from_facebook(facebook_id)
+    where(facebook_id: facebook_id).first
   end
 
   def self.new_with_session(params, session)

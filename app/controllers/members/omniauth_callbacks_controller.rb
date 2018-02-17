@@ -1,14 +1,31 @@
 class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    @member = Member.from_facebook(request.env['omniauth.auth'])
-    if @member && @member.persisted?
-      session['facebook_login'] = 1
-      # TODO: add flash msg showing the FB account used
-      sign_in_and_redirect @member, event: :authentication
+    facebook_id = request.env['omniauth.auth'].uid
+    @member = Member.from_facebook(facebook_id)
+    if @member
+      sign_in_with_facebook(@member)
     else
-      session['devise.facebook_data'] = request.env['omniauth.auth']
-      # TODO: add msg showing the FB account used
-      redirect_to new_member_registration_path
+      @member = Member.from_email(request.env['omniauth.auth'].info.email)
+      if @member
+        save_facebook_id(@member, facebook_id)
+        sign_in_with_facebook(@member)
+      else
+        session['devise.facebook_data'] = request.env['omniauth.auth']
+        redirect_to new_member_registration_path
+      end
     end
   end
+
+  protected
+
+  def sign_in_with_facebook(member)
+    session['facebook_login'] = 1
+    sign_in_and_redirect member, event: :authentication
+  end
+
+  def save_facebook_id(member, facebook_id)
+    member.facebook_id = facebook_id
+    member.save
+  end
+
 end

@@ -1,9 +1,20 @@
 <div class="container">
 
   <% if !session['devise.facebook_data'] %>
-    <p class="gray_form">Pour <strong>utiliser</strong> votre compte Facebook, c'est par <%= link_to 'ici', omniauth_authorize_path(resource_name, 'facebook') %></p>
+    <div class="gray_form">
+      <%= link_to member_facebook_omniauth_authorize_path do %>
+        M'inscrire avec mon compte Facebook <%= image_tag 'FB-f-Logo__blue_29.png' %>
+      <% end %>
+    </div>
   <% else %>
-    <p class="gray_form">Pour <strong>annuler</strong> la connexion via Facebook, cliquez <%= link_to 'ici', cancel_member_registration_path %></p>
+    <div class="gray_form">
+      <%= image_tag 'http://graph.facebook.com/v2.6/10155183921255888/picture', width: '50px' %>
+      <br />
+      Une fois remplies les informations ci-dessous, votre compte Facebook sera utilisé pour vous connecter
+      <hr />
+      Si ce n'est pas votre compte, ou si vous préférez vous inscrire avec votre email, 
+      <%= link_to 'cliquer ici', cancel_member_registration_path %>
+    </div>
   <% end %>
 
   <%= simple_form_for(

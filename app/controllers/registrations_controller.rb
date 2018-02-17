@@ -15,6 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  #http://bit.ly/1owLKwX
   def update_resource(resource, params)
     if session['facebook_login']
       resource.update_without_password(params)

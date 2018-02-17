@@ -104,6 +104,14 @@ hr {
     font-size: 16px;
 }
 
+.gray_form > img {
+    margin-bottom: 10px;
+}
+
+.gray_form > hr {
+    border-color: $primary_color;
+}
+
 .green_form {
     width: 500px;
     margin: auto;
