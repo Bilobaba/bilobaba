@@ -92,7 +92,7 @@ class Event < ApplicationRecord
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
-    # `unordered` to avoid taking the position of a match into account in that attribute.
+    # `unordered` to avoid taking the position of a match into account in that attribute
     searchableAttributes ['title', 'member_name', 'member_first_name', 'address',
                           'city', 'zip','summary', 'member_avatar','short_title',
                           'show_begin_at', 'member_pseudo', 'show_price', 'member_bio']
