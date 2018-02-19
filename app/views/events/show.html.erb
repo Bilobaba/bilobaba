@@ -75,12 +75,6 @@
               <% end %>
             </td>
           </tr>
-          <% if @event.info_location.to_s != '' %>
-            <tr>
-              <td>Complément </td>
-              <td>: <%= @event.info_location %>  </td>
-            </tr>
-          <% end %>
           <tr>
             <td>Description</td>
             <td>
@@ -92,6 +86,19 @@
               <% end %>
             </td>
           </tr>
+          <% if @event.note.to_s != '' %>
+            <tr>
+              <td>Complément </td>
+              <td>
+                :
+                <% if @event.note.size > 50 %>
+                  <%= link_to @event.note[0..50] + ' (...)', '#', 'data-toggle': 'modal', 'data-target': '#modal_note' %>
+                <% else %>
+                  <%= @event.note %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
         </table>
       </div>
     </div>
@@ -130,7 +137,8 @@
 </div>
 
 <!-- Modals -->
-<%= render 'layouts/modal', title: 'Description détaillée de <em>' + @event.title + '</em>', content: @event.description %>
+<%= render 'layouts/modal', title: 'Description détaillée de <em>' + @event.title + '</em>', content: @event.description,
+                            title_note: 'Note détaillée <em>' + @event.title + '</em>', content_note: @event.note %>
 
 <%= render 'layouts/map', title: @event.address %>
 

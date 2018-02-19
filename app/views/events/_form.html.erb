@@ -13,16 +13,16 @@
       <% if @event.image.url.present? %>
         <%= cl_image_tag @event.image.file.filename, width: 470, height: 142 %>
       <% end %>
-***************Coucou*******************
       <%= f.input :teacher_id, :collection => $teachers, :label_method => :pseudo, :label => 'Animateur' %>
       <!-- upload the image but not recorded directly : association with cloudy record -->
       <%= f.input :image, label: 'Image (obligatoire)' %>
       <%= f.input :price_min, label: 'Tarif réduit' %>
-      <%= f.input :price_max, label: 'Plein tarif (obligatoire)' %>
+      <%= f.input :price_max, label: 'Plein tarif (obligatoire)', required: true %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
       <!-- address is the full address (incl. zip and city that are redundant for display purpose in the events list) -->
       <%= f.input :address, label: 'Lieu ou Adresse (essayez de choisir dans les adresses Google)' %>
-      <%= f.input :info_location, label: 'Compléments pour le lieu : code, escalier, ...' %>
+      <%= f.input :note, as: :text, label: 'Compléments', placeholder: 'Réservation obligatoire, code, escalier, interphone ...',
+          input_html: {rows: 3} %>
       <!-- the following input are hidden and filled in JS using the Google JS API -->
       <%= f.input :lat %>
       <%= f.input :lng %>
