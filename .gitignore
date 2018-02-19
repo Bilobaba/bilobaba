@@ -25,3 +25,6 @@
 /config/cloudinary.yml
 
 /public/uploads/tmp/
+
+# Ignore dump
+/db/latest.dump
