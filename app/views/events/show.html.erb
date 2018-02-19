@@ -54,7 +54,7 @@
               <%= link_to @event.organizer.pseudo, @event.organizer, id: 'organizer' %>
             </td>
           </tr>
-          <% if @event.teacher %>
+          <% if @event.teacher && (@event.teacher != @event.organizer) %>
             <tr>
               <td>Animateur</td>
               <td>:
