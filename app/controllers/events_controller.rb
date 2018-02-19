@@ -34,6 +34,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @h1_title = 'Modifier mon partage'
+    $teachers = (Member.pros << current_member).reverse.uniq
   end
 
   # POST /events

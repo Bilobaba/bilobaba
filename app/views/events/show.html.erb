@@ -22,7 +22,7 @@
       <div id="event_content">
         <%= link_to @event.organizer do %>
           <% if @event.organizer.avatar.file %>
-            <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar') %>
+            <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar_organizer') %>
           <% end %>
         <% end %>
 
@@ -150,10 +150,10 @@
   <% end %>
   $('#organizer').hover(
     function () {
-      $('#avatar').show();
+      $('#avatar_organizer').show();
     },
     function () {
-      $('#avatar').hide();
+      $('#avatar_organizer').hide();
     },);
 
   $('#teacher').hover(
@@ -162,4 +162,5 @@
     },
     function () {
       $('#avatar_teacher').hide();
-    },);</script>
+    },);
+</script>
