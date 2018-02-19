@@ -1,0 +1,66 @@
+/* line 3, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#events td {
+  vertical-align: middle;
+}
+
+/* line 7, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#events tbody tr:hover {
+  background-color: #2e8585;
+  color: white;
+  cursor: pointer;
+}
+
+/* line 13, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#events th:not(:first-of-type), #events td:not(:first-of-type) {
+  text-align: center;
+}
+
+/* line 17, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#events thead > tr {
+  background-color: #2e8585;
+  color: white;
+  font-weight: bold;
+}
+
+/* line 23, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#events thead > tr > th {
+  border: none;
+}
+
+/* line 27, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#add_event {
+  text-align: center;
+}
+
+/* line 31, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#add_event > a:hover {
+  background-color: #2e8585;
+  border-color: #2e8585;
+  color: white;
+}
+
+/* line 37, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#search-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* line 43, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#search-box {
+  border-color: #2e8585;
+  color: #2e8585;
+  margin: auto;
+  width: 700px;
+}
+
+/* line 50, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+#pagination-container ul {
+  padding: 0px;
+}
+
+/* line 54, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/events.scss */
+.organizer {
+  width: 40px;
+  height: 40px;
+}
