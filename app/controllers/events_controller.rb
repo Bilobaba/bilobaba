@@ -4,6 +4,7 @@ require 'pry'
 class EventsController < ApplicationController
   before_action :require_login, only: %i[new edit update destroy]
   before_action :set_event, only: %i[show edit update destroy]
+  before_action :require_permission, only: %i[edit update destroy]
   before_action :set_list_events, only: %i[update destroy]
 
   # GET /events
@@ -266,6 +267,11 @@ class EventsController < ApplicationController
 
   def require_login
     redirect_to forbidden_path unless member_signed_in?
+  end
+
+  def require_permission
+    redirect_to permission_path unless (@event.organizer == current_member ||
+              @event.teacher == current_member || current_member.has_role?(ROLE_ADMIN))
   end
 
   # change only the day of DateTime but not hh:mm

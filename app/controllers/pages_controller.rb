@@ -32,4 +32,8 @@ class PagesController < ApplicationController
     flash[:notice] = "Votre message a bien été envoyé."
     redirect_to root_path
   end
+
+  def permission
+  end
+
 end
