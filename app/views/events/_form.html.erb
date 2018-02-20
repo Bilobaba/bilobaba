@@ -23,7 +23,7 @@
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
       <!-- address is the full address (incl. zip and city that are redundant for display purpose in the events list) -->
       <%= f.input :address, label: 'Lieu ou Adresse (essayez de choisir dans les adresses Google)' %>
-      <%= f.input :note, as: :text, label: 'Compléments', placeholder: 'Réservation obligatoire, code, escalier, interphone ...',
+      <%= f.input :note, as: :text, label: 'Remarques', placeholder: 'Réservation obligatoire, code, escalier, interphone ...',
           input_html: {rows: 3} %>
       <!-- the following input are hidden and filled in JS using the Google JS API -->
       <%= f.input :lat %>
