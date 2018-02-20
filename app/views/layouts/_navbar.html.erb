@@ -17,7 +17,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left ">
-        <li><%= link_to 'Les partages', events_path, class: 'menu_item' %></li>
+        <li><%= link_to 'Les propositions', events_path, class: 'menu_item' %></li>
         <li>
           <div class="dropdown">
             <div type="button" class="menu_item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,8 +25,8 @@
               <span class="caret"></span>
             </div>
             <ul class="dropdown-menu" aria-labelledby="dLabel">
-              <li><%= link_to 'Les biloprocools', members_path(pro: 1) %></li>
-              <li><%= link_to 'Les bilobabacools', members_path(pro: 0) %></li>
+              <li><%= link_to 'Les proposants', pros_path %></li>
+              <li><%= link_to 'Les participants', amateurs_path %></li>
             </ul>
           </div>
         </li>

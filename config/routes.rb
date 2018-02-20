@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   end
 
 
-  get 'members/index_pros', as: 'index_pros'
-  get 'members/index_members', as: 'index_members'
+  get 'members/index_pros', as: 'pros'
+  get 'members/index_amateurs', as: 'amateurs'
 
   devise_for :members, controllers: {
     registrations: 'registrations',
