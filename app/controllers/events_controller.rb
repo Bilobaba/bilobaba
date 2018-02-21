@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @h1_title = 'Les partages à venir'
+    @h1_title = 'Les propositions à venir'
     @events = Event.next_events
   end
 
