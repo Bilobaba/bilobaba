@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(version: 20180219150541) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
+    t.string "facebook_id"
     t.string "site"
     t.string "gender"
     t.index ["confirmation_token"], name: "index_members_on_confirmation_token", unique: true

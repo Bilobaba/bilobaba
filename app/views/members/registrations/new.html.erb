@@ -1,5 +1,22 @@
 <div class="container">
 
+  <% if !session['devise.facebook_data'] %>
+    <div class="gray_form">
+      <%= link_to member_facebook_omniauth_authorize_path do %>
+        M'inscrire avec mon compte Facebook <%= image_tag 'FB-f-Logo__blue_29.png' %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="gray_form">
+      <%= image_tag 'http://graph.facebook.com/v2.6/10155183921255888/picture', width: '50px' %>
+      <br />
+      Une fois remplies les informations ci-dessous, votre compte Facebook sera utilisé pour vous connecter
+      <hr />
+      Si ce n'est pas votre compte, ou si vous préférez vous inscrire avec votre email, 
+      <%= link_to 'cliquer ici', cancel_member_registration_path %>
+    </div>
+  <% end %>
+
   <%= simple_form_for(
         resource,
         as: resource_name,
@@ -17,16 +34,29 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, label: 'Mot de passe', autocomplete: "off", placeholder: "Votre mot de passe" %>
-      <%= f.input :password_confirmation, label: 'Confirmation mot de passe', placeholder: "Confirmez votre mot de passe" %>
-
+      <% if !session['devise.facebook_data'] %>
+        <%= f.input :email, autofocus: true %>
+        <%= f.input :password, label: 'Mot de passe' %>
+        <%= f.input :password_confirmation, label: 'Confirmation mot de passe' %>
+      <% end %>
+      <%= f.input :gender, collection: ['Monsieur','Madame'] %>
+      <%= f.input :pseudo %>
+      <%= f.input :first_name, label: 'Prénom' %>
+      <%= f.input :name, label: 'Nom' %>
+      <%= f.input :bio, label: "Qui êtes-vous en quelques mots " %>
+      <%= f.input :avatar, label: 'Choisir une photo (obligatoire)' %>
       <hr />
-
-
+      <%= f.input :site, label: "Pour les pros seulement, votre site ou page web ", placeholder: 'www.monsupersite.com (sans le http://)' %>
+      <div class="form-group"
+        <%= f.label  "Date de naissance" %> </br>
+        <%= f.date_field :birth_date, as: :date, label: "Date de naissance" %>
+      </div>
+      <%= f.input :address, label: 'Adresse' %>
+      <%= f.input :zip, label: 'Code postal' %>
+      <%= f.input :city, label: 'Ville' %>
+      <%= f.input :country, priority: [ "France" ], label: 'Pays' %>
+      <hr />
       <h4> Type de membre </h4>
-
       <div style="text-align: left">
         <ul style="list-style-type:none">
           <li>
@@ -39,37 +69,8 @@
           </li>
         </ul>
       </div>
-      <hr />
-
-      <br />
-      <%= f.input :gender, collection: ['Monsieur','Madame'] %>
-      <%= f.input :pseudo %>
-      <%= f.input :first_name, label: 'Prénom' %>
-      <%= f.input :name, label: 'Nom' %>
-      <div class="form-group"
-        <%= f.label  "Date de naissance" %> </br>
-        <%= f.date_field :birth_date, as: :date, label: "Date de naissance" %>
-      </div>
-      <%= f.input :address, label: 'Adresse' %>
-      <%= f.input :zip, label: 'Code postal' %>
-      <%= f.input :city, label: 'Ville' %>
-      <%= f.input :country, priority: [ "France" ], label: 'Pays' %>
-
-      <hr />
-
-      <%= f.input :bio, label: "Qui êtes-vous en plein de mots ", :input_html => {:rows => 10} %>
-
-      <%= f.input :site, label: "Pour les pros seulement, votre site ou page web ", placeholder: 'www.monsupersite.com (sans le http://)' %>
-
-      <hr />
-
-      <%= f.input :avatar, label: 'Choisir une photo (obligatoire)' %>
-
-
 
     </div>
-
-
 
     <div class="form-actions btn-group btn-group-justified" role="group">
       <div class="btn-group" role="group">

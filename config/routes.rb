@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   devise_for :members, controllers: {
     registrations: 'registrations',
-    sessions: 'sessions'
+    sessions: 'sessions',
+    omniauth_callbacks: 'members/omniauth_callbacks'
   }
 
   devise_scope :member do
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   # Stripe
-  resources :charges
+  # resources :charges
 
   get 'pages/home', as: 'home'
   get 'pages/team', as: 'team'

@@ -27,7 +27,7 @@ h3 {
 }
 
 a {
-    color: $primary_color;
+    color: $hover_color;
 }
 
 a:hover {
@@ -92,6 +92,25 @@ hr {
 }
 
 // -------- FORM --------
+
+.gray_form {
+    width: 500px;
+    margin: 0px auto 10px auto;
+    background: #e8e8e8;
+    background-color: #e8e8e8;
+    border-radius : 5px;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.gray_form > img {
+    margin-bottom: 10px;
+}
+
+.gray_form > hr {
+    border-color: $primary_color;
+}
 
 .green_form {
     width: 500px;
