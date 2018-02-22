@@ -17,7 +17,7 @@ class MembersController < ApplicationController
   end
 
   def show
-    @h1_title = 'Page bilobabacool'
+    @h1_title = @member.first_name.to_s.capitalize + ' ' + @member.name.to_s.upcase
   end
 
   private

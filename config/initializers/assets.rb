@@ -19,3 +19,5 @@ Rails.application.config.assets.precompile += %w( home.scss navbar.scss event.sc
                                                   jquery.calendars.picker.js jquery.calendars.lang.js
                                                   jquery.calendars-fr.js jquery.datepick-fr.js
                                                   jquery.calendars.all.js )
+
+Rails.application.config.assets.precompile += %w( pricing.css )

@@ -33,7 +33,10 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to 'Contact', pages_contact_path, class: 'menu_item' %>
+          <%= link_to 'Tarif', pricing_path, class: 'menu_item' %>
+        </li>
+        <li>
+          <%= link_to 'Contact', contact_path, class: 'menu_item' %>
         </li>
         <% if member_signed_in? %>
           <li><%= link_to "Mon profil", member_path(current_member), class: 'menu_item' %> </li>
