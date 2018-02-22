@@ -51,7 +51,7 @@ class EventsController < ApplicationController
 
       @event = Event.new(event_params)
 
-      @event.organizer = current_member
+      @event.organizer = @event.teacher = current_member
       @event.cloudy = @cloudy
 
       # force image to avoid uplaod a new image per event created
