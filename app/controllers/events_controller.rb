@@ -29,7 +29,6 @@ class EventsController < ApplicationController
     @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
     # $teachers is global because if !create return view with @teachers wrong
     $teachers = (Member.pros << current_member).reverse.uniq
-# binding.pry
   end
 
   # GET /events/1/edit
@@ -51,9 +50,9 @@ class EventsController < ApplicationController
 
       @event = Event.new(event_params)
 
-      @event.organizer = @event.teacher = current_member
+      @event.organizer = current_member
+      @event.teacher = current_member if current_member.has_role?(ROLE_PROFESSIONAL)
       @event.cloudy = @cloudy
-
       # force image to avoid uplaod a new image per event created
       @save_is_ok &&= @event.save
 
@@ -78,6 +77,8 @@ class EventsController < ApplicationController
         @event = Event.new(event_params)
         @event.multi_dates_id = time_stamp if tab_dates.count > 1
         @event.organizer = current_member
+        @event.teacher = current_member if current_member.has_role?(ROLE_PROFESSIONAL)
+
         @event.cloudy = @cloudy
 
         time_at = I18n.l(@event.begin_at, format: '%H:%M')
