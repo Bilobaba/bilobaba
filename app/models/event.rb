@@ -18,7 +18,7 @@ class Event < ApplicationRecord
   mount_uploader :photo5, ImageUploader
   mount_uploaders :photos, PhotoUploader
 
-  validates :image, file_size: { less_than: 1.megabytes, message: 'L\'avatar doit faire moins de 1 megabytes' }
+  validates :image, file_size: { less_than: 2.megabytes, message: 'L\'image doit faire moins de 2 megabytes' }
 
   belongs_to :organizer, class_name: :Member, foreign_key: :organizer_id
   belongs_to :teacher, class_name: :Member, foreign_key: :teacher_id

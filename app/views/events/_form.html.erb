@@ -10,14 +10,15 @@
       <% if @event.cloudy.present? %>
         <%= cl_image_tag(@event.cloudy.identifier, width: 400, height: 120, crop: :fill ) %>
       <% end %>
-      <% if @event.image.url.present? %>
-        <%= cl_image_tag @event.image.file.filename, width: 470, height: 142 %>
-      <% end %>
       <% unless current_member.has_role?(:professional) %>
         <%= f.input :teacher_id, :collection => $teachers, :label_method => :pseudo, :label => 'Animateur (ça peut être quelqu\'un d\'autre)', selected: current_member %>
       <% end%>
       <!-- upload the image but not recorded directly : association with cloudy record -->
-      <%= f.input :image, label: 'Image (obligatoire)' %>
+      <% if @event.cloudy.present? %>
+        <%= f.input :image, label: 'Image (obligatoire)' %>
+      <% else %>
+         <%= f.input :image, label: 'Image (obligatoire)', required: true %>
+      <% end %>
       <%= f.input :price_min, label: 'Tarif réduit' %>
       <%= f.input :price_max, label: 'Plein tarif (obligatoire)', required: true %>
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
