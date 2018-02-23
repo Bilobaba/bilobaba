@@ -55,3 +55,7 @@
     width: 40px;
     height: 40px;
 }
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: red;
+}
