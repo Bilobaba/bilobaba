@@ -52,6 +52,35 @@ class Member < ApplicationRecord
       .includes(:attendees)
   end
 
+  def past_events_organize
+    organize_events
+      .order(begin_at: :asc)
+      .where('begin_at <= ?', Time.now)
+      .includes(:attendees)
+  end
+
+  def next_events_teach
+    teach_events
+      .order(begin_at: :asc)
+      .where('begin_at >= ?', Time.now)
+      .includes(:attendees)
+  end
+
+  def past_events_teach
+    teach_events
+      .order(begin_at: :asc)
+      .where('begin_at <= ?', Time.now)
+      .includes(:attendees)
+  end
+
+  def next_events_t_o #teach or organize
+    (next_events_organize + next_events_teach).uniq
+  end
+
+  def past_events_t_o #teach or organize
+    (past_events_organize + past_events_teach).uniq
+  end
+
   def next_events_attend
     attend_events
       .order(begin_at: :asc)

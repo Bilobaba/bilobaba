@@ -35,11 +35,24 @@
         </p>
       <% end %>
     <% end %>
-    <h2>Organisation d'évènements</h2>
-     <% if @member.organize_events.where('\'end\' >= ?', Time.now).size > 0 %>
-        <%= render partial: "events/events", locals: { events_partial: @member.next_events_organize } %>
-      <% else %>
-        <p>Aucun évènement à venir </p>
-      <% end %>
+    <button type="button" class="btn btn-info" style="background-color: #258787" data-toggle="collapse" data-target="#next_events">Liste des propositions à venir</button>
+    <button type="button" class="btn btn-info" style="background-color: #258787" data-toggle="collapse" data-target="#past_events">Liste des propositions passées</button>
+
+    <div id="next_events" class="collapse in">
+      <h2>Liste des propositions à venir</h2>
+        <% if @member.next_events_t_o.size > 0 %>
+          <%= render partial: "events/events", locals: { events_partial: @member.next_events_t_o } %>
+        <% else %>
+          <p>Aucun évènement à venir </p>
+        <% end %>
+    </div>
+    <div id="past_events" class="collapse">
+      <h2>Liste des propositions passées </h2>
+        <% if @member.past_events_t_o.size > 0 %>
+          <%= render partial: "events/events", locals: { events_partial: @member.past_events_t_o } %>
+        <% else %>
+          <p>Aucun évènement passé </p>
+        <% end %>
+    </div>
   </div>
 </div>
