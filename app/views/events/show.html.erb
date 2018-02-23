@@ -104,8 +104,7 @@
     </div>
 
     <div id="discussion">
-      <h4>Des questions ? Envie d'en discuter ?</h4>
-
+      <h4>Vous avez une question ? Envie de laisser un commentaire ?</h4>
       <div id="comments">
         <% @event.comments.each do |comment| %>
             <%= render comment %>
@@ -117,7 +116,9 @@
             <%= f.input :content, label: false %>
             <%= f.button :submit, 'Envoyer le commentaire' %>
           <% else %>
-            <%= f.input :content, label: false, disabled: true %>
+            <%= link_to  '#','data-toggle':'modal', 'data-target':'#connection' do %>
+              <%= f.input :content, label: false %>
+            <% end %>
             <%= link_to 'Envoyer le commentaire', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default' %>
           <% end %>
       <% end %>
