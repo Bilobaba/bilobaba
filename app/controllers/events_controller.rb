@@ -2,8 +2,8 @@ require 'pry'
 
 
 class EventsController < ApplicationController
-  before_action :require_login, only: %i[new edit update destroy]
-  before_action :set_event, only: %i[show edit update destroy]
+  before_action :require_login, only: %i[new duplicate edit update destroy]
+  before_action :set_event, only: %i[show edit duplicate update destroy]
   before_action :require_permission, only: %i[edit update destroy]
   before_action :set_list_events, only: %i[update destroy]
 
@@ -24,12 +24,27 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @teachers = []
-    @h1_title = 'Ajouter un partage'
+    @h1_title = 'Ajouter une proposition'
     @event = Event.new
     @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
     # $teachers is global because if !create return view with @teachers wrong
     $teachers = (Member.pros << current_member).reverse.uniq
   end
+
+  # GET /events/duplicate/:id
+  def duplicate
+    @h1_title = 'Dupliquer cette proposition'
+    @event = @event.dup
+    @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
+    @event.calendar_string = nil
+    @event.multi_dates_id = nil
+    @event.calendar_range_string = nil
+
+    # $teachers is global because if !create return view with @teachers wrong
+    $teachers = (Member.pros << current_member).reverse.uniq
+    render :new
+  end
+
 
   # GET /events/1/edit
   def edit

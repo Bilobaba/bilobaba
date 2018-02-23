@@ -11,7 +11,7 @@
           <% if member_signed_in? && (current_member == @event.organizer) %>
             <%= link_to '(modifier)', edit_event_path %>
           <% end %>
-          <%= link_to '(retour)', session[:request_back], class: 'enable' %>
+          <%= link_to '(copier)', duplicate_path( @event), class: 'enable' %>
         </div>
       </div>
 

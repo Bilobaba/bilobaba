@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'events/search', as: 'search'
   # delete event or events with multi dates
   get 'events/delete/:id/:type_update(.:format)', to: 'events#destroy_events', as: 'delete_events'
-
+  get 'events/duplicate/:id', to: 'events#duplicate', as: 'duplicate'
   resources :events do
     resources :comments
   end
