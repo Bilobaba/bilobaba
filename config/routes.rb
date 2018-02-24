@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'pages/pricing', as: 'pricing'
   get 'pages/smihug', as: 'smihug'
   get 'pages/contact', as: 'contact'
+  get 'pages/news', as: 'news'
   post 'pages/contact', to: 'pages#send_mail_contact'
   get 'pages/forbidden', as: 'forbidden'
   get 'pages/permission', as: 'permission'
