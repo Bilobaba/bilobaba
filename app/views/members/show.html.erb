@@ -30,8 +30,8 @@
       <% if @member.attend_events.where('\'end\' >= ?', Time.now).size > 0 %>
         <%= render partial: "events/events", locals: { events_partial: @member.next_events_attend } %>
       <% else %>
-        <p>Aucun évènement à venir<br /> xxxx
-          <%= link_to '> voir la liste des évènements', events_path %>
+        <p>Aucun événement à venir<br />
+          <%= link_to '> voir la liste des événements', events_path %>
         </p>
       <% end %>
     <% end %>
