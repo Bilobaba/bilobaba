@@ -1,0 +1,7 @@
+Member.not_valid_list.each do |m|
+puts m.first_name.to_s + ' ' + m.name.to_s
+genre = gets
+m.gender = genre.include?('m') ? MEMBER_GENDER_MALE : MEMBER_GENDER_FEMALE
+m.bio = m.bio.to_s + '.'
+m.save(validate: false)
+end

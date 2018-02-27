@@ -91,4 +91,20 @@ class Member < ApplicationRecord
   def self.pros
     pros = Member.with_role(:professional).order(pseudo: :desc).uniq
   end
+
+  def self.valid_list
+    valid_list = []
+    Member.all.each do |m|
+      valid_list <<= m if m.valid?
+    end
+    return valid_list
+  end
+
+  def self.not_valid_list
+    not_valid_list = []
+    Member.all.each do |m|
+      not_valid_list <<= m if !m.valid?
+    end
+    return not_valid_list
+  end
 end
