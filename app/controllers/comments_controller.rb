@@ -8,8 +8,7 @@ class CommentsController < ApplicationController
     @comment.event_id = params[:event_id]
     ContactMailer.new_user_action('Nouveau commentaire', 'http://www.bilobaba.com/events/' + @comment.event_id.to_s).deliver_now if @comment.save
     @comment.event.interested_members.each do |m|
-      ContactMailer.new_comment_event(m,@comment.event.url).deliver_now
-      puts 'coucou ici'
+      ContactMailer.new_comment_event(m,@comment.event.url).deliver_now unless  (m == current_member)
     end
   end
 
