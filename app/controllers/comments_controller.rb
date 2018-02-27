@@ -4,9 +4,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new
     @comment.content = comment_params[:content]
-    @comment.autor = current_member
+    @comment.author = current_member
     @comment.event_id = params[:event_id]
     ContactMailer.new_user_action('Nouveau commentaire', 'http://www.bilobaba.com/events/' + @comment.event_id.to_s).deliver_now if @comment.save
+    @comment.event.interested_members.each do |m|
+      ContactMailer.new_comment_event(m,@comment.event.url).deliver_now
+      puts 'coucou ici'
+    end
   end
 
   # deletes a comment

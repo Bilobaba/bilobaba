@@ -22,4 +22,10 @@ class ContactMailer < ApplicationMailer
     mail(to: 'hello.bilobaba@gmail.com', subject: 'Nouvelle action : ' + action)
   end
 
+  def new_comment_event(member, link)
+    puts '----->>> contact mailer new comment event'
+    @member = member
+    @link = link
+    mail(to: member.email, subject: 'Nouveau commentaire sur un événement')
+  end
 end

@@ -38,6 +38,8 @@ class Event < ApplicationRecord
 
   has_many :comments, class_name: 'Comment', foreign_key: 'event_id', dependent: :destroy
 
+  has_many :authors, through: :comments
+
   def show_availability
     if members_max > 0
       if attendees.size == members_max
@@ -163,5 +165,14 @@ class Event < ApplicationRecord
     else
       show_duration = ((duration/1.day).to_i + 1).to_s + ' jours'
     end
+  end
+
+  def interested_members
+    interested_members = []
+    interested_members << self.organizer
+    interested_members << self.teacher
+    interested_members += self.authors
+    interested_members.uniq!
+    return interested_members
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219150541) do
+ActiveRecord::Schema.define(version: 20180227141300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20180219150541) do
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.bigint "event_id"
-    t.bigint "autor_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["autor_id"], name: "index_comments_on_autor_id"
+    t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["event_id"], name: "index_comments_on_event_id"
   end
 
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 20180219150541) do
     t.string "avatar"
     t.string "site"
     t.string "gender"
+    t.string "facebook_id"
     t.index ["confirmation_token"], name: "index_members_on_confirmation_token", unique: true
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["pseudo"], name: "index_members_on_pseudo", unique: true
@@ -168,7 +169,7 @@ ActiveRecord::Schema.define(version: 20180219150541) do
   add_foreign_key "attend_events", "events"
   add_foreign_key "attend_events", "members"
   add_foreign_key "comments", "events"
-  add_foreign_key "comments", "members", column: "autor_id"
+  add_foreign_key "comments", "members", column: "author_id"
   add_foreign_key "events", "members", column: "organizer_id"
   add_foreign_key "events", "members", column: "teacher_id"
   add_foreign_key "follow_events", "events"

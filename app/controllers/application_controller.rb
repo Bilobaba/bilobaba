@@ -15,8 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
   def last_request
-    a = 1
-    # binding.pry
     session[:request_back] ||= request.url
     session[:request_back] = request.referer if (request.url != request.referer) &&  request.referer
   end
