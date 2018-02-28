@@ -89,7 +89,7 @@ class Event < ApplicationRecord
     # extra_attr will be sent
     add_attribute :member_name, :member_first_name, :unix_begin_at, :url, :summary,
                   :member_avatar, :address, :short_title, :show_begin_at, :member_pseudo,
-                  :show_price, :member_bio
+                  :show_price, :member_bio, :place_name
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
@@ -97,7 +97,7 @@ class Event < ApplicationRecord
     # `unordered` to avoid taking the position of a match into account in that attribute
     searchableAttributes ['title', 'member_name', 'member_first_name', 'address',
                           'city', 'zip','summary', 'member_avatar','short_title',
-                          'show_begin_at', 'member_pseudo', 'show_price', 'member_bio']
+                          'show_begin_at', 'member_pseudo', 'show_price', 'member_bio', 'place_name']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect ,your record popularity.

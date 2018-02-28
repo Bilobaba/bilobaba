@@ -62,6 +62,9 @@
               </td>
             </tr>
           <% end %>
+          <% if @event.place_name %>
+            <td>Nom du lieu</td><td>: <%= @event.place_name.to_s %></td>
+          <% end %>
           <tr>
             <td>Lieu</td>
             <td class="location pointer">:

@@ -278,7 +278,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :description, :begin_at, :end_at, :price_min, :price_max, :members_max,
                                   :address, :city, :zip, :lat, :lng, { photos: [] },:calendar_string,
                                   :calendar_range_string, :image, :photo1, :photo2, :photo3, :photo4,
-                                  :note, :teacher_id)
+                                  :note, :teacher_id, :place_name)
   end
 
   def require_login
