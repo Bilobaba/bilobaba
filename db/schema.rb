@@ -41,20 +41,19 @@ ActiveRecord::Schema.define(version: 20180227141300) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "title", default: "", null: false
-    t.string "description", default: "", null: false
+    t.string "title"
+    t.string "description"
     t.datetime "begin_at"
     t.datetime "end_at"
-    t.integer "price_min", default: 0
-    t.integer "price_max", default: 0
-    t.integer "members_max", default: 0
-    t.string "address", default: "", null: false
-    t.string "city", default: "", null: false
-    t.string "zip", default: "", null: false
+    t.integer "price_min"
+    t.integer "price_max"
+    t.integer "members_max"
+    t.string "address"
+    t.string "city"
+    t.string "zip"
     t.float "lat"
     t.float "lng"
     t.bigint "organizer_id"
-    t.string "encrypted_password", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -120,7 +119,7 @@ ActiveRecord::Schema.define(version: 20180227141300) do
     t.string "pseudo"
     t.string "first_name"
     t.string "name"
-    t.text "bio"
+    t.string "bio"
     t.datetime "birth_date"
     t.string "address"
     t.string "zip"
@@ -131,7 +130,6 @@ ActiveRecord::Schema.define(version: 20180227141300) do
     t.string "avatar"
     t.string "site"
     t.string "gender"
-    t.string "facebook_id"
     t.index ["confirmation_token"], name: "index_members_on_confirmation_token", unique: true
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["pseudo"], name: "index_members_on_pseudo", unique: true

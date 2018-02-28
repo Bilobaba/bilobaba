@@ -11,7 +11,7 @@ class MembersController < ApplicationController
   end
 
   def index_amateurs
-      @members = Member.with_role(ROLE_AMATEUR).order(pseudo: :asc)
+      @members = Member.with_role(ROLE_AMATEUR).order(avatar: :asc).order(pseudo: :asc)
       @h1_title = 'Les participants'
       render :index
   end
