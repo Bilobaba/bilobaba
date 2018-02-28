@@ -37,12 +37,12 @@
     <% end %>
 
     <ul class="nav nav-pills events">
-      <li class="active" ><a data-toggle="pill" href="#next_events">Liste des propositions à venir</a></li>
-      <li><a data-toggle="pill" href="#past_events">Liste des propositions passées</a></li>
+      <li class="active" ><a data-toggle="pill" href="#next_events">Liste de ses propositions à venir</a></li>
+      <li><a data-toggle="pill" href="#past_events">Liste de ses propositions passées</a></li>
     </ul>
     <div class="tab-content">
       <div id="next_events" class="tab-pane fade in active" style="background-color: white">
-        <h2>Liste des propositions à venir</h2>
+        <h2>Liste de ses propositions à venir</h2>
           <% if @member.next_events_t_o.size > 0 %>
             <%= render partial: "events/events", locals: { events_partial: @member.next_events_t_o } %>
           <% else %>
@@ -50,7 +50,7 @@
           <% end %>
       </div>
       <div id="past_events" class="tab-pane fade" style="background-color: white">
-        <h2>Liste des propositions passées </h2>
+        <h2>Liste de ses propositions passées </h2>
           <% if @member.past_events_t_o.size > 0 %>
             <%= render partial: "events/events", locals: { events_partial: @member.past_events_t_o } %>
           <% else %>

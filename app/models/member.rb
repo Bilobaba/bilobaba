@@ -54,7 +54,7 @@ class Member < ApplicationRecord
 
   def past_events_organize
     organize_events
-      .order(begin_at: :asc)
+      .order(begin_at: :desc)
       .where('begin_at <= ?', Time.now)
       .includes(:attendees)
   end
@@ -68,7 +68,7 @@ class Member < ApplicationRecord
 
   def past_events_teach
     teach_events
-      .order(begin_at: :asc)
+      .order(begin_at: :desc)
       .where('begin_at <= ?', Time.now)
       .includes(:attendees)
   end
