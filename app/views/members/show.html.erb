@@ -14,7 +14,8 @@
       <p><span id="pseudo"><%= @member.first_name.capitalize %> <%= @member.name.upcase %>
           </span></p>
       <p><%= simple_format(@member.bio) %></p>
-      <p> <% if @member.site %> <%= link_to(@member.site, "http://#{@member.site}") %> <% end %> </p>
+      <p> <% if @member.site %> <a href="<%= @member.site %>"><%= @member.site %></a>
+ <% end %> </p>
       <p></p>
     </div>
   </div>
