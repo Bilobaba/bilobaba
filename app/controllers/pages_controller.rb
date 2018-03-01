@@ -36,4 +36,7 @@ class PagesController < ApplicationController
   def permission
   end
 
+  def cgu
+  end
+
 end
