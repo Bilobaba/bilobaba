@@ -62,7 +62,7 @@
               </td>
             </tr>
           <% end %>
-          <% if @event.place_name %>
+          <% if @event.place_name.to_s.size > 1 %>
             <td>Nom du lieu</td><td>: <%= @event.place_name.to_s %></td>
           <% end %>
           <tr>
