@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'pages/contact', as: 'contact'
   get 'pages/news', as: 'news'
   get 'pages/cgu', as: 'cgu'
+  get 'pages/confidentiality', as: 'confidentiality'
   post 'pages/contact', to: 'pages#send_mail_contact'
   get 'pages/forbidden', as: 'forbidden'
   get 'pages/permission', as: 'permission'

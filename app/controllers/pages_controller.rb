@@ -39,4 +39,7 @@ class PagesController < ApplicationController
   def cgu
   end
 
+  def confidentiality
+  end
+
 end
