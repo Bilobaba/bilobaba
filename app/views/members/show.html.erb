@@ -14,9 +14,14 @@
       <p><span id="pseudo"><%= @member.first_name.capitalize %> <%= @member.name.upcase %>
           </span></p>
       <p><%= simple_format(@member.bio) %></p>
-      <p> <% if @member.site.to_s.size > 3 %> Son site :<br /><a href="<%= @member.site %>"><%= @member.site %></a>
- <% end %> </p>
-      <p></p>
+      <p> <% if @member.site.to_s.size > 3 %> Son site :<br />
+            <% if @member.site.to_s.include?('http') %>
+              <a href="<%= @member.site %>"><%= @member.site %></a>
+            <% else %>
+              <a href="http://<%= @member.site %>"><%= @member.site %></a>
+            <% end %>
+          <% end %>
+      </p>
     </div>
   </div>
 
