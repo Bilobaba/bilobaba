@@ -3,9 +3,9 @@
   <input type="text" class="form-control" id="search-box"></input>
   <div id="add_event">
     <% if member_signed_in? %>
-      <%= link_to 'Créer une proposition', new_event_path, class: 'btn btn-default', style: 'font-weight: bold' %>
+      <%= link_to 'Ajouter une proposition', new_event_path, class: 'btn btn-default', style: 'font-weight: bold' %>
     <% else %>
-      <%= link_to 'Créer une proposition', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default', style: 'font-weight: bold' %>
+      <%= link_to 'Ajouter une proposition', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default', style: 'font-size: 1.2em' %>
     <% end %>
   </div>
 </div>

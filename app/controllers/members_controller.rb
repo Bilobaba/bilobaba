@@ -12,7 +12,7 @@ class MembersController < ApplicationController
 
   def index_amateurs
       @members = Member.with_role(ROLE_AMATEUR).order(avatar: :asc).order(pseudo: :asc)
-      @h1_title = 'Les participants'
+      @h1_title = 'Les membres'
       render :index
   end
 
