@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @testimonial.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @testimonial.body %>
+</p>
+
+<p>
+  <strong>Cloudy:</strong>
+  <%= @testimonial.cloudy %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @testimonial.member %>
+</p>
+
+<%= link_to 'Edit', edit_testimonial_path(@testimonial) %> |
+<%= link_to 'Back', testimonials_path %>

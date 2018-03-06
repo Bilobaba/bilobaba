@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyText
+  cloudy: one
+  member: one
+
+two:
+  title: MyString
+  body: MyText
+  cloudy: two
+  member: two

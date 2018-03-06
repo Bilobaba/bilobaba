@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :testimonials
   # if route defined after, it will be interpreted as events/(:id = search)
   get 'events/search', as: 'search'
   # delete event or events with multi dates
@@ -7,7 +8,6 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments
   end
-
 
   get 'members/index_pros', as: 'pros'
   get 'members/index_amateurs', as: 'amateurs'
