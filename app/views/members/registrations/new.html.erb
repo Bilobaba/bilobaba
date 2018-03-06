@@ -73,28 +73,6 @@
       </div>
       <hr />
 
-      <br />
-      <%= f.input :gender, collection: [MEMBER_GENDER_MALE,MEMBER_GENDER_FEMALE] %>
-      <%= f.input :pseudo, required: true  %>
-      <%= f.input :first_name, label: 'Prénom', required: true  %>
-      <%= f.input :name, label: 'Nom', required: true  %>
-      <div class="form-group"
-        <%= f.label  "Date de naissance" %> </br>
-        <%= f.date_field :birth_date, as: :date, label: "Date de naissance" %>
-      </div>
-      <%= f.input :address, label: 'Adresse' %>
-      <%= f.input :zip, label: 'Code postal' %>
-      <%= f.input :city, label: 'Ville' %>
-      <%= f.input :country, priority: [ "France" ], label: 'Pays' %>
-
-      <hr />
-
-      <%= f.input :bio, label: "Qui êtes-vous en plein de mots ", :input_html => {:rows => 10}, required: true  %>
-
-      <%= f.input :site, label: "Pour les pros seulement, votre site ou page web ", placeholder: 'www.monsupersite.com (sans le http://)' %>
-
-      <hr />
-
       <%= f.input :avatar, label: 'Choisir une photo (obligatoire)', required: true  %>
     </div>
 
