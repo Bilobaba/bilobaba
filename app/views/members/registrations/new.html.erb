@@ -8,7 +8,7 @@
     </div>
   <% else %>
     <div class="gray_form">
-      <%= image_tag 'http://graph.facebook.com/v2.6/10155183921255888/picture', width: '50px' %>
+      <%= image_tag 'http://graph.facebook.com/v2.6/' + session['devise.facebook_data']['uid'] + '/picture', width: '50px' %>
       <br />
       Une fois remplies les informations ci-dessous, votre compte Facebook sera utilisé pour vous connecter
       <hr />
