@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   # Stripe
   # resources :charges
 
-  get 'pages/home', as: 'home'
+  # get 'pages/home', as: 'home'
+  get 'pages/home', to: 'pages#index', as: 'home'
   get 'pages/team', as: 'team'
   get 'pages/pricing', as: 'pricing'
   get 'pages/smihug', as: 'smihug'

@@ -18,6 +18,9 @@ Rails.application.config.assets.precompile += %w( home.scss navbar.scss event.sc
                                                   jquery.calendars.plus.js jquery.plugin.js
                                                   jquery.calendars.picker.js jquery.calendars.lang.js
                                                   jquery.calendars-fr.js jquery.datepick-fr.js
-                                                  jquery.calendars.all.js )
+                                                  jquery.calendars.all.js
+                                                  webflow.js
+                                                  fontawesome-webfont.ttf
+                                                  normalize.scss webflow.scss duys-trendy-project.webflow.scss)
 
 Rails.application.config.assets.precompile += %w( pricing.css )
