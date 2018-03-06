@@ -1,17 +1,23 @@
-require 'pry'
-
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_devise_parameters, if: :devise_controller?
   before_action :last_request
 
   def configure_devise_parameters
-    devise_parameter_sanitizer.permit(:sign_up){|u| u.permit(:email, :password, :password_confirmation, :gender, :site,
-                                                              :pseudo, :first_name, :name,:bio, :birth_date,
-                                                              :address, :zip, :city, :country, :avatar, roles: [] )}
-    devise_parameter_sanitizer.permit(:account_update){|u| u.permit(:email, :password, :password_confirmation,
-                                                              :pseudo, :first_name, :name,:bio, :birth_date, :gender, :site,
-                                                              :address, :zip, :city, :country, :avatar, :current_password )}
+    devise_parameter_sanitizer.permit(:sign_up) {
+      |u| u.permit(
+        :email, :password, :password_confirmation,
+        :gender, :pseudo, :first_name, :name,:bio, :birth_date,
+        :address, :zip, :city, :country, :avatar, :site
+      )
+    }
+    devise_parameter_sanitizer.permit(:account_update) {
+      |u| u.permit(
+        :email, :password, :password_confirmation,
+        :gender, :pseudo, :first_name, :name, :bio, :birth_date,
+        :address, :zip, :city, :country, :avatar, :site, :current_password
+      )
+    }
   end
 
   def last_request

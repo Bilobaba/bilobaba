@@ -4,6 +4,7 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  devise :omniauthable, omniauth_providers: [:facebook]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -106,5 +107,24 @@ class Member < ApplicationRecord
       not_valid_list <<= m if !m.valid?
     end
     return not_valid_list
+  end
+
+  def self.from_email(email)
+    where(email: email).first
+  end
+
+  def self.from_facebook(facebook_id)
+    where(facebook_id: facebook_id).first
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |member|
+      if facebook_data = session['devise.facebook_data']
+        member.facebook_id = facebook_data['uid']
+        member.email = facebook_data['info']['email']
+        member.password = member.password_confirmation = Devise.friendly_token
+        session['facebook_login'] = 1
+      end
+    end
   end
 end
