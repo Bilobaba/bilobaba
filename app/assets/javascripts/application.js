@@ -16,5 +16,6 @@
 //= require bootstrap-sprockets
 //= require data-confirm-modal
 //= require algolia/v3/algoliasearch.min
- //=require jquery-ui
+//=require jquery-ui
+//= require simplemde.min
 

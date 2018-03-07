@@ -1,4 +1,6 @@
 require 'pry'
+require 'redcarpet'
+require 'redcarpet/render_strip'
 
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
@@ -17,6 +19,9 @@ class TestimonialsController < ApplicationController
   # GET /testimonials/1
   # GET /testimonials/1.json
   def show
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
+binding.pry
+    @testimonial.body = "coucou " + markdown.render(@testimonial.body).html_safe
   end
 
   # GET /testimonials/new
