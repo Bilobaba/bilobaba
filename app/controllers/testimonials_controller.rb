@@ -2,7 +2,7 @@ require 'pry'
 
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, only: %i[new duplicate edit update destroy]
+  before_action :require_login, only: %i[new edit update destroy]
   before_action :require_permission, only: %i[edit update destroy]
   # GET /testimonials
   # GET /testimonials.json
@@ -81,8 +81,8 @@ class TestimonialsController < ApplicationController
     end
 
     def require_permission
-      redirect_to permission_path unless (@event.organizer == current_member ||
-                @event.teacher == current_member || current_member.has_role?(ROLE_ADMIN))
+      redirect_to permission_path unless (@testimonial.member == current_member ||
+            current_member.has_role?(ROLE_ADMIN))
     end
 
 end
