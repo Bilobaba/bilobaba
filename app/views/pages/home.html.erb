@@ -132,24 +132,26 @@
     <div class="w-row">
       <div class="news-column-left w-col w-col-6">
         <div class="section-title-wrapper">
-          <h2 class="section-title">Derniers témoignages</h2>
+          <h2 class="section-title">Dernières propositions</h2>
           <div class="section-title-divider"></div>
         </div>
         <div class="w-dyn-list">
           <div class="w-dyn-items">
-            <div class="blog-post-item w-dyn-item">
-              <div class="blog-post-info-block">
-                <div class="course-info-icon"></div>
-                <div class="blog-info-title"></div>
-                <div class="course-info-icon"></div>
-                <div class="blog-info-title"></div>
-              </div><a class="blog-post-title-link"></a></div>
-          </div>
-          <div class="empty-state w-dyn-empty">
-            <p>No blog posts found.</p>
+            <% @last_events_added.each do |event| %>
+              <div class="blog-post-item w-dyn-item">
+                <div class="blog-post-info-block">
+                  <div class="course-info-icon"></div>
+                  <div class="blog-info-title"><%= event.show_begin_at %></div>
+                  <div class="course-info-icon"></div>
+                  <div class="blog-info-title"><%= event.organizer.pseudo %></div>
+                </div><a class="blog-post-title-link"><%= event.short_title %></a>
+              </div>
+            <% end %>
           </div>
         </div>
-        <div class="bottom-info-text">Want to read more? <a href="blog.html" class="link">View Full Blog Archive →</a></div>
+        <div class="bottom-info-text">Pour accéder à toutes les propositions, 
+          <%= link_to 'c\'est ici →', events_path, class: 'link' %>
+        </div>
       </div>
       <div class="about-column-right w-col w-col-6">
         <div class="section-title-wrapper">

@@ -179,4 +179,11 @@ class Event < ApplicationRecord
   def self.nb_events_to_come
     Event.next_events.length
   end
+
+  def self.last_added(nb = 4)
+    Event
+      .order(created_at: :asc)
+      .where('begin_at >= ?', Time.now)
+      .limit(nb)
+  end
 end

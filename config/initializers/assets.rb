@@ -13,7 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( home.scss event.scss events.scss
-                                                  member.scss members.scss team.scss map.js
+                                                  member.scss members.scss team.scss navbar.scss map.js
                                                   jquery.calendars.picker.css jquery.calendars.js
                                                   jquery.calendars.plus.js jquery.plugin.js
                                                   jquery.calendars.picker.js jquery.calendars.lang.js

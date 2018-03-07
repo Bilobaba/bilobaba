@@ -48,7 +48,23 @@
 
   <body>
 
+    <% if current_page?(home_path) %>
+  <body id="background_home">
+    <%= render '/layouts/navbar' %>
+  <% else %>
+  <body>
+    <div id="background_top">
+      <%= render '/layouts/navbar' %>
+      <h1><%= @h1_title %></h1>
+    </div>
+    <%= render 'shared/flashes' %>
+  <% end %>
+
     <%= yield %>
+
+    <% if !current_page?(home_path) %>
+      <%= render '/layouts/footer' %>
+    <% end %>
 
     <!-- load the google map API, only once (see data-turbolinks-eval = false) -->
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'] + '&libraries=places&callback=initAutocomplete', async: true, defer: true, 'data-turbolinks-eval': false %>

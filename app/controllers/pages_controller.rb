@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     @nb_pros = Member.nb_pros
     @nb_members = Member.nb_members
     @nb_events_to_come = Event.nb_events_to_come
+    @last_events_added = Event.last_added
   end
 
   def team
