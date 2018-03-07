@@ -7,7 +7,11 @@ class TestimonialsController < ApplicationController
   # GET /testimonials
   # GET /testimonials.json
   def index
-    @testimonials = Testimonial.all
+    if member_signed_in?
+      @testimonials = (Testimonial.published + current_member.testimonials).uniq
+    else
+      @testimonials = Testimonial.published
+    end
   end
 
   # GET /testimonials/1
@@ -17,6 +21,7 @@ class TestimonialsController < ApplicationController
 
   # GET /testimonials/new
   def new
+    @h1_title = 'Ajouter votre témoignage'
     @testimonial = Testimonial.new
   end
 
@@ -28,7 +33,7 @@ class TestimonialsController < ApplicationController
   # POST /testimonials.json
   def create
     @testimonial = Testimonial.new(testimonial_params)
-
+    @testimonial.member = current_member
     respond_to do |format|
       if @testimonial.save
         format.html { redirect_to @testimonial, notice: 'Testimonial was successfully created.' }
@@ -70,10 +75,6 @@ class TestimonialsController < ApplicationController
       @testimonial = Testimonial.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def testimonial_params
-      params.require(:testimonial).permit(:title, :body, :cloudy_id, :member_id)
-    end
 
 
     def require_login
@@ -85,4 +86,8 @@ class TestimonialsController < ApplicationController
             current_member.has_role?(ROLE_ADMIN))
     end
 
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def testimonial_params
+      params.require(:testimonial).permit(:title, :body, :image, :published)
+    end
 end

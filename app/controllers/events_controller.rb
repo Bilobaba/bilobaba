@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @teachers = []
-    @h1_title = 'Ajouter une proposition'
+    @h1_title = 'Ajouter votre proposition'
     @event = Event.new
     @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
     # $teachers is global because if !create return view with @teachers wrong

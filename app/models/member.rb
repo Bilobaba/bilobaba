@@ -47,6 +47,7 @@ class Member < ApplicationRecord
   has_many :recommend_events , through: :recommend_event_recommends, source: :event
 
   has_many :comments
+  has_many :testimonials
 
   def next_events_organize
     organize_events
@@ -95,6 +96,7 @@ class Member < ApplicationRecord
     pros = Member.with_role(:professional).order(pseudo: :desc).uniq
   end
 
+  # to be use in heroku run rails c
   def self.valid_list
     valid_list = []
     Member.all.each do |m|
@@ -103,6 +105,7 @@ class Member < ApplicationRecord
     return valid_list
   end
 
+  # to be use in heroku run rails c
   def self.not_valid_list
     not_valid_list = []
     Member.all.each do |m|

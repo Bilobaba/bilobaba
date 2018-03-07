@@ -1,24 +1,23 @@
-<p id="notice"><%= notice %></p>
-
+<div class="container">
 <p>
-  <strong>Title:</strong>
+  <strong>Titre :</strong>
   <%= @testimonial.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>Texte :</strong>
   <%= @testimonial.body %>
 </p>
 
-<p>
-  <strong>Cloudy:</strong>
-  <%= @testimonial.cloudy %>
-</p>
+<!-- <p>
+  <strong>Image: xxx</strong>
+  <%= cl_image_tag @testimonial.image.url, width: 600, height: 182, crop: :fit %>
+</p> -->
 
 <p>
-  <strong>Member:</strong>
-  <%= @testimonial.member %>
+  <strong>Auteur:</strong>
+  <%= @testimonial.member.pseudo %>
 </p>
 
-<%= link_to 'Edit', edit_testimonial_path(@testimonial) %> |
-<%= link_to 'Back', testimonials_path %>
+<%= link_to 'Modifier', edit_testimonial_path(@testimonial) %>
+</div>

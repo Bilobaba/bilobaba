@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <h2>Testimonials</h2>
+  <h2>Témoignages</h2>
 
-  <table>
+  <table class='table'>
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Body</th>
-        <th>Cloudy</th>
-        <th>Member</th>
+        <th>Titre</th>
+        <th>Auteur</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -17,12 +15,11 @@
     <tbody>
       <% @testimonials.each do |testimonial| %>
         <tr>
-          <td><%= testimonial.title %></td>
-          <td><%= testimonial.body %></td>
-          <td><%= testimonial.member %></td>
-          <td><%= link_to 'Show', testimonial %></td>
-          <td><%= link_to 'Edit', edit_testimonial_path(testimonial) %></td>
-          <td><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to testimonial.title, testimonial %></td>
+          <td><%= link_to testimonial.member.pseudo, testimonial.member %></td>
+          <td><%= link_to 'Afficher', testimonial %></td>
+          <td><%= link_to 'Modifier', edit_testimonial_path(testimonial) %></td>
+          <td><%= link_to 'Supprimer', testimonial, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -30,5 +27,11 @@
 
   <br>
 
-  <%= link_to 'New Testimonial', new_testimonial_path %>
+  <% if member_signed_in? %>
+    <%= link_to 'Ajouter votre témoignage', new_testimonial_path, class: 'btn btn-default' %>
+  <% else %>
+    <%= link_to  '#','data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default'  do %>
+              Ajouter votre témoignage
+    <% end %>
+  <% end %>
 </div>
