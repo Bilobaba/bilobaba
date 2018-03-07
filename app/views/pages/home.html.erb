@@ -50,25 +50,25 @@
     <div class="container w-container">
       <div class="hero-overlay-row w-row">
         <div class="stats-column w-col w-col-4">
-          <a href="our-courses/courses-grid-view.html" class="hero-overlay-block w-inline-block">
+          <%= link_to events_path, class: 'hero-overlay-block w-inline-block' do %>
             <div class="hero-overlay-number"><%= @nb_events_to_come %></div>
             <div class="hero-overlay-block-title">Propositions</div>
             <p class="link-block-paragraph"><%= @nb_events_to_come %> propositions à venir sur Bilobaba  🌵</p>
-          </a>
+          <% end %>
         </div>
         <div class="stats-column w-col w-col-4">
-          <a href="teachers.html" class="hero-overlay-block w-inline-block">
+          <%= link_to pros_path, class: 'hero-overlay-block w-inline-block' do %>
             <div class="hero-overlay-number"><%= @nb_pros %></div>
             <div class="hero-overlay-block-title">Proposants</div>
             <p class="link-block-paragraph">Découvrez nos <%= @nb_pros %> proposants  🎓</p>
-          </a>
+          <% end %>
         </div>
         <div class="stats-column last w-col w-col-4">
-          <a href="events.html" class="hero-overlay-block w-inline-block">
+          <%= link_to amateurs_path, class: 'hero-overlay-block w-inline-block' do %>
             <div class="hero-overlay-number"><%= @nb_members %></div>
             <div class="hero-overlay-block-title">Participants</div>
             <p class="link-block-paragraph">Epanouissez-vous avec nos <%= @nb_members %> participants  🚀</p>
-          </a>
+          <% end %>
         </div>
       </div>
     </div>
@@ -83,7 +83,9 @@
           <div class="container hero-slide-container w-container">
             <div class="hero-slide-content-block">
               <h1 data-ix="slide-title-2" class="hero-slide-title">Bilobaba</h1>
-              <p data-ix="slide-title-3" class="slide-intro-paragraph">L&#x27;agenda parisien pour danser et s&#x27;épanouir</p><a href="about-us.html" data-ix="slide-title-4" class="button slider-button w-button">En savoir plus</a></div>
+              <p data-ix="slide-title-3" class="slide-intro-paragraph">Partageons nos belles expériences.</p>
+              <%= link_to 'En savoir plus', home_path, class: 'button slider-button w-button', 'data-ix': 'slide-title-4' %>
+            </div>
           </div>
         </div>
       </div>
@@ -95,7 +97,9 @@
           <div class="container hero-slide-container w-container">
             <div class="hero-slide-content-block">
               <h1 data-ix="slide-title-2" class="hero-slide-title">Bilobaba</h1>
-              <p data-ix="slide-title-3" class="slide-intro-paragraph">L&#x27;agenda parisien pour danser et s&#x27;épanouir</p><a href="about-us.html" data-ix="slide-title-4" class="button slider-button w-button">En savoir plus</a></div>
+              <p data-ix="slide-title-3" class="slide-intro-paragraph">L&#x27;agenda parisien pour danser et s&#x27;épanouir</p>
+              <%= link_to 'En savoir plus', home_path, class: 'button slider-button w-button', 'data-ix': 'slide-title-4' %>
+            </div>
           </div>
         </div>
       </div>
@@ -107,7 +111,9 @@
           <div class="container hero-slide-container w-container">
             <div class="hero-slide-content-block">
               <h1 data-ix="slide-title-2" class="hero-slide-title">Bilobaba</h1>
-              <p data-ix="slide-title-3" class="slide-intro-paragraph">L&#x27;agenda parisien pour danser et s&#x27;épanouir</p><a href="about-us.html" data-ix="slide-title-4" class="button slider-button w-button">En savoir plus</a></div>
+              <p data-ix="slide-title-3" class="slide-intro-paragraph">L&#x27;agenda parisien pour danser et s&#x27;épanouir</p>
+              <%= link_to 'En savoir plus', home_path, class: 'button slider-button w-button', 'data-ix': 'slide-title-4' %>
+            </div>
           </div>
         </div>
       </div>
@@ -170,15 +176,23 @@
 ]
 }</script>
         </a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero.</p><a href="about-us.html" class="link-below-paragraph">Continuer →</a></div>
+        <p>Bilobaba est un agenda parisien pour danser et surtout s'épanouir. Vous y trouverez des cours animés par des proposants et aussi toutes sortes d’activités et de partages proposés par les participants tels que : pique-niques, échanges, promenades, prendre un thé, méditations... </p>
+        <%= link_to 'Continuer →', home_path, class: 'link-below-paragraph' %>
+      </div>
     </div>
   </div>
 </div>
 <div class="footer">
   <div class="container w-container">
     <div class="bottom-footer-block w-clearfix">
-      <div class="bottom-footer-text"><a href="index.html" class="footer-link">A propos</a> - <a href="index.html" class="footer-link">Notre équipe</a> - <a href="index.html" class="footer-link">Dernière actu</a> - <a href="index.html" class="footer-link">Contactez-nous</a></div>
-      <div class="bottom-footer-text right">© 2017 - search engine by Algolia - Made with lot of ❤️at <a href="index.html" class="footer-link">THP</a></div>
+      <div class="bottom-footer-text">
+        <%= link_to 'A propos', home_path, class: 'footer-link' %> - 
+        <%= link_to 'Nos CGU', team_path, class: 'footer-link' %> - 
+        <%= link_to 'Politique de confidentialité', cgu_path, class: 'footer-link' %> - 
+        <%= link_to 'Notre équipe', confidentiality_path, class: 'footer-link' %> - 
+        <%= link_to 'Contact', contact_path, class: 'footer-link' %>
+      </div>
+      <div class="bottom-footer-text right">© 2017 - search engine by <%= link_to 'Algolia', 'https://www.algolia.com/',  class: 'footer-link' %> - Made with lot of ❤️ at <%= link_to 'THP', 'https://www.thehackingproject.org/',  class: 'footer-link' %></div>
     </div>
   </div>
 </div>
