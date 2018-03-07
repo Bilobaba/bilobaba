@@ -90,7 +90,19 @@ class Member < ApplicationRecord
   end
 
   def self.pros
-    pros = Member.with_role(:professional).order(pseudo: :desc).uniq
+    Member.with_role(ROLE_PROFESSIONAL).order(pseudo: :desc).uniq
+  end
+
+  def self.nb_pros
+    Member.pros.length
+  end
+
+  def self.members
+    Member.with_role(ROLE_AMATEUR).order(pseudo: :desc).uniq
+  end
+
+  def self.nb_members
+    Member.members.length
   end
 
   def self.valid_list

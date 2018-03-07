@@ -1,7 +1,8 @@
-require 'pry'
-
 class PagesController < ApplicationController
   def home
+    @nb_pros = Member.nb_pros
+    @nb_members = Member.nb_members
+    @nb_events_to_come = Event.nb_events_to_come
   end
 
   def team

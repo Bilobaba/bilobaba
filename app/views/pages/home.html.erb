@@ -51,23 +51,23 @@
       <div class="hero-overlay-row w-row">
         <div class="stats-column w-col w-col-4">
           <a href="our-courses/courses-grid-view.html" class="hero-overlay-block w-inline-block">
-            <div class="hero-overlay-number">45</div>
-            <div class="hero-overlay-block-title">Courses</div>
-            <p class="link-block-paragraph">We currently offer 45 professional courses.</p>
+            <div class="hero-overlay-number"><%= @nb_events_to_come %></div>
+            <div class="hero-overlay-block-title">Propositions</div>
+            <p class="link-block-paragraph"><%= @nb_events_to_come %> propositions à venir sur Bilobaba  🌵</p>
           </a>
         </div>
         <div class="stats-column w-col w-col-4">
           <a href="teachers.html" class="hero-overlay-block w-inline-block">
-            <div class="hero-overlay-number">12</div>
-            <div class="hero-overlay-block-title">Teachers</div>
-            <p class="link-block-paragraph">We have 12 professional teachers teaching.</p>
+            <div class="hero-overlay-number"><%= @nb_pros %></div>
+            <div class="hero-overlay-block-title">Proposants</div>
+            <p class="link-block-paragraph">Découvrez nos <%= @nb_pros %> proposants  🎓</p>
           </a>
         </div>
         <div class="stats-column last w-col w-col-4">
           <a href="events.html" class="hero-overlay-block w-inline-block">
-            <div class="hero-overlay-number">65</div>
-            <div class="hero-overlay-block-title">Events</div>
-            <p class="link-block-paragraph">Currently 65 exciting upcoming events!</p>
+            <div class="hero-overlay-number"><%= @nb_members %></div>
+            <div class="hero-overlay-block-title">Participants</div>
+            <p class="link-block-paragraph">Epanouissez-vous avec nos <%= @nb_members %> participants  🚀</p>
           </a>
         </div>
       </div>

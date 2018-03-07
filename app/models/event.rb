@@ -175,4 +175,8 @@ class Event < ApplicationRecord
     interested_members.uniq!
     return interested_members
   end
+
+  def self.nb_events_to_come
+    Event.next_events.length
+  end
 end
