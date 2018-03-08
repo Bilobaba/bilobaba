@@ -9,6 +9,15 @@ class Testimonial < ApplicationRecord
 
   scope :published, -> { where(published: true) }
 
+  def self.showed
+    if member_signed_in?
+      list = (Testimonial.published + current_member.testimonials).uniq
+    else
+      list = Testimonial.published
+    end
+    return list
+  end
+
   def member_name
     self.member.name
   end

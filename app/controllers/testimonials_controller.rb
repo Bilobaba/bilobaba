@@ -7,11 +7,7 @@ class TestimonialsController < ApplicationController
   # GET /testimonials
   # GET /testimonials.json
   def index
-    if member_signed_in?
-      @testimonials = (Testimonial.published + current_member.testimonials).uniq
-    else
-      @testimonials = Testimonial.published
-    end
+      @testimonials = list_showed
   end
 
   # GET /testimonials/1
@@ -90,5 +86,14 @@ class TestimonialsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def testimonial_params
       params.require(:testimonial).permit(:title, :body, :image, :published)
+    end
+
+    def list_showed
+      if member_signed_in?
+        list = (Testimonial.published + current_member.testimonials).uniq
+      else
+        list = Testimonial.published
+      end
+      return list
     end
 end

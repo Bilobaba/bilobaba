@@ -92,6 +92,10 @@ class Member < ApplicationRecord
       .includes(:attendees)
   end
 
+  def testimonials_showed
+    self.testimonials.where(published: true)
+  end
+
   def self.pros
     pros = Member.with_role(:professional).order(pseudo: :desc).uniq
   end
