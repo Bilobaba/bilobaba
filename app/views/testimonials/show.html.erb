@@ -1,10 +1,15 @@
-<div class="container">
-<div class="center-block", style="margin: auto;">
-<h2>
+<div class="container" style="display: block;">
+<div class="center-block">
+<div style="margin: auto; width: 80%; background-color: khaki; padding: 25px; border-radius: 5px">
+<h2 style="text-align: center;">
   <%= @testimonial.title %>
 </h2>
+<h4 style="text-align: center;">
+  par <%= link_to @testimonial.member.pseudo, @testimonial.member %>
+</h4>
 <br />
 <br />
+<hr style="border: 1px solid darkolivegreen; width: 80%; text-align: center; margin: auto"/>
 <br />
 <h4>
   <%= @testimonial.body.html_safe %>
@@ -15,12 +20,9 @@
   <%= cl_image_tag @testimonial.image.url, width: 600, height: 182, crop: :fit %>
 </p> -->
 
-<p>
-  <strong>Auteur:</strong>
-  <%= link_to @testimonial.member.pseudo, @testimonial.member %>
-</p>
 
 <%= link_to 'Modifier', edit_testimonial_path(@testimonial), class: "btn btn-default" %>
 <%= link_to 'Supprimer', @testimonial, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-default"  %>
+</div>
 </div>
 </div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Témoignage</th>
+        <th>Auteur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% testimonials_partial.each do |testimonial| %>
+        <tr  onclick="document.location='<%= testimonial.url %>'">
+          <td><%= link_to testimonial.title, testimonial %></td>
+          <td><%= link_to testimonial.member.pseudo, testimonial.member %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>

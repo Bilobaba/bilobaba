@@ -1,8 +1,18 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
-  <h2>Témoignages</h2>
-
+  <div style="display: flex; justify-content: space-between;">
+    <div>
+      <h2>Les témoignages</h2>
+    </div>
+    <div>
+      <% if member_signed_in? %>
+        <%= link_to 'Ajouter votre témoignage', new_testimonial_path, class: 'btn btn-default', style: 'font-size: 110%' %>
+      <% else %>
+        <%= link_to  '#','data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default'  do %>
+                  Ajouter votre témoignage
+        <% end %>
+      <% end %>
+    </div>
+  </div>
   <table class='table'>
     <thead>
       <tr>
@@ -28,4 +38,5 @@
               Ajouter votre témoignage
     <% end %>
   <% end %>
+
 </div>
