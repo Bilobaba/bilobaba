@@ -86,9 +86,6 @@ gem 'sendgrid-ruby'
 # Form easily
 gem 'simple_form'
 
-# markdown parser : markdown -> html
-gem 'redcarpet'
-
 # text editor
 gem 'trix'
 

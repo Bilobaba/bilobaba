@@ -1,9 +1,5 @@
-<link rel="stylesheet" href="assets/simplemde.min.css">
-<link rel="stylesheet" type="text/css" href="trix.css">
-<script src="assets/simplemde.min.js"></script>
-<script type="text/javascript" src="trix.js"></script>
 
-<div class="container" style="width: 50%;font-size: 120%">
+<div class="container" style="width: 60%;font-size: 120%">
   <br />
   <p>
   Bonjour <%= current_member.first_name %>,
@@ -34,13 +30,9 @@
 
     <div class="form-inputs">
       <%= f.input :title, label: 'Le titre', required: true %>
-    <!--   <%= f.input :body, label: 'Votre texte', required: true, input_html: {rows: 25} %> -->
+      <%= f.input :body, as: :trix_editor, label: 'Votre texte', required: true, input_html: {rows: 35} %>
       <!-- <%= f.input :image, required: true %> -->
       <%= f.input :published, label: 'Publier maintenant' %>
-      <p>***************************************************</p>
-<%= f.input :body, as: :trix_editor, label: 'Votre texte', required: true, input_html: {rows: 25} %>
-      <p>***************************************************</p>
-
     </div>
 
     <div class="form-actions">
@@ -48,9 +40,3 @@
     </div>
   <% end %>
 </div>
-
-
-
-<script>
-var simplemde = new SimpleMDE();
-</script>

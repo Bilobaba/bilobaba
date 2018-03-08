@@ -1,6 +1,4 @@
 require 'pry'
-require 'redcarpet'
-require 'redcarpet/render_strip'
 
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]

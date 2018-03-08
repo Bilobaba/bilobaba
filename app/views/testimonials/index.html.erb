@@ -8,19 +8,13 @@
       <tr>
         <th>Titre</th>
         <th>Auteur</th>
-        <th colspan="3"></th>
       </tr>
     </thead>
-
     <tbody>
       <% @testimonials.each do |testimonial| %>
         <tr>
           <td><%= link_to testimonial.title, testimonial %></td>
           <td><%= link_to testimonial.member.pseudo, testimonial.member %></td>
-          <td><%= link_to 'Afficher', testimonial %></td>
-          <td><%= link_to 'Modifier', edit_testimonial_path(testimonial) %></td>
-          <td><%= link_to 'Supprimer', testimonial, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %></td>
-        </tr>
       <% end %>
     </tbody>
   </table>

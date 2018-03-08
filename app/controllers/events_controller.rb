@@ -35,7 +35,6 @@ class EventsController < ApplicationController
   def duplicate
     @h1_title = 'Dupliquer cette proposition'
     @event = @event.dup
-    @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
     @event.calendar_string = nil
     @event.multi_dates_id = nil
     @event.calendar_range_string = nil

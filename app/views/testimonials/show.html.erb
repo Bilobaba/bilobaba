@@ -1,13 +1,14 @@
 <div class="container">
-<p>
-  <strong>Titre :</strong>
+<div class="center-block", style="margin: auto;">
+<h2>
   <%= @testimonial.title %>
-</p>
-
-<p>
-  <strong>Texte :</strong>
+</h2>
+<br />
+<br />
+<br />
+<h4>
   <%= @testimonial.body.html_safe %>
-</p>
+</h4>
 
 <!-- <p>
   <strong>Image: xxx</strong>
@@ -16,8 +17,10 @@
 
 <p>
   <strong>Auteur:</strong>
-  <%= @testimonial.member.pseudo %>
+  <%= link_to @testimonial.member.pseudo, @testimonial.member %>
 </p>
 
-<%= link_to 'Modifier', edit_testimonial_path(@testimonial) %>
+<%= link_to 'Modifier', edit_testimonial_path(@testimonial), class: "btn btn-default" %>
+<%= link_to 'Supprimer', @testimonial, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-default"  %>
+</div>
 </div>
