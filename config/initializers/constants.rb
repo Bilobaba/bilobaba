@@ -21,3 +21,7 @@ MEMBER_GENDER_FEMALE = "female"
 ROLE_PROFESSIONAL = :professional
 ROLE_AMATEUR = :amateur
 ROLE_ADMIN = :admin
+
+# booleans
+YES = 'YES'
+NO = 'NO'

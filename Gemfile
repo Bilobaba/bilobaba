@@ -86,6 +86,9 @@ gem 'sendgrid-ruby'
 # Form easily
 gem 'simple_form'
 
+# text editor
+gem 'trix'
+
 # Stripe
 # gem 'stripe'
 

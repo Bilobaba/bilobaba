@@ -1,6 +1,4 @@
 require 'pry'
-require 'redcarpet'
-require 'redcarpet/render_strip'
 
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
@@ -19,7 +17,7 @@ class TestimonialsController < ApplicationController
   # GET /testimonials/1
   # GET /testimonials/1.json
   def show
-    @h1_title = @testimonial.ti
+    @h1_title = @testimonial.title
   end
 
   # GET /testimonials/new

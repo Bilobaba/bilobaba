@@ -1,0 +1,42 @@
+<div class="container">
+  <div style="display: flex; justify-content: space-between;">
+    <div>
+      <h2>Les témoignages</h2>
+    </div>
+    <div>
+      <% if member_signed_in? %>
+        <%= link_to 'Ajouter votre témoignage', new_testimonial_path, class: 'btn btn-default', style: 'font-size: 110%' %>
+      <% else %>
+        <%= link_to  '#','data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default'  do %>
+                  Ajouter votre témoignage
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @testimonials.each do |testimonial| %>
+        <tr>
+          <td><%= link_to testimonial.title, testimonial %></td>
+          <td><%= link_to testimonial.member.pseudo, testimonial.member %></td>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <% if member_signed_in? %>
+    <%= link_to 'Ajouter votre témoignage', new_testimonial_path, class: 'btn btn-default' %>
+  <% else %>
+    <%= link_to  '#','data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default'  do %>
+              Ajouter votre témoignage
+    <% end %>
+  <% end %>
+
+</div>
