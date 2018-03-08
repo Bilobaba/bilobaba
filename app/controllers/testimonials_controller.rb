@@ -19,9 +19,7 @@ class TestimonialsController < ApplicationController
   # GET /testimonials/1
   # GET /testimonials/1.json
   def show
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
-binding.pry
-    @testimonial.body = "coucou " + markdown.render(@testimonial.body).html_safe
+    @h1_title = @testimonial.title
   end
 
   # GET /testimonials/new

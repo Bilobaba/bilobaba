@@ -86,11 +86,11 @@ gem 'sendgrid-ruby'
 # Form easily
 gem 'simple_form'
 
-# editor markdown with preview
-gem 'simplemde-rails'
-
 # markdown parser : markdown -> html
 gem 'redcarpet'
+
+# text editor
+gem 'trix'
 
 # Stripe
 # gem 'stripe'
