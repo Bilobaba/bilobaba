@@ -3,6 +3,8 @@ class Testimonial < ApplicationRecord
   include Rails.application.routes.url_helpers
   include AlgoliaSearch
 
+  acts_as_taggable_on :topics, :members
+
   mount_uploader :image, ImageUploader
 
   belongs_to :member

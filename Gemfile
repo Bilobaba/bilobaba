@@ -89,6 +89,9 @@ gem 'simple_form'
 # text editor
 gem 'trix'
 
+# tags
+gem 'acts-as-taggable-on'
+
 # Stripe
 # gem 'stripe'
 

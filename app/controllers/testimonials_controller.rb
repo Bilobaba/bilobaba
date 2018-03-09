@@ -85,7 +85,7 @@ class TestimonialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def testimonial_params
-      params.require(:testimonial).permit(:title, :body, :image, :published)
+      params.require(:testimonial).permit(:title, :body, :image, :published, :topic_list, :member_list)
     end
 
     def list_showed
