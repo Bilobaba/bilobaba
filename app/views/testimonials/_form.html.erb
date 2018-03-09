@@ -32,6 +32,18 @@
       <%= f.input :title, label: 'Le titre', required: true %>
       <%= f.input :body, as: :trix_editor, label: 'Votre texte', required: true, input_html: {rows: 35} %>
       <!-- <%= f.input :image, required: true %> -->
+
+      <%= f.label :topic_list, 'Tags (séparés par une virgule)' %>
+      <%= f.text_field :topic_list , class: 'form-control' %>
+
+      <%= f.label :member_list, 'Membres (séparés par une virgule)' %>
+      <%= f.text_field :member_list , class: 'form-control' %>
+
+***************************************************************************
+<%= f.label :tag_list, "Tags" %>
+<%= f.collection_select :topic_ids, Tag.order(:name), :id, :name, {}, {multiple: true} %>
+
+******************************************************************
       <%= f.input :published, label: 'Publier maintenant' %>
     </div>
 

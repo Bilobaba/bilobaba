@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :taggings
+  resources :tags
+  resources :topics, except: :show
+  get 'topics/:topic', to: 'testimonials#index'
+
+
   resources :testimonials
   # if route defined after, it will be interpreted as events/(:id = search)
   get 'events/search', as: 'search'

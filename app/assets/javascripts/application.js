@@ -19,4 +19,5 @@
 //= require jquery-ui
 //= require simplemde.min
 //= require trix
+//= require chosen
 

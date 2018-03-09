@@ -15,6 +15,13 @@
   <%= @testimonial.body.html_safe %>
 </h4>
 
+<h4>
+  Topics : <%= @testimonial.topic_list %>
+</h4>
+
+<h4>
+  Members : <%= @testimonial.member_list %>
+</h4>
 <!-- <p>
   <strong>Image: xxx</strong>
   <%= cl_image_tag @testimonial.image.url, width: 600, height: 182, crop: :fit %>

@@ -18,6 +18,7 @@
       <tr>
         <th>Titre</th>
         <th>Auteur</th>
+        <th>Topics</th>
       </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
         <tr>
           <td><%= link_to testimonial.title, testimonial %></td>
           <td><%= link_to testimonial.member.pseudo, testimonial.member %></td>
+          <td><%= raw testimonial.topic_list.map { |t| link_to t, topic_path(t) }.join(', ') %></td>
       <% end %>
     </tbody>
   </table>

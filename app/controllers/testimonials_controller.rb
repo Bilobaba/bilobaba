@@ -7,7 +7,12 @@ class TestimonialsController < ApplicationController
   # GET /testimonials
   # GET /testimonials.json
   def index
-      @testimonials = list_showed
+    @testimonials = list_showed
+    if params[:topic]
+      @testimonials = Testimonial.tagged_with(params[:topic])
+    else
+      @testimonials = Testimonial.all
+    end
   end
 
   # GET /testimonials/1
@@ -85,7 +90,7 @@ class TestimonialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def testimonial_params
-      params.require(:testimonial).permit(:title, :body, :image, :published, :topic_list, :member_list)
+      params.require(:testimonial).permit(:title, :body, :image, :published, :topic_list, :member_list, :tag, { tag_ids: [] }, :tag_ids)
     end
 
     def list_showed
