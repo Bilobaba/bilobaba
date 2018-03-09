@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
+  get "hashtags",            to: "hashtags#index",     as: :hashtags
   resources :testimonials
   # if route defined after, it will be interpreted as events/(:id = search)
   get 'events/search', as: 'search'

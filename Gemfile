@@ -89,6 +89,9 @@ gem 'simple_form'
 # text editor
 gem 'trix'
 
+# hashtags
+gem 'simple_hashtag'
+
 # Stripe
 # gem 'stripe'
 

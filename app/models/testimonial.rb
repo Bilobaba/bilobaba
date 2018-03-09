@@ -2,21 +2,15 @@ class Testimonial < ApplicationRecord
 
   include Rails.application.routes.url_helpers
   include AlgoliaSearch
+  include SimpleHashtag::Hashtaggable
 
+  hashtaggable_attribute :body
   mount_uploader :image, ImageUploader
 
   belongs_to :member
 
   scope :published, -> { where(published: true) }
 
-  def self.showed
-    if member_signed_in?
-      list = (Testimonial.published + current_member.testimonials).uniq
-    else
-      list = Testimonial.published
-    end
-    return list
-  end
 
   def member_name
     self.member.name
