@@ -92,6 +92,11 @@ gem 'trix'
 # tags
 gem 'acts-as-taggable-on'
 
+# tags input
+gem 'bootstrap-tagsinput-rails'
+
+gem 'twitter-typeahead-rails'
+
 # Stripe
 # gem 'stripe'
 

@@ -42,5 +42,6 @@ Rails.application.routes.draw do
   post 'pages/contact', to: 'pages#send_mail_contact'
   get 'pages/forbidden', as: 'forbidden'
   get 'pages/permission', as: 'permission'
+  get 'pages/test', as: 'test'
   root 'events#index'
 end

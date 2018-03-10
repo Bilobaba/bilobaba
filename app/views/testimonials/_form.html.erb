@@ -35,9 +35,6 @@
 
       <%= f.input :member_list, label: 'Membres séparés par une virgule', input_html: {value: f.object.member_list.to_s}, class: 'form-control'  %>
 
-     <%= f.input :topic_list, label: 'Sujets séparés par une virgule', input_html: {value: f.object.topic_list.to_s}, class: 'form-control'  %>
-
-
 
       <%= f.input :published, label: 'Publier maintenant' %>
     </div>
@@ -45,5 +42,61 @@
     <div class="form-actions">
       <%= f.button :submit %>
     </div>
-  <% end %>
+
+
+=================================================================
+<p>ICIIIIII</p>
+<%= f.input :topic_list, html: {class: 'typeahead'},input_html:{id: 'bloodhound', data:{role:'tagsinput'}, value: f.object.topic_list.to_s} %>
+
+<p>Kiki</p>
+
+<input class="typeahead" type="text" />
+===========================================================================
+<p>bibi</p>
+
+<input type="text" value="Amsterdam,Washington" data-role="tagsinput" />
 </div>
+**************************************************************
+<h3>Bloodhound</h3>
+<div id="bloodhoundvvv">
+  <input class="typeahead" type="text" placeholder="States of USA">
+</div>
+*********************************************************
+  <% end %>
+<script>
+// constructs the suggestion engine
+var states = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  // `states` is an array of state names defined in "The Basics"
+    local: [
+    'nine' ,
+     'ten'
+  ]
+});
+
+
+$('.typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'states',
+  source: states
+});
+
+$('bloodhound').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'states',
+  source: states
+});
+
+
+$('#bloodhoundyyy').hide();
+
+</script>

@@ -17,7 +17,7 @@
 //= require data-confirm-modal
 //= require algolia/v3/algoliasearch.min
 //= require jquery-ui
-//= require simplemde.min
 //= require trix
-//= require chosen
+//= require bootstrap-tagsinput
+//= require twitter/typeahead
 

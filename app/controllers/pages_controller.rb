@@ -42,4 +42,7 @@ class PagesController < ApplicationController
   def confidentiality
   end
 
+  def test
+  end
+
 end
