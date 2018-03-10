@@ -92,6 +92,13 @@ class Member < ApplicationRecord
       .includes(:attendees)
   end
 
+  def as_json(*args)
+    {
+      :id => "#{self.id}",
+      :pseudo => "#{self.pseudo}",
+    }
+  end
+
   def testimonials_showed
     self.testimonials.where(published: true)
   end
