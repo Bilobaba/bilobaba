@@ -46,7 +46,7 @@
 
 =================================================================
 <p>ICIIIIII</p>
-<%= f.input :topic_list, html: {class: 'typeahead'},input_html:{id: 'bloodhound', data:{role:'tagsinput'}, value: f.object.topic_list.to_s} %>
+<%= f.input :topic_list,input_html:{id: 'topics', data:{role:'tagsinput'}, value: f.object.topic_list.to_s} %>
 
 <p>Kiki</p>
 
@@ -55,14 +55,14 @@
 <p>bibi</p>
 
 <input type="text" value="Amsterdam,Washington" data-role="tagsinput" />
-</div>
 **************************************************************
 <h3>Bloodhound</h3>
-<div id="bloodhoundvvv">
-  <input class="typeahead" type="text" placeholder="States of USA">
+<div >
+  <input id="bloodhoundvvv" class="typeahead" type="text" placeholder="States of USA">
 </div>
 *********************************************************
   <% end %>
+</div>
 <script>
 // constructs the suggestion engine
 var states = new Bloodhound({
@@ -71,6 +71,10 @@ var states = new Bloodhound({
   // `states` is an array of state names defined in "The Basics"
     local: [
     'nine' ,
+    'aaa' ,
+    'bbb' ,
+    'ccc' ,
+    'ddd' ,
      'ten'
   ]
 });
@@ -79,24 +83,32 @@ var states = new Bloodhound({
 $('.typeahead').typeahead({
   hint: true,
   highlight: true,
-  minLength: 1
+  freeInput: true,
+  minLength: 2
+},
+{
+  source: states
+});
+
+$('#topicsXXX').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 2
 },
 {
   name: 'states',
   source: states
 });
 
-$('bloodhound').typeahead({
-  hint: true,
-  highlight: true,
-  minLength: 1
-},
-{
-  name: 'states',
-  source: states
+$('#topics').tagsinput({
+  typeaheadjs: {
+   source: states.ttAdapter()
+  }
 });
+
 
 
 $('#bloodhoundyyy').hide();
+
 
 </script>
