@@ -49,6 +49,9 @@ class Member < ApplicationRecord
   has_many :comments
   has_many :testimonials
 
+  has_many :abouts
+  has_many :named_in_testimonials, through: :abouts, source: :testimonial
+
   def next_events_organize
     organize_events
       .order(begin_at: :asc)
@@ -93,10 +96,7 @@ class Member < ApplicationRecord
   end
 
   def as_json(*args)
-    {
-      :id => "#{self.id}",
-      :pseudo => "#{self.pseudo}",
-    }
+    {  }
   end
 
   def testimonials_showed

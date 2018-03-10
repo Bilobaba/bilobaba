@@ -37,6 +37,8 @@
       <%= f.input :member_list, input_html:{id: 'members', data:{role:'tagsinput'}, size: 700,
                             value: f.object.member_list.sort.join(', ').to_s}, label: false  %>
 
+      <%= f.association :particular_members, collection: @members, input_html: { class: 'multiselectuser'} %>
+
       <%= f.label 'Thèmes' %>
       <%= f.input :topic_list,input_html:{id: 'topics', data:{role:'tagsinput'}, value: f.object.topic_list.sort.join(', ').to_s} %>
 
@@ -98,24 +100,9 @@ $('#topics').tagsinput({
 var cities = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  local: [
-  { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    },
-  { "value": 2 , "text": "London"      , "continent": "Europe"    },
-  { "value": 3 , "text": "Paris"       , "continent": "Europe"    },
-  { "value": 4 , "text": "Washington"  , "continent": "America"   },
-  { "value": 5 , "text": "Mexico City" , "continent": "America"   },
-  { "value": 6 , "text": "Buenos Aires", "continent": "America"   },
-  { "value": 7 , "text": "Sydney"      , "continent": "Australia" },
-  { "value": 8 , "text": "Wellington"  , "continent": "Australia" },
-  { "value": 9 , "text": "Canberra"    , "continent": "Australia" },
-  { "value": 10, "text": "Beijing"     , "continent": "Asia"      },
-  { "value": 11, "text": "New Delhi"   , "continent": "Asia"      },
-  { "value": 12, "text": "Kathmandu"   , "continent": "Asia"      },
-  { "value": 13, "text": "Cairo"       , "continent": "Africa"    },
-  { "value": 14, "text": "Cape Town"   , "continent": "Africa"    },
-  { "value": 15, "text": "Kinshasa"    , "continent": "Africa"    }
-]
+  local: <%= Member.all.as_json %>
 });
+
 cities.initialize();
 
 var elt = $('#members');
