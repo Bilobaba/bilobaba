@@ -16,11 +16,11 @@
 </h4>
 
 <h4>
-  Topics : <%= @testimonial.topic_list %>
+  Topics : <%= @testimonial.topic_list.sort.join(', ').to_s %>
 </h4>
 
 <h4>
-  Members : <%= @testimonial.member_list %>
+  Members : <%= @testimonial.member_list.sort.join(', ').to_s %>
 </h4>
 <!-- <p>
   <strong>Image: xxx</strong>

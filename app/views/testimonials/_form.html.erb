@@ -33,8 +33,11 @@
       <%= f.input :body, as: :trix_editor, label: 'Votre texte', required: true, input_html: {rows: 35} %>
       <!-- <%= f.input :image, required: true %> -->
 
-      <%= f.input :member_list, label: 'Membres séparés par une virgule', input_html: {value: f.object.member_list.to_s}, class: 'form-control'  %>
+      <%= f.label 'Membres' %>
+      <%= f.input :member_list, input_html:{id: 'members', data:{role:'tagsinput'},value: f.object.member_list.sort.join(', ').to_s}, label: false  %>
 
+      <%= f.label 'Thèmes' %>
+      <%= f.input :topic_list,input_html:{id: 'topics', data:{role:'tagsinput'}, value: f.object.topic_list.sort.join(', ').to_s} %>
 
       <%= f.input :published, label: 'Publier maintenant' %>
     </div>
@@ -44,23 +47,8 @@
     </div>
 
 
-=================================================================
-<p>ICIIIIII</p>
-<%= f.input :topic_list,input_html:{id: 'topics', data:{role:'tagsinput'}, value: f.object.topic_list.to_s} %>
 
-<p>Kiki</p>
 
-<input class="typeahead" type="text" />
-===========================================================================
-<p>bibi</p>
-
-<input type="text" value="Amsterdam,Washington" data-role="tagsinput" />
-**************************************************************
-<h3>Bloodhound</h3>
-<div >
-  <input id="bloodhoundvvv" class="typeahead" type="text" placeholder="States of USA">
-</div>
-*********************************************************
   <% end %>
 </div>
 <script>
@@ -102,13 +90,9 @@ $('#topicsXXX').typeahead({
 
 $('#topics').tagsinput({
   typeaheadjs: {
-   source: states.ttAdapter()
+  source: states.ttAdapter()
   }
 });
-
-
-
-$('#bloodhoundyyy').hide();
 
 
 </script>
