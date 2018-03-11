@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag 'testimonial' %>
+
+
 <div class="container" style="display: block;">
 <div class="center-block">
 <div style="margin: auto; width: 80%; background-color: khaki; padding: 25px; border-radius: 5px">
@@ -14,13 +17,30 @@
 <h4>
   <%= @testimonial.body.html_safe %>
 </h4>
+<br />
+<br />
 
-<h4>
-  Topics : <%= @testimonial.topic_list.sort.join(', ').to_s %>
-</h4>
+<div style="display: flex;">
+  <div style = "font-size: 18px">
+  Thèmes :
+  </div>
+  <div class="tags_css">
+      <%= raw @testimonial.topic_list.map { |t|  link_to t, topic_path(t) }.join(' ') %>
+  </div>
+</div>
+<br />
+<div style="display: flex;">
+  <div style = "font-size: 18px">
+  Membres :
+  </div>
+  <div class="tags_css">
+      <%= raw @testimonial.member_list.map { |t|  link_to t, topic_path(t) }.join(' ') %>
+  </div>
+</div>
 
+<br />
 <h4>
-  Members : <%= @testimonial.member_list.sort.join(', ').to_s %>
+  Publié : <%= @testimonial.published ? 'Oui' : 'Non' %>
 </h4>
 <!-- <p>
   <strong>Image: xxx</strong>

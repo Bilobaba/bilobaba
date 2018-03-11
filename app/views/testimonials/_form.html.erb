@@ -31,16 +31,16 @@
 
     <div class="form-inputs">
       <%= f.input :title, label: 'Le titre', required: true %>
-      <%= f.input :body, as: :trix_editor, label: 'Votre texte', required: true, input_html: {rows: 35} %>
+      <%= f.input :body, as: :trix_editor, label: 'Votre texte', required: true, input_html: {rows: 5 }%>
       <!-- <%= f.input :image, required: true %> -->
-
-      <%= f.label 'Membres' %>
-      <%= f.input :member_list, label: false, input_html:{id: 'members', data:{role:'tagsinput'},
-                  value: f.object.member_list.sort.join(', ').to_s}, label: false, placeholder: "Entrez un pro ..."  %>
 
       <%= f.label 'Thèmes' %>
       <%= f.input :topic_list, label: false, input_html:{id: 'topics', data:{role:'tagsinput'},
             value: f.object.topic_list.sort.join(', ').to_s} , placeholder: "Entrez un thème ..." %>
+
+      <%= f.label 'Membres' %>
+      <%= f.input :member_list, label: false, input_html:{id: 'members', data:{role:'tagsinput'},
+                  value: f.object.member_list.sort.join(', ').to_s}, label: false, placeholder: "Entrez un pro ..."  %>
 
       <%= f.input :published, label: 'Publier maintenant' %>
     </div>
@@ -54,61 +54,37 @@
 
   <% end %>
 </div>
+
 <script>
+
 // constructs the suggestion engine
-var states = new Bloodhound({
+var tag_topics = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  // `states` is an array of state names defined in "The Basics"
+  // `tag_members` is an array of state names defined in "The Basics"
     local: <%= raw ViewDatum.find_by_data_type(VIEW_DATA_TOPICS).content %>
-  });
-
-
-$('.typeahead').typeahead({
-  hint: true,
-  highlight: true,
-  freeInput: true,
-  minLength: 2
-},
-{
-  source: states
-});
-
-$('#topicsXXX').typeahead({
-  hint: true,
-  highlight: true,
-  minLength: 2
-},
-{
-  name: 'states',
-  source: states
 });
 
 $('#topics').tagsinput({
   typeaheadjs: {
-  source: states.ttAdapter()
+  source: tag_topics.ttAdapter()
   }
 });
 
-var cities = new Bloodhound({
+var tag_members = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   // local: <%= Member.all.as_json %>
   local: <%= raw Member.pseudos %>
 });
 
-cities.initialize();
+tag_members.initialize();
 
 var elt = $('#members');
 elt.tagsinput({
   typeaheadjs: {
-    source: cities.ttAdapter()
+    source: tag_members.ttAdapter()
   }
 });
-// elt.tagsinput('add', { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    });
-// elt.tagsinput('add', { "value": 4 , "text": "Washington"  , "continent": "America"   });
-// elt.tagsinput('add', { "value": 7 , "text": "Sydney"      , "continent": "Australia" });
-// elt.tagsinput('add', { "value": 10, "text": "Beijing"     , "continent": "Asia"      });
-// elt.tagsinput('add', { "value": 13, "text": "Cairo"       , "continent": "Africa"    });
 
 </script>
