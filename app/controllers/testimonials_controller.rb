@@ -103,6 +103,8 @@ class TestimonialsController < ApplicationController
     end
 
     def list_topics
-      ViewData.topics = Tag.topics
+      v = ViewDatum.find_by_data_type(VIEW_DATA_TOPICS)
+      v.content = Tag.topics
+      v.save
     end
 end

@@ -69,6 +69,6 @@ class ViewDataController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def view_datum_params
-      params.require(:view_datum).permit(:type, :content)
+      params.require(:view_datum).permit(:data_type, :content)
     end
 end

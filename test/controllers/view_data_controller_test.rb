@@ -17,7 +17,7 @@ class ViewDataControllerTest < ActionDispatch::IntegrationTest
 
   test "should create view_datum" do
     assert_difference('ViewDatum.count') do
-      post view_data_url, params: { view_datum: { content: @view_datum.content, type: @view_datum.type } }
+      post view_data_url, params: { view_datum: { content: @view_datum.content, data_type: @view_datum.data_type } }
     end
 
     assert_redirected_to view_datum_url(ViewDatum.last)
@@ -34,7 +34,7 @@ class ViewDataControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update view_datum" do
-    patch view_datum_url(@view_datum), params: { view_datum: { content: @view_datum.content, type: @view_datum.type } }
+    patch view_datum_url(@view_datum), params: { view_datum: { content: @view_datum.content, data_type: @view_datum.data_type } }
     assert_redirected_to view_datum_url(@view_datum)
   end
 

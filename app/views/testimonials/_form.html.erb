@@ -60,15 +60,8 @@ var states = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   // `states` is an array of state names defined in "The Basics"
-    local: [
-    'nine' ,
-    'aaa' ,
-    'bbb' ,
-    'ccc' ,
-    'ddd' ,
-     'ten'
-  ]
-});
+    local: <%= raw ViewDatum.find_by_data_type(VIEW_DATA_TOPICS).content %>
+  });
 
 
 $('.typeahead').typeahead({

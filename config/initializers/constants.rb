@@ -26,6 +26,6 @@ ROLE_ADMIN = :admin
 YES = 'YES'
 NO = 'NO'
 
-# views data, for big collection
+# views data, avoid calculation big collection for every view call
 VIEW_DATA_TOPICS = 'topics'
 VIEW_DATA_MEMBERS = 'members'

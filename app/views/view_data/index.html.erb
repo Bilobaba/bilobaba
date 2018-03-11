@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Type</th>
+      <th>Data type</th>
       <th>Content</th>
       <th colspan="3"></th>
     </tr>
@@ -14,7 +14,7 @@
   <tbody>
     <% @view_data.each do |view_datum| %>
       <tr>
-        <td><%= view_datum.type %></td>
+        <td><%= view_datum.data_type %></td>
         <td><%= view_datum.content %></td>
         <td><%= link_to 'Show', view_datum %></td>
         <td><%= link_to 'Edit', edit_view_datum_path(view_datum) %></td>
