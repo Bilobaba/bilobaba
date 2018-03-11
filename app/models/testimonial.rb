@@ -3,13 +3,13 @@ class Testimonial < ApplicationRecord
   include Rails.application.routes.url_helpers
   include AlgoliaSearch
 
-  acts_as_taggable_on :topics
+  acts_as_taggable_on :topics, :members
 
   mount_uploader :image, ImageUploader
 
   belongs_to :member
   has_many :abouts
-  has_many :named_members, through: :abouts, source: :member
+  has_many :members, through: :abouts, source: :member
 
 
   scope :published, -> { where(published: true) }

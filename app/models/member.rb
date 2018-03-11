@@ -95,8 +95,12 @@ class Member < ApplicationRecord
       .includes(:attendees)
   end
 
-  def as_json(*args)
-    {  }
+  def self.pseudos
+    tab = []
+    Member.all.each do |m|
+      tab << m.pseudo.to_s
+    end
+    return tab
   end
 
   def testimonials_showed

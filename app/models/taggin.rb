@@ -1,0 +1,2 @@
+class Taggin < ApplicationRecord
+end

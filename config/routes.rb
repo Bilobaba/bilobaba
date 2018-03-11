@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :taggins
   resources :taggings
   resources :tags
   resources :topics, except: :show

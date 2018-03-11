@@ -1,3 +1,5 @@
+require 'pry'
+
 class RegistrationsController < Devise::RegistrationsController
 
   def new
@@ -17,10 +19,21 @@ class RegistrationsController < Devise::RegistrationsController
 
   #http://bit.ly/1owLKwX
   def update_resource(resource, params)
+binding.pry
+# verifier que le pseudo n est pas deja utilise
+    if resource.pseudo != params[:pseudo]
+      if (Tag.find_by_name(params[:pseudo]))
+        flash[:alert] = "Ce pseudo n\'est pas disponible"
+        redirect_to edit_member_registration
+      else
+        old_pseudo = resource.pseudo
+      end
+    end
+
     if session['facebook_login']
-      resource.update_without_password(params)
+      updated = resource.update_without_password(params)
     else
-      resource.update_with_password(params)
+      updated = resource.update_with_password(params)
     end
 
     if params[:type_member] == MEMBER_TYPE_PRO
@@ -30,5 +43,12 @@ class RegistrationsController < Devise::RegistrationsController
       resource.remove_role(:professional)
       resource.add_role(:amateur) if params[:type_member] == MEMBER_TYPE_AMATEUR
     end
+
+    if updated
+      tag = Tag.find_by_name('old_pseudo')
+      tag.name = resource.pseudo
+      tag.save
+    end
+
   end
 end
