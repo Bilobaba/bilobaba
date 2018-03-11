@@ -25,3 +25,7 @@ ROLE_ADMIN = :admin
 # booleans
 YES = 'YES'
 NO = 'NO'
+
+# views data, for big collection
+VIEW_DATA_TOPICS = 'topics'
+VIEW_DATA_MEMBERS = 'members'

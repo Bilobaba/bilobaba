@@ -4,6 +4,8 @@ class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: %i[new edit update destroy]
   before_action :require_permission, only: %i[edit update destroy]
+  after_action :list_topics, only: %i[create edit update destroy]
+
   # GET /testimonials
   # GET /testimonials.json
   def index
@@ -77,8 +79,6 @@ class TestimonialsController < ApplicationController
       @testimonial = Testimonial.find(params[:id])
     end
 
-
-
     def require_login
       redirect_to forbidden_path unless member_signed_in?
     end
@@ -100,5 +100,9 @@ class TestimonialsController < ApplicationController
         list = Testimonial.published
       end
       return list
+    end
+
+    def list_topics
+      ViewData.topics = Tag.topics
     end
 end

@@ -1,0 +1,2 @@
+class ViewDatum < ApplicationRecord
+end

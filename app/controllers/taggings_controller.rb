@@ -1,4 +1,5 @@
 class TaggingsController < ApplicationController
+  before_action :require_permission
   before_action :set_tagging, only: [:show, :edit, :update, :destroy]
 
   # GET /taggings
@@ -69,6 +70,10 @@ class TaggingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tagging_params
-      params.require(:tagging).permit(:name)
+      params.require(:tagging).permit(:tag_id, :taggable_type, :taggable_id, :tagger_type, :tagger_id, :context)
+    end
+
+    def require_permission
+      redirect_to permission_path unless current_member.has_role?(ROLE_ADMIN)
     end
 end

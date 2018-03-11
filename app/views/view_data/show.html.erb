@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @view_datum.type %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @view_datum.content %>
+</p>
+
+<%= link_to 'Edit', edit_view_datum_path(@view_datum) %> |
+<%= link_to 'Back', view_data_path %>

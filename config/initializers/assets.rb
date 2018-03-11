@@ -21,3 +21,4 @@ Rails.application.config.assets.precompile += %w( home.scss navbar.scss event.sc
                                                   jquery.calendars.all.js )
 
 Rails.application.config.assets.precompile += %w( pricing.css )
+Rails.application.config.assets.precompile += %w( testimonial.css )

@@ -1,6 +1,8 @@
+require 'pry'
+
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_permission
   # GET /tags
   # GET /tags.json
   def index
@@ -70,5 +72,9 @@ class TagsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
       params.require(:tag).permit(:name)
+    end
+
+    def require_permission
+      redirect_to permission_path unless current_member.has_role?(ROLE_ADMIN)
     end
 end

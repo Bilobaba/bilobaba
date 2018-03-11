@@ -1,0 +1,2 @@
+module ViewDataHelper
+end

@@ -1,8 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @tagging.name %>
+  <strong>Tag:</strong>
+  <%= @tagging.tag_id %>
+</p>
+
+<p>
+  <strong>Taggable type:</strong>
+  <%= @tagging.taggable_type %>
+</p>
+
+<p>
+  <strong>Taggable:</strong>
+  <%= @tagging.taggable_id %>
+</p>
+
+<p>
+  <strong>Tagger type:</strong>
+  <%= @tagging.tagger_type %>
+</p>
+
+<p>
+  <strong>Tagger:</strong>
+  <%= @tagging.tagger_id %>
+</p>
+
+<p>
+  <strong>Context:</strong>
+  <%= @tagging.context %>
 </p>
 
 <%= link_to 'Edit', edit_tagging_path(@tagging) %> |
