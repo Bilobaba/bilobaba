@@ -25,6 +25,7 @@ class MembersController < ApplicationController
 
   def set_member
     @member = Member.find(params[:id])
+    redirect_to errors_member_path unless @member
   end
 
   def showed_testimonials

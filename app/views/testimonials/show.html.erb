@@ -35,7 +35,12 @@
   </div>
   <div class="tags_css ">
       <% @testimonial.member_list.each do |t| %>
-        <%= link_to(t, Member.find_by_pseudo(t).url) %>
+        <% if Member.find_by_pseudo(t) %>
+          <% url = Member.find_by_pseudo(t).url %>
+        <% else %>
+          <% url = request.url %>
+        <% end %>
+        <%= link_to(t, url) %>
       <% end %>
   </div>
 

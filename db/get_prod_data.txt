@@ -12,6 +12,12 @@ heroku pg:backups:download
 # replace your local data with this dump
 pg_restore --verbose --clean --no-acl --no-owner -h localhost -d bilobaba_development latest.dump
 
+# if not work in linux may be need that
+sudo -u user_name psql db_name
+ALTER USER user_name WITH PASSWORD 'new_password';
+\q
+
+
 # delete the dump (that you don't need anymore)
 rm latest.dump
 

@@ -44,5 +44,6 @@ Rails.application.routes.draw do
   get 'pages/forbidden', as: 'forbidden'
   get 'pages/permission', as: 'permission'
   get 'pages/test', as: 'test'
+  get 'pages/errors_member', as: 'errors_member'
   root 'events#index'
 end
