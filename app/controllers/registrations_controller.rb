@@ -19,7 +19,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   #http://bit.ly/1owLKwX
   def update_resource(resource, params)
-binding.pry
 # verifier que le pseudo n est pas deja utilise
     if resource.pseudo != params[:pseudo]
       if (Tag.find_by_name(params[:pseudo]))
