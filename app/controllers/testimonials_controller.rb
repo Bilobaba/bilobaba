@@ -110,5 +110,4 @@ class TestimonialsController < ApplicationController
     def list_topics
       ViewDatum.topics
     end
-
 end

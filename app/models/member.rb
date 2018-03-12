@@ -49,7 +49,7 @@ class Member < ApplicationRecord
   has_many :comments
   has_many :testimonials
 
-  has_many :abouts
+  has_many :abouts, dependent: :destroy
   has_many :named_in_testimonials, through: :abouts, source: :testimonial
 
   def next_events_organize
@@ -95,6 +95,10 @@ class Member < ApplicationRecord
       .includes(:attendees)
   end
 
+  def showed_testimonials
+    self.testimonials.published
+  end
+
   def self.pseudos
     tab = []
     Member.all.each do |m|
@@ -103,9 +107,6 @@ class Member < ApplicationRecord
     return tab
   end
 
-  def showed_testimonials
-    self.testimonials.published
-  end
 
   def self.pros
     pros = Member.with_role(:professional).order(pseudo: :desc).uniq

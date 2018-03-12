@@ -19,6 +19,7 @@ class MembersController < ApplicationController
   def show
     @h1_title = @member.first_name.to_s.capitalize + ' ' + @member.name.to_s.upcase
     @testimonials = showed_testimonials
+    @testimonials_named = testimonials_name_member
   end
 
   private
@@ -29,10 +30,20 @@ class MembersController < ApplicationController
   end
 
   def showed_testimonials
-    if (current_member && @member)
+    if (current_member == @member)
       list = current_member.testimonials
     else
-      list = @member.showed_testimonials
+      list = @member.testimonials.published
+    end
+    return list
+  end
+
+  def testimonials_name_member
+    list = []
+    Testimonial.published.each do |t|
+      if t.member_list.include?(@member.pseudo)
+        list << t
+      end
     end
     return list
   end
