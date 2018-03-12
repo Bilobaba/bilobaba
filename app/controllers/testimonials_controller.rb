@@ -110,4 +110,5 @@ class TestimonialsController < ApplicationController
       v.content = Tag.topics
       v.save
     end
+
 end
