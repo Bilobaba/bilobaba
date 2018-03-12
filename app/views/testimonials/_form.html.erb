@@ -36,11 +36,11 @@
 
       <%= f.label 'Thèmes' %>
       <%= f.input :topic_list, label: false, input_html:{id: 'topics', data:{role:'tagsinput'},
-            value: f.object.topic_list.sort.join(', ').to_s} , placeholder: "Entrez un thème ..." %>
+            value: f.object.topic_list.sort.join(', ').to_s} , placeholder: "Entrez des thèmes ..." %>
 
       <%= f.label 'Membres' %>
       <%= f.input :member_list, label: false, input_html:{id: 'members', data:{role:'tagsinput'},
-                  value: f.object.member_list.sort.join(', ').to_s}, label: false, placeholder: "Entrez un pro ..."  %>
+                  value: f.object.member_list.sort.join(', ').to_s}, label: false, placeholder: "Entrez des pros ..."  %>
 
       <%= f.input :published, label: 'Publier maintenant' %>
     </div>
