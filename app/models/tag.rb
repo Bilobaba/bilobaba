@@ -13,4 +13,11 @@ class Tag < ApplicationRecord
     end
     return tabs.uniq.sort
   end
+
+  def self.rename(a,b)
+    t = Tag.find_by_name(a)
+    if t
+      t.update!(name: b)
+    end
+  end
 end

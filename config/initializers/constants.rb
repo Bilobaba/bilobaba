@@ -14,8 +14,8 @@ MEMBER_TYPE_PRO = "2"
 MEMBER_TYPE = :member_type
 
 # Sexe
-MEMBER_GENDER_MALE = "male"
-MEMBER_GENDER_FEMALE = "female"
+MEMBER_GENDER_MALE = "Monsieur"
+MEMBER_GENDER_FEMALE = "Madame"
 
 # roles
 ROLE_PROFESSIONAL = :professional

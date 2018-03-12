@@ -96,6 +96,7 @@ class TestimonialsController < ApplicationController
       params.require(:testimonial).permit(:title, :body, :image, :published, :topic_list, :member_list, :tag, { tag_ids: [] }, :tag_ids)
     end
 
+    # list testimonials showed for a member
     def list_showed
       if member_signed_in?
         list = (Testimonial.published + current_member.testimonials).uniq
@@ -105,10 +106,9 @@ class TestimonialsController < ApplicationController
       return list
     end
 
+    # set view_data topics for tags input
     def list_topics
-      v = ViewDatum.find_by_data_type(VIEW_DATA_TOPICS)
-      v.content = Tag.topics.sort
-      v.save
+      ViewDatum.topics
     end
 
 end

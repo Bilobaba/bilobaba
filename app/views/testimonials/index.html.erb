@@ -26,7 +26,7 @@
         <tr>
           <td><%= link_to testimonial.title, testimonial %></td>
           <td><%= link_to testimonial.member.pseudo, testimonial.member %></td>
-          <td><%= raw testimonial.topic_list.map { |t| link_to t, topic_path(t) }.join(', ') %></td>
+          <td><%= raw testimonial.topic_list.map { |t| link_to t, topic_path(t), title: "les témoignages portant sur #{t}" }.join(', ') %></td>
       <% end %>
     </tbody>
   </table>

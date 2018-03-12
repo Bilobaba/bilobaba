@@ -25,7 +25,7 @@
   Thèmes :
   </div>
   <div class="tags_css">
-      <%= raw @testimonial.topic_list.sort.map { |t|  link_to t, topic_path(t) }.join(' ') %>
+      <%= raw @testimonial.topic_list.sort.map { |t|  link_to t, topic_path(t), title: "les témoignages portant sur #{t}" }.join(' ') %>
   </div>
 </div>
 <br />
@@ -33,9 +33,12 @@
   <div style = "font-size: 18px">
   Membres :
   </div>
-  <div class="tags_css">
-      <%= raw @testimonial.member_list.sort.map { |t|  link_to t, topic_path(t) }.join(' ') %>
+  <div class="tags_css ">
+      <% @testimonial.member_list.each do |t| %>
+        <%= link_to(t, Member.find_by_pseudo(t).url) %>
+      <% end %>
   </div>
+
 </div>
 
 <br />

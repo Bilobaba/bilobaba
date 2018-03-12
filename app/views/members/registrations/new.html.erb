@@ -42,7 +42,7 @@
       <% end %>
 
 
-      <%= f.input :gender, collection: ['Monsieur','Madame'] %>
+      <%= f.input :gender, collection: [MEMBER_GENDER_MALE,MEMBER_GENDER_FEMALE], label: 'Genre' %>
       <%= f.input :pseudo %>
       <%= f.input :first_name, label: 'Prénom' %>
       <%= f.input :name, label: 'Nom' %>

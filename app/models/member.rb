@@ -147,4 +147,8 @@ class Member < ApplicationRecord
       end
     end
   end
+
+  def url
+     return ENV["ROOT_URL"] + '/members/' + self.id.to_s
+  end
 end
