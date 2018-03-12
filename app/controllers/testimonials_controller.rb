@@ -11,9 +11,12 @@ class TestimonialsController < ApplicationController
   def index
     @testimonials = list_showed
     if params[:topic]
-      @testimonials = Testimonial.tagged_with(params[:topic])
+      # @testimonials = Testimonial.published.tagged_with(params[:topic])
+      @testimonials = (Testimonial.published.tagged_with(params[:topic]) +
+        ( member_signed_in? ? current_member.testimonials.tagged_with(params[:topic]) : [] )).uniq.sort_by{|obj| obj.title}
     else
-      @testimonials = Testimonial.all
+      @testimonials = (Testimonial.published +
+        ( member_signed_in? ? current_member.testimonials : [] )).uniq.sort_by{|obj| obj.title}
     end
   end
 

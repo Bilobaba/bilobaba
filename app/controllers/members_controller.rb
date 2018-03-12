@@ -18,11 +18,21 @@ class MembersController < ApplicationController
 
   def show
     @h1_title = @member.first_name.to_s.capitalize + ' ' + @member.name.to_s.upcase
+    @testimonials = showed_testimonials
   end
 
   private
 
   def set_member
     @member = Member.find(params[:id])
+  end
+
+  def showed_testimonials
+    if (current_member && @member)
+      list = current_member.testimonials
+    else
+      list = @member.showed_testimonials
+    end
+    return list
   end
 end

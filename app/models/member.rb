@@ -103,8 +103,8 @@ class Member < ApplicationRecord
     return tab
   end
 
-  def testimonials_showed
-    self.testimonials.where(published: true)
+  def showed_testimonials
+    self.testimonials.published
   end
 
   def self.pros

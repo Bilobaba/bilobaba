@@ -67,7 +67,7 @@
       <div id="testimonials" class="tab-pane fade" style="background-color: white">
         <h2>Liste de ses témoignages </h2>
           <% if @member.testimonials.size > 0 %>
-            <%= render partial: "testimonials/testimonials", locals: { testimonials_partial: @member.testimonials_showed } %>
+            <%= render partial: "testimonials/testimonials", locals: { testimonials_partial: @testimonials } %>
           <% else %>
             <p>Aucun évènement passé </p>
           <% end %>
