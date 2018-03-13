@@ -19,10 +19,8 @@
 .byebug_history
 
 # Ignore application configuration
-/config/application.yml
 
 # Ignore cloudinary
-/config/cloudinary.yml
 
 /public/uploads/tmp/
 

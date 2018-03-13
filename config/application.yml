@@ -1,0 +1,44 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+# CLOUDINARY_URL: "cloudinary://117226955815299:_PUV2FQehjZoeG4Tl3WB7mT5CeI@bilobaba"
+
+# Goole maps
+GOOGLE_API: "AIzaSyDLe_PyvRj7Yu7_1kFnj4Xt-iwrvIirn-w"
+
+STRIPE_PUBLISHABLE_KEY: "pk_test_BLCRU2eM1fsuLjockxH7bPNs"
+STRIPE_SECRET_KEY: "sk_test_PplbGvpIJTPsWnuQ21Bu42wO"
+
+FB_APP_SECRET: '71d3b672311e49e2616effd38abd62e1'
+
+# Algolia keys PRODUCTION
+# ALGOLIA_SEARCH_APPLICATION_ID: "83N3URNY53"
+# Never use it in front end
+# ALGOLIA_SEARCH_API_ADMIN_KEY: "1763c98fb169e04b00ad30cb9a4e4a99"
+# Use it for front end
+# ALGOLIA_SEARCH_API_KEY_SEARCH: "c429a3d14fd4af659f01c6017a7b9fc9"
+
+development:
+  # Algolia keys TEST
+  ALGOLIA_SEARCH_APPLICATION_ID: "OMM51UN985"
+  # Never use it in front end
+  ALGOLIA_SEARCH_API_ADMIN_KEY: "e762415cd24e8a478a9dc52464d2ca5e"
+  # Use it for front end
+  ALGOLIA_SEARCH_API_KEY_SEARCH: "c31ad4e0a66a9a9fc18462db22626d77"
+
+  CLOUDINARY_URL: "cloudinary://117226955815299:_PUV2FQehjZoeG4Tl3WB7mT5CeI@bilobaba"
+
+  # Url to link with Algolia
+  ROOT_URL: "http://localhost:3000"
+
+production:
+  CLOUDINARY_URL: "cloudinary://117226955815299:_PUV2FQehjZoeG4Tl3WB7mT5CeI@bilobaba"
+  ROOT_URL: "http://www.bilobaba.com"

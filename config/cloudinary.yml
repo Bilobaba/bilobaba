@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: 'bilobaba'
+  api_key: '117226955815299'
+  api_secret: '_PUV2FQehjZoeG4Tl3WB7mT5CeI'
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: 'bilobaba'
+  api_key: '117226955815299'
+  api_secret: '_PUV2FQehjZoeG4Tl3WB7mT5CeI'
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: 'bilobaba'
+  api_key: '117226955815299'
+  api_secret: '_PUV2FQehjZoeG4Tl3WB7mT5CeI'
+  enhance_image_tag: true
+  static_image_support: false

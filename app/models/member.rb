@@ -49,9 +49,6 @@ class Member < ApplicationRecord
   has_many :comments
   has_many :testimonials
 
-  has_many :abouts, dependent: :destroy
-  has_many :named_in_testimonials, through: :abouts, source: :testimonial
-
   def next_events_organize
     organize_events
       .order(begin_at: :asc)

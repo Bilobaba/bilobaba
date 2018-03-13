@@ -8,9 +8,6 @@ class Testimonial < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :member
-  has_many :abouts, dependent: :destroy
-  has_many :members, through: :abouts, source: :member
-
 
   scope :published, -> { where(published: true) }
 
