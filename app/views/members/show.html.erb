@@ -47,7 +47,7 @@
       <li class="active" ><a data-toggle="pill" href="#next_events">Liste de ses propositions à venir</a></li>
       <li><a data-toggle="pill" href="#past_events">Liste de ses propositions passées</a></li>
       <li><a data-toggle="pill" href="#testimonials">Liste de ses témoignages</a></li>
-      <li><a data-toggle="pill" href="#testimonials_name_member">Les témoignages le concernant</a></li>
+      <li><a data-toggle="pill" href="#testimonials_name_member">Les témoignages <% if @member.gender == MEMBER_GENDER_MALE %> le <% else %> la <% end %> concernant</a></li>
     </ul>
     <div class="tab-content">
       <div id="next_events" class="tab-pane fade in active" style="background-color: white">
@@ -75,7 +75,7 @@
           <% end %>
       </div>
       <div id="testimonials_name_member" class="tab-pane fade" style="background-color: white">
-        <h2>Les témoignages le concernant</h2>
+        <h2>Les témoignages <% if @member.gender == MEMBER_GENDER_MALE %> le <% else %> la <% end %> concernant</h2>
           <% if @testimonials_named.size > 0 %>
             <%= render partial: "testimonials/testimonials", locals: { testimonials_partial: @testimonials_named } %>
           <% else %>
