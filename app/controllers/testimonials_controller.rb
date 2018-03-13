@@ -45,6 +45,7 @@ class TestimonialsController < ApplicationController
       if @testimonial.save
         format.html { redirect_to @testimonial, notice: 'Testimonial was successfully created.' }
         format.json { render :show, status: :created, location: @testimonial }
+        ContactMailer.new_user_action('Nouveau témoignage', @testimonial.url).deliver_now
       else
         format.html { render :new }
         format.json { render json: @testimonial.errors, status: :unprocessable_entity }

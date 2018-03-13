@@ -5,5 +5,5 @@ Bonjour <%= @member.first_name.capitalize %>
 <br />
 <p>
 Un commentaire vient d'être posté sur un événement qui vous intéresse. Si vous voulez le voir, suivez ce
-<%= 'lien : ' + @link %>
+<%= link_to('lien', @link) %>
 </p>

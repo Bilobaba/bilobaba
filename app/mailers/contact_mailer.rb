@@ -23,7 +23,6 @@ class ContactMailer < ApplicationMailer
   end
 
   def new_comment_event(member, link)
-    puts '----->>> contact mailer new comment event'
     @member = member
     @link = link
     mail(to: member.email, subject: 'Nouveau commentaire sur un événement')

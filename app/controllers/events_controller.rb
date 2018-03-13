@@ -71,7 +71,7 @@ class EventsController < ApplicationController
       @save_is_ok &&= @event.save
 
       if @save_is_ok
-        ContactMailer.new_user_action('Nouvel évènement', 'http://www.bilobaba.com/events/' + @event.id.to_s).deliver_now
+        ContactMailer.new_user_action('Nouvel évènement', @event.url).deliver_now
         @event.reload
         @cloudy.identifier = @event.image.filename
         @cloudy.save
@@ -105,7 +105,7 @@ class EventsController < ApplicationController
         break unless @save_is_ok &&= @event.save
 
         if @save_is_ok
-          ContactMailer.new_user_action('Nouvel évènement', 'http://www.bilobaba.com/events/' + @event.id.to_s).deliver_now
+          ContactMailer.new_user_action('Nouvel évènement', @event.url).deliver_now
           if !@cloudy.identifier
             @event.reload
             @cloudy.identifier = @event.image.filename
