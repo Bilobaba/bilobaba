@@ -64,6 +64,8 @@
         <%= f.input :calendar_range_string, label: 'Choisir date de début et date de fin' %>
       </div>
 
+      <%= f.input :cloudy_id %>
+
       <% if @event.persisted? %>
         L'événement est prévu le : <span class="btn btn-default"> <%= I18n.l(@event.begin_at, format: '%d/%m/%Y') %> </span>
       <% end %>

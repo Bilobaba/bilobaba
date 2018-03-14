@@ -56,7 +56,9 @@ class EventsController < ApplicationController
   def create
 
     @event = Event.new(event_params)
-    @cloudy = Cloudy.create
+
+    # if @event.cloudy already exist => duplicate else create from scratch
+    @cloudy = @event.cloudy ? @event.cloudy : Cloudy.create
     @save_is_ok = true
 
     # dates is range
@@ -277,7 +279,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :description, :begin_at, :end_at, :price_min, :price_max, :members_max,
                                   :address, :city, :zip, :lat, :lng, { photos: [] },:calendar_string,
                                   :calendar_range_string, :image, :photo1, :photo2, :photo3, :photo4,
-                                  :note, :teacher_id, :place_name)
+                                  :note, :teacher_id, :place_name, :cloudy_id)
   end
 
   def require_login
