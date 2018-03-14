@@ -24,7 +24,7 @@
       <%= f.input :members_max, label: 'Nb de participants maxi' %>
       <!-- address is the full address (incl. zip and city that are redundant for display purpose in the events list) -->
       <%= f.input :place_name, label: 'Nom du lieu (s\'il y en a)' %>
-      <%= f.input :address, label: 'Adresse (n° rue, ville)', placeholder: 'ex: 20 Rue Geoffroy l Asnier, 75004 Paris' %>
+      <%= f.input :address, label: 'Adresse : n°, rue, ville, uniquement en région parisienne', placeholder: 'ex: 20 Rue Geoffroy l Asnier, 75004 Paris' %>
       <%= f.input :note, as: :text, label: 'Remarques', placeholder: 'Réservation obligatoire, code, escalier, interphone ...',
           input_html: {rows: 3} %>
       <!-- the following input are hidden and filled in JS using the Google JS API -->
