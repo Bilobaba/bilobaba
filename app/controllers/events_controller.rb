@@ -133,7 +133,7 @@ class EventsController < ApplicationController
   end
 
   def update
-
+binding.pry
     # if delete, we need form to get type_upadte
     if params[:commit] == ACTION_SUPPRIMER
       destroy_events
