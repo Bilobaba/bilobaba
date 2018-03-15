@@ -21,7 +21,7 @@ class Event < ApplicationRecord
   validates :image, file_size: { less_than: 2.megabytes, message: 'L\'image doit faire moins de 2 megabytes' }
 
   belongs_to :organizer, class_name: :Member, foreign_key: :organizer_id
-  belongs_to :teacher, class_name: :Member, foreign_key: :teacher_id
+  belongs_to :teacher, class_name: :Member, foreign_key: :teacher_id, optional: true
   belongs_to :cloudy
 
   has_many :follow_event_followers, class_name: :FollowEvent, foreign_key: :event_id, dependent: :destroy

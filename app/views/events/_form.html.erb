@@ -11,7 +11,7 @@
         <%= cl_image_tag(@event.cloudy.identifier, width: 400, height: 120, crop: :fill ) %>
       <% end %>
       <% unless current_member.has_role?(:professional) %>
-        <%= f.input :teacher_id, :collection => $teachers, :include_blank => "(Aucun)", :label_method => :pseudo, :label => 'Animateur (ça peut être quelqu\'un d\'autre)', selected: current_member %>
+        <%= f.input :teacher_id, :collection => $teachers, :include_blank => "(Si vous organizez pour un professionel)", :label_method => :pseudo, :label => 'Animateur (ça peut être quelqu\'un d\'autre)', selected: current_member %>
       <% end%>
       <!-- upload the image but not recorded directly : association with cloudy record -->
       <% if @event.cloudy.present? %>
