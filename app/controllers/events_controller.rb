@@ -23,12 +23,11 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @teachers = []
     @h1_title = 'Ajouter votre proposition'
     @event = Event.new
     @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
     # $teachers is global because if !create return view with @teachers wrong
-    $teachers = (Member.pros << current_member).reverse.uniq
+    $teachers = Member.all
   end
 
   # GET /events/duplicate/:id
@@ -133,7 +132,6 @@ class EventsController < ApplicationController
   end
 
   def update
-binding.pry
     # if delete, we need form to get type_upadte
     if params[:commit] == ACTION_SUPPRIMER
       destroy_events
