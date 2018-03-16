@@ -1,3 +1,5 @@
+require 'pry'
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_devise_parameters, if: :devise_controller?
@@ -23,6 +25,12 @@ class ApplicationController < ActionController::Base
   def last_request
     session[:request_back] ||= request.url
     session[:request_back] = request.referer if (request.url != request.referer) &&  request.referer
+    if request.referer ==  ENV["ROOT_URL"] + testimonials_path
+      cookies[VIEWED_TESTIMONIALS] = true
+    end
+    if request.referer ==  ENV["ROOT_URL"] + new_testimonial_path
+      cookies[VIEWED_NEW_TESTIMONIAL] = true
+    end
   end
 end
 

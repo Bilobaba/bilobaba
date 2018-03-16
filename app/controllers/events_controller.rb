@@ -161,7 +161,6 @@ class EventsController < ApplicationController
         format.html { redirect_to @event}
         format.json { render :show, status: :ok, location: @event }
       else
-binding.pry
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end

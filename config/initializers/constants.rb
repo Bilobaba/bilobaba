@@ -29,3 +29,6 @@ NO = 'NO'
 # views data, avoid calculation big collection for every view call
 VIEW_DATA_TOPICS = 'topics'
 VIEW_DATA_MEMBERS = 'members'
+
+VIEWED_TESTIMONIALS = 'viewed testimonials/index'
+VIEWED_NEW_TESTIMONIAL = 'viewed testimonials/new'

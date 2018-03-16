@@ -1,31 +1,5 @@
 <%= stylesheet_link_tag 'testimonial' %>
 
-<div class="container" style="width: 60%;font-size: 120%">
-  <br />
-  <p>
-  Bonjour <%= current_member.first_name %>,
-  </p><br />
-  <p>
-  Nous nous réjouissons de votre venue sur cette page. Votre témoignage sera un partage d'expérience précieux. Un bout de votre vie que nous sommes impatients de découvrir.
-  </p><br />
-  <p>
-  Ici, nous aimons les gens, les échanges chaleureux, les communications authentiques et les formulations simples. Ce que vous allez écrire ... et bien des membres vont le lire ! Peut-être que ce que vous avez vécu, ce que vous avez découvert pourrait parler à ces personnes, les toucher, leur donner envie d'essayer quelque chose de nouveau.
-  </p><br />
-  <p>
-  Sur Bilobaba, nous adorons partager les expériences. Nous pouvons le faire par ces témoignages. Des petites lettres écrites par un ami pour un ami ... lu par de possibles futurs amis.
-  </p><br />
-  <p>
-  Si vous n'avez pas au moins 15 minutes à consacrer à l'écriture de ce texte,     alors vous pouvez revenir plus tard parce que nous ne sommes pas pressés. Nous voulons surtout lire un texte de qualité. Pas dans le sens littéraire du terme. Mais dans le sens authentique, vrai, de coeur à coeur.
-  </p><br />
-  <p>
-  Si le lecteur ne passe pas au moins 5 minutes à vous lire, il ne sera pas connecté émotionnellement à votre histoire. Il pourra comprendre mais pas ressentir. Nous voulons des liens forts. Nous voulons donner l'espace pour de longs textes.
-  </p><br />
-  <p>
-  Surtout, nous ne voulons pas de conseils parce qu'il y a déjà des sites très biens pour ça. Ce que nous voulons ? Des témoignages, des expériences, des paroles d'un voyageur qui nous raconte un bout de son aventure.
-  </p><br />
-<hr/>
-
-
   <%= simple_form_for(@testimonial) do |f| %>
     <%= f.error_notification %>
 
@@ -48,12 +22,9 @@
     <div class="form-actions">
       <%= f.button :submit %>
     </div>
-
-
-
-
   <% end %>
 </div>
+
 
 <script>
 

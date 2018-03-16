@@ -1,1 +1,55 @@
+
+<div class="container" style="width: 60%;font-size: 120%">
+   <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal">
+    Présentation
+  </button>
+<hr/>
+
 <%= render 'form', testimonial: @testimonial %>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Pourquoi écrire un témoignage</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_format("
+          Bonjour #{current_member.first_name},
+
+
+          Nous nous réjouissons de votre venue sur cette page. Votre témoignage sera un partage d'expérience précieux. Un bout de votre vie que nous sommes impatients de découvrir.
+
+
+          Ici, nous aimons les gens, les échanges chaleureux, les communications authentiques et les formulations simples. Ce que vous allez écrire ... et bien des membres vont le lire ! Peut-être que ce que vous avez vécu, ce que vous avez découvert pourrait parler à ces personnes, les toucher, leur donner envie d'essayer quelque chose de nouveau.
+
+
+          Sur Bilobaba, nous adorons partager les expériences. Nous pouvons le faire par ces témoignages. Des petites lettres écrites par un ami pour un ami ... lu par de possibles futurs amis.
+
+
+          Si vous n'avez pas au moins 15 minutes à consacrer à l'écriture de ce texte, alors vous pouvez revenir plus tard parce que nous ne sommes pas pressés. Nous voulons surtout lire un texte de qualité. Pas dans le sens littéraire du terme. Mais dans le sens authentique, vrai, de coeur à coeur.
+
+
+          Si le lecteur ne passe pas au moins 5 minutes à vous lire, il ne sera pas connecté émotionnellement à votre histoire. Il pourra comprendre mais pas ressentir. Nous voulons des liens forts. Nous voulons donner l'espace pour de longs textes.
+
+
+          Surtout, nous ne voulons pas de conseils parce qu'il y a déjà des sites très biens pour ça. Ce que nous voulons ? Des témoignages, des expériences, des paroles d'un voyageur qui nous raconte un bout de son aventure.
+        ") %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  <% if !cookies[VIEWED_NEW_TESTIMONIAL] %>
+    $(window).load(function(){
+       $('#myModal').modal('show');
+        });
+  <% end %>
+</script>
