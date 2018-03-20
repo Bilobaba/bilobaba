@@ -32,3 +32,4 @@ VIEW_DATA_MEMBERS = 'members'
 
 VIEWED_TESTIMONIALS = 'viewed testimonials/index'
 VIEWED_NEW_TESTIMONIAL = 'viewed testimonials/new'
+VIEWED_ANY = 'viewed any page'
