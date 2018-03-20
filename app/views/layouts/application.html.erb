@@ -55,6 +55,15 @@
       <%= render '/layouts/footer' %>
     <% end %>
 
+
+    <%= render "/pages/info_welcome" %>
+    <!-- Popup showed if the first time -->
+    <% if !cookies[VIEWED_ANY] %>
+      <script>
+         $('#modal_info').modal('show');
+      </script>
+    <% end %>
+
     <!-- load the google map API, only once (see data-turbolinks-eval = false) -->
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'] + '&libraries=places&callback=initAutocomplete', async: true, defer: true, 'data-turbolinks-eval': false %>
     <%= javascript_include_tag 'map.js' %>

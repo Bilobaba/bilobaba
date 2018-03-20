@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   end
 
   def contact
-    @h1_title = 'Donnez-nous votre avis'
+    @h1_title = "Contactez l'équipe du site"
   end
 
   def send_mail_contact
