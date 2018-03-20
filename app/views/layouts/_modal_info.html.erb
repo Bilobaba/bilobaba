@@ -1,0 +1,18 @@
+<!-- Popup easy to use-->
+<div class="modal fade" id="modal_info" tabindex="-1" role="dialog" aria-labelledby="EventAttendeesLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="EventDescriptionLabel"><%= simple_format(title) %></h4>
+      </div>
+      <div class="modal-body">
+        <div id="test">
+            <%= simple_format(content) %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
