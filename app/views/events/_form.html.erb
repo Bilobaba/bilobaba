@@ -7,12 +7,12 @@
     <div class="form-inputs">
       <%= f.input :title, label: 'Titre (obligatoire)', required: true %>
       <%= f.input :description, as: :text, class: "form-control string optional", input_html: {rows: 5}, label: 'Description (obligatoire)' , required: true %> </br>
+      <%= f.input :teacher_id, :collection => $teachers, :include_blank => "(Choisir si ce n'est pas vous qui donnez le cours)", :label_method => :pseudo, :label => "Animateur (si ce n'est pas vous)", selected: current_member %>
+      <br />
+      <br />
       <% if @event.cloudy.present? %>
         <%= cl_image_tag(@event.cloudy.identifier, width: 400, height: 120, crop: :fill ) %>
       <% end %>
-      <% unless current_member.has_role?(:professional) %>
-        <%= f.input :teacher_id, :collection => $teachers, :include_blank => "(Si vous organizez pour un professionel)", :label_method => :pseudo, :label => 'Animateur (ça peut être quelqu\'un d\'autre)', selected: current_member %>
-      <% end%>
       <!-- upload the image but not recorded directly : association with cloudy record -->
       <% if @event.cloudy.present? %>
         <%= f.input :image, label: 'Image (obligatoire)' %>
