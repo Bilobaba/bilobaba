@@ -14,15 +14,16 @@
 <br />
 <hr style="border: 1px solid darkolivegreen; width: 80%; text-align: center; margin: auto"/>
 <br />
-<h4>
+<br />
+<div style="line-height: 2; font-size: 130%; width: 90%; margin: auto; ">
   <%= @testimonial.body.html_safe %>
-</h4>
+</div>
 <br />
 <br />
 
 <div style="display: flex;">
   <div style = "font-size: 16px">
-  Thèmes évoqués :
+  Thèmes évoqués : &nbsp
   </div>
   <div class="tags_css">
       <%= raw @testimonial.topic_list.sort.map { |t|  link_to t, topic_path(t), title: "les témoignages portant sur #{t}" }.join(' ') %>
@@ -31,7 +32,7 @@
 <br />
 <div style="display: flex;">
   <div style = "font-size: 16px">
-  Membres concernés:
+  Membres concernés :&nbsp
   </div>
   <div class="tags_css ">
       <% @testimonial.member_list.each do |t| %>
