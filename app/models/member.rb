@@ -46,8 +46,8 @@ class Member < ApplicationRecord
   has_many :recommend_event_recommends, class_name: :RecommendEvent, foreign_key: :member_id
   has_many :recommend_events , through: :recommend_event_recommends, source: :event
 
-  has_many :comments
-  has_many :testimonials
+  has_many :comments,  class_name: :Comment, foreign_key: :author_id
+  has_many :testimonials, class_name: :Testimonial, foreign_key: :author_id
 
   def next_events_organize
     organize_events

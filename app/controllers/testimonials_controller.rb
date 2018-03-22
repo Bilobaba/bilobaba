@@ -40,7 +40,7 @@ class TestimonialsController < ApplicationController
   # POST /testimonials.json
   def create
     @testimonial = Testimonial.new(testimonial_params)
-    @testimonial.member = current_member
+    @testimonial.author = current_member
     respond_to do |format|
       if @testimonial.save
         format.html { redirect_to @testimonial, notice: 'Testimonial was successfully created.' }
@@ -88,7 +88,7 @@ class TestimonialsController < ApplicationController
     end
 
     def require_permission
-      redirect_to permission_path unless (@testimonial.member == current_member ||
+      redirect_to permission_path unless (@testimonial.author == current_member ||
             current_member.has_role?(ROLE_ADMIN))
     end
 

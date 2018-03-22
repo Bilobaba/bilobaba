@@ -7,7 +7,7 @@ class Testimonial < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  belongs_to :member
+  belongs_to :author, class_name: 'Member'
 
   has_many :comments, as: :commentable
 
@@ -24,23 +24,23 @@ class Testimonial < ApplicationRecord
   end
 
   def member_name
-    self.member.name
+    self.author.name
   end
 
   def member_first_name
-    self.member.first_name
+    self.author.first_name
   end
 
   def member_avatar
-    return self.member.avatar.url
+    return self.author.avatar.url
   end
 
   def member_pseudo
-    return self.member.pseudo
+    return self.author.pseudo
   end
 
   def member_bio
-    return self.member.bio
+    return self.author.bio
   end
 
   def url

@@ -8,7 +8,7 @@
   <%= @testimonial.title %>
 </h2>
 <h4 style="text-align: center;">
-  par <%= link_to @testimonial.member.pseudo, @testimonial.member %>
+  par <%= link_to @testimonial.author.pseudo, @testimonial.author %>
 </h4>
 <br />
 <br />
@@ -57,7 +57,7 @@
 </p> -->
 
 <br />
-<% if current_member && @testimonial.member %>
+<% if current_member && @testimonial.author %>
   <%= link_to 'Modifier', edit_testimonial_path(@testimonial), class: "btn btn-default" %>
   <%= link_to 'Supprimer', @testimonial, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-default"  %>
 <% end %>
