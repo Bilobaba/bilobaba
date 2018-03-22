@@ -10,7 +10,7 @@
 
 <%= render "info_new" %>
 <!-- Popup showed if the first time -->
-<% if !cookies[VIEWED_NEW_TESTIMONIAL] %>
+<% if !cookies.permanent[VIEWED_NEW_TESTIMONIAL] %>
   <script>
      $('#modal_info').modal('show');
   </script>

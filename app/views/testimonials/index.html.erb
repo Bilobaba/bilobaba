@@ -50,7 +50,7 @@
 
 <%= render "info_index" %>
 <!-- Popup showed if the first time -->
-<% if !cookies[VIEWED_TESTIMONIALS] %>
+<% if !cookies.permanent[VIEWED_TESTIMONIALS] %>
   <script>
      $('#modal_info').modal('show');
   </script>

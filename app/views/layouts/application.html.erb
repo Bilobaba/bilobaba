@@ -58,7 +58,7 @@
 
     <%= render "/pages/info_welcome" %>
     <!-- Popup showed if the first time -->
-    <% if !cookies[VIEWED_ANY] %>
+    <% if !cookies.permanent[VIEWED_ANY] %>
       <script>
          $('#modal_info').modal('show');
       </script>
