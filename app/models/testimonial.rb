@@ -9,6 +9,9 @@ class Testimonial < ApplicationRecord
 
   belongs_to :member
 
+  has_many :comments, as: :commentable
+
+
   scope :published, -> { where(published: true) }
 
   def self.showed
