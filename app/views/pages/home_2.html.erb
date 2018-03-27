@@ -33,7 +33,13 @@
       </div>
     </div>
     <div data-collapse="medium" data-animation="over-right" data-duration="400" data-doc-height="1" class="navbar w-nav">
-      <div class="w-container"><a href="index.html" class="logo-block w-nav-brand"><img src="images/Logo.jpg" srcset="images/Logo-p-500x117.jpeg 500w, images/Logo.jpg 800w" sizes="(max-width: 479px) 93vw, (max-width: 767px) 171.109375px, (max-width: 991px) 192.5px, 235.28125px" class="image-logo"></a>
+      <div class="w-container"><a href="index.html" class="logo-block w-nav-brand">
+
+        <%= image_set_tag "webflow/Logo.jpg", {"webflow/Logo-p-500x117.jpeg" => "500w", "webflow/Logo.jpg" => "800w"},
+          sizes: "(max-width: 479px) 93vw, (max-width: 767px) 171.109375px, (max-width: 991px) 192.5px, 235.28125px",
+          class: "image-logo" %>
+
+      </a>
         <nav role="navigation" class="nav-menu w-nav-menu">
           <div data-delay="0" data-hover="1" class="dropdown w-dropdown">
             <div class="nav-link dropdown-toggle w-dropdown-toggle">
