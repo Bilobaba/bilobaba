@@ -1,29 +1,51 @@
 <footer>
-    <div class="container footer">
-        <nav>
-            <ul>
-                <li>
-                    <%= link_to 'A propos', home_path %>
-                </li>
-                <li>
-                    <%= link_to 'C.G.U.', cgu_path %>
-                </li>
-                <li>
-                    <%= link_to 'Politique de confidentialité', confidentiality_path %>
-                </li>
-                <li>
-                    <%= link_to 'Notre équipe', team_path %>
-                </li>
-                <li>
-                    <%= link_to 'Dernière actu', news_path %>
-                </li>
-               <li>
-                    <%= link_to 'Contactez-nous', contact_path %>
-                </li>
-            </ul>
-        </nav>
-        <div id="copyright">
-            © 2017 - search engine by <%= link_to "Algolia", "https://www.algolia.com/" %> - Made with lot of ❤️ at <%= link_to "THP", "https://thehackingproject.herokuapp.com/" %>
+  <div class="footer">
+    <div class="container w-container">
+      <div class="footer-row w-row">
+        <div class="footer-column w-col w-col-3">
+          <div class="footer-title">Contact us</div>
+          <a href="#" class="footer-contact-block w-inline-block">
+            <div class="footer-contact-title icon"></div>
+            <div class="footer-contact-title">+1 303 4020 43</div>
+          </a>
+          <a href="#" class="footer-contact-block w-inline-block">
+            <div class="footer-contact-title icon"></div>
+            <div class="footer-contact-title">+1 303 4020 42</div>
+          </a>
+          <a href="#" class="footer-contact-block w-inline-block">
+            <div class="footer-contact-title icon"></div>
+            <div class="footer-contact-title">info@university.com</div>
+          </a>
+          <a href="http://www.facebook.com" target="_blank" class="footer-social-button w-inline-block">
+            <%= image_tag "webflow/Icon-facebook_2.png", class: "footer-social-icon" %>
+          </a>
+          <a href="http://www.twitter.com" target="_blank" class="footer-social-button w-inline-block">
+            <%= image_tag "webflow/Icon-twitter_1.png", class: "footer-social-icon" %>
+          </a>
+          <a href="http://www.linkedin.com" target="_blank" class="footer-social-button w-inline-block">
+            <%= image_tag "webflow/Icon-linkedin.png", class: "footer-social-icon" %>
+          </a>
         </div>
+        <div class="footer-column last w-col w-col-3">
+          <div class="footer-title">About us</div><a href="about-us.html" class="footer-list-link">About us</a><a href="404.html" class="footer-list-link">Our Teachers</a><a href="faqs.html" class="footer-list-link">FAQs</a><a href="contact-us.html" class="footer-list-link">Contact us</a><a href="404.html" class="footer-list-link">Helpdesk</a></div>
+        <div class="footer-column w-col w-col-3">
+          <div class="footer-title">USEFUL LINKS</div><a href="faqs.html" class="footer-list-link">FAQs</a><a href="contact-us.html" class="footer-list-link">Contact us</a><a href="404.html" class="footer-list-link">Helpdesk</a><a href="404.html" class="footer-list-link">Our Teachers</a><a href="about-us.html" class="footer-list-link">About us</a></div>
+        <div class="footer-column w-col w-col-3">
+          <div class="footer-title">FEATURED COURSES</div>
+          <div class="w-dyn-list">
+            <div class="w-dyn-items">
+              <div class="w-dyn-item"><a class="footer-list-link"></a></div>
+            </div>
+            <div class="w-dyn-empty">
+              <p>No items found.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-footer-block">
+        <div class="bottom-footer-text">Copyright © University - Images used for demonstration purpose only (<a href="404.html" class="footer-link">Licenses</a>)</div>
+        <div class="bottom-footer-text right">Template design by <a target="_blank" href="http://studiocorvus.com/" class="footer-link">Studio Corvus</a> - <a target="_blank" href="https://webflow.com/templates/designers/rowan-hartsuiker" class="footer-link">View all templates</a></div>
+      </div>
     </div>
+  </div>
 </footer>
