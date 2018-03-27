@@ -44,5 +44,7 @@ class PagesController < ApplicationController
 
   def test
   end
+  def home_2
+  end
 
 end

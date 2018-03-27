@@ -35,6 +35,10 @@
     <%= javascript_include_tag "jquery.calendars.picker.js" %>
     <%= javascript_include_tag "jquery.datepick-fr.js" %>
 
+    <%= stylesheet_link_tag "normalize.css" %>
+    <%= stylesheet_link_tag "webflow.css" %>
+    <%= stylesheet_link_tag "duys-trendy-project.webflow.css" %>
+
   </head>
 
   <% if current_page?(home_path) %>
@@ -67,5 +71,6 @@
     <!-- load the google map API, only once (see data-turbolinks-eval = false) -->
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'] + '&libraries=places&callback=initAutocomplete', async: true, defer: true, 'data-turbolinks-eval': false %>
     <%= javascript_include_tag 'map.js' %>
+    <%= javascript_include_tag 'webflow.js' %>
   </body>
 </html>
