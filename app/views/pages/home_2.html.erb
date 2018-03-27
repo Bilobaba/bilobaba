@@ -13,61 +13,6 @@
   <link href="images/Webclip.png" rel="apple-touch-icon">
 </head>
 <body>
-  <div class="header-wrapper">
-    <div data-collapse="none" data-animation="default" data-duration="400" class="top-navbar w-nav">
-      <div class="w-container">
-        <nav role="navigation" class="top-nav-menu w-nav-menu">
-          <a href="#" class="top-nav-link w-inline-block">
-            <div class="top-nav-title icon"></div>
-            <div class="top-nav-title">+1 303 4020 43</div>
-          </a>
-          <a href="#" class="top-nav-link w-inline-block">
-            <div class="top-nav-title icon"></div>
-            <div class="top-nav-title">info@university.com</div>
-          </a>
-        </nav>
-        <div class="top-bar-text w-hidden-small w-hidden-tiny">Weekly new courses!</div><a href="our-courses/courses-featured.html" class="top-bar-link w-hidden-small w-hidden-tiny">View Featured Courses →</a>
-        <div class="w-nav-button">
-          <div class="w-icon-nav-menu"></div>
-        </div>
-      </div>
-    </div>
-    <div data-collapse="medium" data-animation="over-right" data-duration="400" data-doc-height="1" class="navbar w-nav">
-      <div class="w-container"><a href="index.html" class="logo-block w-nav-brand">
-
-        <%= image_set_tag "webflow/Logo.jpg", {"webflow/Logo-p-500x117.jpeg" => "500w", "webflow/Logo.jpg" => "800w"},
-          sizes: "(max-width: 479px) 93vw, (max-width: 767px) 171.109375px, (max-width: 991px) 192.5px, 235.28125px",
-          class: "image-logo" %>
-
-      </a>
-        <nav role="navigation" class="nav-menu w-nav-menu">
-          <div data-delay="0" data-hover="1" class="dropdown w-dropdown">
-            <div class="nav-link dropdown-toggle w-dropdown-toggle">
-              <div>Homepage</div>
-              <div class="dropdown-icon w-icon-dropdown-toggle"></div>
-            </div>
-            <nav class="dropdown-list w-dropdown-list"><a href="index.html" class="dropdown-link w-dropdown-link">Homepage #1</a><a href="home-2.html" class="dropdown-link w-dropdown-link">Homepage #2</a><a href="home-3.html" class="dropdown-link w-dropdown-link">Homepage #3</a></nav>
-          </div>
-          <div data-delay="0" data-hover="1" class="dropdown w-dropdown">
-            <div class="nav-link dropdown-toggle w-dropdown-toggle">
-              <div>Courses</div>
-              <div class="dropdown-icon w-icon-dropdown-toggle"></div>
-            </div>
-            <nav class="dropdown-list w-dropdown-list"><a href="our-courses/categories.html" class="dropdown-link w-dropdown-link">Categories</a><a href="our-courses/courses-listview.html" class="dropdown-link w-dropdown-link">Courses (List View)</a><a href="our-courses/courses-grid-view.html" class="dropdown-link w-dropdown-link">Courses (Grid View)</a><a href="our-courses/courses-featured.html" class="dropdown-link w-dropdown-link">Featured Courses</a></nav>
-          </div>
-          <div data-delay="0" data-hover="1" class="dropdown w-dropdown">
-            <div class="nav-link dropdown-toggle w-dropdown-toggle">
-              <div>Information</div>
-              <div class="dropdown-icon w-icon-dropdown-toggle"></div>
-            </div>
-            <nav class="dropdown-list w-dropdown-list"><a href="about-us.html" class="dropdown-link w-dropdown-link">About us</a><a href="teachers.html" class="dropdown-link w-dropdown-link">Our Teachers</a><a href="pricing.html" class="dropdown-link w-dropdown-link">Pricing Information</a></nav>
-          </div><a href="events.html" class="nav-link w-nav-link">Events</a><a href="blog.html" class="nav-link w-nav-link">Blog</a><a href="faqs.html" class="nav-link w-nav-link">FAQs</a><a href="contact-us.html" class="nav-link w-nav-link">Contact us</a></nav>
-        <div class="menu-button w-nav-button">
-          <div class="w-icon-nav-menu"></div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="hero-section">
     <div class="hero-content-overlay-block w-hidden-small w-hidden-tiny">
       <div class="container w-container">
@@ -350,7 +295,17 @@
           <a href="#" class="footer-contact-block w-inline-block">
             <div class="footer-contact-title icon"></div>
             <div class="footer-contact-title">info@university.com</div>
-          </a><a href="http://www.facebook.com" target="_blank" class="footer-social-button w-inline-block"><img src="images/Icon-facebook_2.png" class="footer-social-icon"></a><a href="http://www.twitter.com" target="_blank" class="footer-social-button w-inline-block"><img src="images/Icon-twitter_1.png" class="footer-social-icon"></a><a href="http://www.linkedin.com" target="_blank" class="footer-social-button w-inline-block"><img src="images/Icon-linkedin.png" class="footer-social-icon"></a></div>
+          </a>
+          <a href="http://www.facebook.com" target="_blank" class="footer-social-button w-inline-block">
+            <%= image_tag "webflow/Icon-facebook_2.png", class: "footer-social-icon" %>
+          </a>
+          <a href="http://www.twitter.com" target="_blank" class="footer-social-button w-inline-block">
+            <%= image_tag "webflow/Icon-twitter_1.png", class: "footer-social-icon" %>
+          </a>
+          <a href="http://www.linkedin.com" target="_blank" class="footer-social-button w-inline-block">
+            <%= image_tag "webflow/Icon-linkedin.png", class: "footer-social-icon" %>
+          </a>
+        </div>
         <div class="footer-column last w-col w-col-3">
           <div class="footer-title">About us</div><a href="about-us.html" class="footer-list-link">About us</a><a href="404.html" class="footer-list-link">Our Teachers</a><a href="faqs.html" class="footer-list-link">FAQs</a><a href="contact-us.html" class="footer-list-link">Contact us</a><a href="404.html" class="footer-list-link">Helpdesk</a></div>
         <div class="footer-column w-col w-col-3">
@@ -374,5 +329,6 @@
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" intergrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <%= javascript_include_tag "webflow.js" %>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+</body>
+</html>
