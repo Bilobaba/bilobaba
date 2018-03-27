@@ -22,6 +22,7 @@ module Bilobaba
     config.i18n.default_locale = :fr
 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.assets.paths << Rails.root.join("app", "assets", "webflow")
 
   end
 end
