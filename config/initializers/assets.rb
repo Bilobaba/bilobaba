@@ -26,4 +26,4 @@ Rails.application.config.assets.precompile += %w( normalize.css )
 Rails.application.config.assets.precompile += %w( webflow.css )
 Rails.application.config.assets.precompile += %w( duys-trendy-project.webflow.scss )
 Rails.application.config.assets.precompile += %w( webflow.js )
-
+Rails.application.config.assets.precompile += %w( fontawesome-webfont.ttf )

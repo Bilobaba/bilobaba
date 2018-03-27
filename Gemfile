@@ -97,6 +97,8 @@ gem 'bootstrap-tagsinput-rails'
 
 gem 'twitter-typeahead-rails'
 
+gem 'font-awesome-rails'
+
 # Stripe
 # gem 'stripe'
 
