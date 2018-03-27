@@ -24,6 +24,6 @@ Rails.application.config.assets.precompile += %w( pricing.css )
 Rails.application.config.assets.precompile += %w( testimonial.css )
 Rails.application.config.assets.precompile += %w( normalize.css )
 Rails.application.config.assets.precompile += %w( webflow.css )
-Rails.application.config.assets.precompile += %w( duys-trendy-project.webflow.css )
+Rails.application.config.assets.precompile += %w( duys-trendy-project.webflow.scss )
 Rails.application.config.assets.precompile += %w( webflow.js )
 
