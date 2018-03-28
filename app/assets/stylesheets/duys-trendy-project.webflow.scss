@@ -70,18 +70,18 @@ blockquote {
 }
 
 .hero-slide {
-  background-image: url('../images/Photo-6.jpg');
+  background-image: image-url('webflow/Photo-6.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
 
 .hero-slide._2 {
-  background-image: url('../images/Photo-7.jpg');
+  background-image: image-url('webflow/Photo-7.jpg');
   background-size: cover;
 }
 
 .hero-slide._3 {
-  background-image: url('../images/Photo-1-2.jpg');
+  background-image: image-url('webflow/Photo-1-2.jpg');
   background-size: cover;
 }
 
@@ -546,7 +546,7 @@ blockquote {
   height: 180px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  background-image: url('../images/example-bg.png');
+  background-image: image-url('webflow/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -671,7 +671,7 @@ blockquote {
 }
 
 .image-section {
-  background-image: url('../images/Photo-7.jpg');
+  background-image: image-url('webflow/Photo-7.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -822,7 +822,7 @@ blockquote {
   width: 300px;
   height: 200px;
   border-radius: 3px 0px 0px 3px;
-  background-image: url('../images/example-bg.png');
+  background-image: image-url('webflow/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -898,7 +898,7 @@ blockquote {
   height: 220px;
   margin-bottom: 30px;
   border-radius: 4px;
-  background-image: url('../images/Photo-9_1.jpg');
+  background-image: image-url('webflow/Photo-9_1.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1086,44 +1086,44 @@ blockquote {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('../images/Photo-7.jpg');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('../images/Photo-7.jpg');
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), image-url('webflow/Photo-7.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), image-url('webflow/Photo-7.jpg');
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
 }
 
 .page-header {
-  background-image: url('../images/Photo-3.jpg');
+  background-image: image-url('webflow/Photo-3.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
 
 .page-header.courses-grid {
-  background-image: url('../images/Phoot-6_1.jpg');
+  background-image: image-url('webflow/Phoot-6_1.jpg');
   background-size: cover;
 }
 
 .page-header.featured-courses {
-  background-image: url('../images/Photo-8.jpg');
+  background-image: image-url('webflow/Photo-8.jpg');
   background-position: 0% 31%;
   background-size: cover;
 }
 
 .page-header.events {
-  background-image: url('../images/Photo-9_1.jpg');
+  background-image: image-url('webflow/Photo-9_1.jpg');
   background-position: 0% 42%;
 }
 
 .page-header.teacher {
-  background-image: url('../images/Phoot-6.jpg');
+  background-image: image-url('webflow/Phoot-6.jpg');
 }
 
 .page-header.teachers {
-  background-image: url('../images/Photo-4.jpg');
+  background-image: image-url('webflow/Photo-4.jpg');
 }
 
 .page-header.pricing {
-  background-image: url('../images/Photo-5.jpg');
+  background-image: image-url('webflow/Photo-5.jpg');
 }
 
 .page-header-overlay {
@@ -1222,7 +1222,7 @@ blockquote {
   width: 100%;
   height: 355px;
   border-radius: 4px;
-  background-image: url('../images/Photo-9.jpg');
+  background-image: image-url('webflow/Photo-9.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1428,7 +1428,7 @@ blockquote {
 .course-image-block {
   width: 100%;
   height: 220px;
-  background-image: url('../images/Photo-4_1.jpg');
+  background-image: image-url('webflow/Photo-4_1.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1527,8 +1527,8 @@ blockquote {
 .empty-state.empty-courses {
   height: 310px;
   padding-top: 120px;
-  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .8), #fff 58%), url('../images/No-Courses.jpg');
-  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .8), #fff 58%), url('../images/No-Courses.jpg');
+  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .8), #fff 58%), image-url('webflow/No-Courses.jpg');
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .8), #fff 58%), image-url('webflow/No-Courses.jpg');
   background-position: 0px 0px, 50% 0px;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
@@ -1540,7 +1540,7 @@ blockquote {
   margin-right: 50px;
   float: left;
   border-radius: 4px;
-  background-image: url('../images/example-bg.png');
+  background-image: image-url('webflow/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1612,7 +1612,7 @@ blockquote {
   display: block;
   width: 100%;
   height: 200px;
-  background-image: url('../images/example-bg.png');
+  background-image: image-url('webflow/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1824,7 +1824,7 @@ blockquote {
   height: 200px;
   margin-bottom: 17px;
   border-radius: 4px;
-  background-image: url('../images/example-bg.png');
+  background-image: image-url('webflow/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
   box-shadow: 3px 3px 23px 0 rgba(0, 0, 0, .2);
@@ -2412,8 +2412,8 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
     padding-top: 180px;
     padding-right: 30px;
     padding-left: 30px;
-    background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/Photo-4_1.jpg');
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/Photo-4_1.jpg');
+    background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), image-url('webflow/Photo-4_1.jpg');
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), image-url('webflow/Photo-4_1.jpg');
     background-position: 0px 0px, 50% 50%;
     background-size: auto, cover;
   }
@@ -3241,7 +3241,7 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
 
 @font-face {
   font-family: 'Fontawesome webfont';
-  src: url('../fonts/fontawesome-webfont.ttf') format('truetype');
+  src: asset-url("fontawesome-webfont.ttf") format('truetype');
   font-weight: 400;
   font-style: normal;
 }
