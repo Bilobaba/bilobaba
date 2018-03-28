@@ -1,0 +1,4196 @@
+/* line 1, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+body {
+  height: 100%;
+  background-color: #000;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* line 10, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+h4 {
+  margin-top: 10px;
+  margin-bottom: 19px;
+  font-size: 21px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+/* line 18, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+p {
+  margin-bottom: 20px;
+}
+
+/* line 22, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+a {
+  color: #4f65be;
+  text-decoration: none;
+}
+
+/* line 27, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* line 32, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+ul {
+  margin-top: 0px;
+  margin-bottom: 17px;
+  padding-left: 17px;
+}
+
+/* line 38, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+li {
+  margin-bottom: 6px;
+}
+
+/* line 42, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+blockquote {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 0px 20px 0px 30px;
+  border-left: 5px solid #4f65be;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+/* line 51, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 770px;
+}
+
+/* line 58, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-section.smaller {
+  height: auto;
+  min-height: 0px;
+}
+
+/* line 63, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slider {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 68, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slider.auto-height {
+  height: auto;
+}
+
+/* line 72, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slide {
+  background-image: url(/assets/webflow/Photo-6-d79f4ca3a75956c0b0c7cc30deb0df8476fbe1d394b8515d492846c03860d62f.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* line 78, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slide._2 {
+  background-image: url(/assets/webflow/Photo-7-2930fb4fd0cf3e03794f47ebf6beb22e12d5676a31fc9217923dab91b1cfbe71.jpg);
+  background-size: cover;
+}
+
+/* line 83, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slide._3 {
+  background-image: url(/assets/webflow/Photo-1-2-7047f9d889774c6433a0e9ec28c916a8b385f26fe04638f93bee0add3b15274b.jpg);
+  background-size: cover;
+}
+
+/* line 88, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slide-overlay {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* line 102, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slide-overlay.padding {
+  padding-top: 270px;
+  padding-bottom: 120px;
+}
+
+/* line 107, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.container {
+  position: relative;
+}
+
+/* line 111, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.container.hero-slide-container {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+/* line 118, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.container.blocks-row-container {
+  margin-top: 50px;
+}
+
+/* line 122, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.container.centered {
+  text-align: center;
+}
+
+/* line 126, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.container.course-header {
+  padding-left: 300px;
+}
+
+/* line 130, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slide-content-block {
+  position: relative;
+  z-index: 40;
+  width: 630px;
+}
+
+/* line 136, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slide-title {
+  color: #fff;
+  font-size: 60px;
+  line-height: 53px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* line 144, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slide-intro-title {
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+/* line 150, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button {
+  margin-top: 20px;
+  padding-right: 22px;
+  padding-left: 22px;
+  border-radius: 3px;
+  background-color: #4f65be;
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  font-size: 12px;
+  line-height: 21px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* line 164, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button:hover {
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* line 170, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.slider-button {
+  margin-top: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+  border-radius: 3px;
+  background-color: #4f65be;
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  font-size: 13px;
+  line-height: 27px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* line 185, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.slider-button:hover {
+  background-color: #000;
+}
+
+/* line 189, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.submit-button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 4px;
+  background-color: #4f65be;
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+}
+
+/* line 199, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.submit-button:hover {
+  background-color: #000;
+}
+
+/* line 203, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.events-learn-more {
+  margin-top: 10px;
+  font-size: 10px;
+  line-height: 17px;
+}
+
+/* line 209, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.pricing-button {
+  display: block;
+  width: 100%;
+  margin-top: 0px;
+}
+
+/* line 215, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.take-course {
+  width: 100%;
+  margin-top: 0px;
+  text-align: center;
+}
+
+/* line 221, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.teacher-view-more {
+  margin-top: 15px;
+  padding-right: 16px;
+  padding-left: 16px;
+  font-size: 10px;
+  line-height: 11px;
+}
+
+/* line 229, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.blog-read-more {
+  margin-top: 20px;
+}
+
+/* line 233, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.white {
+  background-color: #fff;
+  -webkit-transition: background-color 200ms ease, color 200ms ease;
+  transition: background-color 200ms ease, color 200ms ease;
+  color: #000;
+}
+
+/* line 240, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.white:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* line 245, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.button.text-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 9px 14px;
+  color: #fff;
+  font-size: 9px;
+  line-height: 14px;
+}
+
+/* line 254, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-content-overlay-block {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 20;
+  padding-bottom: 90px;
+}
+
+/* line 263, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-overlay-block {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 148px;
+  padding-top: 43px;
+  padding-right: 25px;
+  padding-left: 125px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 4px 0 13px 0 rgba(0, 0, 0, 0.13);
+  -webkit-transition: box-shadow 200ms ease;
+  transition: box-shadow 200ms ease;
+  color: #4f65be;
+  text-decoration: none;
+}
+
+/* line 280, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-overlay-block:hover {
+  box-shadow: 4px 4px 23px 0 rgba(0, 0, 0, 0.3);
+  color: #000;
+  text-decoration: none;
+}
+
+/* line 286, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-overlay-block-title {
+  color: #b9b9b9;
+  font-size: 16px;
+  line-height: 21px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* line 294, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-overlay-number {
+  position: absolute;
+  left: 30px;
+  top: 39px;
+  display: inline-block;
+  font-size: 78px;
+  line-height: 68px;
+}
+
+/* line 303, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slider-button {
+  width: 80px;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-transition: background-color 200ms ease, width 200ms ease;
+  transition: background-color 200ms ease, width 200ms ease;
+  font-size: 15px;
+}
+
+/* line 312, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.hero-slider-button:hover {
+  width: 100px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* line 317, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.header-wrapper {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  z-index: 1000;
+  box-shadow: 0 0 33px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* line 326, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.navbar {
+  background-color: #fff;
+}
+
+/* line 330, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.logo-block {
+  float: left;
+}
+
+/* line 334, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.logo-block:hover {
+  text-decoration: none;
+}
+
+/* line 338, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.logo-block.right {
+  float: right;
+}
+
+/* line 342, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.nav-menu {
+  float: right;
+}
+
+/* line 346, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.nav-menu.left {
+  float: left;
+}
+
+/* line 350, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.nav-link {
+  margin-right: 0px;
+  margin-left: 20px;
+  padding: 36px 0px 33px;
+  border-bottom: 3px solid #fff;
+  -webkit-transition: border 200ms ease, color 200ms ease;
+  transition: border 200ms ease, color 200ms ease;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* line 363, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.nav-link:hover {
+  border-bottom-color: #4f65be;
+  color: #4f65be;
+  text-decoration: none;
+}
+
+/* line 369, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.nav-link.w--current {
+  border-bottom-color: #4f65be;
+  color: #5069cf;
+}
+
+/* line 374, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.nav-link.dropdown-toggle {
+  padding-right: 20px;
+}
+
+/* line 378, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.nav-link.dropdown-toggle.w--open {
+  border-bottom-color: #4f65be;
+}
+
+/* line 382, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.nav-link.left {
+  margin-right: 20px;
+  margin-left: 0px;
+}
+
+/* line 387, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.top-navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #4f65be;
+}
+
+/* line 393, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.top-nav-link {
+  margin-left: 20px;
+  color: #fff;
+}
+
+/* line 398, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.top-nav-link:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* line 402, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.top-nav-title {
+  display: inline-block;
+}
+
+/* line 406, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.top-nav-title.icon {
+  margin-right: 10px;
+  font-family: 'Fontawesome webfont', sans-serif;
+}
+
+/* line 411, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.slide-intro-paragraph {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 300;
+}
+
+/* line 419, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.link-block-paragraph {
+  color: #000;
+}
+
+/* line 423, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.dropdown-icon {
+  margin-right: 0px;
+  opacity: 0.33;
+  font-size: 12px;
+}
+
+/* line 429, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.slide-load-boar {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 11px;
+  background-color: rgba(0, 0, 0, 0.14);
+}
+
+/* line 439, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.slide-load-bar-fill {
+  width: 10px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* line 445, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: #fff;
+}
+
+/* line 451, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section.tint {
+  background-color: #f7f7fa;
+}
+
+/* line 455, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section.tint.stats {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* line 460, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section.categories {
+  padding-bottom: 50px;
+}
+
+/* line 464, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section-title-wrapper {
+  margin-bottom: 40px;
+}
+
+/* line 468, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section-title-wrapper.course {
+  margin-bottom: 20px;
+}
+
+/* line 472, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section-title-wrapper.column {
+  margin-bottom: 30px;
+}
+
+/* line 476, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: 400;
+}
+
+/* line 482, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section-title.subtitle {
+  margin-top: 10px;
+  color: #c2c2c2;
+  font-size: 19px;
+  line-height: 24px;
+}
+
+/* line 489, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section-title.subtitle.with-name {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* line 494, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section-title.sidebar {
+  margin-bottom: 20px;
+  color: #4f65be;
+  font-size: 20px;
+}
+
+/* line 500, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.section-title-divider {
+  width: 100px;
+  height: 1px;
+  margin-top: 20px;
+  background-color: #000;
+  opacity: 0.1;
+}
+
+/* line 508, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-block-wrapper {
+  overflow: hidden;
+  height: 320px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 2px 2px 16px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 200ms ease;
+  transition: box-shadow 200ms ease;
+}
+
+/* line 519, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-block-wrapper:hover {
+  box-shadow: 7px 7px 25px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* line 523, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-block-wrapper.auto-height {
+  height: auto;
+  background-color: #fff;
+}
+
+/* line 528, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-block-wrapper.home-first {
+  height: 330px;
+}
+
+/* line 532, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-block-wrapper.home-featured {
+  height: 330px;
+}
+
+/* line 536, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-block-wrapper.list-view {
+  position: relative;
+  height: 110px;
+  padding-left: 140px;
+}
+
+/* line 542, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-image-link-block {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 180px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: url(/images/webflow/example-bg.png);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* line 554, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-image-link-block.large {
+  height: 130px;
+}
+
+/* line 558, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-image-link-block.home-featured {
+  height: 180px;
+}
+
+/* line 562, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-image-link-block.list-view {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 140px;
+  height: 110px;
+}
+
+/* line 570, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-content-block {
+  padding: 33px 25px 25px;
+}
+
+/* line 574, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-content-block._2 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid #f1f1f1;
+}
+
+/* line 580, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-content-block.list-view {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* line 585, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-title-link {
+  display: block;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* line 593, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-title-link:hover {
+  color: #4f65be;
+  text-decoration: none;
+}
+
+/* line 598, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-title-link.with-summary {
+  margin-bottom: 17px;
+  font-size: 25px;
+  line-height: 23px;
+  font-weight: 400;
+}
+
+/* line 605, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-title-link.list-view {
+  font-size: 18px;
+}
+
+/* line 609, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-info-icon {
+  display: inline-block;
+  margin-right: 9px;
+  font-family: 'Fontawesome webfont', sans-serif;
+  color: #bebebe;
+}
+
+/* line 616, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-info-title {
+  display: inline-block;
+  margin-right: 9px;
+  color: #aaa;
+}
+
+/* line 622, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-info-title.list {
+  font-size: 13px;
+}
+
+/* line 626, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-overlay-block {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 10;
+  padding-top: 20px;
+  background-image: -webkit-linear-gradient(270deg, transparent, rgba(0, 0, 0, 0.5));
+  background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5));
+}
+
+/* line 637, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-overlay-title {
+  padding-top: 6px;
+  color: #fff;
+  font-size: 13px;
+}
+
+/* line 643, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-overlay-title.list-view {
+  display: inline-block;
+  margin-right: 15px;
+  padding-top: 0px;
+  float: none;
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* line 652, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-overlay-photo {
+  width: 45px;
+  height: 45px;
+  margin-right: 13px;
+  margin-bottom: -11px;
+  margin-left: 25px;
+  float: left;
+  border: 2px solid #fff;
+  border-radius: 6px;
+}
+
+/* line 663, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-overlay-photo.list-view-photo {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-top: -1px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  float: none;
+}
+
+/* line 673, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.image-section {
+  background-image: url(/assets/webflow/Photo-7-2930fb4fd0cf3e03794f47ebf6beb22e12d5676a31fc9217923dab91b1cfbe71.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* line 679, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.image-section-overlay {
+  width: 100%;
+  height: 100%;
+  padding-top: 110px;
+  padding-bottom: 110px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* line 687, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.image-section-content-block {
+  width: 470px;
+  float: left;
+}
+
+/* line 692, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.image-section-title {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  color: #fff;
+  font-size: 46px;
+  line-height: 43px;
+  text-transform: uppercase;
+}
+
+/* line 701, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.image-section-title._2 {
+  margin-bottom: 10px;
+  font-size: 25px;
+  line-height: 33px;
+  font-weight: 300;
+  text-transform: none;
+}
+
+/* line 709, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.image-section-contact-form {
+  overflow: hidden;
+  width: 350px;
+  margin-bottom: 0px;
+  float: right;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 7px 7px 30px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* line 719, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-form-block {
+  padding: 25px 40px;
+  border-bottom: 1px solid #e4e4e4;
+  background-color: #4f65be;
+  text-align: center;
+}
+
+/* line 726, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-form-block._2 {
+  border-bottom-width: 0px;
+  background-color: #fff;
+}
+
+/* line 731, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.field {
+  height: 45px;
+  margin-bottom: 5px;
+  border: 1px solid #e4e4e4;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-transition: border 200ms ease, background-color 200ms ease;
+  transition: border 200ms ease, background-color 200ms ease;
+  text-align: left;
+}
+
+/* line 742, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.field:hover {
+  border-color: #d1d1d1;
+  background-color: #fff;
+}
+
+/* line 747, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.field:focus {
+  border-color: #4f65be;
+  background-color: #fff;
+}
+
+/* line 752, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.field.area {
+  height: 135px;
+  padding-top: 12px;
+}
+
+/* line 757, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.field.register {
+  text-align: center;
+}
+
+/* line 761, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-form-title {
+  color: #fff;
+  font-size: 27px;
+  line-height: 28px;
+  font-weight: 300;
+}
+
+/* line 768, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.event-item {
+  position: relative;
+  height: 200px;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  padding-right: 40px;
+  padding-left: 350px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 200ms ease;
+  transition: box-shadow 200ms ease;
+}
+
+/* line 782, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.event-item:hover {
+  box-shadow: 6px 6px 31px 3px rgba(0, 0, 0, 0.29);
+}
+
+/* line 786, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.event-date-block {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  padding: 31px 21px 27px 31px;
+  border-right: 1px solid #dfdfdf;
+  background-image: -webkit-linear-gradient(270deg, transparent, rgba(0, 0, 0, 0.6));
+  background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.6));
+}
+
+/* line 797, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.event-date-title {
+  display: inline-block;
+  margin-right: 20px;
+  float: left;
+  color: #fff;
+  font-size: 54px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+/* line 807, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.event-date-title.month {
+  display: block;
+  float: none;
+  color: #fff;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+/* line 816, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.event-image-block {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+  width: 300px;
+  height: 200px;
+  border-radius: 3px 0px 0px 3px;
+  background-image: url(/images/webflow/example-bg.png);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* line 830, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.event-title-link {
+  display: block;
+  margin-bottom: 20px;
+  color: #000;
+  font-size: 24px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+/* line 839, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.event-title-link:hover {
+  color: #4f65be;
+  text-decoration: none;
+}
+
+/* line 844, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.event-info-wrapper {
+  margin-bottom: 10px;
+}
+
+/* line 848, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.event-info-title {
+  display: inline-block;
+  margin-right: 10px;
+  color: #888;
+}
+
+/* line 854, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.bottom-info-text {
+  margin-top: 30px;
+}
+
+/* line 858, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-summary {
+  margin-bottom: 0px;
+}
+
+/* line 862, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-title-link {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 17px;
+  line-height: 22px;
+}
+
+/* line 869, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-title-link.blog-page {
+  margin-bottom: 17px;
+  font-size: 20px;
+}
+
+/* line 874, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-title-link.blog-page:hover {
+  text-decoration: none;
+}
+
+/* line 878, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-info-block.blog-overview {
+  margin-bottom: 10px;
+}
+
+/* line 882, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-info-title {
+  display: inline-block;
+  margin-right: 10px;
+  color: #979797;
+  line-height: 19px;
+}
+
+/* line 889, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-item {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* line 895, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.about-image-block {
+  overflow: hidden;
+  width: 100%;
+  height: 220px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  background-image: url(/assets/webflow/Photo-9_1-145ccee119845ebae714e23aceac29d51f361b3ab84a67cfa636572ba77f7a9f.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* line 906, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.about-image-block.smaller {
+  height: 200px;
+}
+
+/* line 910, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.about-column-right {
+  padding-left: 40px;
+}
+
+/* line 914, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.news-column-left {
+  padding-right: 30px;
+}
+
+/* line 918, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.dropdown-list.w--open {
+  background-color: #fff;
+  box-shadow: 0 11px 13px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* line 923, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.dropdown-link {
+  -webkit-transition: background-color 200ms ease, color 200ms ease;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* line 928, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.dropdown-link:hover {
+  background-color: #4f65be;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* line 934, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.dropdown-link.w--current {
+  color: #4f65be;
+}
+
+/* line 938, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.dropdown-link.w--current:hover {
+  color: #fff;
+}
+
+/* line 942, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.featured-course-column-right {
+  padding-left: 0px;
+}
+
+/* line 946, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.featured-course-right {
+  width: 47%;
+  margin-left: 13px;
+  float: right;
+}
+
+/* line 952, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.success-bg {
+  padding-top: 28px;
+  padding-bottom: 10px;
+  background-color: #4f65be;
+  color: #fff;
+}
+
+/* line 959, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.error-bg {
+  margin-top: 0px;
+  padding: 24px 25px 2px;
+  background-color: #ecc2c2;
+  color: #e42424;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* line 968, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.error-bg.contact {
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+/* line 973, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.link-below-paragraph {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* line 978, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #000;
+  color: #7c7c7c;
+}
+
+/* line 985, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-column {
+  padding-right: 20px;
+}
+
+/* line 989, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.bottom-footer-block {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* line 995, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.bottom-footer-text {
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+}
+
+/* line 1001, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.bottom-footer-text.right {
+  float: right;
+}
+
+/* line 1005, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-link:hover {
+  color: #fff;
+}
+
+/* line 1009, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-title {
+  margin-bottom: 30px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* line 1017, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-list-link {
+  display: block;
+  margin-bottom: 8px;
+  color: grey;
+}
+
+/* line 1023, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-list-link:hover {
+  color: #fff;
+}
+
+/* line 1027, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-contact-block {
+  display: block;
+  margin-bottom: 11px;
+  color: #fff;
+}
+
+/* line 1033, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-contact-block:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* line 1037, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-contact-title {
+  display: inline-block;
+}
+
+/* line 1041, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-contact-title.icon {
+  margin-right: 10px;
+  font-family: 'Fontawesome webfont', sans-serif;
+}
+
+/* line 1046, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-social-button {
+  width: 30px;
+  height: 30px;
+  margin-top: 13px;
+  margin-right: 4px;
+  padding-top: 3px;
+  padding-left: 2px;
+  border-radius: 3px;
+  background-color: #4f65be;
+  -webkit-transition: background-color 200ms ease, border 200ms ease;
+  transition: background-color 200ms ease, border 200ms ease;
+  text-align: center;
+}
+
+/* line 1060, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-social-button:hover {
+  background-color: #5f616b;
+}
+
+/* line 1064, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.footer-social-icon {
+  width: 15px;
+  margin-right: 2px;
+}
+
+/* line 1069, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.featured-courses-row {
+  margin-bottom: 40px;
+}
+
+/* line 1073, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.upcoming-events-list-wrapper {
+  margin-bottom: 40px;
+}
+
+/* line 1077, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+._404-section {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/assets/webflow/Photo-7-2930fb4fd0cf3e03794f47ebf6beb22e12d5676a31fc9217923dab91b1cfbe71.jpg);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/assets/webflow/Photo-7-2930fb4fd0cf3e03794f47ebf6beb22e12d5676a31fc9217923dab91b1cfbe71.jpg);
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+}
+
+/* line 1095, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header {
+  background-image: url(/assets/webflow/Photo-3-53652785a320a8dd9b1f44648684f3f1ae0b16a543cd1a9a50a6701a993f825d.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* line 1101, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header.courses-grid {
+  background-image: url(/assets/webflow/Phoot-6_1-c04221613f152d3a18c4b5a1e0c2ad32d1fb24fbacaf9d7892eff7d561b900aa.jpg);
+  background-size: cover;
+}
+
+/* line 1106, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header.featured-courses {
+  background-image: url(/assets/webflow/Photo-8-5128040fbacce98dbe7b41c78b21ed17c3c9d467b81fa3f5253e68fbe1a72314.jpg);
+  background-position: 0% 31%;
+  background-size: cover;
+}
+
+/* line 1112, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header.events {
+  background-image: url(/assets/webflow/Photo-9_1-145ccee119845ebae714e23aceac29d51f361b3ab84a67cfa636572ba77f7a9f.jpg);
+  background-position: 0% 42%;
+}
+
+/* line 1117, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header.teacher {
+  background-image: url(/assets/webflow/Phoot-6-401c59e48615ab767db39b66c6978c7e3d801e6f1fd975b93646690050228d25.jpg);
+}
+
+/* line 1121, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header.teachers {
+  background-image: url(/assets/webflow/Photo-4-01bb4f8a73b202f1e54a0b60bc4a05e2bc07179a9b08dbb200a6ccdf69ebd5af.jpg);
+}
+
+/* line 1125, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header.pricing {
+  background-image: url(/assets/webflow/Photo-5-ddd543606042767f82cf6da48b22df44debc3008c32b4dedfcf7c4ff2d5ea57a.jpg);
+}
+
+/* line 1129, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header-overlay {
+  width: 100%;
+  height: 100%;
+  padding-top: 210px;
+  padding-bottom: 70px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 1137, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header-overlay.color {
+  background-color: rgba(48, 60, 105, 0.94);
+}
+
+/* line 1141, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header-overlay.color.pricing {
+  padding-bottom: 190px;
+}
+
+/* line 1145, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header-overlay.course {
+  padding-top: 230px;
+  padding-bottom: 80px;
+  background-color: rgba(28, 30, 37, 0.81);
+}
+
+/* line 1151, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header-overlay.pricing {
+  padding-bottom: 190px;
+}
+
+/* line 1155, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header-overlay.blog-post {
+  padding-top: 300px;
+  padding-bottom: 170px;
+  text-align: left;
+}
+
+/* line 1161, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #fff;
+  font-size: 53px;
+  font-weight: 600;
+}
+
+/* line 1169, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header-title.course-title {
+  margin-bottom: 10px;
+  font-size: 36px;
+  line-height: 41px;
+}
+
+/* line 1175, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header-title.teacher-name {
+  margin-top: 25px;
+}
+
+/* line 1179, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-header-title.blog-post-title {
+  font-size: 50px;
+  line-height: 48px;
+}
+
+/* line 1184, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-subtitle {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: #fff;
+  font-size: 23px;
+  line-height: 25px;
+  font-weight: 300;
+}
+
+/* line 1193, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-subtitle.category {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* line 1198, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-subtitle.teacher-subtitle {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* line 1203, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.page-subtitle.pricing {
+  margin-top: 20px;
+}
+
+/* line 1207, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.featured-label {
+  display: inline-block;
+  padding-right: 11px;
+  padding-left: 11px;
+  float: right;
+  border-bottom-left-radius: 3px;
+  background-color: #ac61e7;
+  color: #fff;
+  font-size: 9px;
+  line-height: 23px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* line 1221, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.about-us-image-block {
+  width: 100%;
+  height: 355px;
+  border-radius: 4px;
+  background-image: url(/assets/webflow/Photo-9-b2891d0474463a65c220311cc967421ad0c2151bd7ccf8a90c7bd47fafedf5da.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* line 1230, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.about-us-col-left {
+  padding-right: 60px;
+}
+
+/* line 1234, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.large-contact-block {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 40px;
+  border-radius: 3px;
+  background-color: #4f65be;
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  color: #fff;
+}
+
+/* line 1246, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.large-contact-block:hover {
+  background-color: #5a5a5a;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* line 1252, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.large-contact-block._2 {
+  background-color: #2a2d3a;
+}
+
+/* line 1256, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.large-contact-block._2:hover {
+  background-color: #5a5a5a;
+}
+
+/* line 1260, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-block-small-title {
+  display: inline-block;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* line 1266, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-block-icon {
+  position: absolute;
+  top: 42px;
+  right: 41px;
+  opacity: 0.3;
+  font-family: 'Fontawesome webfont', sans-serif;
+  font-size: 54px;
+  line-height: 60px;
+}
+
+/* line 1276, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-block-title {
+  margin-top: 10px;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+/* line 1282, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.pricing-row {
+  margin-top: -220px;
+}
+
+/* line 1286, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.pricing-block {
+  overflow: hidden;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 4px 4px 13px 0 rgba(0, 0, 0, 0.08);
+  -webkit-transition: box-shadow 200ms ease;
+  transition: box-shadow 200ms ease;
+}
+
+/* line 1295, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.pricing-block:hover {
+  box-shadow: 11px 11px 43px 0 rgba(0, 0, 0, 0.18);
+}
+
+/* line 1299, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.pricing-content-block {
+  padding: 40px;
+  text-align: center;
+}
+
+/* line 1304, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.pricing-content-block.feature {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #ebebeb;
+}
+
+/* line 1310, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.pricing-content-block.feature.with-button {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* line 1315, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.pricing-title {
+  font-size: 26px;
+  font-weight: 300;
+}
+
+/* line 1320, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.pricing-title.subtitle {
+  margin-top: 10px;
+  color: #b3b3b3;
+  font-size: 18px;
+}
+
+/* line 1326, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.pricing-feature-title {
+  display: inline-block;
+  float: left;
+  font-size: 18px;
+}
+
+/* line 1332, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.pricing-feature-title.subtitle {
+  float: right;
+  color: #b6b6b6;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/* line 1339, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-us-row {
+  margin-top: -215px;
+}
+
+/* line 1343, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-us-map {
+  height: 325px;
+  border-radius: 4px;
+}
+
+/* line 1348, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-us-column-right {
+  padding-left: 20px;
+}
+
+/* line 1352, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-us-block {
+  height: 325px;
+  padding: 40px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 4px 4px 17px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* line 1360, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-info-block {
+  display: block;
+  margin-top: 9px;
+}
+
+/* line 1365, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-info-icon {
+  display: inline-block;
+  margin-right: 11px;
+  font-family: 'Fontawesome webfont', sans-serif;
+}
+
+/* line 1371, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-info-text {
+  display: inline-block;
+}
+
+/* line 1375, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-social-button {
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+  margin-right: 3px;
+  padding-top: 4px;
+  border-radius: 3px;
+  background-color: #4f65be;
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  text-align: center;
+}
+
+/* line 1388, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.contact-social-button:hover {
+  background-color: #000;
+}
+
+/* line 1392, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.fields-row {
+  margin-bottom: 5px;
+}
+
+/* line 1396, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.fields-col-left {
+  padding-right: 0px;
+}
+
+/* line 1400, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.faq-title {
+  width: 340px;
+  float: left;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+/* line 1407, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.faq-item {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ececec;
+}
+
+/* line 1413, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.faq-answer {
+  width: 560px;
+  float: right;
+}
+
+/* line 1418, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-block-left {
+  overflow: hidden;
+  width: 250px;
+  margin-top: -255px;
+  float: left;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 3px 3px 9px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* line 1428, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-image-block {
+  width: 100%;
+  height: 220px;
+  background-image: url(/assets/webflow/Photo-4_1-9cd939f6fbdbb787fd87c33162556d2dc106dba6c31bf68b88ff5de06da74ad3.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* line 1436, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-info-block {
+  padding: 30px 30px 20px;
+  border-top: 1px solid #e7e7e7;
+}
+
+/* line 1441, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-info-block.with-button {
+  padding-top: 20px;
+}
+
+/* line 1445, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.main-course-info-title {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* line 1450, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.main-course-info-title.info {
+  color: #acacac;
+  text-transform: none;
+}
+
+/* line 1455, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-main-info-block {
+  width: 620px;
+  margin-top: -20px;
+  float: right;
+}
+
+/* line 1461, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-block-wrapper {
+  margin-bottom: 10px;
+}
+
+/* line 1465, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-class-photo {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  float: left;
+  border-radius: 100%;
+}
+
+/* line 1473, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-title {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+/* line 1479, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-title._2 {
+  margin-top: 0px;
+  color: #b4b4b4;
+}
+
+/* line 1484, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-content-wrapper {
+  margin-bottom: 20px;
+}
+
+/* line 1488, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-block {
+  margin-top: 10px;
+}
+
+/* line 1492, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-main-info-wrapper {
+  margin-bottom: 12px;
+}
+
+/* line 1496, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-category-title {
+  display: inline-block;
+  margin-right: 11px;
+  color: #fff;
+  font-size: 19px;
+}
+
+/* line 1503, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-category-title.icon {
+  margin-top: -2px;
+  margin-right: 10px;
+  font-family: 'Fontawesome webfont', sans-serif;
+}
+
+/* line 1509, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-category-link {
+  display: inline-block;
+  margin-left: 0px;
+  color: #a0aeeb;
+  font-size: 19px;
+}
+
+/* line 1516, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-category-link:hover {
+  color: #fff;
+}
+
+/* line 1520, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.empty-state {
+  padding-top: 24px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.07);
+  text-align: center;
+}
+
+/* line 1527, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.empty-state.empty-courses {
+  height: 310px;
+  padding-top: 120px;
+  background-image: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.8), #fff 58%), url(/assets/webflow/No-Courses-4f25c27c18ea941aff8748be69e3a2b402fcdf7bb93e1aac0bcb0352ce8abd4a.jpg);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.8), #fff 58%), url(/assets/webflow/No-Courses-4f25c27c18ea941aff8748be69e3a2b402fcdf7bb93e1aac0bcb0352ce8abd4a.jpg);
+  background-position: 0px 0px, 50% 0px;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+}
+
+/* line 1537, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-photo-block {
+  width: 230px;
+  height: 230px;
+  margin-right: 50px;
+  float: left;
+  border-radius: 4px;
+  background-image: url(/images/webflow/example-bg.png);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* line 1548, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.short-teacher-biography {
+  width: 90%;
+  margin-bottom: 0px;
+  color: #fff;
+}
+
+/* line 1554, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.image-logo {
+  height: 55px;
+  margin-top: 22px;
+}
+
+/* line 1559, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-overview-block {
+  overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 3px 3px 18px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 200ms ease;
+  transition: box-shadow 200ms ease;
+  text-align: center;
+}
+
+/* line 1570, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-overview-block:hover {
+  box-shadow: 10px 10px 28px 0 rgba(0, 0, 0, 0.17);
+}
+
+/* line 1574, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-overview-image {
+  width: 90px;
+  height: 90px;
+  margin-top: 20px;
+  margin-bottom: -35px;
+  border-radius: 7px;
+}
+
+/* line 1582, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-main-title {
+  font-size: 20px;
+}
+
+/* line 1586, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-main-title.job-title {
+  margin-top: 2px;
+  color: #b8b8b8;
+  font-size: 14px;
+}
+
+/* line 1592, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.teacher-content-bloc {
+  padding: 55px 25px 25px;
+  border-top: 1px solid #f1f1f1;
+}
+
+/* line 1597, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-block {
+  overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 5px 5px 13px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 200ms ease;
+  transition: box-shadow 200ms ease;
+}
+
+/* line 1607, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-block:hover {
+  box-shadow: 12px 12px 33px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* line 1611, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-image-block {
+  display: block;
+  width: 100%;
+  height: 200px;
+  background-image: url(/images/webflow/example-bg.png);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* line 1620, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-content-block {
+  padding: 45px;
+}
+
+/* line 1624, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-summary {
+  margin-bottom: 0px;
+  color: #8f8f8f;
+  font-size: 15px;
+  line-height: 23px;
+}
+
+/* line 1631, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.image-overlay-block {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+}
+
+/* line 1640, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.image-overlay-block:hover {
+  background-color: rgba(79, 101, 190, 0.2);
+}
+
+/* line 1644, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.list-info-link {
+  font-size: 13px;
+}
+
+/* line 1648, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.course-category-fixed-block {
+  position: fixed;
+  top: 175px;
+  right: 0px;
+  z-index: 2000;
+  overflow: hidden;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* line 1660, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.fixed-block-title {
+  padding: 10px 30px;
+  border-bottom: 1px solid #eee;
+  font-size: 19px;
+  line-height: 30px;
+}
+
+/* line 1667, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-link-title {
+  display: block;
+  padding: 10px 30px;
+  -webkit-transition: background-color 200ms ease, color 200ms ease;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* line 1674, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-link-title:hover {
+  background-color: #4f65be;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* line 1680, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-link-title.w--current {
+  background-color: #4f65be;
+  color: #fff;
+}
+
+/* line 1685, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.video-lightbox {
+  display: block;
+}
+
+/* line 1689, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.video-lightbox:hover {
+  text-decoration: none;
+}
+
+/* line 1693, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.lightbox-overlay-block {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+}
+
+/* line 1709, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.lightbox-overlay-block:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* line 1713, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.overlay-lightbox-icon {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-family: 'Fontawesome webfont', sans-serif;
+  color: #fff;
+  font-size: 54px;
+  line-height: 50px;
+  text-align: center;
+}
+
+/* line 1735, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.overlay-lightbox-icon:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* line 1739, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-wrapper {
+  display: block;
+  overflow: hidden;
+  width: 80%;
+  margin-top: -170px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 4px -20px 33px 1px rgba(0, 0, 0, 0.17);
+}
+
+/* line 1751, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-content-wrapper {
+  padding: 30px 60px;
+  border-top: 1px solid #f0f0f0;
+  background-color: #f7f7fa;
+}
+
+/* line 1757, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-content-wrapper.first {
+  padding-top: 60px;
+  padding-bottom: 40px;
+  border-top-width: 0px;
+  background-color: #fff;
+}
+
+/* line 1764, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-author-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* line 1769, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-author-link:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* line 1773, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-date-title {
+  display: inline-block;
+  margin-right: 10px;
+  color: #fff;
+}
+
+/* line 1779, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-post-header-info-block {
+  margin-top: 30px;
+}
+
+/* line 1783, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-title-wrapper {
+  display: block;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* line 1790, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-author-photo {
+  width: 80px;
+  height: 80px;
+  margin-right: 27px;
+  float: left;
+  border-radius: 4px;
+}
+
+/* line 1798, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-author-title {
+  font-size: 12px;
+}
+
+/* line 1802, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-author-title.job-title {
+  margin-top: 3px;
+  color: #c2c2c2;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+/* line 1809, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-author-title-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+/* line 1816, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.blog-author-title-link:hover {
+  text-decoration: none;
+}
+
+/* line 1820, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-block {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 17px;
+  border-radius: 4px;
+  background-image: url(/images/webflow/example-bg.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  box-shadow: 3px 3px 23px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* line 1833, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-block.right {
+  width: 94%;
+  float: right;
+}
+
+/* line 1838, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-block.large {
+  height: 417px;
+}
+
+/* line 1842, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-column-left {
+  padding-right: 0px;
+}
+
+/* line 1846, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-column-right {
+  padding-left: 0px;
+}
+
+/* line 1850, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-overlay-block {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+}
+
+/* line 1859, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-overlay-block:hover {
+  background-color: rgba(79, 101, 190, 0.3);
+}
+
+/* line 1863, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-text-block {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  padding: 30px 30px 20px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-image: -webkit-linear-gradient(270deg, transparent, rgba(0, 0, 0, 0.4) 74%);
+  background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.4) 74%);
+}
+
+/* line 1875, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.category-title {
+  color: #fff;
+  font-size: 25px;
+}
+
+/* line 1880, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.small-events-list-item {
+  position: relative;
+  height: 60px;
+  margin-bottom: 13px;
+  padding-right: 10px;
+  padding-left: 80px;
+}
+
+/* line 1888, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.small-events-date-block {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  border-radius: 3px;
+  background-color: #4f65be;
+  color: #fff;
+  text-align: center;
+}
+
+/* line 1901, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.small-event-date-title {
+  margin-bottom: -8px;
+  opacity: 0.5;
+  line-height: 27px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* line 1909, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.small-event-date-title.day {
+  margin-right: -3px;
+  padding-top: 1px;
+  opacity: 1;
+  font-size: 51px;
+  line-height: 50px;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* line 1919, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.small-events-list-link-title {
+  font-size: 17px;
+  line-height: 22px;
+}
+
+/* line 1924, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.small-location-title {
+  display: inline-block;
+  color: #afafaf;
+  font-size: 14px;
+}
+
+/* line 1930, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.news-column {
+  padding-right: 20px;
+}
+
+/* line 1934, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.events-column {
+  padding-left: 20px;
+}
+
+/* line 1938, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.about-us-column {
+  padding-left: 20px;
+}
+
+/* line 1942, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.video-hero {
+  height: auto;
+  padding-top: 200px;
+  padding-bottom: 80px;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+/* line 1950, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.no-courses-title {
+  font-size: 45px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+/* line 1956, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.no-courses-title._2 {
+  margin-top: 10px;
+  font-size: 35px;
+  font-weight: 300;
+}
+
+/* line 1962, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.top-bar-text {
+  display: inline-block;
+  margin-right: 10px;
+  float: left;
+  opacity: 0.7;
+  color: #fff;
+}
+
+/* line 1970, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.top-bar-link {
+  color: #fff;
+}
+
+/* line 1974, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+.top-bar-link:hover {
+  color: #fff;
+}
+
+/* line 1978, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+html.w-mod-js *[data-ix="hide-slider-arrow"] {
+  opacity: 0.15000000000000008;
+}
+
+/* line 1982, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+html.w-mod-js *[data-ix="slide-title-1"] {
+  opacity: 0;
+  -webkit-transform: translate(70px, 0px);
+  -ms-transform: translate(70px, 0px);
+  transform: translate(70px, 0px);
+}
+
+/* line 1989, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+html.w-mod-js *[data-ix="slide-title-2"] {
+  opacity: 0;
+  -webkit-transform: translate(70px, 0px);
+  -ms-transform: translate(70px, 0px);
+  transform: translate(70px, 0px);
+}
+
+/* line 1996, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+html.w-mod-js *[data-ix="slide-title-3"] {
+  opacity: 0;
+  -webkit-transform: translate(70px, 0px);
+  -ms-transform: translate(70px, 0px);
+  transform: translate(70px, 0px);
+}
+
+/* line 2003, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+html.w-mod-js *[data-ix="slide-title-4"] {
+  opacity: 0;
+  -webkit-transform: translate(70px, 0px);
+  -ms-transform: translate(70px, 0px);
+  transform: translate(70px, 0px);
+}
+
+/* line 2010, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+html.w-mod-js *[data-ix="fade-in-on-load"] {
+  opacity: 0;
+  -webkit-transform: translate(0px, 20px);
+  -ms-transform: translate(0px, 20px);
+  transform: translate(0px, 20px);
+}
+
+/* line 2017, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+html.w-mod-js *[data-ix="fade-in-on-load-2"] {
+  opacity: 0;
+  -webkit-transform: translate(0px, 20px);
+  -ms-transform: translate(0px, 20px);
+  transform: translate(0px, 20px);
+}
+
+/* line 2024, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+html.w-mod-js *[data-ix="fade-in-on-load-3"] {
+  opacity: 0;
+  -webkit-transform: translate(0px, 20px);
+  -ms-transform: translate(0px, 20px);
+  transform: translate(0px, 20px);
+}
+
+/* line 2031, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+html.w-mod-js *[data-ix="fade-in-on-load-4"] {
+  opacity: 0;
+  -webkit-transform: translate(0px, 20px);
+  -ms-transform: translate(0px, 20px);
+  transform: translate(0px, 20px);
+}
+
+@media (max-width: 991px) {
+  /* line 2039, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-overlay {
+    padding-right: 65px;
+    padding-left: 65px;
+  }
+
+  /* line 2043, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-overlay.padding {
+    padding-top: 220px;
+    padding-bottom: 90px;
+  }
+
+  /* line 2047, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .container.blocks-row-container {
+    margin-top: 30px;
+  }
+
+  /* line 2050, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .container.course-header {
+    padding-left: 260px;
+  }
+
+  /* line 2053, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-content-block {
+    width: 580px;
+  }
+
+  /* line 2056, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-title {
+    margin-bottom: 0px;
+    font-size: 54px;
+    line-height: 47px;
+  }
+
+  /* line 2061, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-overlay-row {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2065, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-overlay-block {
+    height: 105px;
+    padding-top: 25px;
+    padding-right: 18px;
+    padding-left: 90px;
+  }
+
+  /* line 2071, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-overlay-number {
+    left: 18px;
+    top: 21px;
+    font-size: 58px;
+    line-height: 58px;
+  }
+
+  /* line 2077, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slider-button {
+    width: 40px;
+  }
+
+  /* line 2080, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slider-button:hover {
+    width: 50px;
+  }
+
+  /* line 2083, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .navbar {
+    height: 65px;
+  }
+
+  /* line 2086, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .nav-menu {
+    margin-right: 0px;
+    margin-left: 60px;
+    background-color: #fff;
+    box-shadow: 0 0 40px 0 #000;
+  }
+
+  /* line 2092, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .nav-menu.left {
+    margin-right: 60px;
+    margin-left: 0px;
+  }
+
+  /* line 2096, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .nav-link {
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    border-bottom-width: 1px;
+    border-bottom-color: #f8f8f8;
+    -webkit-transition: border 200ms ease, color 200ms ease, background-color 200ms ease;
+    transition: border 200ms ease, color 200ms ease, background-color 200ms ease;
+  }
+
+  /* line 2107, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .nav-link:hover {
+    border-bottom-color: #f5f5f5;
+    background-color: rgba(79, 101, 190, 0.1);
+  }
+
+  /* line 2111, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .nav-link.dropdown-toggle.w--open {
+    border-bottom-color: #eee;
+  }
+
+  /* line 2114, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .nav-link.left {
+    margin-right: 0px;
+  }
+
+  /* line 2117, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .top-navbar {
+    z-index: 1001;
+  }
+
+  /* line 2120, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .slide-intro-paragraph {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+
+  /* line 2124, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .link-block-paragraph {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  /* line 2128, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .dropdown-icon {
+    margin-right: 25px;
+  }
+
+  /* line 2131, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section {
+    padding: 40px;
+  }
+
+  /* line 2134, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section.tint.event {
+    padding-top: 60px;
+  }
+
+  /* line 2137, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title-wrapper {
+    margin-bottom: 30px;
+  }
+
+  /* line 2140, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title {
+    font-size: 25px;
+    line-height: 26px;
+  }
+
+  /* line 2144, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title.sidebar {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  /* line 2148, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-block-wrapper.home-first {
+    height: 350px;
+  }
+
+  /* line 2151, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-block-wrapper.home-featured {
+    height: 350px;
+  }
+
+  /* line 2154, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-image-link-block {
+    height: 130px;
+  }
+
+  /* line 2157, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-image-link-block.home-featured {
+    height: 220px;
+  }
+
+  /* line 2160, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-content-block {
+    padding: 25px 15px 15px;
+  }
+
+  /* line 2163, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-content-block._2 {
+    padding-right: 5px;
+  }
+
+  /* line 2166, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-title-link {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  /* line 2170, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-info-icon {
+    margin-right: 4px;
+    font-size: 12px;
+  }
+
+  /* line 2174, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-info-title {
+    margin-right: 4px;
+    font-size: 12px;
+  }
+
+  /* line 2178, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overlay-title {
+    font-size: 11px;
+  }
+
+  /* line 2181, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overlay-photo {
+    width: 35px;
+    height: 35px;
+    margin-right: 7px;
+    margin-left: 15px;
+  }
+
+  /* line 2187, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-overlay {
+    padding: 70px 40px;
+  }
+
+  /* line 2190, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-content-block {
+    width: 390px;
+  }
+
+  /* line 2193, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-title {
+    margin-bottom: 20px;
+  }
+
+  /* line 2196, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-contact-form {
+    width: 250px;
+  }
+
+  /* line 2199, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-item {
+    padding-right: 20px;
+    padding-left: 300px;
+  }
+
+  /* line 2203, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-image-block {
+    width: 260px;
+  }
+
+  /* line 2206, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .bottom-info-text {
+    margin-top: 20px;
+  }
+
+  /* line 2209, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .dropdown-list.w--open {
+    background-color: #4f65be;
+    box-shadow: 0 0 0 0 transparent;
+  }
+
+  /* line 2213, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .dropdown-link {
+    color: #fff;
+  }
+
+  /* line 2216, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .dropdown-link:hover {
+    background-color: #3e52a2;
+  }
+
+  /* line 2219, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .dropdown-link.w--current {
+    color: #fff;
+  }
+
+  /* line 2222, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .dropdown-link.w--current:hover {
+    background-color: #4055a7;
+  }
+
+  /* line 2225, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .featured-course-right {
+    width: 46%;
+  }
+
+  /* line 2228, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .footer {
+    padding: 45px;
+  }
+
+  /* line 2231, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .footer-column {
+    padding-right: 10px;
+  }
+
+  /* line 2234, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .featured-courses-row {
+    margin-bottom: 10px;
+  }
+
+  /* line 2237, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  ._404-section {
+    height: auto;
+    padding: 190px 60px 100px;
+  }
+
+  /* line 2241, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-overlay {
+    padding: 150px 40px 35px;
+  }
+
+  /* line 2244, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-overlay.course {
+    padding-top: 180px;
+    padding-bottom: 60px;
+  }
+
+  /* line 2248, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-overlay.blog-post {
+    padding-top: 200px;
+    padding-bottom: 110px;
+  }
+
+  /* line 2252, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title {
+    font-size: 48px;
+  }
+
+  /* line 2255, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title.course-title {
+    font-size: 30px;
+    line-height: 31px;
+  }
+
+  /* line 2259, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title.teacher-name {
+    margin-top: 16px;
+    font-size: 34px;
+    line-height: 34px;
+  }
+
+  /* line 2264, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title.blog-post-title {
+    font-size: 40px;
+    line-height: 45px;
+  }
+
+  /* line 2268, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-subtitle.category {
+    font-size: 20px;
+  }
+
+  /* line 2271, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-subtitle.teacher-subtitle {
+    margin-top: 7px;
+    font-size: 21px;
+    line-height: 15px;
+  }
+
+  /* line 2276, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-subtitle.pricing {
+    margin-top: 10px;
+  }
+
+  /* line 2279, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .about-us-image-block {
+    height: 415px;
+  }
+
+  /* line 2282, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .about-us-col-left {
+    padding-right: 20px;
+  }
+
+  /* line 2285, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-row {
+    margin-top: -190px;
+  }
+
+  /* line 2288, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-content-block {
+    padding: 20px;
+  }
+
+  /* line 2291, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-content-block.feature.with-button {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  /* line 2295, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-title {
+    font-size: 20px;
+  }
+
+  /* line 2298, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-title.subtitle {
+    margin-top: 7px;
+    font-size: 16px;
+  }
+
+  /* line 2302, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-feature-title {
+    font-size: 16px;
+  }
+
+  /* line 2305, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-us-row {
+    margin-top: -195px;
+  }
+
+  /* line 2308, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-us-block {
+    padding: 28px;
+  }
+
+  /* line 2311, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .faq-title {
+    width: 100%;
+    margin-bottom: 17px;
+  }
+
+  /* line 2315, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .faq-item {
+    margin-bottom: 20px;
+    padding-bottom: 0px;
+  }
+
+  /* line 2319, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .faq-answer {
+    width: 100%;
+  }
+
+  /* line 2322, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-block-left {
+    width: 220px;
+    margin-top: -215px;
+  }
+
+  /* line 2326, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-info-block {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  /* line 2331, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .main-course-info-title.info {
+    font-size: 13px;
+  }
+
+  /* line 2334, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-main-info-block {
+    width: 430px;
+  }
+
+  /* line 2337, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-class-photo {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* line 2341, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-title {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  /* line 2345, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-main-info-wrapper.last {
+    margin-bottom: 0px;
+  }
+
+  /* line 2348, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .short-teacher-biography {
+    width: 100%;
+  }
+
+  /* line 2351, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-logo {
+    height: 45px;
+    margin-top: 10px;
+  }
+
+  /* line 2355, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-image-block {
+    height: 130px;
+  }
+
+  /* line 2358, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-content-block {
+    padding: 25px;
+  }
+
+  /* line 2361, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-category-fixed-block {
+    position: static;
+    border-radius: 0px;
+  }
+
+  /* line 2365, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .fixed-block-title {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  /* line 2369, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .category-link-title {
+    padding-right: 40px;
+    padding-left: 40px;
+    border-bottom: 1px solid #f3f3f3;
+  }
+
+  /* line 2374, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-wrapper {
+    margin-top: -110px;
+  }
+
+  /* line 2377, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-content-wrapper {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  /* line 2381, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-content-wrapper.first {
+    padding-top: 40px;
+  }
+
+  /* line 2384, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-header-info-block {
+    margin-top: 20px;
+  }
+
+  /* line 2387, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .menu-button {
+    width: 65px;
+    height: 65px;
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-left: 0px;
+    float: right;
+    background-color: #f3f3f3;
+    text-align: center;
+  }
+
+  /* line 2397, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .menu-button.w--open {
+    background-color: #fff;
+  }
+
+  /* line 2400, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .menu-button.left {
+    float: left;
+  }
+
+  /* line 2403, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .small-events-list-item {
+    padding-right: 0px;
+    padding-left: 75px;
+  }
+
+  /* line 2407, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .small-events-list-link-title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /* line 2411, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .video-hero {
+    padding-top: 180px;
+    padding-right: 30px;
+    padding-left: 30px;
+    background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/webflow/Photo-4_1-9cd939f6fbdbb787fd87c33162556d2dc106dba6c31bf68b88ff5de06da74ad3.jpg);
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/webflow/Photo-4_1-9cd939f6fbdbb787fd87c33162556d2dc106dba6c31bf68b88ff5de06da74ad3.jpg);
+    background-position: 0px 0px, 50% 50%;
+    background-size: auto, cover;
+  }
+}
+@media (max-width: 767px) {
+  /* line 2423, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-section {
+    height: auto;
+    min-height: 0px;
+  }
+
+  /* line 2427, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-overlay {
+    padding-top: 140px;
+    padding-bottom: 40px;
+    padding-left: 35px;
+  }
+
+  /* line 2432, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-overlay.padding {
+    padding-top: 160px;
+    padding-bottom: 50px;
+  }
+
+  /* line 2436, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .container.course-header {
+    padding-left: 0px;
+  }
+
+  /* line 2439, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-content-block {
+    width: 90%;
+  }
+
+  /* line 2442, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-title {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 36px;
+    line-height: 34px;
+  }
+
+  /* line 2448, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .button.slider-button {
+    margin-top: 10px;
+  }
+
+  /* line 2451, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .button.white {
+    margin-top: 10px;
+  }
+
+  /* line 2454, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .navbar {
+    height: 55px;
+  }
+
+  /* line 2457, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .top-navbar {
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 9px;
+  }
+
+  /* line 2462, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .top-nav-menu {
+    float: none;
+    text-align: center;
+  }
+
+  /* line 2466, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .top-nav-link {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  /* line 2470, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .slide-intro-paragraph {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  /* line 2476, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section {
+    padding: 20px;
+  }
+
+  /* line 2479, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section.tint.event {
+    padding-top: 20px;
+  }
+
+  /* line 2482, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section.tint.stats {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  /* line 2486, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title-wrapper {
+    margin-bottom: 20px;
+  }
+
+  /* line 2489, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title-wrapper.course {
+    margin-bottom: 10px;
+  }
+
+  /* line 2492, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-block-wrapper.home-first {
+    height: auto;
+  }
+
+  /* line 2495, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-block-wrapper.home-featured {
+    height: auto;
+  }
+
+  /* line 2498, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-block-wrapper.list-view {
+    height: auto;
+    padding-left: 0px;
+  }
+
+  /* line 2502, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-image-link-block.home-featured {
+    height: 130px;
+  }
+
+  /* line 2505, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-image-link-block.list-view {
+    position: static;
+    width: 100%;
+    height: 80px;
+  }
+
+  /* line 2510, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-content-block._2.list-view {
+    padding-bottom: 5px;
+  }
+
+  /* line 2513, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-title-link {
+    font-size: 16px;
+  }
+
+  /* line 2516, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-info-icon {
+    margin-right: 7px;
+    font-size: 13px;
+  }
+
+  /* line 2520, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-info-title {
+    margin-right: 6px;
+    font-size: 13px;
+  }
+
+  /* line 2524, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overlay-block {
+    padding-top: 30px;
+    padding-bottom: 0px;
+  }
+
+  /* line 2528, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overlay-title {
+    padding-top: 9px;
+    padding-bottom: 10px;
+    font-size: 12px;
+  }
+
+  /* line 2533, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overlay-photo {
+    position: relative;
+    bottom: -9px;
+    width: 40px;
+    height: 40px;
+    margin-right: 13px;
+    margin-bottom: -18px;
+  }
+
+  /* line 2541, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overlay-photo.list-view-photo {
+    bottom: 0px;
+    margin-top: -2px;
+  }
+
+  /* line 2545, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-overlay {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  /* line 2549, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-content-block {
+    display: block;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    float: none;
+  }
+
+  /* line 2556, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-title {
+    font-size: 36px;
+    line-height: 35px;
+  }
+
+  /* line 2560, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-title._2 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  /* line 2564, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-contact-form {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* line 2568, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .field {
+    margin-bottom: 4px;
+  }
+
+  /* line 2571, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-item {
+    overflow: hidden;
+    height: auto;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2578, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-date-block {
+    padding-right: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+  }
+
+  /* line 2583, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-image-block {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border-radius: 0px;
+  }
+
+  /* line 2589, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .bottom-info-text {
+    margin-top: 10px;
+  }
+
+  /* line 2592, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .about-column-right {
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2597, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .news-column-left {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2601, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .featured-course-column-left {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2605, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .featured-course-column-right {
+    padding-right: 0px;
+  }
+
+  /* line 2608, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .featured-course-right {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  /* line 2612, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .footer {
+    padding: 20px;
+  }
+
+  /* line 2615, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .footer-column {
+    padding-bottom: 20px;
+    padding-left: 0px;
+  }
+
+  /* line 2619, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .bottom-footer-block {
+    margin-top: 10px;
+    padding-top: 20px;
+  }
+
+  /* line 2623, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .bottom-footer-text {
+    float: none;
+  }
+
+  /* line 2626, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .bottom-footer-text.right {
+    margin-top: 10px;
+    float: none;
+  }
+
+  /* line 2630, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .footer-title {
+    margin-bottom: 20px;
+  }
+
+  /* line 2633, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  ._404-section {
+    padding: 150px 25px 80px;
+  }
+
+  /* line 2636, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-overlay {
+    padding: 120px 20px 20px;
+  }
+
+  /* line 2639, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-overlay.course {
+    padding-top: 120px;
+    padding-bottom: 70px;
+  }
+
+  /* line 2643, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-overlay.blog-post {
+    padding-top: 180px;
+    padding-bottom: 120px;
+  }
+
+  /* line 2647, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title {
+    font-size: 38px;
+    line-height: 34px;
+  }
+
+  /* line 2651, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title.course-title {
+    font-size: 25px;
+    line-height: 31px;
+  }
+
+  /* line 2655, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title.blog-post-title {
+    font-size: 30px;
+    line-height: 35px;
+  }
+
+  /* line 2659, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-subtitle {
+    margin-top: 5px;
+    font-size: 20px;
+  }
+
+  /* line 2663, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-subtitle.category {
+    margin-top: 6px;
+    font-size: 17px;
+  }
+
+  /* line 2667, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .featured-course-item {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2671, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .courses-list-item {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2675, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .about-us-image-block {
+    height: 265px;
+  }
+
+  /* line 2678, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .about-us-col-left {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2682, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .about-us-column-right {
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2687, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-column-left {
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+  }
+
+  /* line 2692, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-column-right {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2696, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-column {
+    padding-right: 0px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+  }
+
+  /* line 2701, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-column.last {
+    padding-bottom: 0px;
+  }
+
+  /* line 2704, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-us-row {
+    margin-top: -185px;
+  }
+
+  /* line 2707, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-us-map {
+    height: 210px;
+  }
+
+  /* line 2710, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-us-column-right {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2714, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-us-column-left {
+    padding-right: 0px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+  }
+
+  /* line 2719, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-us-block {
+    height: auto;
+  }
+
+  /* line 2722, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .fields-row {
+    margin-bottom: 1px;
+  }
+
+  /* line 2725, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .fields-col-left {
+    padding-left: 0px;
+  }
+
+  /* line 2728, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .fields-col-right {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2732, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .faq-title {
+    font-size: 19px;
+  }
+
+  /* line 2735, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-block-left {
+    width: 100%;
+    margin-top: -60px;
+  }
+
+  /* line 2739, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-image-block {
+    height: 190px;
+  }
+
+  /* line 2742, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-main-info-block {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* line 2746, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-block-wrapper {
+    margin-bottom: 6px;
+  }
+
+  /* line 2749, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-class-photo {
+    width: 45px;
+    height: 45px;
+  }
+
+  /* line 2753, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-title {
+    margin-top: 6px;
+    font-size: 16px;
+  }
+
+  /* line 2757, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-title._2 {
+    margin-top: 2px;
+    font-size: 13px;
+  }
+
+  /* line 2761, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-content-wrapper {
+    margin-bottom: 10px;
+  }
+
+  /* line 2764, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-category-title {
+    font-size: 15px;
+  }
+
+  /* line 2767, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-category-title.icon {
+    font-size: 13px;
+  }
+
+  /* line 2770, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .empty-state.empty-courses {
+    height: 200px;
+    padding-top: 60px;
+  }
+
+  /* line 2774, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-photo-block {
+    width: 160px;
+    height: 160px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+  }
+
+  /* line 2780, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-logo {
+    height: 40px;
+    margin-right: 20px;
+  }
+
+  /* line 2784, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overview-block {
+    margin-bottom: 10px;
+  }
+
+  /* line 2787, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-list-item {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2791, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .fixed-block-title {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  /* line 2795, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .category-link-title {
+    padding: 5px 20px;
+  }
+
+  /* line 2798, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-wrapper {
+    width: 90%;
+  }
+
+  /* line 2801, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-content-wrapper {
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+  }
+
+  /* line 2806, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-content-wrapper.first {
+    padding: 30px 30px 10px;
+  }
+
+  /* line 2809, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-title-wrapper {
+    width: 90%;
+  }
+
+  /* line 2812, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-author-photo {
+    width: 70px;
+    height: 70px;
+    margin-right: 17px;
+  }
+
+  /* line 2817, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-author-title-link {
+    font-size: 24px;
+    line-height: 20px;
+  }
+
+  /* line 2821, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .menu-button {
+    height: 55px;
+    padding-top: 17px;
+  }
+
+  /* line 2825, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-teacher-item {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2829, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-info-block {
+    padding: 25px;
+  }
+
+  /* line 2832, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slider-nav {
+    height: 50px;
+    padding-right: 20px;
+    font-size: 8px;
+    text-align: right;
+  }
+
+  /* line 2838, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-item {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2842, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .stats-column {
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+  }
+
+  /* line 2847, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .category-block.right {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+
+  /* line 2852, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .category-block.large {
+    height: 150px;
+    margin-bottom: 10px;
+  }
+
+  /* line 2856, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .category-column-left {
+    padding-left: 0px;
+  }
+
+  /* line 2859, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .category-column-right {
+    padding-right: 0px;
+  }
+
+  /* line 2862, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .small-events-list-link-title {
+    font-size: 17px;
+  }
+
+  /* line 2865, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .news-column {
+    padding-right: 0px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+  }
+
+  /* line 2870, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .events-column {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2874, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .about-us-column {
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* line 2879, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .video-hero {
+    padding: 120px 20px 30px;
+  }
+
+  /* line 2882, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .no-courses-title {
+    font-size: 35px;
+  }
+
+  /* line 2885, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .no-courses-title._2 {
+    margin-top: 0px;
+    font-size: 25px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 479px) {
+  /* line 2893, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  blockquote {
+    padding-right: 5px;
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  /* line 2898, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-overlay {
+    padding: 140px 25px 50px;
+  }
+
+  /* line 2901, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-overlay.padding {
+    padding-top: 140px;
+    padding-bottom: 40px;
+  }
+
+  /* line 2905, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .container.teacher-container {
+    text-align: center;
+  }
+
+  /* line 2908, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-content-block {
+    width: 100%;
+  }
+
+  /* line 2911, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-content-block.simple {
+    width: 90%;
+  }
+
+  /* line 2914, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-title {
+    font-size: 28px;
+    line-height: 27px;
+  }
+
+  /* line 2918, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-title.smaller {
+    font-size: 24px;
+    line-height: 25px;
+  }
+
+  /* line 2922, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slide-intro-title {
+    font-size: 15px;
+  }
+
+  /* line 2925, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .button.slider-button {
+    margin-top: 5px;
+    padding-right: 21px;
+    padding-left: 21px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  /* line 2932, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .nav-link {
+    font-size: 13px;
+    line-height: 13px;
+  }
+
+  /* line 2936, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .top-nav-link {
+    margin-left: 10px;
+  }
+
+  /* line 2939, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .top-nav-title {
+    font-size: 11px;
+  }
+
+  /* line 2942, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .slide-intro-paragraph {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  /* line 2946, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title-wrapper.course {
+    margin-bottom: 15px;
+  }
+
+  /* line 2949, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title {
+    font-size: 24px;
+  }
+
+  /* line 2952, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title.subtitle {
+    margin-top: 3px;
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  /* line 2957, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title.subtitle.with-name {
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  /* line 2962, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title.subtitle.with-name.first {
+    margin-top: 11px;
+  }
+
+  /* line 2965, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .section-title-divider {
+    margin-top: 10px;
+  }
+
+  /* line 2968, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-block-wrapper.home-first {
+    margin-bottom: 10px;
+  }
+
+  /* line 2971, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-block-wrapper.home-featured {
+    margin-bottom: 10px;
+  }
+
+  /* line 2974, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-image-link-block {
+    height: 110px;
+  }
+
+  /* line 2977, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-content-block._2.list-view {
+    padding-top: 6px;
+    padding-bottom: 8px;
+  }
+
+  /* line 2981, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-info-icon {
+    margin-right: 5px;
+  }
+
+  /* line 2984, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-info-title.list {
+    font-size: 12px;
+  }
+
+  /* line 2987, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overlay-title {
+    padding-top: 13px;
+  }
+
+  /* line 2990, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overlay-title.list-view {
+    margin-right: 6px;
+    padding-bottom: 0px;
+    font-size: 12px;
+  }
+
+  /* line 2995, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overlay-photo.list-view-photo {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+
+  /* line 3000, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-content-block {
+    width: 100%;
+  }
+
+  /* line 3003, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-title {
+    font-size: 29px;
+    line-height: 28px;
+  }
+
+  /* line 3007, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .image-section-title._2 {
+    font-size: 17px;
+    line-height: 22px;
+  }
+
+  /* line 3011, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-form-block {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  /* line 3015, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-form-title {
+    font-size: 23px;
+    line-height: 23px;
+  }
+
+  /* line 3019, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-date-block {
+    padding: 20px 20px 15px;
+  }
+
+  /* line 3022, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-date-title {
+    margin-right: 14px;
+  }
+
+  /* line 3025, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-image-block {
+    height: 130px;
+  }
+
+  /* line 3028, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-title-link {
+    font-size: 21px;
+  }
+
+  /* line 3031, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-info-wrapper {
+    margin-bottom: 5px;
+  }
+
+  /* line 3034, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-info-title {
+    margin-right: 5px;
+    font-size: 12px;
+  }
+
+  /* line 3038, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-title-link.blog-page {
+    margin-bottom: 12px;
+    font-size: 17px;
+    line-height: 20px;
+  }
+
+  /* line 3043, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-info-title {
+    font-size: 13px;
+  }
+
+  /* line 3046, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .about-image-block {
+    height: 120px;
+  }
+
+  /* line 3049, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .footer {
+    padding-top: 30px;
+    padding-left: 24px;
+  }
+
+  /* line 3053, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  ._404-section {
+    padding-top: 140px;
+    padding-bottom: 50px;
+  }
+
+  /* line 3057, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-overlay {
+    padding-top: 114px;
+    padding-bottom: 21px;
+  }
+
+  /* line 3061, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-overlay.color {
+    padding-bottom: 30px;
+  }
+
+  /* line 3064, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-overlay.course {
+    padding-bottom: 65px;
+  }
+
+  /* line 3067, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-overlay.blog-post {
+    padding-top: 170px;
+    padding-bottom: 100px;
+  }
+
+  /* line 3071, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title {
+    font-size: 25px;
+    line-height: 24px;
+  }
+
+  /* line 3075, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title.course-title {
+    font-size: 21px;
+    line-height: 26px;
+  }
+
+  /* line 3079, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title.teacher-name {
+    font-size: 24px;
+  }
+
+  /* line 3082, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-header-title.blog-post-title {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  /* line 3086, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-subtitle {
+    margin-top: 7px;
+    font-size: 16px;
+    line-height: 17px;
+  }
+
+  /* line 3091, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-subtitle.category {
+    margin-top: 0px;
+    font-size: 15px;
+  }
+
+  /* line 3095, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .page-subtitle.teacher-subtitle {
+    margin-top: 3px;
+    font-size: 18px;
+  }
+
+  /* line 3099, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .about-us-image-block {
+    height: 135px;
+  }
+
+  /* line 3102, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .about-us-column-right {
+    padding-top: 10px;
+  }
+
+  /* line 3105, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .large-contact-block {
+    padding: 20px;
+  }
+
+  /* line 3108, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-block-small-title {
+    font-size: 11px;
+  }
+
+  /* line 3111, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-block-icon {
+    top: 16px;
+    right: 21px;
+    font-size: 44px;
+  }
+
+  /* line 3116, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-block-title {
+    margin-top: 0px;
+    font-size: 20px;
+  }
+
+  /* line 3120, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-content-block.feature {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* line 3124, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-title {
+    font-size: 25px;
+  }
+
+  /* line 3127, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .pricing-title.subtitle {
+    margin-top: 4px;
+  }
+
+  /* line 3130, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-us-map {
+    height: 150px;
+  }
+
+  /* line 3133, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .contact-us-block {
+    padding: 21px 24px 24px;
+  }
+
+  /* line 3136, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .faq-title {
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  /* line 3140, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-image-block {
+    height: 140px;
+  }
+
+  /* line 3143, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-main-info-block {
+    margin-top: 30px;
+  }
+
+  /* line 3146, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-category-title {
+    font-size: 13px;
+  }
+
+  /* line 3149, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .course-category-title.icon {
+    font-size: 13px;
+  }
+
+  /* line 3152, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .empty-state.empty-courses {
+    height: 140px;
+    padding-top: 30px;
+  }
+
+  /* line 3156, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-photo-block {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    float: none;
+  }
+
+  /* line 3164, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .short-teacher-biography {
+    display: inline-block;
+    width: 93%;
+  }
+
+  /* line 3168, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .teacher-overview-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* line 3172, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-block {
+    margin-bottom: 10px;
+  }
+
+  /* line 3175, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-image-block {
+    height: 90px;
+  }
+
+  /* line 3178, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-summary {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  /* line 3182, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-wrapper {
+    width: 100%;
+    margin-top: -90px;
+  }
+
+  /* line 3186, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-content-wrapper {
+    padding-top: 20px;
+  }
+
+  /* line 3189, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-content-wrapper.first {
+    padding: 20px 20px 0px;
+  }
+
+  /* line 3192, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-post-date-title {
+    font-size: 12px;
+  }
+
+  /* line 3195, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-title-wrapper {
+    width: 100%;
+  }
+
+  /* line 3198, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-author-photo {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* line 3202, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .blog-author-title-link {
+    font-size: 19px;
+    line-height: 18px;
+  }
+
+  /* line 3206, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .event-info-block {
+    padding: 20px;
+  }
+
+  /* line 3209, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .hero-slider-nav {
+    height: 50px;
+  }
+
+  /* line 3212, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .stats-column {
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+  }
+
+  /* line 3217, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .stats-column.last {
+    padding-bottom: 0px;
+  }
+
+  /* line 3220, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .category-block.right {
+    height: 130px;
+  }
+
+  /* line 3223, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .category-block.large {
+    height: 130px;
+  }
+
+  /* line 3226, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .category-text-block {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  /* line 3230, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .video-hero {
+    padding-top: 120px;
+  }
+
+  /* line 3233, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .no-courses-title {
+    font-size: 25px;
+    line-height: 38px;
+  }
+
+  /* line 3237, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/duys-trendy-project.webflow.scss */
+  .no-courses-title._2 {
+    font-size: 18px;
+  }
+}
+@font-face {
+  font-family: 'Fontawesome webfont';
+  src: url(/assets/fontawesome-webfont-7b5a4320fba0d4c8f79327645b4b9cc875a2ec617a557e849b813918eb733499.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
