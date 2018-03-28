@@ -1,7 +1,12 @@
 require 'pry'
 
 class PagesController < ApplicationController
+
   def home
+  end
+
+  # home from webflow
+  def home_awesome
   end
 
   def team

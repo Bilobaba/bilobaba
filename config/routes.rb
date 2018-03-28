@@ -45,5 +45,6 @@ Rails.application.routes.draw do
   get 'pages/permission', as: 'permission'
   get 'pages/test', as: 'test'
   get 'pages/errors_member', as: 'errors_member'
+  get 'pages/home_awesome', as: 'home_awesome'
   root 'events#index'
 end
