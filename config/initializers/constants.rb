@@ -33,3 +33,5 @@ VIEW_DATA_MEMBERS = 'members'
 VIEWED_TESTIMONIALS = 'viewed testimonials/index'
 VIEWED_NEW_TESTIMONIAL = 'viewed testimonials/new'
 VIEWED_ANY = 'viewed any page'
+
+COLOR_BUTTON_PLUS_INFOS = '#AC61E7'

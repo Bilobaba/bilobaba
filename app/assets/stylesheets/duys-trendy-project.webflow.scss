@@ -70,18 +70,17 @@ blockquote {
 }
 
 .hero-slide {
-  background-image: image-url('webflow/Photo-6.jpg');
-  background-position: 50% 50%;
+  background-image: image-url('calligraphies/souris.jpg');
   background-size: cover;
 }
 
 .hero-slide._2 {
-  background-image: image-url('webflow/Photo-7.jpg');
+  background-image: image-url('calligraphies/c-est-cela.jpg');
   background-size: cover;
 }
 
 .hero-slide._3 {
-  background-image: image-url('webflow/Photo-1-2.jpg');
+  background-image: image-url('calligraphies/respire.jpg');
   background-size: cover;
 }
 
@@ -130,7 +129,7 @@ blockquote {
 .hero-slide-content-block {
   position: relative;
   z-index: 40;
-  width: 630px;
+  width: 700px;
 }
 
 .hero-slide-title {
@@ -172,7 +171,7 @@ blockquote {
   padding-right: 25px;
   padding-left: 25px;
   border-radius: 3px;
-  background-color: #4f65be;
+  background-color: #AC61E7;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
   font-size: 13px;
@@ -387,7 +386,7 @@ blockquote {
 .top-navbar {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #4f65be;
+  background-color: #79008a;
 }
 
 .top-nav-link {

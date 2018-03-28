@@ -1,14 +1,12 @@
-<style type="text/css">
-
-  * {
-  border-radius: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  }
-
-</style>
 
 <% if true %>
+  <style type="text/css">
+    * {
+    border-radius: 0 ;
+    margin-top: 0 ;
+    margin-bottom: 0 ;
+    }
+  </style>
     <%= stylesheet_link_tag "normalize.css" %>
     <%= stylesheet_link_tag "webflow.css" %>
     <%= stylesheet_link_tag "duys-trendy-project.webflow.css" %>
@@ -25,9 +23,9 @@
             </div>
             <div class="container hero-slide-container w-container">
               <div class="hero-slide-content-block">
-                <div data-ix="slide-title-1" class="hero-slide-intro-title">Education &amp; School</div>
-                <h1 data-ix="slide-title-2" class="hero-slide-title">Showcase courses, events and more!</h1>
-                <p data-ix="slide-title-3" class="slide-intro-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p><a href="blog.html" data-ix="slide-title-4" class="button slider-button w-button">Learn more</a></div>
+                <div data-ix="slide-title-1" class="hero-slide-intro-title">Partageons nos expériences</div>
+                <h1 data-ix="slide-title-2" class="hero-slide-title">Des activités pour s'épanouir ensemble !</h1>
+                <p data-ix="slide-title-3" class="slide-intro-paragraph">Des propositions mélangeant danses et conscience de soi en région parisienne.</p><a href="blog.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
             </div>
           </div>
         </div>
@@ -38,9 +36,9 @@
             </div>
             <div class="container hero-slide-container w-container">
               <div class="hero-slide-content-block">
-                <div data-ix="slide-title-1" class="hero-slide-intro-title">Education &amp; School</div>
-                <h1 data-ix="slide-title-2" class="hero-slide-title">School &amp; Education Webflow Template</h1>
-                <p data-ix="slide-title-3" class="slide-intro-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p><a href="about-us.html" data-ix="slide-title-4" class="button slider-button w-button">Learn more</a></div>
+                <div data-ix="slide-title-1" class="hero-slide-intro-title">Partageons nos expériences</div>
+                <h1 data-ix="slide-title-2" class="hero-slide-title">Des témoignages qui peuvent éclairer. </h1>
+                <p data-ix="slide-title-3" class="slide-intro-paragraph">Des lettres écrits par des amis pour des amis sans prétentions mais avec beaucoup de authenticité.</p><a href="about-us.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
             </div>
           </div>
         </div>
@@ -51,9 +49,9 @@
             </div>
             <div class="container hero-slide-container w-container">
               <div class="hero-slide-content-block">
-                <div data-ix="slide-title-1" class="hero-slide-intro-title">Education &amp; School</div>
-                <h1 data-ix="slide-title-2" class="hero-slide-title">Easily customize to fit your company</h1>
-                <p data-ix="slide-title-3" class="slide-intro-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p><a href="pricing.html" data-ix="slide-title-4" class="button slider-button w-button">Learn more</a></div>
+                <div data-ix="slide-title-1" class="hero-slide-intro-title">Partageons nos expériences</div>
+                <h1 data-ix="slide-title-2" class="hero-slide-title">Bilobaba s'enrichit de vos retours</h1>
+                <p data-ix="slide-title-3" class="slide-intro-paragraph">Grâce à vos remarques, nous faisons évoluer le site en permanence.</p><a href="pricing.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
             </div>
           </div>
         </div>
@@ -72,23 +70,23 @@
       <div class="hero-overlay-row w-row">
         <div class="stats-column w-col w-col-4">
           <a href="our-courses/courses-grid-view.html" class="hero-overlay-block w-inline-block">
-            <div class="hero-overlay-number">45</div>
-            <div class="hero-overlay-block-title">Courses</div>
-            <p class="link-block-paragraph">We currently offer 45 professional courses.</p>
+            <div class="hero-overlay-number"><%= @count_next_events %></div>
+            <div class="hero-overlay-block-title">Propositions</div>
+            <p class="link-block-paragraph">Vous trouvez <%= @count_next_events %> à venir sur le site.</p>
           </a>
         </div>
         <div class="stats-column w-col w-col-4">
           <a href="teachers.html" class="hero-overlay-block w-inline-block">
-            <div class="hero-overlay-number">12</div>
-            <div class="hero-overlay-block-title">Teachers</div>
-            <p class="link-block-paragraph">We have 12 professional teachers teaching.</p>
+            <div class="hero-overlay-number"><%= @count_professionals %></div>
+            <div class="hero-overlay-block-title">Proposants</div>
+            <p class="link-block-paragraph">Nous avons <%= @count_professionals %> proposants professionels.</p>
           </a>
         </div>
         <div class="stats-column last w-col w-col-4">
           <a href="events.html" class="hero-overlay-block w-inline-block">
-            <div class="hero-overlay-number">65</div>
-            <div class="hero-overlay-block-title">Events</div>
-            <p class="link-block-paragraph">Currently 65 exciting upcoming events!</p>
+            <div class="hero-overlay-number"><%= @count_testimonials %></div>
+            <div class="hero-overlay-block-title">Témoignages</div>
+            <p class="link-block-paragraph">Il y a <%= @count_testimonials %> partages pour vous aider à choisir vos activités !</p>
           </a>
         </div>
       </div>

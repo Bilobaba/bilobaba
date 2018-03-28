@@ -7,6 +7,9 @@ class PagesController < ApplicationController
 
   # home from webflow
   def home_awesome
+    @count_next_events = Event.next_events.count
+    @count_professionals = Member.pros.count
+    @count_testimonials = Testimonial.all.count
   end
 
   def team
