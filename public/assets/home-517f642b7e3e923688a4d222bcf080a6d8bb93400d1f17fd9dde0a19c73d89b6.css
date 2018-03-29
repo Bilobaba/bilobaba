@@ -1,0 +1,40 @@
+/* line 1, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home {
+  color: red;
+  font-size: 20px;
+  margin: 50px auto 0px auto;
+  max-width: 700px;
+}
+
+@media all and (max-device-width: 600px) {
+  /* line 9, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+  #home {
+    text-shadow: 1px 1px 5px black;
+  }
+}
+/* line 14, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home h1 {
+  font-size: 44px;
+  font-weight: normal;
+  height: 44px;
+  line-height: 44px;
+  margin: 0px;
+  opacity: 1;
+  text-align: left;
+}
+
+/* line 24, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home em {
+  font-size: 17px;
+}
+
+/* line 28, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home_content {
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+/* line 33, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home a {
+  color: white;
+}
