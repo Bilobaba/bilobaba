@@ -1,9 +1,9 @@
 <style type="text/css">
 
   * {
-  border-radius: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  /*border-radius: 0 !important;*/
+  /*margin-top: 0 !important;*/
+  /*margin-bottom: 0 !important;*/
   }
 
 </style>
@@ -26,8 +26,8 @@
             <div class="container hero-slide-container w-container">
               <div class="hero-slide-content-block">
                 <div data-ix="slide-title-1" class="hero-slide-intro-title">partageons nos expériences</div>
-                <h1 data-ix="slide-title-2" class="hero-slide-title">Showcase courses, events and more!</h1>
-                <p data-ix="slide-title-3" class="slide-intro-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p><a href="blog.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
+                <h1 data-ix="slide-title-2" class="hero-slide-title">Des activités pour s'épanouir ensemble</h1>
+                <p data-ix="slide-title-3" class="slide-intro-paragraph">Des propositions mélangeant danses et conscience de soi en région parisienne</p><a href="blog.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
             </div>
           </div>
         </div>
@@ -39,8 +39,8 @@
             <div class="container hero-slide-container w-container">
               <div class="hero-slide-content-block">
                 <div data-ix="slide-title-1" class="hero-slide-intro-title">partageons nos expériences</div>
-                <h1 data-ix="slide-title-2" class="hero-slide-title">School &amp; Education Webflow Template</h1>
-                <p data-ix="slide-title-3" class="slide-intro-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p><a href="about-us.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
+                <h1 data-ix="slide-title-2" class="hero-slide-title">Des témoignages qui peuvent éclairer</h1>
+                <p data-ix="slide-title-3" class="slide-intro-paragraph">Des lettres écrits par des amis pour des amis sans prétentions mais avec beaucoup de authenticité</p><a href="about-us.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
             </div>
           </div>
         </div>
@@ -52,8 +52,8 @@
             <div class="container hero-slide-container w-container">
               <div class="hero-slide-content-block">
                 <div data-ix="slide-title-1" class="hero-slide-intro-title">partageons nos expériences</div>
-                <h1 data-ix="slide-title-2" class="hero-slide-title">Easily customize to fit your company</h1>
-                <p data-ix="slide-title-3" class="slide-intro-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p><a href="pricing.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
+                <h1 data-ix="slide-title-2" class="hero-slide-title">Bilobaba s'enrichit de vos retours</h1>
+                <p data-ix="slide-title-3" class="slide-intro-paragraph">Grâce à vos remarques, nous améliorons ce site en permanence</p><a href="pricing.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
             </div>
           </div>
         </div>
@@ -72,23 +72,23 @@
       <div class="hero-overlay-row w-row">
         <div class="stats-column w-col w-col-4">
           <a href="our-courses/courses-grid-view.html" class="hero-overlay-block w-inline-block">
-            <div class="hero-overlay-number">45</div>
-            <div class="hero-overlay-block-title">Courses</div>
-            <p class="link-block-paragraph">We currently offer 45 professional courses.</p>
+            <div class="hero-overlay-number"><%= @count_events_next_week%></div>
+            <div class="hero-overlay-block-title">Propositions</div>
+            <p class="link-block-paragraph">Disponibles cette semaine</p>
           </a>
         </div>
         <div class="stats-column w-col w-col-4">
           <a href="teachers.html" class="hero-overlay-block w-inline-block">
-            <div class="hero-overlay-number">12</div>
-            <div class="hero-overlay-block-title">Teachers</div>
-            <p class="link-block-paragraph">We have 12 professional teachers teaching.</p>
+            <div class="hero-overlay-number"><%= @count_professionals%></div>
+            <div class="hero-overlay-block-title">Proposants</div>
+            <p class="link-block-paragraph">Dans notre rubrique professionels</p>
           </a>
         </div>
         <div class="stats-column last w-col w-col-4">
           <a href="events.html" class="hero-overlay-block w-inline-block">
-            <div class="hero-overlay-number">65</div>
-            <div class="hero-overlay-block-title">Events</div>
-            <p class="link-block-paragraph">Currently 65 exciting upcoming events!</p>
+            <div class="hero-overlay-number"><%= @coutn_testimonials %></div>
+            <div class="hero-overlay-block-title">Témoignages</div>
+            <p class="link-block-paragraph">Authentiques partagés entre "amis"</p>
           </a>
         </div>
       </div>
@@ -97,32 +97,36 @@
   <div class="section">
     <div class="container w-container">
       <div class="section-title-wrapper">
-        <h2 class="section-title">Featured Courses</h2>
+        <h2 class="section-title">Prochaines propositions</h2>
         <div class="section-title-divider"></div>
       </div>
       <div class="w-dyn-list">
-        <div class="w-clearfix w-dyn-items w-row">
-          <div class="featured-course-item w-dyn-item w-col w-col-3">
-            <div class="course-block-wrapper home-featured">
-              <a class="course-image-link-block home-featured w-inline-block">
-                <div class="teacher-overlay-block w-clearfix"><img class="teacher-overlay-photo">
-                  <div class="teacher-overlay-title"></div>
-                </div>
-                <div class="image-overlay-block">
-                  <div class="image-overlay-block w-clearfix">
-                    <div class="featured-label">Featured</div>
+        <div class="w-clearfix w-dyn-items w-row" >
+          <% for i in 0..3 %>
+            <% if !@list_next_events_4[0].nil? %>
+              <div class="featured-course-item w-dyn-item w-col w-col-3"  style="background-color: blue">
+                <div class="course-block-wrapper home-featured">
+                  <a class="course-image-link-block home-featured w-inline-block" style="background-image:<%= image_tag('webflow/Photo-6.jpg') %>" >
+                    <div class="teacher-overlay-block w-clearfix"><img class="teacher-overlay-photo">
+                      <div class="teacher-overlay-title"></div>
+                    </div>
+                    <div class="image-overlay-block">
+                      <div class="image-overlay-block w-clearfix">
+                        <div class="featured-label">Featured</div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="course-content-block"><a class="course-title-link"></a></div>
+                  <div class="course-content-block _2">
+                    <div class="course-info-icon"></div>
+                    <div class="course-info-title"></div>
+                    <div class="course-info-icon"></div>
+                    <div class="course-info-title"></div>
                   </div>
                 </div>
-              </a>
-              <div class="course-content-block"><a class="course-title-link"></a></div>
-              <div class="course-content-block _2">
-                <div class="course-info-icon"></div>
-                <div class="course-info-title"></div>
-                <div class="course-info-icon"></div>
-                <div class="course-info-title"></div>
               </div>
-            </div>
-          </div>
+            <% end %>
+          <% end %>
         </div>
         <div class="empty-state w-dyn-empty">
           <p>No other featured courses found.</p>
