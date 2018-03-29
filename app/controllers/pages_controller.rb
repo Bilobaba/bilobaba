@@ -50,4 +50,7 @@ class PagesController < ApplicationController
   def test
   end
 
+  def faqs
+  end
+
 end

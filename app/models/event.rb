@@ -81,6 +81,14 @@ class Event < ApplicationRecord
       .includes(:attendees)
   end
 
+  def self.next_week(time = Time.now)
+    Event
+      .order(begin_at: :asc)
+      .where('begin_at >= ? AND begin_at <= ?', time, time + 1.week)
+      .includes(:attendees)
+  end
+
+
   algoliasearch do
 
     # list of attribute used to build an Algolia record
