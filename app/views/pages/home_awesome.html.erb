@@ -106,9 +106,11 @@
             <% if !@list_next_events_4[0].nil? %>
               <div class="featured-course-item w-dyn-item w-col w-col-3"  style="background-color: blue">
                 <div class="course-block-wrapper home-featured">
-                  <a class="course-image-link-block home-featured w-inline-block" style="background-image:<%= image_tag('webflow/Photo-6.jpg') %>" >
-                    <div class="teacher-overlay-block w-clearfix"><img class="teacher-overlay-photo">
-                      <div class="teacher-overlay-title"></div>
+                  <a href="#" style="background-image:url('<%= image_path('webflow/Photo-6.jpg')%>')" class="course-image-link-block home-featured w-inline-block" >
+                    <div class="teacher-overlay-block w-clearfix">
+<!--                       <img class="teacher-overlay-photo">
+ -->                      <%= image_tag "webflow/portrait-1.jpg", class: "teacher-overlay-photo" %>
+                      <div class="teacher-overlay-title">Arwind Semper</div>
                     </div>
                     <div class="image-overlay-block">
                       <div class="image-overlay-block w-clearfix">
@@ -116,12 +118,14 @@
                       </div>
                     </div>
                   </a>
-                  <div class="course-content-block"><a class="course-title-link"></a></div>
+                  <div class="course-content-block">
+                    <%= link_to "Beginner study English langage X", home_path, class: "course-title-link" %>
+                  </div>
                   <div class="course-content-block _2">
                     <div class="course-info-icon"></div>
-                    <div class="course-info-title"></div>
+                    <div class="course-info-title">25</div>
                     <div class="course-info-icon"></div>
-                    <div class="course-info-title"></div>
+                    <div class="course-info-title">2h</div>
                   </div>
                 </div>
               </div>
