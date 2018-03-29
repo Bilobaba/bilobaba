@@ -7,10 +7,10 @@
             <div class="top-nav-title icon"></div>
             <div class="top-nav-title">06 63 21 61 65</div>
           </a>
-          <a href="#" class="top-nav-link w-inline-block">
+          <%= link_to contact_path, class: "top-nav-link w-inline-block" do %>
             <div class="top-nav-title icon"></div>
-            <div class="top-nav-title">hello.bilobaba@gmail.com</div>
-          </a>
+            <div class="top-nav-title">Ecrivez-nous</div>
+          <% end %>
         </nav>
         <div class="top-bar-text w-hidden-small w-hidden-tiny">Des propositions chaque jour !</div><a href="our-courses/courses-featured.html" class="top-bar-link w-hidden-small w-hidden-tiny">Voir les cours vedettes →</a>
         <div class="w-nav-button">
@@ -67,7 +67,20 @@
 
           <%= link_to "Tarifs", pricing_path, class: "nav-link w-nav-link" %>
           <%= link_to "FAQs", faqs_path, class: "nav-link w-nav-link" %>
-          <%= link_to "écrivez-nous", contact_path, class: "nav-link w-nav-link" %>
+
+          <div data-delay="0" data-hover="1" class="dropdown w-dropdown">
+            <div class="nav-link dropdown-toggle w-dropdown-toggle">
+              <div>Connexion</div>
+              <div class="dropdown-icon w-icon-dropdown-toggle"></div>
+            </div>
+            <nav class="dropdown-list w-dropdown-list">
+              <%= link_to "Je me connecte", new_member_session_path, class: "dropdown-link w-dropdown-link" %>
+              <%= link_to "Je m'inscrits", new_member_registration_path, class: "dropdown-link w-dropdown-link" %>
+              <%= link_to "Je me déconnecte", destroy_member_session_path, class: "dropdown-link w-dropdown-link"%>
+
+            </nav>
+          </div>
+
         </nav>
 
         <div class="menu-button w-nav-button">
