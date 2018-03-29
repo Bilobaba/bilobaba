@@ -152,6 +152,10 @@ class Event < ApplicationRecord
     return  self.cloudy.identifier
   end
 
+  def image_url
+    "http://res.cloudinary.com/bilobaba/image/upload/" + self.cloudy.identifier
+  end
+
   def summary
     text = I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M') + " " + self.title[0..20].capitalize + "... organisé par " +
     self.organizer.first_name + " " + self.organizer.name + " à " + self.city
