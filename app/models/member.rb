@@ -9,6 +9,8 @@ class Member < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   # validates :avatar, presence: true
+  validates :avatar, file_size: { less_than: 1.megabytes, message: 'L\'image doit faire moins de 1 megabytes' }
+
   validates :pseudo, presence: true
   validates :pseudo, uniqueness: true
   validates :first_name, presence: true
