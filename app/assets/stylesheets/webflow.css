@@ -1477,6 +1477,9 @@ textarea.w-select {
   position: relative;
   background: #dddddd;
   z-index: 1000;
+  border-radius: 0;
+  margin-top: 0 ;
+  margin-bottom: 0;
 }
 .w-nav:before,
 .w-nav:after {
