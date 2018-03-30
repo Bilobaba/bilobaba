@@ -2037,7 +2037,20 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
   transform: translate(0px, 20px);
 }
 
+.sticker-footer {
+  position: fixed ;
+  right: 1% ;
+  bottom: 3% ;
+  width: 10% ;
+  color: white ;
+  text-align: center ;
+  z-index: 10;
+}
+
+.sticker-footer{display: none;}
+
 @media (max-width: 991px) {
+
   .hero-slide-overlay {
     padding-right: 65px;
     padding-left: 65px;
@@ -2422,6 +2435,9 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
 }
 
 @media (max-width: 767px) {
+
+  .sticker-footer{display: block;}
+
   .hero-section {
     height: auto;
     min-height: 0px;
@@ -3247,3 +3263,5 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
   font-weight: 400;
   font-style: normal;
 }
+
+

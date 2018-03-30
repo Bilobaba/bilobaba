@@ -174,21 +174,15 @@
       <div class="container w-container">
         <div class="image-section-content-block">
           <h2 class="image-section-title">Envie de partager de belles expériences?</h2>
-          <h2 class="image-section-title _2">Annoncer gratuitement toutes vos activités danse-bien-être parisiennes que vous soyez professionnels ou particuliers! </h2><a href="404.html" class="button white w-button">Plus d'infos</a></div>
+          <h2 class="image-section-title _2">Annoncez gratuitement toutes vos activités danse-bien-être parisiennes que vous soyez professionnels ou particuliers! </h2><a href="404.html" class="button white w-button">Plus d'infos</a></div>
         <div class="image-section-contact-form w-form">
-          <form id="wf-form-Register-Form" name="wf-form-Register-Form" data-name="Register Form">
+          <div id="wf-form-Register-Form" name="wf-form-Register-Form" data-name="Register Form">
             <div class="contact-form-block">
               <div class="contact-form-title"><strong>Inscrivez-vous</strong> et recevez vos cadeux !</div>
             </div>
             <div class="contact-form-block _2">
-              <%= link_to "Je m'inscris", new_member_registration_path, class: "button submit-button w-button" %>
+              <%= link_to "Yes! Je m'inscris", new_member_registration_path, class: "button submit-button w-button" %>
             </div>
-          </form>
-          <div class="success-bg w-form-done">
-            <p>Thank you! Your submission has been received!</p>
-          </div>
-          <div class="error-bg w-form-fail">
-            <p>Oops! Something went wrong while submitting the form</p>
           </div>
         </div>
       </div>
@@ -199,29 +193,42 @@
       <div class="w-row">
         <div class="news-column-left w-col w-col-6">
           <div class="section-title-wrapper">
-            <h2 class="section-title">Latest News</h2>
+            <h2 class="section-title">Les derniers témoignages</h2>
             <div class="section-title-divider"></div>
           </div>
           <div class="w-dyn-list">
             <div class="w-dyn-items">
-              <div class="blog-post-item w-dyn-item"><a class="blog-post-title-link"></a>
+
+              <div class="blog-post-item w-dyn-item">
+                <a class="blog-post-title-link">
+                  We've just added 2 amazing new events and 2 new courses
+                </a>
                 <div class="blog-post-info-block">
                   <div class="course-info-icon"></div>
-                  <div class="blog-info-title"></div>
+                  <div class="blog-info-title">May 1, 2016</div>
                   <div class="course-info-icon"></div>
-                  <div class="blog-info-title"></div>
+                  <div class="blog-info-title">Kenny Brown</div>
+                </div>
+              </div>
+
+              <div class="blog-post-item w-dyn-item">
+                <a class="blog-post-title-link">
+                  We've just added 2 amazing new events and 2 new courses
+                </a>
+                <div class="blog-post-info-block">
+                  <div class="course-info-icon"></div>
+                  <div class="blog-info-title">May 1, 2016</div>
+                  <div class="course-info-icon"></div>
+                  <div class="blog-info-title">Kenny Brown</div>
                 </div>
               </div>
             </div>
-            <div class="empty-state w-dyn-empty">
-              <p>No blog posts found.</p>
-            </div>
           </div>
-          <div class="bottom-info-text">Want to read more? <a href="blog.html">View Full Blog Archive →</a></div>
+          <div class="bottom-info-text">Ca vous fait envie? <a href=<%= testimonials_path %>>Voir tous les témoignages →</a></div>
         </div>
         <div class="about-column-right w-col w-col-6">
           <div class="section-title-wrapper">
-            <h2 class="section-title">About our School</h2>
+            <h2 class="section-title"> Le pourquoi de Bilobaba </h2>
             <div class="section-title-divider"></div>
           </div>
           <a href="#" class="video-lightbox w-inline-block w-lightbox">
