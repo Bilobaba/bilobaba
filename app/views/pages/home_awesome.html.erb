@@ -149,11 +149,11 @@
                     </div>
                   </a>
                   <div class="course-content-block">
-                    <%= link_to @list_next_events_4[i].title, home_path, class: "course-title-link" %>
+                    <%= link_to @list_next_events_4[i].title[0..42], home_path, class: "course-title-link" %>
                   </div>
                   <div class="course-content-block _2">
-                    <div class="course-info-icon"></div>
-                    <div class="course-info-title">25</div>
+                    <div class="course-info-icon"><i class="material-icons" style="font-size: 16px; position:relative; top:3px">place</i></div>
+                    <div class="course-info-title"><%= @list_next_events_4[i].zip %></div>
                     <div class="course-info-icon"></div>
                     <div class="course-info-title"><%= @list_next_events_4[i].show_duration%></div>
                   </div>
