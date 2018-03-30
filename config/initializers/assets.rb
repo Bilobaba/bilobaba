@@ -29,3 +29,4 @@ Rails.application.config.assets.precompile += %w( duys-trendy-project.webflow.cs
 Rails.application.config.assets.precompile += %w( webflow.js )
 Rails.application.config.assets.precompile += %w( webflow.js )
 Rails.application.config.assets.precompile += %w( fontawesome-webfont.ttf )
+Rails.application.config.assets.precompile += %w( form_sign.css )

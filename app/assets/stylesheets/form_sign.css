@@ -1,0 +1,22 @@
+/* style for form sign_in sign_up and any page without navabr & footer */
+
+header{
+  display: none !important;
+}
+
+/* this class in header is showed event header is hidden */
+.w-nav{
+  display: none !important;
+
+}
+footer{
+  display: none;
+}
+
+body{
+  background-color: white;
+}
+.sign-in{
+  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+}

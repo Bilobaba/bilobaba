@@ -1,4 +1,6 @@
-<div class="container">
+<%= stylesheet_link_tag "form_sign" %>
+
+<div class="container sign-in">
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'green_form' }) do |f| %>
     <div class="form-inputs">
       <%= f.input :email, label: 'Email', autofocus: true %>
