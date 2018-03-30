@@ -2160,7 +2160,6 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
   }
   .course-content-block {
     padding: 25px 15px 15px;
-    min-height: 98px;
   }
   .course-content-block._2 {
     padding-right: 5px;
@@ -2170,11 +2169,11 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
     line-height: 18px;
   }
   .course-info-icon {
-    margin-right: 4px;
+    margin-right: 0px !important;
     font-size: 12px;
   }
   .course-info-title {
-    margin-right: 4px;
+    margin-right: 0px !important;
     font-size: 12px;
   }
   .teacher-overlay-title {

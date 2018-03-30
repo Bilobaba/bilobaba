@@ -76,7 +76,7 @@
             <nav class="dropdown-list w-dropdown-list">
               <%= link_to "Je me connecte", new_member_session_path, class: "dropdown-link w-dropdown-link" %>
               <%= link_to "Je m'inscrits", new_member_registration_path, class: "dropdown-link w-dropdown-link" %>
-              <%= link_to "Je me déconnecte", destroy_member_session_path, class: "dropdown-link w-dropdown-link"%>
+              <%= link_to "Je me déconnecte", destroy_member_session_path, method: :DELETE, class: "dropdown-link w-dropdown-link"%>
             </nav>
           </div>
 

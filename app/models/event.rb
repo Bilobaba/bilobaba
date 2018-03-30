@@ -167,12 +167,11 @@ class Event < ApplicationRecord
   end
 
   def show_begin_at
-    duration = self.end_at - self.begin_at
-    if duration < 1.day
-      show_begin_at = I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M')
-    else
-      show_begin_at = I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M') + ' (' + ((duration/1.day).to_i + 1).to_s + ' jours)'
-    end
+    show_begin_at = I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M')
+  end
+
+  def show_begin_at_hours
+    show_begin_at = I18n.l(self.begin_at, format: '%Hh%M')
   end
 
   def show_duration
