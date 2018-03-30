@@ -40,6 +40,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     Tag.rename(old_pseudo,resource.pseudo)
-    ViewDatum.members
+    ViewDatum.members #update list of members for autocompletion
   end
 end

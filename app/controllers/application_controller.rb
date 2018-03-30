@@ -6,6 +6,18 @@ class ApplicationController < ActionController::Base
   before_action :last_request
   after_action :visited_pages
 
+  def after_sign_in_path_for(resource)
+    session[:request_back]
+  end
+
+  def after_confirmation_path_for(resource)
+    session[:request_back]
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
+  end
+
   def configure_devise_parameters
     devise_parameter_sanitizer.permit(:sign_up) {
       |u| u.permit(
@@ -23,9 +35,20 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  # to back if not login loggout authentification
+  # request.url not update by devise controller
   def last_request
-    session[:request_back] ||= request.url
-    session[:request_back] = request.referer if (request.url != request.referer) &&  request.referer
+    if (
+        !request.url.include?('/auth') &&
+        !request.url.include?('sign_up') &&
+        !request.url.include?('sign_in') &&
+        !request.referer.include?('/auth') &&
+        !request.referer.include?('sign_up') &&
+        !request.referer.include?('sign_in')
+        )
+      session[:request_back] ||= request.url
+      session[:request_back] = request.referer if (request.url != request.referer) &&  request.referer
+    end
   end
 
   def visited_pages

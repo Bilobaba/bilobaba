@@ -57,6 +57,7 @@
     <link href="images/Favicon.png" rel="shortcut icon" type="image/x-icon">
     <link href="images/Webclip.png" rel="apple-touch-icon">
   </head>
+  <body>
 
     <%= render '/layouts/navbar' %>
     <%= render 'shared/flashes' %>
@@ -65,10 +66,19 @@
 
     <%= render '/layouts/footer' %>
 
+    <p> back </p>
+    <%= debug session[:request_back] %>
+    <p> url </p>
+    <%= debug request.url %>
+    <p> refere </p>
+    <%= debug request.referer %>
+    <p> regsitration path </p>
+    <%= debug new_member_registration_path %>
 
-    <%= render "/pages/info_welcome" %>
+
     <!-- Popup showed if the first time -->
     <% if !cookies.permanent[VIEWED_ANY] %>
+      <%= render "/pages/info_welcome" %>
       <script>
          $('#modal_info').modal('show');
       </script>
