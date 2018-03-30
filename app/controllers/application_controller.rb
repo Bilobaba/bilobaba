@@ -38,7 +38,10 @@ class ApplicationController < ActionController::Base
   # to back if not login loggout authentification
   # request.url not update by devise controller
   def last_request
-    if (
+
+    session[:request_back] ||= request.url
+
+    if ( request.referer &&
         !request.url.include?('/auth') &&
         !request.url.include?('sign_up') &&
         !request.url.include?('sign_in') &&
@@ -46,7 +49,6 @@ class ApplicationController < ActionController::Base
         !request.referer.include?('sign_up') &&
         !request.referer.include?('sign_in')
         )
-      session[:request_back] ||= request.url
       session[:request_back] = request.referer if (request.url != request.referer) &&  request.referer
     end
   end
