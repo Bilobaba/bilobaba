@@ -133,14 +133,14 @@
       <div class="w-dyn-list">
         <div class="w-clearfix w-dyn-items w-row" >
           <% for i in 0..3 %>
-            <% if !@list_next_events_4[0].nil? %>
+            <% if @list_events[i] %>
               <div class="featured-course-item w-dyn-item w-col w-col-3">
                 <div class="course-block-wrapper home-featured">
-                  <a href=<%= @list_next_events_4[i].url %> style="background-image:url(<%= @list_next_events_4[i].image_url %>)" class="course-image-link-block home-featured w-inline-block" >
+                  <a href=<%= @list_events[i].url %> style="background-image:url(<%= @list_events[i].image_url %>)" class="course-image-link-block home-featured w-inline-block" >
                     <div class="teacher-overlay-block w-clearfix">
 <!--                       <img class="teacher-overlay-photo">
- -->                      <%= cl_image_tag @list_next_events_4[i].organizer.avatar, class: "teacher-overlay-photo" %>
-                      <div class="teacher-overlay-title"><%= @list_next_events_4[i].organizer.pseudo %></div>
+ -->                      <%= cl_image_tag @list_events[i].organizer.avatar, class: "teacher-overlay-photo" %>
+                      <div class="teacher-overlay-title"><%= @list_events[i].organizer.pseudo %></div>
                     </div>
                     <div class="image-overlay-block">
                       <div class="image-overlay-block w-clearfix">
@@ -149,13 +149,13 @@
                     </div>
                   </a>
                   <div class="course-content-block">
-                    <%= link_to @list_next_events_4[i].title[0..42], home_path, class: "course-title-link" %>
+                    <%= link_to @list_events[i].title[0..42], home_path, class: "course-title-link" %>
                   </div>
                   <div class="course-content-block _2">
                     <div class="course-info-icon"><i class="material-icons" style="font-size: 16px; position:relative; top:3px">place</i></div>
-                    <div class="course-info-title"><%= @list_next_events_4[i].zip %></div>
+                    <div class="course-info-title"><%= @list_events[i].zip %></div>
                     <div class="course-info-icon"></div>
-                    <div class="course-info-title"><%= @list_next_events_4[i].show_begin_at_hours %></div>
+                    <div class="course-info-title"><%= @list_events[i].show_begin_at_hours %></div>
                   </div>
                 </div>
               </div>
@@ -198,30 +198,21 @@
           </div>
           <div class="w-dyn-list">
             <div class="w-dyn-items">
-
-              <div class="blog-post-item w-dyn-item">
-                <a class="blog-post-title-link">
-                  We've just added 2 amazing new events and 2 new courses
-                </a>
-                <div class="blog-post-info-block">
-                  <div class="course-info-icon"></div>
-                  <div class="blog-info-title">May 1, 2016</div>
-                  <div class="course-info-icon"></div>
-                  <div class="blog-info-title">Kenny Brown</div>
-                </div>
-              </div>
-
-              <div class="blog-post-item w-dyn-item">
-                <a class="blog-post-title-link">
-                  We've just added 2 amazing new events and 2 new courses
-                </a>
-                <div class="blog-post-info-block">
-                  <div class="course-info-icon"></div>
-                  <div class="blog-info-title">May 1, 2016</div>
-                  <div class="course-info-icon"></div>
-                  <div class="blog-info-title">Kenny Brown</div>
-                </div>
-              </div>
+              <% for i in 0..2 %>
+                <% if @list_testimonials[i] %>
+                  <div class="blog-post-item w-dyn-item">
+                    <a href=<%= url_for(@list_testimonials[i]) %> class="blog-post-title-link">
+                      <%= @list_testimonials[i].title %>
+                    </a>
+                    <div class="blog-post-info-block">
+                      <div class="course-info-icon"></div>
+                      <div class="blog-info-title"><%= @list_testimonials[i].written_at %></div>
+                      <div class="course-info-icon"></div>
+                      <div class="blog-info-title"><%= @list_testimonials[i].author.pseudo %></div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
           </div>
           <div class="bottom-info-text">Ca vous fait envie? <a href=<%= testimonials_path %>>Voir tous les témoignages →</a></div>
@@ -287,6 +278,60 @@
               </div><a class="button events-learn-more w-button">Plus d'infos</a></div>
           </div>
         </div>
+
+
+        <div class="w-dyn-items">
+          <div class="event-item w-dyn-item">
+            <a class="event-image-block w-inline-block">
+              <div class="event-date-block w-clearfix">
+                <div class="event-date-title"></div>
+                <div class="event-date-title month"></div>
+                <div class="event-date-title month"></div>
+              </div>
+            </a>
+            <div class="event-info-block"><a class="event-title-link"></a>
+              <div class="event-info-wrapper">
+                <div class="course-info-icon"></div>
+                <div class="event-info-title"></div>
+                <div class="course-info-icon"></div>
+                <div class="event-info-title"></div>
+                <div class="event-info-title">-</div>
+                <div class="event-info-title"></div>
+              </div>
+              <div class="event-info-wrapper">
+                <div class="course-info-icon"></div>
+                <div class="event-info-title"></div>
+              </div><a class="button events-learn-more w-button">Plus d'infos</a></div>
+          </div>
+        </div>
+
+
+        <div class="w-dyn-items">
+          <div class="event-item w-dyn-item">
+            <a class="event-image-block w-inline-block">
+              <div class="event-date-block w-clearfix">
+                <div class="event-date-title"></div>
+                <div class="event-date-title month"></div>
+                <div class="event-date-title month"></div>
+              </div>
+            </a>
+            <div class="event-info-block"><a class="event-title-link"></a>
+              <div class="event-info-wrapper">
+                <div class="course-info-icon"></div>
+                <div class="event-info-title"></div>
+                <div class="course-info-icon"></div>
+                <div class="event-info-title"></div>
+                <div class="event-info-title">-</div>
+                <div class="event-info-title"></div>
+              </div>
+              <div class="event-info-wrapper">
+                <div class="course-info-icon"></div>
+                <div class="event-info-title"></div>
+              </div><a class="button events-learn-more w-button">Plus d'infos</a></div>
+          </div>
+        </div>
+
+
         <div class="empty-state w-dyn-empty">
           <p>No upcoming events found yet.</p>
         </div>

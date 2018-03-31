@@ -10,7 +10,8 @@ class PagesController < ApplicationController
     @count_events_next_week = Event.next_week.count
     @count_professionals = Member.pros.count
     @coutn_testimonials = Testimonial.count
-    @list_next_events_4 = Event.next_events.first(4)
+    @list_events = Event.next_events.first(4)
+    @list_testimonials = Testimonial.published.last(3)
   end
 
   def team

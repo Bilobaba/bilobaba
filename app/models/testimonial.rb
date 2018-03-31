@@ -47,4 +47,7 @@ class Testimonial < ApplicationRecord
      return ENV["ROOT_URL"] + testimonial_path(self)
   end
 
+  def written_at
+    I18n.l(self.created_at, format: '%a %-d %b %Y')
+  end
 end
