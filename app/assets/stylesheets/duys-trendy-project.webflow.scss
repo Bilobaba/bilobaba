@@ -2036,6 +2036,7 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
   bottom: 3% ;
   width: 10% ;
   color: white ;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
   text-align: center ;
   z-index: 10;
 }
@@ -2128,6 +2129,7 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
   .slide-intro-paragraph {
     margin-top: 10px;
     margin-bottom: 0px;
+    min-height: 72px;
   }
   .link-block-paragraph {
     font-size: 12px;
