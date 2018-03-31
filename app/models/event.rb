@@ -88,6 +88,18 @@ class Event < ApplicationRecord
       .includes(:attendees)
   end
 
+  def self.short
+    Event
+      .order(begin_at: :asc)
+      .where('duration < ?', 1.day.to_int)
+  end
+
+  def self.long
+    Event
+      .order(begin_at: :asc)
+      .where('duration >= ?', 1.day.to_int)
+  end
+
 
   algoliasearch do
 
@@ -175,7 +187,7 @@ class Event < ApplicationRecord
   end
 
   def show_duration
-    duration = self.end_at - self.begin_at
+    duration = self.duration
     if duration < 1.day
       show_duration = (duration/1.hour).to_i.to_s + 'h' + (duration%1.hour/1.minute).to_i.to_s.rjust(2, '0')
     else

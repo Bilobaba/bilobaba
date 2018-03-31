@@ -7,10 +7,11 @@ class PagesController < ApplicationController
 
   # home from webflow
   def home_awesome
-    @count_events_next_week = Event.next_week.count
+    @count_events_next_week = Event.short.next_week.count
     @count_professionals = Member.pros.count
     @coutn_testimonials = Testimonial.count
-    @list_events = Event.next_events.first(4)
+    @list_short_events = Event.next_events.short.first(4)
+    @list_long_events = Event.next_events.long.first(4)
     @list_testimonials = Testimonial.published.last(3)
   end
 
