@@ -58,35 +58,6 @@
             </div>
           </div>
         </div>
-
-<!--         <div class="hero-slide w-slide">
-          <div class="hero-slide-overlay padding">
-            <div class="slide-load-boar">
-              <div data-ix="fill-slide-load-bar" class="slide-load-bar-fill"></div>
-            </div>
-            <div class="container hero-slide-container w-container">
-              <div class="hero-slide-content-block">
-                <div data-ix="slide-title-1" class="hero-slide-intro-title">partageons nos expériences</div>
-                <h1 data-ix="slide-title-2" class="hero-slide-title">Des témoignages qui peuvent éclairer</h1>
-                <p data-ix="slide-title-3" class="slide-intro-paragraph">Des lettres écrits par des amis pour des amis sans prétentions mais avec beaucoup de authenticité</p><a href="about-us.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-slide _2 w-slide">
-          <div class="hero-slide-overlay padding">
-            <div class="slide-load-boar">
-              <div data-ix="fill-slide-load-bar" class="slide-load-bar-fill"></div>
-            </div>
-            <div class="container hero-slide-container w-container">
-              <div class="hero-slide-content-block">
-                <div data-ix="slide-title-1" class="hero-slide-intro-title">partageons nos expériences</div>
-                <h1 data-ix="slide-title-2" class="hero-slide-title">Bilobaba s'enrichit de vos retours</h1>
-                <p data-ix="slide-title-3" class="slide-intro-paragraph">Grâce à vos remarques, nous améliorons ce site en permanence</p><a href="pricing.html" data-ix="slide-title-4" class="button slider-button w-button">Plus d'infos</a></div>
-            </div>
-          </div>
-        </div> -->
-
       </div>
       <div data-ix="hide-slider-arrow" class="hero-slider-button w-hidden-small w-hidden-tiny w-slider-arrow-left">
         <div class="w-icon-slider-left"></div>
@@ -162,11 +133,10 @@
             <% end %>
           <% end %>
         </div>
-        <div class="empty-state w-dyn-empty">
-          <p>No other featured courses found.</p>
-        </div>
       </div>
-      <div class="bottom-info-text">Want to see the full list of our Courses? <a href="our-courses/courses-grid-view.html">View Full Courses Overview →</a></div>
+      <div class="bottom-info-text">Vous voulez voir la liste complète des propositions?
+        <%= link_to "Regardez la liste omplète →" , events_path %>
+      </div>
     </div>
   </div>
   <div class="image-section">
@@ -181,7 +151,7 @@
               <div class="contact-form-title"><strong>Inscrivez-vous</strong> et recevez vos cadeux !</div>
             </div>
             <div class="contact-form-block _2">
-              <%= link_to "Yes! Je m'inscris", new_member_registration_path, class: "button submit-button w-button" %>
+              <%= link_to "Oui! Je m'inscris", new_member_registration_path, class: "button submit-button w-button" %>
             </div>
           </div>
         </div>
@@ -250,7 +220,7 @@
     <div class="container w-container">
       <div class="section-title-wrapper">
         <h2 class="section-title">Prochains stages</h2>
-        <h2 class="section-title subtitle">Morbi accumsan ipsum velit. Nam nec tellus</h2>
+        <h2 class="section-title subtitle">Pour découvrir ou approfondir une activités sur plusiseurs jours</h2>
         <div class="section-title-divider"></div>
       </div>
       <div class="upcoming-events-list-wrapper w-dyn-list">
@@ -266,7 +236,7 @@
                   </div>
                 </a>
                 <div class="event-info-block">
-                  <a class="event-title-link" href='#' ><%= @list_long_events[i].title %></a>
+                  <%= link_to @list_long_events[i].title, @list_long_events[i].url, class: "event-title-link" %>
                   <div class="event-info-wrapper">
                     <div class="course-info-icon"></div>
                     <div class="event-info-title">infos 1</div>
@@ -277,7 +247,7 @@
                   </div>
                   <div class="event-info-wrapper">
                     <div class="course-info-icon"></div>
-                    <div class="event-info-title">infos 4</div>
+                    <div class="event-info-title"><%= @list_long_events[i].zip %> <%= @list_long_events[i].city %></div>
                   </div><a class="button events-learn-more w-button">Plus d'infos</a>
                 </div>
               </div>
