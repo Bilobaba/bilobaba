@@ -66,16 +66,6 @@
 
     <%= render '/layouts/footer' %>
 
-    <p> back </p>
-    <%= debug session[:request_back] %>
-    <p> url </p>
-    <%= debug request.url %>
-    <p> refere </p>
-    <%= debug request.referer %>
-    <p> regsitration path </p>
-    <%= debug new_member_registration_path %>
-
-
     <!-- Popup showed if the first time -->
     <% if !cookies.permanent[VIEWED_ANY] %>
       <%= render "/pages/info_welcome" %>
