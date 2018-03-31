@@ -68,6 +68,7 @@ class EventsController < ApplicationController
       @event.organizer = current_member
       @event.teacher = current_member if current_member.has_role?(ROLE_PROFESSIONAL)
       @event.cloudy = @cloudy
+      @event.duration = @event.end_at - @event.begin_at
       # force image to avoid uplaod a new image per event created
       @save_is_ok &&= @event.save
 
@@ -101,6 +102,8 @@ class EventsController < ApplicationController
 
         time_at = I18n.l(@event.end_at, format: '%H:%M')
         @event.end_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
+
+        @event.duration = @event.end_at - @event.begin_at
 
         # save once to get cloudinary infos, break if save not ok
         break unless @save_is_ok &&= @event.save
@@ -143,6 +146,7 @@ class EventsController < ApplicationController
     @list_events.each do |event|
       @event = event
       @update_is_ok &&= @event.update(event_params)
+      @event.duration = @event.end_at - @event.begin_at
       if @cloudy
         # init cloudy once with the first update
         unless @cloudy.identifier
@@ -152,8 +156,8 @@ class EventsController < ApplicationController
           params[:event].delete(:image)
         end
         @event.cloudy = @cloudy
-        @event.save
       end
+      @event.save
     end
 
     respond_to do |format|
