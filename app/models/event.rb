@@ -182,6 +182,10 @@ class Event < ApplicationRecord
     show_begin_at = I18n.l(self.begin_at, format: '%a %-d %b %Y - %Hh%M')
   end
 
+  def show_begin_at_day
+    show_begin_at = I18n.l(self.begin_at, format: '%a %-d %b %Y')
+  end
+
   def show_begin_at_hours
     show_begin_at = I18n.l(self.begin_at, format: '%Hh%M')
   end

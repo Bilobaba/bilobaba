@@ -115,7 +115,15 @@
                     </div>
                     <div class="image-overlay-block">
                       <div class="image-overlay-block w-clearfix">
-                        <div class="featured-label">Bientôt</div>
+                        <div class="featured-label">
+                          <% if @list_short_events[i].begin_at.to_date == Date.today %>
+                            Aujourd'hui
+                          <% elsif @list_short_events[i].begin_at.to_date == Date.today + 1 %>
+                            Demain
+                          <% else %>
+                            Bientôt
+                          <% end %>
+                        </div>
                       </div>
                     </div>
                   </a>
