@@ -165,7 +165,7 @@ class Event < ApplicationRecord
   end
 
   def image_url
-    "http://res.cloudinary.com/bilobaba/image/upload/" + self.cloudy.identifier
+    "http://res.cloudinary.com/bilobaba/image/upload/" + self.cloudy.identifier.to_s
   end
 
   def summary
