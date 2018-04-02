@@ -1,3 +1,6 @@
+@import "default";
+
+
 body {
   height: 100%;
   background-color: #000;
@@ -20,7 +23,7 @@ p {
 }
 
 a {
-  color: #A445A1;
+  color: $color_purple;
   text-decoration: none;
 }
 
@@ -43,7 +46,7 @@ blockquote {
   margin-top: 30px;
   margin-bottom: 30px;
   padding: 0px 20px 0px 30px;
-  border-left: 5px solid #A445A1;
+  border-left: 5px solid $color_purple;
   font-size: 18px;
   line-height: 27px;
 }
@@ -70,17 +73,18 @@ blockquote {
 }
 
 .hero-slide {
-  background-image: image-url('calligraphies/respire.jpg');
+  background-image: url('calligraphies/respire.jpg');
+  background-position: 50% 50%;
   background-size: cover;
 }
 
 .hero-slide._2 {
-  background-image: image-url('calligraphies/c-est-cela.jpg');
+  background-image: url('calligraphies/c-est-cela.jpg');
   background-size: cover;
 }
 
 .hero-slide._3 {
-  background-image: image-url('calligraphies/souris.jpg');
+  background-image: url('calligraphies/souris.jpg');
   background-size: cover;
 }
 
@@ -151,7 +155,7 @@ blockquote {
   padding-right: 22px;
   padding-left: 22px;
   border-radius: 3px;
-  background-color: #A445A1;
+  background-color: $color_purple;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
   font-size: 12px;
@@ -171,7 +175,7 @@ blockquote {
   padding-right: 25px;
   padding-left: 25px;
   border-radius: 3px;
-  background-color: #A445A1;
+  background-color: $color_purple;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
   font-size: 13px;
@@ -190,7 +194,7 @@ blockquote {
   width: 100%;
   margin-top: 10px;
   border-radius: 4px;
-  background-color: #A445A1;
+  background-color: $color_purple;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
 }
@@ -272,7 +276,7 @@ blockquote {
   box-shadow: 4px 0 13px 0 rgba(0, 0, 0, .13);
   -webkit-transition: box-shadow 200ms ease;
   transition: box-shadow 200ms ease;
-  color: #A445A1;
+  color: $color_purple;
   text-decoration: none;
 }
 
@@ -360,14 +364,14 @@ blockquote {
 }
 
 .nav-link:hover {
-  border-bottom-color: #A445A1;
-  color: #A445A1;
+  border-bottom-color: $color_purple;
+  color: $color_purple;
   text-decoration: none;
 }
 
 .nav-link.w--current {
-  border-bottom-color: #A445A1;
-  color: #B400CC;
+  border-bottom-color: $color_purple;
+  color: #5069cf;
 }
 
 .nav-link.dropdown-toggle {
@@ -375,7 +379,7 @@ blockquote {
 }
 
 .nav-link.dropdown-toggle.w--open {
-  border-bottom-color: #A445A1;
+  border-bottom-color: $color_purple;
 }
 
 .nav-link.left {
@@ -386,7 +390,7 @@ blockquote {
 .top-navbar {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #A445A1;
+  background-color: $color_purple;
 }
 
 .top-nav-link {
@@ -492,7 +496,7 @@ blockquote {
 
 .section-title.sidebar {
   margin-bottom: 20px;
-  color: #A445A1;
+  color: $color_purple;
   font-size: 20px;
 }
 
@@ -545,7 +549,7 @@ blockquote {
   height: 180px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  background-image: image-url('webflow/example-bg.png');
+  background-image: url('../images/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -587,11 +591,10 @@ blockquote {
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
-  min-height: 40px;
 }
 
 .course-title-link:hover {
-  color: #A445A1;
+  color: $color_purple;
   text-decoration: none;
 }
 
@@ -671,10 +674,9 @@ blockquote {
 }
 
 .image-section {
-  background-image: image-url('danser-paris-bien-etre.jpg');
+  background-image: url('danser-paris-bien-etre.jpg');
   background-position: 50% 50%;
-  background-size: 100% 100%;
-
+  background-size: cover;
 }
 
 .image-section-overlay {
@@ -720,7 +722,7 @@ blockquote {
 .contact-form-block {
   padding: 25px 40px;
   border-bottom: 1px solid #e4e4e4;
-  background-color: #A445A1;
+  background-color: $color_purple;
   text-align: center;
 }
 
@@ -746,7 +748,7 @@ blockquote {
 }
 
 .field:focus {
-  border-color: #A445A1;
+  border-color: $color_purple;
   background-color: #fff;
 }
 
@@ -823,7 +825,7 @@ blockquote {
   width: 300px;
   height: 200px;
   border-radius: 3px 0px 0px 3px;
-  background-image: image-url('webflow/example-bg.png');
+  background-image: url('../images/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -838,7 +840,7 @@ blockquote {
 }
 
 .event-title-link:hover {
-  color: #A445A1;
+  color: $color_purple;
   text-decoration: none;
 }
 
@@ -899,7 +901,7 @@ blockquote {
   height: 220px;
   margin-bottom: 30px;
   border-radius: 4px;
-  background-image: image-url('webflow/Photo-9_1.jpg');
+  background-image: url('../images/Photo-9_1.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -927,13 +929,13 @@ blockquote {
 }
 
 .dropdown-link:hover {
-  background-color: #A445A1;
+  background-color: $color_purple;
   color: #fff;
   text-decoration: none;
 }
 
 .dropdown-link.w--current {
-  color: #A445A1;
+  color: $color_purple;
 }
 
 .dropdown-link.w--current:hover {
@@ -953,7 +955,7 @@ blockquote {
 .success-bg {
   padding-top: 28px;
   padding-bottom: 10px;
-  background-color: #A445A1;
+  background-color: $color_purple;
   color: #fff;
 }
 
@@ -974,6 +976,13 @@ blockquote {
 .link-below-paragraph {
   display: inline-block;
   margin-top: 10px;
+}
+
+.footer {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #000;
+  color: #7c7c7c;
 }
 
 .footer-column {
@@ -1045,7 +1054,7 @@ blockquote {
   padding-top: 3px;
   padding-left: 2px;
   border-radius: 3px;
-  background-color: #A445A1;
+  background-color: $color_purple;
   -webkit-transition: background-color 200ms ease, border 200ms ease;
   transition: background-color 200ms ease, border 200ms ease;
   text-align: center;
@@ -1058,7 +1067,6 @@ blockquote {
 .footer-social-icon {
   width: 15px;
   margin-right: 2px;
-  border-radius: 0;
 }
 
 .featured-courses-row {
@@ -1081,44 +1089,44 @@ blockquote {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), image-url('webflow/Photo-7.jpg');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), image-url('webflow/Photo-7.jpg');
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('../images/Photo-7.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('../images/Photo-7.jpg');
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
 }
 
 .page-header {
-  background-image: image-url('webflow/Photo-3.jpg');
+  background-image: url('../images/Photo-3.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
 
 .page-header.courses-grid {
-  background-image: image-url('webflow/Phoot-6_1.jpg');
+  background-image: url('../images/Phoot-6_1.jpg');
   background-size: cover;
 }
 
 .page-header.featured-courses {
-  background-image: image-url('webflow/Photo-8.jpg');
+  background-image: url('../images/Photo-8.jpg');
   background-position: 0% 31%;
   background-size: cover;
 }
 
 .page-header.events {
-  background-image: image-url('webflow/Photo-9_1.jpg');
+  background-image: url('../images/Photo-9_1.jpg');
   background-position: 0% 42%;
 }
 
 .page-header.teacher {
-  background-image: image-url('webflow/Phoot-6.jpg');
+  background-image: url('../images/Phoot-6.jpg');
 }
 
 .page-header.teachers {
-  background-image: image-url('webflow/Photo-4.jpg');
+  background-image: url('../images/Photo-4.jpg');
 }
 
 .page-header.pricing {
-  background-image: image-url('webflow/Photo-5.jpg');
+  background-image: url('../images/Photo-5.jpg');
 }
 
 .page-header-overlay {
@@ -1205,7 +1213,7 @@ blockquote {
   padding-left: 11px;
   float: right;
   border-bottom-left-radius: 3px;
-  background-color: #8EB8E5;
+  background-color: $color_featured;
   color: #fff;
   font-size: 9px;
   line-height: 23px;
@@ -1217,7 +1225,7 @@ blockquote {
   width: 100%;
   height: 355px;
   border-radius: 4px;
-  background-image: image-url('webflow/Photo-9.jpg');
+  background-image: url('../images/Photo-9.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1232,7 +1240,7 @@ blockquote {
   width: 100%;
   padding: 40px;
   border-radius: 3px;
-  background-color: #A445A1;
+  background-color: $color_purple;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
   color: #fff;
@@ -1374,7 +1382,7 @@ blockquote {
   margin-right: 3px;
   padding-top: 4px;
   border-radius: 3px;
-  background-color: #A445A1;
+  background-color: $color_purple;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
   text-align: center;
@@ -1423,7 +1431,7 @@ blockquote {
 .course-image-block {
   width: 100%;
   height: 220px;
-  background-image: image-url('webflow/Photo-4_1.jpg');
+  background-image: url('../images/Photo-4_1.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1522,8 +1530,8 @@ blockquote {
 .empty-state.empty-courses {
   height: 310px;
   padding-top: 120px;
-  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .8), #fff 58%), image-url('webflow/No-Courses.jpg');
-  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .8), #fff 58%), image-url('webflow/No-Courses.jpg');
+  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .8), #fff 58%), url('../images/No-Courses.jpg');
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .8), #fff 58%), url('../images/No-Courses.jpg');
   background-position: 0px 0px, 50% 0px;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
@@ -1535,7 +1543,7 @@ blockquote {
   margin-right: 50px;
   float: left;
   border-radius: 4px;
-  background-image: image-url('webflow/example-bg.png');
+  background-image: url('../images/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1607,7 +1615,7 @@ blockquote {
   display: block;
   width: 100%;
   height: 200px;
-  background-image: image-url('webflow/example-bg.png');
+  background-image: url('../images/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1667,13 +1675,13 @@ blockquote {
 }
 
 .category-link-title:hover {
-  background-color: #A445A1;
+  background-color: $color_purple;
   color: #fff;
   text-decoration: none;
 }
 
 .category-link-title.w--current {
-  background-color: #A445A1;
+  background-color: $color_purple;
   color: #fff;
 }
 
@@ -1819,7 +1827,7 @@ blockquote {
   height: 200px;
   margin-bottom: 17px;
   border-radius: 4px;
-  background-image: image-url('webflow/example-bg.png');
+  background-image: url('../images/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
   box-shadow: 3px 3px 23px 0 rgba(0, 0, 0, .2);
@@ -1888,7 +1896,7 @@ blockquote {
   width: 60px;
   height: 60px;
   border-radius: 3px;
-  background-color: #A445A1;
+  background-color: $color_purple;
   color: #fff;
   text-align: center;
 }
@@ -2032,19 +2040,20 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
 
 .sticker-footer {
   position: fixed ;
-  right: 1% ;
-  bottom: 3% ;
+  right: 10px ;
+  bottom: 10px ;
   width: 10% ;
   color: white ;
   text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
   text-align: center ;
   z-index: 10;
+  display: none;
 }
 
-.sticker-footer{display: none;}
-
 @media (max-width: 991px) {
-
+  .sticker-footer {
+    display: block;
+  }
   .hero-slide-overlay {
     padding-right: 65px;
     padding-left: 65px;
@@ -2129,7 +2138,6 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
   .slide-intro-paragraph {
     margin-top: 10px;
     margin-bottom: 0px;
-    min-height: 72px;
   }
   .link-block-paragraph {
     font-size: 12px;
@@ -2178,11 +2186,11 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
     line-height: 18px;
   }
   .course-info-icon {
-    margin-right: 0px !important;
+    margin-right: 4px;
     font-size: 12px;
   }
   .course-info-title {
-    margin-right: 0px !important;
+    margin-right: 4px;
     font-size: 12px;
   }
   .teacher-overlay-title {
@@ -2217,7 +2225,7 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
     margin-top: 20px;
   }
   .dropdown-list.w--open {
-    background-color: #A445A1;
+    background-color: $color_purple;
     box-shadow: 0 0 0 0 transparent;
   }
   .dropdown-link {
@@ -2422,17 +2430,16 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
     padding-top: 180px;
     padding-right: 30px;
     padding-left: 30px;
-    background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), image-url('webflow/Photo-4_1.jpg');
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), image-url('webflow/Photo-4_1.jpg');
+    background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/Photo-4_1.jpg');
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/Photo-4_1.jpg');
     background-position: 0px 0px, 50% 50%;
     background-size: auto, cover;
   }
+
+
 }
 
 @media (max-width: 767px) {
-
-  .sticker-footer{display: block;}
-
   .hero-section {
     height: auto;
     min-height: 0px;
@@ -3254,9 +3261,7 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
 
 @font-face {
   font-family: 'Fontawesome webfont';
-  src: asset-url("fontawesome-webfont.ttf") format('truetype');
+  src: url('fontawesome-webfont.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
-
-
