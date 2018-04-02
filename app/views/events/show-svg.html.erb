@@ -1,0 +1,169 @@
+<%= stylesheet_link_tag 'event' %>
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div id="show">
+    <div id="event">
+      <div id="event_title">
+        <h4><%= @event.title %></h4>
+        <div id="event_controls">
+          <% if member_signed_in? && (current_member == @event.organizer) %>
+            <%= link_to '(modifier)', edit_event_path %>
+          <% end %>
+          <%= link_to '(copier)', duplicate_path( @event), class: 'enable' %>
+        </div>
+      </div>
+
+      <% if @event.cloudy.present? && @event.cloudy.identifier.present? %>
+          <%= cl_image_tag @event.cloudy.identifier, width: 600, height: 182, crop: :fill %>
+      <% end %>
+
+      <div id="event_content">
+        <%= link_to @event.organizer do %>
+          <% if @event.organizer.avatar.file %>
+            <%= cl_image_tag(@event.organizer.avatar.file.public_id, width: 80, radius: 20, id: 'avatar_organizer') %>
+          <% end %>
+        <% end %>
+
+        <% if @event.teacher %>
+          <%= link_to @event.teacher do %>
+            <% if @event.teacher.avatar.file %>
+              <%= cl_image_tag(@event.teacher.avatar.file.public_id, width: 80, radius: 20, id: 'avatar_teacher') %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <table>
+          <tr>
+            <td>Date et heure</td>
+            <td>: <%= @event.show_begin_at %></td>
+          </tr>
+          <tr>
+            <td>Durée</td>
+            <td>:
+              <%= @event.show_duration %>
+            </td>
+          </tr>
+          <tr>
+            <td>Prix</td>
+            <td>: <%= @event.show_price %></td>
+          </tr>
+          <tr>
+            <td>Organisateur</td>
+            <td>:
+              <%= link_to @event.organizer.pseudo, @event.organizer, id: 'organizer' %>
+            </td>
+          </tr>
+          <% if @event.teacher && (@event.teacher != @event.organizer) %>
+            <tr>
+              <td>Animateur</td>
+              <td>:
+                <%= link_to @event.teacher.pseudo, @event.teacher, id: 'teacher' %>
+              </td>
+            </tr>
+          <% end %>
+          <% if @event.place_name.to_s.size > 1 %>
+            <td>Nom du lieu</td><td>: <%= @event.place_name.to_s %></td>
+          <% end %>
+          <tr>
+            <td>Lieu</td>
+            <td class="location pointer">:
+              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-lat': @event.lat, 'data-lng': @event.lng do %>
+                <% if @event.address.size > 50 %>
+                  <%= @event.address[0..50] + ' (...)' %>
+                <% else %>
+                  <%= @event.address %>
+                <% end %>
+                <span class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>
+              :
+              <% if @event.description.size > 50 %>
+                <%= link_to @event.description[0..50] + ' (...)', '#', 'data-toggle': 'modal', 'data-target': '#modal' %>
+              <% else %>
+                <%= @event.description %>
+              <% end %>
+            </td>
+          </tr>
+          <% if @event.note.to_s != '' %>
+            <tr>
+              <td>Remarques </td>
+              <td>
+                :
+                <% if @event.note.size > 50 %>
+                  <%= link_to @event.note[0..50] + ' (...)', '#', 'data-toggle': 'modal', 'data-target': '#modal_note' %>
+                <% else %>
+                  <%= @event.note %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+
+    <div id="discussion">
+      <h4>Poser une question à l'organisateur ou laisser un commentaire ici :</h4>
+      <div id="comments">
+        <% @event.comments.each do |comment| %>
+            <%= render comment %>
+        <% end %>
+      </div>
+
+      <%= simple_form_for [@event, @comment], remote: true do |f| %>
+          <% if member_signed_in? %>
+            <%= f.input :content, label: false %>
+            <%= f.button :submit, 'Envoyer le commentaire' %>
+          <% else %>
+            <%= link_to  '#','data-toggle':'modal', 'data-target':'#connection' do %>
+              <%= f.input :content, label: false %>
+            <% end %>
+            <%= link_to 'Envoyer le commentaire', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default' %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <% pictures = @event.return_pictures %>
+  <% if pictures.size > 0 %>
+    <div id="event_pictures">
+      <% pictures.each do |picture| %>
+        <%= link_to picture[:url], target: '_blank' do %>
+          <%= cl_image_tag( picture[:filename], width: 200, height:200, radius: 10, crop: 'fill' ) %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Modals -->
+<%= render 'layouts/modal', title: 'Description détaillée de <em>' + @event.title + '</em>', content: @event.description,
+                            title_note: 'Note détaillée <em>' + @event.title + '</em>', content_note: @event.note %>
+
+<%= render 'layouts/map', title: @event.address %>
+
+<script>
+  <% if @event.lat %>
+    $('#modal_map').on('shown.bs.modal', function (event) {
+      showMap($(event.relatedTarget).data('lat'), $(event.relatedTarget).data('lng'), $(event.relatedTarget).data('address'));
+    });
+  <% end %>
+  $('#organizer').hover(
+    function () {
+      $('#avatar_organizer').show();
+    },
+    function () {
+      $('#avatar_organizer').hide();
+    },);
+
+  $('#teacher').hover(
+    function () {
+      $('#avatar_teacher').show();
+    },
+    function () {
+      $('#avatar_teacher').hide();
+    },);
+</script>
