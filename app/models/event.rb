@@ -190,6 +190,10 @@ class Event < ApplicationRecord
     show_begin_at = I18n.l(self.begin_at, format: '%Hh%M')
   end
 
+  def show_begin_at_month_name
+    I18n.l(self.begin_at, format: '%B').capitalize
+  end
+
   def show_duration
     duration = self.duration
     if duration < 1.day
