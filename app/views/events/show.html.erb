@@ -49,19 +49,30 @@
         </div>
         <div class="course-content-wrapper">
           <div class="section-title-wrapper course">
-            <h2 class="section-title">Teachers / Speakers</h2>
+            <h2 class="section-title">
+              <%= @event.organizer.gender == MEMBER_GENDER_MALE ? 'Organisateur' : 'Organisatrice' %>
+              <% if @event.teacher %>
+              / <%= @event.organizer.gender == MEMBER_GENDER_MALE ? 'Enseignant' : 'Enseignante' %>
+              <% end %> </h2>
             <div class="section-title-divider"></div>
           </div>
           <div class="w-dyn-list">
             <div class="w-dyn-items w-row">
+
               <div class="teacher-block w-dyn-item w-col w-col-4">
-                <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo"><a class="teacher-title"></a>
-                  <div class="teacher-title _2"></div>
+                <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo" src="<%= @event.member_avatar %>" ><a class="teacher-title"><%= @event.organizer.pseudo %></a>
+                  <div class="teacher-title _2"><%= @event.organizer.title %></div>
                 </div>
               </div>
-            </div>
-            <div class="empty-state w-dyn-empty">
-              <p>No teachers scheduled yet.</p>
+
+              <% if @event.teacher %>
+                <div class="teacher-block w-dyn-item w-col w-col-4">
+                  <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo" src="<%= @event.teacher_avatar %>" ><a class="teacher-title"><%= @event.teacher.pseudo %></a>
+                    <div class="teacher-title _2"><%= @event.teacher.title %></div>
+                  </div>
+                </div>
+              <% end %>
+
             </div>
           </div>
         </div>

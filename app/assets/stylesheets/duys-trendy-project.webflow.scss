@@ -2180,6 +2180,8 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
   }
   .course-content-block._2 {
     padding-right: 5px;
+    color: red !important;
+    border: solid 1px red;
   }
   .course-title-link {
     font-size: 13px;
@@ -2245,8 +2247,9 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
     width: 46%;
   }
   .footer {
-    padding: 45px;
+    padding: 45px !important;
   }
+
   .footer-column {
     padding-right: 10px;
   }

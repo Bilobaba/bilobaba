@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   include Rails.application.routes.url_helpers
   include AlgoliaSearch
 
-  validates :title, presence: true, length: { minimum: 5 }
+  validates :title, presence: true, length: { minimum: 5, maximum: 39 }
   validates :description, presence: true, length: { minimum: 10 }
   validates :begin_at, presence: true
   validates :end_at, presence: true
@@ -149,6 +149,22 @@ class Event < ApplicationRecord
 
   def member_bio
     return self.organizer.bio
+  end
+
+  def teacher_name
+    self.teacher.name
+  end
+
+  def teacher_first_name
+    self.teacher.first_name
+  end
+
+  def teacher_avatar
+    return self.teacher.avatar.url
+  end
+
+  def teacher_pseudo
+    return self.teacher.pseudo
   end
 
   def unix_begin_at
