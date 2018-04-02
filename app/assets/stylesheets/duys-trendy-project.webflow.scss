@@ -23,7 +23,7 @@ p {
 }
 
 a {
-  color: $color_purple;
+  color: $color_navbar;
   text-decoration: none;
 }
 
@@ -46,7 +46,7 @@ blockquote {
   margin-top: 30px;
   margin-bottom: 30px;
   padding: 0px 20px 0px 30px;
-  border-left: 5px solid $color_purple;
+  border-left: 5px solid $color_navbar;
   font-size: 18px;
   line-height: 27px;
 }
@@ -155,7 +155,7 @@ blockquote {
   padding-right: 22px;
   padding-left: 22px;
   border-radius: 3px;
-  background-color: $color_purple;
+  background-color: $color_navbar;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
   font-size: 12px;
@@ -175,7 +175,7 @@ blockquote {
   padding-right: 25px;
   padding-left: 25px;
   border-radius: 3px;
-  background-color: $color_purple;
+  background-color: $color_navbar;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
   font-size: 13px;
@@ -194,7 +194,7 @@ blockquote {
   width: 100%;
   margin-top: 10px;
   border-radius: 4px;
-  background-color: $color_purple;
+  background-color: $color_navbar;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
 }
@@ -276,7 +276,7 @@ blockquote {
   box-shadow: 4px 0 13px 0 rgba(0, 0, 0, .13);
   -webkit-transition: box-shadow 200ms ease;
   transition: box-shadow 200ms ease;
-  color: $color_purple;
+  color: $color_navbar;
   text-decoration: none;
 }
 
@@ -364,13 +364,13 @@ blockquote {
 }
 
 .nav-link:hover {
-  border-bottom-color: $color_purple;
-  color: $color_purple;
+  border-bottom-color: $color_navbar;
+  color: $color_navbar;
   text-decoration: none;
 }
 
 .nav-link.w--current {
-  border-bottom-color: $color_purple;
+  border-bottom-color: $color_navbar;
   color: #5069cf;
 }
 
@@ -379,7 +379,7 @@ blockquote {
 }
 
 .nav-link.dropdown-toggle.w--open {
-  border-bottom-color: $color_purple;
+  border-bottom-color: $color_navbar;
 }
 
 .nav-link.left {
@@ -390,7 +390,7 @@ blockquote {
 .top-navbar {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: $color_purple;
+  background-color: $color_navbar;
 }
 
 .top-nav-link {
@@ -496,7 +496,7 @@ blockquote {
 
 .section-title.sidebar {
   margin-bottom: 20px;
-  color: $color_purple;
+  color: $color_navbar;
   font-size: 20px;
 }
 
@@ -594,7 +594,7 @@ blockquote {
 }
 
 .course-title-link:hover {
-  color: $color_purple;
+  color: $color_navbar;
   text-decoration: none;
 }
 
@@ -722,7 +722,7 @@ blockquote {
 .contact-form-block {
   padding: 25px 40px;
   border-bottom: 1px solid #e4e4e4;
-  background-color: $color_purple;
+  background-color: $color_navbar;
   text-align: center;
 }
 
@@ -748,7 +748,7 @@ blockquote {
 }
 
 .field:focus {
-  border-color: $color_purple;
+  border-color: $color_navbar;
   background-color: #fff;
 }
 
@@ -840,7 +840,7 @@ blockquote {
 }
 
 .event-title-link:hover {
-  color: $color_purple;
+  color: $color_navbar;
   text-decoration: none;
 }
 
@@ -929,13 +929,13 @@ blockquote {
 }
 
 .dropdown-link:hover {
-  background-color: $color_purple;
+  background-color: $color_navbar;
   color: #fff;
   text-decoration: none;
 }
 
 .dropdown-link.w--current {
-  color: $color_purple;
+  color: $color_navbar;
 }
 
 .dropdown-link.w--current:hover {
@@ -955,7 +955,7 @@ blockquote {
 .success-bg {
   padding-top: 28px;
   padding-bottom: 10px;
-  background-color: $color_purple;
+  background-color: $color_navbar;
   color: #fff;
 }
 
@@ -1054,7 +1054,7 @@ blockquote {
   padding-top: 3px;
   padding-left: 2px;
   border-radius: 3px;
-  background-color: $color_purple;
+  background-color: $color_navbar;
   -webkit-transition: background-color 200ms ease, border 200ms ease;
   transition: background-color 200ms ease, border 200ms ease;
   text-align: center;
@@ -1240,7 +1240,7 @@ blockquote {
   width: 100%;
   padding: 40px;
   border-radius: 3px;
-  background-color: $color_purple;
+  background-color: $color_navbar;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
   color: #fff;
@@ -1382,7 +1382,7 @@ blockquote {
   margin-right: 3px;
   padding-top: 4px;
   border-radius: 3px;
-  background-color: $color_purple;
+  background-color: $color_navbar;
   -webkit-transition: background-color 200ms ease;
   transition: background-color 200ms ease;
   text-align: center;
@@ -1674,13 +1674,13 @@ blockquote {
 }
 
 .category-link-title:hover {
-  background-color: $color_purple;
+  background-color: $color_navbar;
   color: #fff;
   text-decoration: none;
 }
 
 .category-link-title.w--current {
-  background-color: $color_purple;
+  background-color: $color_navbar;
   color: #fff;
 }
 
@@ -1895,7 +1895,7 @@ blockquote {
   width: 60px;
   height: 60px;
   border-radius: 3px;
-  background-color: $color_purple;
+  background-color: $color_navbar;
   color: #fff;
   text-align: center;
 }
@@ -2224,7 +2224,7 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
     margin-top: 20px;
   }
   .dropdown-list.w--open {
-    background-color: $color_purple;
+    background-color: $color_navbar;
     box-shadow: 0 0 0 0 transparent;
   }
   .dropdown-link {

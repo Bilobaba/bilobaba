@@ -18,10 +18,12 @@
     <%= csrf_meta_tags %>
 
 <!-- it pertutbe webflow design -->
-<!--     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
- -->
+    <!-- <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> -->
+
+
     <%= favicon_link_tag 'favicon.png' %>
 
     <!-- font awesome with picto -->
@@ -41,6 +43,8 @@
     <%= javascript_include_tag "jquery.calendars.plus.js" %>
     <%= javascript_include_tag "jquery.calendars.picker.js" %>
     <%= javascript_include_tag "jquery.datepick-fr.js" %>
+
+    <%= stylesheet_link_tag "bootstrap.min.css" %>
 
     <!-- webflow -->
       <meta charset="utf-8">
@@ -85,5 +89,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" intergrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <%= javascript_include_tag "webflow.js" %>
     <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+
+    <%= javascript_include_tag "bootstrap.min.js" %>
+
   </body>
 </html>

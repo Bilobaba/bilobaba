@@ -20,4 +20,4 @@
 //= require trix
 //= require bootstrap-tagsinput
 //= require twitter/typeahead
-
+//= require bootstrap.min

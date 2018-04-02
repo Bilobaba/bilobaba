@@ -16,11 +16,12 @@
  */
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-// @import "bootstrap-sprockets";
-// @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 @import "pages";
 @import "home";
 @import "trix";
 @import "chosen";
 @import "bootstrap-tagsinput.scss";
+@import "bootstrap.min.css"
