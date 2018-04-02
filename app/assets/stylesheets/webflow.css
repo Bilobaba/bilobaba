@@ -964,7 +964,7 @@ textarea.w-select {
 }
 .w-icon-dropdown-toggle {
   position: absolute;
-  top: 0%;
+  top: 0;
   right: 0;
   bottom: 0;
   margin: auto;
@@ -1477,9 +1477,6 @@ textarea.w-select {
   position: relative;
   background: #dddddd;
   z-index: 1000;
-  border-radius: 0;
-  margin-top: 0 ;
-  margin-bottom: 0;
 }
 .w-nav:before,
 .w-nav:after {

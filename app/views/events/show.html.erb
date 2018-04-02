@@ -1,14 +1,14 @@
-  <div class="page-header course">
-    <div class="page-header-overlay course">
+  <div class="page-header course"  style="background-image: url(<%= @event.image_url %>)" >
+    <div class="page-header-overlay course" >
       <div class="container course-header w-container">
-        <h2 data-ix="fade-in-on-load" class="page-header-title course-title"><%= @event.title%></h2>
+        <h1 data-ix="fade-in-on-load" class="page-header-title course-title"><%= @event.title%></h1>
         <div data-ix="fade-in-on-load-2" class="course-category-title">Category: Danse</div><a data-ix="fade-in-on-load-2" class="course-category-link"></a></div>
     </div>
   </div>
   <div class="section tint event">
     <div class="container w-container">
       <div class="course-block-left">
-        <div class="course-image-block w-clearfix">
+        <div class="course-image-block w-clearfix" style="background-image: url(<%= @event.image_url %>)">
           <div class="featured-label">Featured</div>
         </div>
         <div class="course-info-block">
