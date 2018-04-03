@@ -196,6 +196,14 @@ class EventsController < ApplicationController
     end
   end
 
+  # search by category
+  def category
+    if params[:category]
+      # @testimonials = Testimonial.published.tagged_with(params[:topic])
+      @events = Event.tagged_with(params[:category])
+    end
+  end
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy(event)

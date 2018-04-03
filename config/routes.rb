@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :taggings
   resources :tags
   resources :topics, except: :show
+  resources :categories, except: :show
   get 'topics/:topic', to: 'testimonials#index'
+  get 'categories/:category', to: 'events#category'
 
 
   resources :testimonials

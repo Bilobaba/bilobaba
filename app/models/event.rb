@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   include Rails.application.routes.url_helpers
   include AlgoliaSearch
 
+  acts_as_taggable_on :categories
+
   validates :title, presence: true, length: { minimum: 5, maximum: 39 }
   validates :description, presence: true, length: { minimum: 10 }
   validates :begin_at, presence: true

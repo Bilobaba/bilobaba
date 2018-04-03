@@ -13,4 +13,10 @@ class ViewDatum < ApplicationRecord
     v.content = Member.pseudos.sort
     v.save
   end
+
+  def self.categories
+    v = ViewDatum.find_by_data_type(VIEW_DATA_CATEGORIES)
+    v.content = Event.categories.sort
+    v.save
+  end
 end

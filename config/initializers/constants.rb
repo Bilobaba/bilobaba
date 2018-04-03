@@ -29,7 +29,9 @@ NO = 'NO'
 # views data, avoid calculation big collection for every view call
 VIEW_DATA_TOPICS = 'topics'
 VIEW_DATA_MEMBERS = 'members'
+VIEW_DATA_CATEGORIES = 'categories'
 
+# manage viewed pages to informe in the first visite time
 VIEWED_TESTIMONIALS = 'viewed testimonials/index'
 VIEWED_NEW_TESTIMONIAL = 'viewed testimonials/new'
 VIEWED_ANY = 'viewed any page'

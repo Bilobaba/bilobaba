@@ -2,7 +2,23 @@
     <div class="page-header-overlay course" >
       <div class="container course-header w-container">
         <h1 data-ix="fade-in-on-load" class="page-header-title course-title"><%= @event.title%></h1>
-        <div data-ix="fade-in-on-load-2" class="course-category-title">Categories : </div><a data-ix="fade-in-on-load-2" class="course-category-link">Danse</a></div>
+        <div>
+
+          <div data-ix="fade-in-on-load-2" class="course-category-title">Categorie : </div>
+            <a data-ix="fade-in-on-load-2" class="course-category-link" href="<%= category_path(@event.categories.first) %>" title="Autres événements de cette catégorie">
+              <%= @event.categories.first.name %>
+            </a>
+            <!-- for after with show sub-categories -->
+          <div style="display: none;">
+            <div data-ix="fade-in-on-load-2" class="course-category-title">Sous-Categories : </div>
+            <% @event.categories.each do |c| %>
+              <a data-ix="fade-in-on-load-2" class="course-category-link" href="<%= category_path(c) %>">
+                <%= c.name %>
+              </a>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="section tint event">
