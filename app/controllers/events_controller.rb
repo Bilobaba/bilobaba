@@ -201,6 +201,7 @@ class EventsController < ApplicationController
     if params[:category]
       # @testimonials = Testimonial.published.tagged_with(params[:topic])
       @events = Event.tagged_with(params[:category])
+      redirect_to events_url(category: params[:category])
     end
   end
 
