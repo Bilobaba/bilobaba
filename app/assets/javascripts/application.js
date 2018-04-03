@@ -11,13 +11,10 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require jquery
-//= require bootstrap-sprockets
 //= require data-confirm-modal
 //= require algolia/v3/algoliasearch.min
 //= require jquery-ui
 //= require trix
 //= require bootstrap-tagsinput
 //= require twitter/typeahead
-//= require bootstrap.min

@@ -4,6 +4,22 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
+
+.navbar{
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  border-radius: 0px;
+}
+
+ body {
+
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  border-radius: 0px;
+ }
+
 html {
   font-family: sans-serif;
   /* 1 */
