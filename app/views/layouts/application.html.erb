@@ -72,13 +72,6 @@
 
     <%= render '/layouts/footer' %>
 
-    <!-- Popup showed if the first time -->
-    <% if !cookies.permanent[VIEWED_ANY] %>
-      <%= render "/pages/info_welcome" %>
-      <script>
-         $('#modal_info').modal('show');
-      </script>
-    <% end %>
 
     <!-- load the google map API, only once (see data-turbolinks-eval = false) -->
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'] + '&libraries=places&callback=initAutocomplete', async: true, defer: true, 'data-turbolinks-eval': false %>
@@ -92,5 +85,24 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <!-- Popup showed if the first time -->
+    <% if !cookies.permanent[VIEWED_ANY] %>
+      <%= render "/pages/info_welcome" %>
+      <script>
+         $('#modal_info').modal('show');
+      </script>
+    <% end %>
+
+    <!-- Popup google map -->
+    <% if @event.lat %>
+      <script>
+          $('#modal_map').on('shown.bs.modal', function (event) {
+            showMap($(event.relatedTarget).data('lat'), $(event.relatedTarget).data('lng'), $(event.relatedTarget).data('address'));
+          });
+      </script>
+    <% end %>
+
   </body>
 </html>
