@@ -30,22 +30,45 @@
           <div class="featured-label">Featured</div>
         </div>
         <div class="course-info-block">
-          <h4 class="section-title sidebar">Main Information</h4>
+          <h4 class="section-title sidebar">Informations</h4>
           <div class="course-main-info-wrapper">
-            <div class="main-course-info-title">Group Size</div>
-            <div class="main-course-info-title info"></div>
+            <div class="main-course-info-title">Date</div>
+            <div class="main-course-info-title info"><%= @event.show_begin_at_day %></div>
           </div>
           <div class="course-main-info-wrapper">
-            <div class="main-course-info-title">Duration</div>
-            <div class="main-course-info-title info"></div>
+            <div class="main-course-info-title">Horaires</div>
+            <div class="main-course-info-title info"><%= @event.show_begin_end %></div>
           </div>
           <div class="course-main-info-wrapper">
-            <div class="main-course-info-title">Certificate?</div>
-            <div class="main-course-info-title info"></div>
+            <div class="main-course-info-title">Durée</div>
+            <div class="main-course-info-title info"><%= @event.show_duration %></div>
           </div>
           <div class="course-main-info-wrapper">
-            <div class="main-course-info-title">Skill Level</div>
-            <div class="main-course-info-title info"></div>
+            <div class="main-course-info-title">Prix</div>
+            <div class="main-course-info-title info"><%= @event.show_price %></div>
+          </div>
+          <div class="course-main-info-wrapper">
+            <div class="main-course-info-title">Lieu</div>
+              <%= link_to '#', 'data-toggle':'modal', 'data-target':'#modal_map', 'data-lat': @event.lat, 'data-lng': @event.lng do %>
+                <div class="main-course-info-title info">
+                  <% if (@event.place_name.to_s.size > 0) %>
+                    <div class="course-info-icon"><i class="material-icons" style="font-size: 16px; position:relative; top:3px">place</i></div>
+                    <%= @event.place_name %></br>
+                  <%end %>
+                </div>
+                <div class="main-course-info-title info">
+                  <% if (@event.place_name.to_s.size == 0) %>
+                    <i class="material-icons" style="font-size: 16px; position:relative; top:3px">place</i>
+                  <%end %>
+                  <%= @event.address %>
+                </div>
+
+                <div class="location_icon glyphicon glyphicon-map-marker" aria-hidden="true"></div>
+              <% end %>
+          </div>
+          <div class="course-main-info-wrapper">
+            <div class="main-course-info-title">Remarque</div>
+            <div class="main-course-info-title info"><%= @event.note %></div>
           </div>
         </div>
         <div class="course-info-block">
@@ -132,3 +155,13 @@
       </div>
     </div>
   </div>
+
+<%= render 'layouts/map', title: @event.address %>
+
+<script>
+  <% if @event.lat %>
+    $('#modal_map').on('shown.bs.modal', function (event) {
+      showMap($(event.relatedTarget).data('lat'), $(event.relatedTarget).data('lng'), $(event.relatedTarget).data('address'));
+    });
+  <% end %>
+</script>

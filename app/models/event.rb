@@ -223,6 +223,10 @@ class Event < ApplicationRecord
     end
   end
 
+  def show_begin_end
+    show_begin_end = I18n.l(self.begin_at, format: '%Hh%M') + '-' + I18n.l(self.end_at, format: '%Hh%M')
+  end
+
   def interested_members
     interested_members = []
     interested_members << self.organizer
