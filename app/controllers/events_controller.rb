@@ -2,6 +2,8 @@ require 'pry'
 
 
 class EventsController < ApplicationController
+
+
   before_action :require_login, only: %i[new duplicate edit update destroy]
   before_action :set_event, only: %i[show edit duplicate update destroy]
   before_action :require_permission, only: %i[edit update destroy]
@@ -286,6 +288,7 @@ class EventsController < ApplicationController
     event_params_date
     params[:event][:begin_at] = @begin_at
     params[:event][:end_at] = @end_at
+    params[:event][:title] = capitalize_text(params[:event][:title])
 
     params.require(:event).permit(:title, :description, :begin_at, :end_at, :price_min, :price_max, :members_max,
                                   :address, :city, :zip, :lat, :lng, { photos: [] },:calendar_string,

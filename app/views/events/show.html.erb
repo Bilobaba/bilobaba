@@ -5,9 +5,11 @@
         <div>
 
           <div data-ix="fade-in-on-load-2" class="course-category-title">Categorie : </div>
-            <a data-ix="fade-in-on-load-2" class="course-category-link" href="<%= category_path(@event.categories.first) %>" title="Autres événements de cette catégorie">
+            <% if @event.categories.first %>
+              <a data-ix="fade-in-on-load-2" class="course-category-link" href="<%= category_path(@event.categories.first) %>" title="Autres événements de cette catégorie">
               <%= @event.categories.first.name %>
-            </a>
+              </a>
+            <% end %>
             <!-- for after with show sub-categories -->
           <div style="display: none;">
             <div data-ix="fade-in-on-load-2" class="course-category-title">Sous-Categories : </div>

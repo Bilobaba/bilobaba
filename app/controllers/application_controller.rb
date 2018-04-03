@@ -1,6 +1,7 @@
 require 'pry'
 
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
   protect_from_forgery with: :exception
   before_action :configure_devise_parameters, if: :devise_controller?
   before_action :last_request

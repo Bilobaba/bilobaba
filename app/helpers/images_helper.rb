@@ -10,4 +10,10 @@ module ImagesHelper
     srcset = srcset.map { |src, size| "#{path_to_image(src)} #{size}" }.join(', ')
     image_tag(source, options.merge(srcset: srcset))
   end
+
+  def capitalize_upcase(string)
+    string.capitalize! if string == string.upcase
+    return string
+  end
+
 end

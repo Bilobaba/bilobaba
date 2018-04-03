@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402211456) do
+ActiveRecord::Schema.define(version: 20180403092817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20180402211456) do
     t.string "description", default: "", null: false
     t.datetime "begin_at"
     t.datetime "end_at"
-    t.integer "price_min", default: 0
-    t.integer "price_max", default: 0
+    t.integer "price_min"
+    t.integer "price_max"
     t.integer "members_max", default: 0
     t.string "address", default: "", null: false
     t.string "city", default: "", null: false
