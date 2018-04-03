@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
 
   before_action :require_login, only: %i[new duplicate edit update destroy]
-  before_action :set_event, only: %i[show edit duplicate update destroy]
+  before_action :set_event, only: %i[show edit duplicate update destroy show2]
   before_action :require_permission, only: %i[edit update destroy]
   before_action :set_list_events, only: %i[update destroy]
 
@@ -19,6 +19,11 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @h1_title = @event.title
+    @comment = Comment.new
+  end
+
+  def show2
     @h1_title = @event.title
     @comment = Comment.new
   end

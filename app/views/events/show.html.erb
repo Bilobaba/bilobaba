@@ -101,14 +101,14 @@
             <div class="w-dyn-items w-row">
 
               <div class="teacher-block w-dyn-item w-col w-col-4">
-                <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo" src="<%= @event.member_avatar %>" ><a class="teacher-title"><%= @event.organizer.pseudo %></a>
+                <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo" src="<%= @event.member_avatar %>" ><a class="teacher-title" href="<%= member_url(@event.organizer) %>"><%= @event.organizer.pseudo %></a>
                   <div class="teacher-title _2"><%= @event.organizer.title %></div>
                 </div>
               </div>
 
               <% if @event.teacher %>
                 <div class="teacher-block w-dyn-item w-col w-col-4">
-                  <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo" src="<%= @event.teacher_avatar %>" ><a class="teacher-title"><%= @event.teacher.pseudo %></a>
+                  <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo" src="<%= @event.teacher_avatar %>" ><a class="teacher-title" href="<%= member_url(@event.teacher) %>"><%= @event.teacher.pseudo %></a>
                     <div class="teacher-title _2"><%= @event.teacher.title %></div>
                   </div>
                 </div>

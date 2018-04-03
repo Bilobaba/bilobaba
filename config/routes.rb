@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # delete event or events with multi dates
   get 'events/delete/:id/:type_update(.:format)', to: 'events#destroy_events', as: 'delete_events'
   get 'events/duplicate/:id', to: 'events#duplicate', as: 'duplicate'
+  get 'events/show2/:id', to: 'events#show2', as: 'show2'
   resources :events do
     resources :comments
   end

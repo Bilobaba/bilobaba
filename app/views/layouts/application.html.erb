@@ -17,8 +17,8 @@
     </script>
     <title>Bilobaba</title>
     <%= csrf_meta_tags %>
-<!-- it pertutbe webflow design -->
-    <!-- <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
+<!-- it disturbs webflow design -->
+    <!--<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
 
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -44,11 +44,11 @@
     <%= javascript_include_tag "jquery.calendars.picker.js" %>
     <%= javascript_include_tag "jquery.datepick-fr.js" %>
 
-    <%= stylesheet_link_tag "bootstrap.min.css" %>
-    <%= stylesheet_link_tag "bootstrap-theme.min.css" %>
+    <!-- <%= stylesheet_link_tag "bootstrap.min.css" %> -->
+    <!-- <%= stylesheet_link_tag "bootstrap-theme.min.css" %> -->
 
     <!-- webflow -->
-      <meta charset="utf-8">
+    <meta charset="utf-8">
     <title>Template University - Webflow Responsive Website Template</title>
     <meta content="Template University - Webflow Responsive Website Template" name="description">
     <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -84,6 +84,7 @@
 
     <!-- load the google map API, only once (see data-turbolinks-eval = false) -->
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=' + ENV['GOOGLE_API'] + '&libraries=places&callback=initAutocomplete', async: true, defer: true, 'data-turbolinks-eval': false %>
+
     <%= javascript_include_tag 'map.js' %>
 
     <!-- webflow -->
