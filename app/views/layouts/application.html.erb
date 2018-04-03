@@ -87,6 +87,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
+<!-- ALL POPUP AND MODAL SCRIPT MUST BE HERE -->
     <!-- Popup showed if the first time -->
     <% if !cookies.permanent[VIEWED_ANY] %>
       <%= render "/pages/info_welcome" %>
@@ -96,7 +97,7 @@
     <% end %>
 
     <!-- Popup google map -->
-    <% if @event.lat %>
+    <% if @event && @event.lat %>
       <script>
           $('#modal_map').on('shown.bs.modal', function (event) {
             showMap($(event.relatedTarget).data('lat'), $(event.relatedTarget).data('lng'), $(event.relatedTarget).data('address'));

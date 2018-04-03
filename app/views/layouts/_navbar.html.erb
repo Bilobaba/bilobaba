@@ -3,7 +3,8 @@
     <div data-collapse="none" data-animation="default" data-duration="400" class="top-navbar w-nav">
       <div class="w-container">
         <nav role="navigation" class="top-nav-menu w-nav-menu">
-          <a href="#" class="top-nav-link w-inline-block">
+          <!-- Later when we have phone number for bilobaba -->
+          <a href="#" class="top-nav-link w-inline-block" style="display: none">
             <div class="top-nav-title icon"></div>
             <div class="top-nav-title">06 63 21 61 65</div>
           </a>
@@ -18,13 +19,15 @@
         </div>
       </div>
     </div>
-    <div data-collapse="medium" data-animation="over-right" data-duration="400" data-doc-height="1" class="navbar w-nav"  style="display: flex; justify-content: space-around; background-color: red;">
-      <div class="w-container">
+    <div data-collapse="medium" data-animation="over-right" data-duration="400" data-doc-height="1" class="navbar w-nav">  <div class="w-container"  style="display: flex; justify-content:space-between !important; width: 100%; padding: 0px !important; margin: 0px !important; border: 0px !important">
+        <div>
         <a href="index.html" class="logo-block w-nav-brand">
           <%= image_set_tag "logo-fin.png", {"logo-fin.png" => "500w", "logo-fin.png" => "800w"},
           sizes: "(max-width: 479px) 93vw, (max-width: 767px) 171.109375px, (max-width: 991px) 192.5px, 235.28125px",
           class: "image-logo" %>
         </a>
+        </div>
+        <div>
         <nav role="navigation" class="nav-menu w-nav-menu">
           <%= link_to "Accueil", home_awesome_path, class: "nav-link w-nav-link" %>
 
@@ -81,7 +84,7 @@
           </div>
 
         </nav>
-
+        </div>
         <div class="menu-button w-nav-button">
           <div class="w-icon-nav-menu" style="font-size: 45px; margin:auto"></div>
         </div>

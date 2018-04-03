@@ -5,7 +5,7 @@ class Event < ApplicationRecord
 
   acts_as_taggable_on :categories
 
-  validates :title, presence: true, length: { minimum: 5, maximum: 39 }
+  validates :title, presence: true, length: { minimum: 5, maximum: 33 }
   validates :description, presence: true, length: { minimum: 10 }
   validates :begin_at, presence: true
   validates :end_at, presence: true

@@ -30,6 +30,3 @@ Rails.application.config.assets.precompile += %w( webflow.js )
 Rails.application.config.assets.precompile += %w( fontawesome-webfont.ttf )
 Rails.application.config.assets.precompile += %w( form_sign.css )
 
-Rails.application.config.assets.precompile += %w( bootstrap.min.css )
-Rails.application.config.assets.precompile += %w( bootstrap-theme.min.css )
-Rails.application.config.assets.precompile += %w( bootstrap.min.js )

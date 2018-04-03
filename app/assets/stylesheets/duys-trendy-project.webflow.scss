@@ -1,5 +1,15 @@
 @import "default";
 
+.modal-header{
+  background-color: red;
+}
+
+.modal-body{
+    background-color: yellow;
+}
+.modal-footer{
+  background-color: blue;
+}
 
 body {
   height: 100%;
@@ -1067,6 +1077,7 @@ footer {
 .footer-social-icon {
   width: 15px;
   margin-right: 2px;
+  border-radius: 0px;
 }
 
 .featured-courses-row {

@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require jquery
-//= require data-confirm-modal
 //= require algolia/v3/algoliasearch.min
 //= require jquery-ui
 //= require trix
