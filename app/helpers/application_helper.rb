@@ -21,4 +21,9 @@ module ApplicationHelper
     line_2 = tab[tab.size-2..tab.size-1].join(',')
     return [line_1,line_2]
   end
+
+  def date_sum(time)
+     date_sum = I18n.l(time, format: '%-d %B %Y')
+     return date_sum
+  end
 end
