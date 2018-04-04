@@ -1,0 +1,66 @@
+<%= stylesheet_link_tag 'testimonial' %>
+
+
+<div class="container" style="display: block;">
+<div class="center-block">
+<div style="margin: auto; width: 80%; background-color: khaki; padding: 25px; border-radius: 5px">
+<h2 style="text-align: center;">
+  <%= @testimonial.title %>
+</h2>
+<h4 style="text-align: center;">
+  par <%= link_to @testimonial.author.pseudo, @testimonial.author %>
+</h4>
+<br />
+<br />
+<hr style="border: 1px solid darkolivegreen; width: 80%; text-align: center; margin: auto"/>
+<br />
+<br />
+<div style="line-height: 2; font-size: 130%; width: 90%; margin: auto; ">
+  <%= @testimonial.body.html_safe %>
+</div>
+<br />
+<br />
+
+<div style="display: flex;">
+  <div style = "font-size: 16px">
+  Thèmes évoqués : &nbsp
+  </div>
+  <div class="tags_css">
+      <%= raw @testimonial.topic_list.sort.map { |t|  link_to t, topic_path(t), title: "les témoignages portant sur #{t}" }.join(' ') %>
+  </div>
+</div>
+<br />
+<div style="display: flex;">
+  <div style = "font-size: 16px">
+  Membres concernés :&nbsp
+  </div>
+  <div class="tags_css ">
+      <% @testimonial.member_list.each do |t| %>
+        <% if Member.find_by_pseudo(t) %>
+          <% url = Member.find_by_pseudo(t).url %>
+        <% else %>
+          <% url = request.url %>
+        <% end %>
+        <%= link_to(t, url) %>
+      <% end %>
+  </div>
+
+</div>
+
+<br />
+<h4>
+  Publié : <%= @testimonial.published ? 'Oui' : 'Non' %>
+</h4>
+<!-- <p>
+  <strong>Image: xxx</strong>
+  <%= cl_image_tag @testimonial.image.url, width: 600, height: 182, crop: :fit %>
+</p> -->
+
+<br />
+<% if current_member && @testimonial.author %>
+  <%= link_to 'Modifier', edit_testimonial_path(@testimonial), class: "btn btn-default" %>
+  <%= link_to 'Supprimer', @testimonial, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-default"  %>
+<% end %>
+</div>
+</div>
+</div>
