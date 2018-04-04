@@ -129,27 +129,9 @@
       </div>
       <div class="featured-courses-list-wrapper w-dyn-list">
         <div class="featured-courses-list w-clearfix w-dyn-items w-row">
-
-          <% for i in 0..5 %>
-            <div class="featured-course-item w-dyn-item w-col w-col-3">
-              <div class="course-block-wrapper auto-height">
-                <a class="course-image-link-block large w-inline-block">
-                  <div class="image-overlay-block w-clearfix">
-                    <div class="featured-label">Featured</div>
-                  </div>
-                  <div class="teacher-overlay-block w-clearfix"><img class="teacher-overlay-photo">
-                    <div class="teacher-overlay-title"></div>
-                  </div>
-                </a>
-                <div class="course-content-block"><a class="course-title-link"></a></div>
-                <div class="course-content-block _2">
-                  <div class="course-info-icon"></div>
-                  <div class="course-info-title"></div>
-                  <div class="course-info-icon"></div>
-                  <div class="course-info-title"></div>
-                </div>
-              </div>
-            </div>
+          <% @list_short_events = Event.next_events.first(4) %>
+          <% for i in 0..3 %>
+             <%= render 'layouts/event_sum_small', event: @list_short_events[i] %>
           <% end %>
         </div>
       </div>
