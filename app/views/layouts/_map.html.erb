@@ -2,7 +2,10 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="EventDescriptionLabel"><%= map_title(title) %> </h4>
+        <div class="modal-title">
+          <span style="font-size: 135%"><%= map_title(title)[0] %> </span></br>
+          <span style="font-size: 120%"><%= map_title(title)[1] %></span>
+        </div>
       </div>
       <div class="modal-body">
         <div id="map">
