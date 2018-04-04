@@ -89,39 +89,7 @@
         <div class="w-clearfix w-dyn-items w-row" >
           <% for i in 0..3 %>
             <% if !@list_short_events[i].nil? %>
-              <div class="featured-course-item w-dyn-item w-col w-col-3">
-                <div class="course-block-wrapper home-featured">
-                  <a href=<%= @list_short_events[i].url %> style="background-image:url(<%= @list_short_events[i].image_url %>)" class="course-image-link-block home-featured w-inline-block" >
-                    <div class="teacher-overlay-block w-clearfix">
-<!--                       <img class="teacher-overlay-photo">
- -->                      <%= cl_image_tag @list_short_events[i].organizer.avatar, class: "teacher-overlay-photo" %>
-                      <div class="teacher-overlay-title"><%= @list_short_events[i].organizer.pseudo %></div>
-                    </div>
-                    <div class="image-overlay-block">
-                      <div class="image-overlay-block w-clearfix">
-                        <div class="featured-label">
-                          <% if @list_short_events[i].begin_at.to_date == Date.today %>
-                            Aujourd'hui
-                          <% elsif @list_short_events[i].begin_at.to_date == Date.today + 1 %>
-                            Demain
-                          <% else %>
-                            Bientôt
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="course-content-block">
-                    <%= link_to @list_short_events[i].title[0..42], home_path, class: "course-title-link" %>
-                  </div>
-                  <div class="course-content-block _2">
-                    <div class="course-info-icon"><i class="material-icons" style="font-size: 16px; position:relative; top:3px">place</i></div>
-                    <div class="course-info-title"><%= @list_short_events[i].zip %></div>
-                    <div class="course-info-icon"></div>
-                    <div class="course-info-title"><%= @list_short_events[i].show_begin_at_hours %></div>
-                  </div>
-                </div>
-              </div>
+              <%= render 'layouts/event_sum_small', event: @list_short_events[i] %>
             <% end %>
           <% end %>
         </div>

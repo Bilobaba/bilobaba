@@ -1,0 +1,33 @@
+<div class="featured-course-item w-dyn-item w-col w-col-3">
+  <div class="course-block-wrapper home-featured">
+    <a href=<%= event.url %> style="background-image:url(<%= event.image_url %>)" class="course-image-link-block home-featured w-inline-block" >
+      <div class="teacher-overlay-block w-clearfix">
+<!--               <img class="teacher-overlay-photo"> -->
+        <%= cl_image_tag event.organizer.avatar, class: "teacher-overlay-photo" %>
+        <div class="teacher-overlay-title"><%= event.organizer.pseudo %></div>
+      </div>
+      <div class="image-overlay-block">
+        <div class="image-overlay-block w-clearfix">
+          <div class="featured-label">
+            <% if event.begin_at.to_date == Date.today %>
+              Aujourd'hui
+            <% elsif event.begin_at.to_date == Date.today + 1 %>
+              Demain
+            <% else %>
+              Bientôt
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </a>
+    <div class="course-content-block">
+      <%= link_to event.title[0..42], home_path, class: "course-title-link" %>
+    </div>
+    <div class="course-content-block _2">
+      <div class="course-info-icon"><i class="material-icons" style="font-size: 16px; position:relative; top:3px">place</i></div>
+      <div class="course-info-title"><%= event.zip %></div>
+      <div class="course-info-icon"></div>
+      <div class="course-info-title"><%= event.show_begin_at_hours %></div>
+    </div>
+  </div>
+</div>
