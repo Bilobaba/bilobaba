@@ -66,6 +66,24 @@
             <%= link_to "Témoignages", testimonials_path, class: "nav-link w-nav-link" %>
           <% end %>
 
+
+          <!-- Item different different depending on controller == members -->
+          <% if controller_name == "members" %>
+            <div data-delay="0" data-hover="1" class="dropdown w-dropdown">
+              <div class="nav-link dropdown-toggle w-dropdown-toggle">
+                Membres
+              </div>
+              <nav class="dropdown-list w-dropdown-list">
+                <a href="our-courses/courses-listview.html" class="dropdown-link w-dropdown-link">Membres (List)</a>
+                <a href="our-courses/courses-grid-view.html" class="dropdown-link w-dropdown-link">Membres (Grid)</a>
+                <a href="our-courses/courses-featured.html" class="dropdown-link w-dropdown-link">Membres remarqués</a>
+                <a href="our-courses/categories.html" class="dropdown-link w-dropdown-link">Catégories</a>
+              </nav>
+            </div>
+          <% else %>
+            <%= link_to "Membres", members_path, class: "nav-link w-nav-link" %>
+          <% end %>
+
           <%= link_to "Tarifs", pricing_path, class: "nav-link w-nav-link" %>
           <%= link_to "FAQs", faqs_path, class: "nav-link w-nav-link" %>
 

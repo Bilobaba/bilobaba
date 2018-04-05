@@ -1,87 +1,94 @@
-<%= stylesheet_link_tag 'member' %>
-<%= stylesheet_link_tag 'events' %>
-
-<div class="container">
-  <div id="show_member">
-    <div id="avatar">
-      <% if @member.avatar.url.present? %>
-        <%= cl_image_tag @member.avatar.file.public_id, width: 150, height: 150, crop: :fill, title: @member.pseudo  %>
-      <% else %>
-        <%= cl_image_tag 'eyht3fmfxk8b1o3zsykt.png', width: 150, height: 150, title: @member.pseudo %>
-      <% end %>
-    </div>
-    <div id="description">
-      <p><span id="pseudo"><%= @member.first_name.capitalize %> <%= @member.name.upcase %>
-          </span></p>
-      <p><%= simple_format(@member.bio) %></p>
-      <p> <% if @member.site.to_s.size > 3 %> Son site :<br />
-            <% if @member.site.to_s.include?('http') %>
-              <a href="<%= @member.site %>"><%= @member.site %></a>
-            <% else %>
-              <a href="http://<%= @member.site %>"><%= @member.site %></a>
-            <% end %>
-          <% end %>
-      </p>
-    </div>
-  </div>
-
-  <div id="links">
-    <%= link_to 'Retour', session[:request_back], class: 'badge' %>
-    <%= link_to 'Editer', edit_member_registration_path, class: 'badge' if current_member == @member %>
-  </div>
-
-  <div id="events" class="events">
-
-    <% if !@member.has_role?(:professional) && false %> <!-- false, to show later -->
-      <h2>Participation aux évènements</h2>
-      <% if @member.attend_events.where('\'end\' >= ?', Time.now).size > 0 %>
-        <%= render partial: "events/events", locals: { events_partial: @member.next_events_attend } %>
-      <% else %>
-        <p>Aucun événement à venir<br />
-          <%= link_to '> voir la liste des événements', events_path %>
-        </p>
-      <% end %>
-    <% end %>
-
-    <ul class="nav nav-pills events">
-      <li class="active" ><a data-toggle="pill" href="#next_events">Liste de ses propositions à venir</a></li>
-      <li><a data-toggle="pill" href="#past_events">Liste de ses propositions passées</a></li>
-      <li><a data-toggle="pill" href="#testimonials">Liste de ses témoignages</a></li>
-      <li><a data-toggle="pill" href="#testimonials_name_member">Les témoignages <% if @member.gender == MEMBER_GENDER_MALE %> le <% else %> la <% end %> concernant</a></li>
-    </ul>
-    <div class="tab-content">
-      <div id="next_events" class="tab-pane fade in active" style="background-color: white">
-        <h2>Ses propositions à venir</h2>
-          <% if @member.next_events_t_o.size > 0 %>
-            <%= render partial: "events/events", locals: { events_partial: @member.next_events_t_o } %>
-          <% else %>
-            <p>Aucun évènement à venir </p>
-          <% end %>
-      </div>
-      <div id="past_events" class="tab-pane fade" style="background-color: white">
-        <h2>Ses propositions passées </h2>
-          <% if @member.past_events_t_o.size > 0 %>
-            <%= render partial: "events/events", locals: { events_partial: @member.past_events_t_o } %>
-          <% else %>
-            <p>Aucun évènement passé </p>
-          <% end %>
-      </div>
-      <div id="testimonials" class="tab-pane fade" style="background-color: white">
-        <h2>Ses témoignages </h2>
-          <% if @testimonials.size > 0 %>
-            <%= render partial: "testimonials/testimonials", locals: { testimonials_partial: @testimonials } %>
-          <% else %>
-            <p>Aucun témoignage </p>
-          <% end %>
-      </div>
-      <div id="testimonials_name_member" class="tab-pane fade" style="background-color: white">
-        <h2>Les témoignages <% if @member.gender == MEMBER_GENDER_MALE %> le <% else %> la <% end %> concernant</h2>
-          <% if @testimonials_named.size > 0 %>
-            <%= render partial: "testimonials/testimonials", locals: { testimonials_partial: @testimonials_named } %>
-          <% else %>
-            <p>Aucun témoignage </p>
-          <% end %>
+  <div class="page-header teacher">
+    <div class="page-header-overlay color">
+      <div class="container teacher-container w-container">
+        <div class="teacher-photo-block"  style="background-image: url(<%= @member.avatar_url %>)"></div>
+        <h2 data-ix="fade-in-on-load" class="page-header-title teacher-name"><%= @member.pseudo %></h2>
+        <h2 data-ix="fade-in-on-load-2" class="page-subtitle teacher-subtitle"> <%= @member.title %></h2>
+        <div data-ix="fade-in-on-load-3" class="short-teacher-biography"><%= simple_format(@member.bio.html_safe)  %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <div class="section tint">
+    <div class="container w-container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Upcoming Events</h2>
+        <h2 class="section-title subtitle with-name first"></h2>
+        <h2 class="section-title subtitle with-name">is present at the following upcoming events:</h2>
+        <div class="section-title-divider"></div>
+      </div>
+      <div class="w-dyn-list">
+        <div class="w-dyn-items">
+          <div class="event-item w-dyn-item">
+            <a class="event-image-block w-inline-block">
+              <div class="event-date-block w-clearfix">
+                <div class="event-date-title"></div>
+                <div class="event-date-title month"></div>
+                <div class="event-date-title month"></div>
+              </div>
+            </a>
+            <div class="event-info-block"><a class="event-title-link"></a>
+              <div class="event-info-wrapper">
+                <div class="course-info-icon"></div>
+                <div class="event-info-title"></div>
+                <div class="course-info-icon"></div>
+                <div class="event-info-title"></div>
+                <div class="event-info-title">-</div>
+                <div class="event-info-title"></div>
+              </div>
+              <div class="event-info-wrapper">
+                <div class="course-info-icon"></div>
+                <div class="event-info-title"></div>
+              </div><a class="button events-learn-more w-button">Learn more</a></div>
+          </div>
+        </div>
+        <div class="empty-state w-dyn-empty">
+          <p>No upcoming events scheduled yet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container w-container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Courses</h2>
+        <h2 class="section-title subtitle with-name">Showing all courses by</h2>
+        <h2 class="section-title subtitle with-name"></h2>
+        <div class="section-title-divider"></div>
+      </div>
+      <div class="w-dyn-list">
+        <div class="w-clearfix w-dyn-items w-row">
+          <div class="courses-list-item w-dyn-item w-col w-col-3">
+            <div class="course-block-wrapper auto-height">
+              <a class="course-image-link-block w-inline-block">
+                <div class="teacher-overlay-block w-clearfix"><img class="teacher-overlay-photo">
+                  <div class="teacher-overlay-title"></div>
+                </div>
+                <div class="featured-label">Featured</div>
+              </a>
+              <div class="course-content-block"><a class="course-title-link"></a></div>
+              <div class="course-content-block _2">
+                <div class="course-info-icon"></div>
+                <div class="course-info-title"></div>
+                <div class="course-info-icon"></div>
+                <div class="course-info-title"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="empty-state w-dyn-empty">
+          <p>No courses with this teacher yet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p> cl_image_tag(@member.avatar) </p>
+<p> <%= cl_image_tag(@member.avatar)%></p>
+<p> cl_image_tag(@member.avatar.url</p>
+<p> <%= cl_image_tag(@member.avatar.url)%></p>
+
+<p> cl_image_tag(@member.avatar, :width=> 100, :height=> 100, :crop=>"fill", :gravity=>"faces") </p>
+<p> <%= cl_image_tag(@member.avatar, :width=> 100, :height=> 100, :crop=>"fill", :gravity=>"faces")%></p>
+<p>cl_image_tag(@member.avatar.url, :width=> 100, :height=> 100, :crop=>"fill", :gravity=>"faces")</p>
+<p> <%= cl_image_tag(@member.avatar.url, :width=> 100, :height=> 100, :crop=>"fill", :gravity=>"faces")%></p>
