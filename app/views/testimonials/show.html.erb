@@ -1,4 +1,4 @@
-  <div class="page-header blog-post"  style="background-image:url(<%= @testimonial.author.avatar_url %>)">
+  <div class="page-header blog-post"  style="background-image:url(<%= @testimonial.image.url %>)">
     <div class="page-header-overlay blog-post" >
       <div class="container w-container">
         <div class="blog-title-wrapper">
@@ -7,7 +7,8 @@
             <div data-ix="fade-in-on-load-2" class="course-category-title icon"></div>
             <div data-ix="fade-in-on-load-2" class="blog-post-date-title"><%= date_sum(@testimonial.created_at) %></div>
             <div data-ix="fade-in-on-load-2" class="course-category-title icon"></div>
-            <a data-ix="fade-in-on-load-2" class="blog-post-date-title" href="#">Duy</a></div>
+            <%= link_to(@testimonial.author.pseudo, @testimonial.author, data: { ix: "fade-in-on-load-2" }, class: "blog-post-date-title") %>
+          </div>
         </div>
       </div>
     </div>
@@ -16,29 +17,15 @@
     <div class="container w-container">
       <div class="blog-post-wrapper">
         <div class="blog-post-content-wrapper first">
-          <div class="blog-post-content w-richtext">
-            <!-- <%= @testimonial.body.html_safe %> -->
+          <div class="blog-post-content-block w-richtext">
+            <%= @testimonial.body.html_safe %>
           </div>
         </div>
         <div class="blog-post-content-wrapper w-clearfix"><img class="blog-author-photo" src="<%= @testimonial.author.avatar_url %>">
-          <div class="blog-author-title w-hidden-tiny">Blog Post written by:</div>
-          <a class="blog-author-title-link" href="#">Duy DANG</a>
-          <div class="blog-author-title job-title">Fondateur Bilobaba</div>
+          <div class="blog-author-title w-hidden-tiny">Témoignage partagé par :</div>
+          <%= link_to(@testimonial.author.pseudo, @testimonial.author, class: "blog-author-title-link") %>
+          <div class="blog-author-title job-title"><%= @testimonial.author.title %></div>
         </div>
       </div>
     </div>
   </div>
-<!-- <div style="background-image:url('kevin-genie.png')";> -->
-<div class="test" style="background-image:url(<%= @testimonial.author.avatar_url %>)">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, ducimus in culpa aliquam sapiente molestiae animi recusandae, dicta dolores aut saepe non ab vel earum tempora illum molestias. Tenetur, libero.
-  </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, ducimus in culpa aliquam sapiente molestiae animi recusandae, dicta dolores aut saepe non ab vel earum tempora illum molestias. Tenetur, libero.
-  </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, ducimus in culpa aliquam sapiente molestiae animi recusandae, dicta dolores aut saepe non ab vel earum tempora illum molestias. Tenetur, libero.
-  </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, ducimus in culpa aliquam sapiente molestiae animi recusandae, dicta dolores aut saepe non ab vel earum tempora illum molestias. Tenetur, libero.
-  </p>
-</div>
-<p>
-<%= image_tag('kevin-genie.png') %>
-</p>
