@@ -10,14 +10,6 @@
               <%= @event.categories.first.name %>
               </a>
             <% end %>
-            <!-- for after with show sub-categories -->
-          <div style="display: none;">
-            <div data-ix="fade-in-on-load-2" class="course-category-title">Sous-Categories : </div>
-            <% @event.categories.each do |c| %>
-              <a data-ix="fade-in-on-load-2" class="course-category-link" href="<%= category_path(c) %>">
-                <%= c.name %>
-              </a>
-            <% end %>
           </div>
         </div>
       </div>
@@ -92,7 +84,7 @@
           <div class="section-title-wrapper course">
             <h2 class="section-title">
               <%= @event.organizer.gender == MEMBER_GENDER_MALE ? 'Organisateur' : 'Organisatrice' %>
-              <% if @event.teacher %>
+              <% if @event.teacher  && (@event.organizer != @event.teacher ) %>
               / <%= @event.organizer.gender == MEMBER_GENDER_MALE ? 'Enseignant' : 'Enseignante' %>
               <% end %> </h2>
             <div class="section-title-divider"></div>
@@ -106,7 +98,7 @@
                 </div>
               </div>
 
-              <% if @event.teacher %>
+              <% if @event.teacher && (@event.organizer != @event.teacher ) %>
                 <div class="teacher-block w-dyn-item w-col w-col-4">
                   <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo" src="<%= @event.teacher_avatar %>" ><a class="teacher-title" href="<%= member_url(@event.teacher) %>"><%= @event.teacher.pseudo %></a>
                     <div class="teacher-title _2"><%= @event.teacher.title %></div>
