@@ -3,7 +3,8 @@
       <div class="container course-header w-container">
         <h2 data-ix="fade-in-on-load" class="page-header-title course-title" style="width: 120%"><%= @event.title%></h2>
         <div>
-
+          <% if false %>
+          <!-- For after with categories management -->
           <div data-ix="fade-in-on-load-2" class="course-category-title">Categorie : </div>
             <% if @event.categories.first %>
               <a data-ix="fade-in-on-load-2" class="course-category-link" href="<%= category_path(@event.categories.first) %>" title="Autres événements de cette catégorie">
@@ -11,6 +12,7 @@
               </a>
             <% end %>
           </div>
+          <% end %>
         </div>
       </div>
     </div>

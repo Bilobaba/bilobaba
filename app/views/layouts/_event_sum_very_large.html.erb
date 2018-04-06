@@ -7,7 +7,7 @@
                 <div class="event-date-title month"><%= workshop.begin_at.year %></div>
               </div>
             </a>
-            <div class="event-info-block"><a class="event-title-link"><%= workshop.title %></a>
+            <div class="event-info-block"><a class="event-title-link" href=<%=workshop.url %>><%= workshop.title %></a>
               <div class="event-info-wrapper">
                 <div class="course-info-icon"></div>
                 <div class="event-info-title"><%= workshop.show_begin_at %> - <%= workshop.show_end_at %> </div>

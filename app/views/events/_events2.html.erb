@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Evènement</th>
+            <th>Date</th>
+            <th>Prix</th>
+            <th>Lieu</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% events_partial.each do |event| %>
+            <tr onclick="document.location='<%= event.url %>'">
+                <td><%= event.short_title %></td>
+                <td><%= event.show_begin_at %></td>
+                <td><%= event.show_price %>
+                <td><%= event.zip %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
