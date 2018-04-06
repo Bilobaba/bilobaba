@@ -86,7 +86,7 @@ blockquote {
 }
 
 .hero-slide {
-  background-image: url("<%= image_url('calligraphies/respire.jpg') %>");
+  background-image: image_url('calligraphies/respire.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
