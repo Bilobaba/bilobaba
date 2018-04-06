@@ -1,7 +1,7 @@
 @import "default";
 
 .test{
-  background-image: url('kevin-genie.png');
+  background-image: image_url('kevin-genie.png');
 }
 .modal-header{
   background-color: red;
@@ -86,18 +86,18 @@ blockquote {
 }
 
 .hero-slide {
-  background-image: url('calligraphies/respire.jpg');
+  background-image: image_url('calligraphies/respire.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
 
 .hero-slide._2 {
-  background-image: url('calligraphies/c-est-cela.jpg');
+  background-image: image_url('calligraphies/c-est-cela.jpg');
   background-size: cover;
 }
 
 .hero-slide._3 {
-  background-image: url('calligraphies/souris.jpg');
+  background-image: image_url('calligraphies/souris.jpg');
   background-size: cover;
 }
 
@@ -562,7 +562,7 @@ blockquote {
   height: 180px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  background-image: url('../images/example-bg.png');
+  background-image: image_url('../images/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -687,7 +687,7 @@ blockquote {
 }
 
 .image-section {
-  background-image: url('danser-paris-bien-etre.jpg');
+  background-image: image_url('danser-paris-bien-etre.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -838,7 +838,7 @@ blockquote {
   width: 300px;
   height: 200px;
   border-radius: 3px 0px 0px 3px;
-  // background-image: url('../images/example-bg.png');
+  // background-image: image_url('../images/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -914,7 +914,7 @@ blockquote {
   height: 220px;
   margin-bottom: 30px;
   border-radius: 4px;
-  background-image: url('../images/Photo-9_1.jpg');
+  background-image: image_url('../images/Photo-9_1.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1103,60 +1103,60 @@ footer {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('../images/Photo-7.jpg');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('../images/Photo-7.jpg');
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), image_url('../images/Photo-7.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), image_url('../images/Photo-7.jpg');
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
 }
 
 // For header events show
 .page-header {
-  background-image: url('duy-moine.png');
+  background-image: image_url('duy-moine.png');
   background-position: 50% 50%;
   background-size: cover;
 }
 
 // For header events show
 .page-header.courses {
-  background-image: url('danser-paris-bien-etre.jpg');
+  background-image: image_url('danser-paris-bien-etre.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
 
 .page-header.blog-post {
-  // background-image: url('Logo.jpg');
+  // background-image: image_url('Logo.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
 
 .page-header.courses-grid {
-  background-image: url('../images/Phoot-6_1.jpg');
+  background-image: image_url('../images/Phoot-6_1.jpg');
   background-size: cover;
 }
 
 .page-header.featured-courses {
-  background-image: url('../images/Photo-8.jpg');
+  background-image: image_url('../images/Photo-8.jpg');
   background-position: 0% 31%;
   background-size: cover;
 }
 
 .page-header.events {
-  background-image: url('../images/Photo-9_1.jpg');
+  background-image: image_url('../images/Photo-9_1.jpg');
   background-position: 0% 42%;
 }
 
 .page-header.teacher {
-  background-image: url('calligraphies/together-we-are-one.jpeg');
+  background-image: image_url('calligraphies/together-we-are-one.jpeg');
   background-position: 50% 30%;
   background-size: cover;
 }
 
 .page-header.teachers {
-  background-image: url('../images/Photo-4.jpg');
+  background-image: image_url('../images/Photo-4.jpg');
 }
 
 .page-header.pricing {
-  background-image: url('../images/Photo-5.jpg');
+  background-image: image_url('../images/Photo-5.jpg');
 }
 
 .page-header-overlay {
@@ -1256,7 +1256,7 @@ footer {
   width: 100%;
   height: 355px;
   border-radius: 4px;
-  background-image: url('../images/Photo-9.jpg');
+  background-image: image_url('../images/Photo-9.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1560,8 +1560,8 @@ footer {
 .empty-state.empty-courses {
   height: 310px;
   padding-top: 120px;
-  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .8), #fff 58%), url('../images/No-Courses.jpg');
-  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .8), #fff 58%), url('../images/No-Courses.jpg');
+  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .8), #fff 58%), image_url('../images/No-Courses.jpg');
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .8), #fff 58%), image_url('../images/No-Courses.jpg');
   background-position: 0px 0px, 50% 0px;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
@@ -1645,7 +1645,7 @@ footer {
   display: block;
   width: 100%;
   height: 200px;
-  background-image: url('../images/example-bg.png');
+  background-image: image_url('../images/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1859,7 +1859,7 @@ footer {
   height: 200px;
   margin-bottom: 17px;
   border-radius: 4px;
-  background-image: url('../images/example-bg.png');
+  background-image: image_url('../images/example-bg.png');
   background-position: 50% 50%;
   background-size: cover;
   box-shadow: 3px 3px 23px 0 rgba(0, 0, 0, .2);
@@ -2465,8 +2465,8 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
     padding-top: 180px;
     padding-right: 30px;
     padding-left: 30px;
-    background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/Photo-4_1.jpg');
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/Photo-4_1.jpg');
+    background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), image_url('../images/Photo-4_1.jpg');
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), image_url('../images/Photo-4_1.jpg');
     background-position: 0px 0px, 50% 50%;
     background-size: auto, cover;
   }
@@ -3296,7 +3296,7 @@ html.w-mod-js *[data-ix="fade-in-on-load-4"] {
 
 @font-face {
   font-family: 'Fontawesome webfont';
-  src: url('fontawesome-webfont.ttf') format('truetype');
+  src: image_url('fontawesome-webfont.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
