@@ -1,21 +1,23 @@
+<% workshops.each do |w| %>
         <div class="w-dyn-items">
           <div class="event-item w-dyn-item">
-            <a class="event-image-block w-inline-block" style="background-image: url(<%= workshop.image_url %>)" href=<%= workshop.url %> >
+            <a class="event-image-block w-inline-block" style="background-image: url(<%= w.image_url %>)" href=<%= w.url %> >
               <div class="event-date-block w-clearfix">
-                <div class="event-date-title"><%= workshop.begin_at.mday %></div>
-                <div class="event-date-title month"><%= workshop.show_begin_at_month_name %></div>
-                <div class="event-date-title month"><%= workshop.begin_at.year %></div>
+                <div class="event-date-title"><%= w.begin_at.mday %></div>
+                <div class="event-date-title month"><%= w.show_begin_at_month_name %></div>
+                <div class="event-date-title month"><%= w.begin_at.year %></div>
               </div>
             </a>
-            <div class="event-info-block"><a class="event-title-link" href=<%=workshop.url %>><%= workshop.title %></a>
+            <div class="event-info-block"><a class="event-title-link" href=<%=w.url %>><%= w.title %></a>
               <div class="event-info-wrapper">
                 <div class="course-info-icon"></div>
-                <div class="event-info-title"><%= workshop.show_begin_at %> - <%= workshop.show_end_at %> </div>
+                <div class="event-info-title"><%= w.show_begin_at %> - <%= w.show_end_at %> </div>
               </div>
               <div class="event-info-wrapper">
                 <div class="course-info-icon"></div>
-                <div class="event-info-title"><%= workshop.city %></div>
-              </div><a class="button events-learn-more w-button" href=<%= workshop.url %> >Regarder</a></div>
+                <div class="event-info-title"><%= w.city %></div>
+              </div><a class="button events-learn-more w-button" href=<%= w.url %> >Regarder</a></div>
           </div>
         </div>
 
+<% end %>

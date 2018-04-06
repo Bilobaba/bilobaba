@@ -10,17 +10,17 @@
     </div>
   </div>
 
-  <% if @next_workshop %>
+  <% if @next_workshops.size > 0  %>
     <div class="section tint">
       <div class="container w-container">
         <div class="section-title-wrapper">
-          <h2 class="section-title">Son prochain stage</h2>
+          <h2 class="section-title">Ses prochains stages</h2>
           <h2 class="section-title subtitle with-name first"></h2>
           <h2 class="section-title subtitle with-name">pour approfondir la démarche :</h2>
           <div class="section-title-divider"></div>
         </div>
         <div class="w-dyn-list">
-          <%= render "layouts/event_sum_very_large", workshop: @next_workshop %>
+          <%= render "layouts/event_sum_very_large", workshops: @next_workshops %>
         </div>
       </div>
     </div>
