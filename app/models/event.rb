@@ -124,6 +124,21 @@ class Event < ApplicationRecord
     .where('organizer_id = ? OR teacher_id = ?', member_id, member_id)
   end
 
+  def soon
+    if self.begin_at.to_date == Date.today
+      soon = "Aujourd'hui"
+    elsif self.begin_at.to_date == Date.today + 1.day
+      soon = "Demain"
+    elsif self.begin_at.to_date <= Date.today + 7.day
+      soon = "Cette semaine"
+    elsif self.begin_at.to_date > Date.today + 7.day
+      soon = "Prochainement"
+    else
+      soon = "Passé"
+    end
+    return soon
+  end
+
   algoliasearch do
 
     # list of attribute used to build an Algolia record

@@ -8,7 +8,7 @@
               <div class="course-image-link-block list-view w-inline-block"  style="background-image:url(<%= e.image_url %>)" >
                 <div class="image-overlay-block"></div>
               </div>
-              <div class="featured-label">Featured</div>
+              <div class="featured-label"><%= e.soon %></div>
               <div class="course-content-block list-view"><a class="course-title-link list-view" href=<%= e.url %> ><%= e.title%></a></div>
               <div class="course-content-block _2 list-view"><img class="teacher-overlay-photo list-view-photo w-hidden-tiny" src=<%= e.organizer.avatar %>>
                 <div class="teacher-overlay-title list-view w-hidden-tiny"><%= e.organizer.pseudo %></div>

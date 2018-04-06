@@ -143,4 +143,13 @@ class Member < ApplicationRecord
   def url
      return ENV["ROOT_URL"] + '/members/' + self.id.to_s
   end
+
+  def male?
+    return self.gender == MEMBER_GENDER_MALE
+  end
+
+  def female?
+    return self.gender == MEMBER_GENDER_FEMALE
+  end
+
 end

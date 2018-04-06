@@ -1,16 +1,26 @@
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Témoignage</th>
-      <th>Auteur</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% testimonials_partial.each do |testimonial| %>
-      <tr  onclick="document.location='<%= testimonial.url %>'">
-        <td><%= link_to testimonial.title, testimonial %></td>
-        <td><%= link_to testimonial.author.pseudo, testimonial.author %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container w-container">
+  <div class="w-dyn-list">
+    <div class="w-clearfix w-dyn-items">
+      <div class="courses-list-item w-dyn-item">
+        <% list_testimonials.each do |t| %>
+          <a href=<%= t.url %> >
+            <div class="course-block-wrapper list-view w-clearfix">
+              <div class="course-image-link-block list-view w-inline-block"  style="background-image:url(<%= t.image_url %>)" >
+                <div class="image-overlay-block"></div>
+              </div>
+              <div class="featured-label">Témoignage</div>
+              <div class="course-content-block list-view"><a class="course-title-link list-view" href=<%= t.url %> ><%= t.title%></a></div>
+              <div class="course-content-block _2 list-view"><img class="teacher-overlay-photo list-view-photo w-hidden-tiny" src=<%= t.author.avatar %>>
+                <div class="teacher-overlay-title list-view w-hidden-tiny"><%= t.author.pseudo %></div>
+                <div class="course-info-icon"></div>
+                <div class="event-info-title">ici </div>
+                <div class="course-info-icon"></div>
+                <div class="event-info-title">la bas</div>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

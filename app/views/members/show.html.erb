@@ -9,6 +9,7 @@
       </div>
     </div>
   </div>
+
   <% if @next_workshop %>
     <div class="section tint">
       <div class="container w-container">
@@ -24,47 +25,50 @@
       </div>
     </div>
   <% end %>
-  <div class="section">
-    <div class="container w-container">
-      <div class="section-title-wrapper">
-        <h2 class="section-title">Ses prochaines propositions</h2>
-        <h2 class="section-title subtitle with-name">Showing all courses by</h2>
-        <h2 class="section-title subtitle with-name"></h2>
-        <div class="section-title-divider"></div>
-      </div>
-      <div class="w-dyn-list">
-        <div class="w-clearfix w-dyn-items w-row">
-          <div class="courses-list-item w-dyn-item w-col w-col-3">
-            <div class="course-block-wrapper auto-height">
-              <a class="course-image-link-block w-inline-block">
-                <div class="teacher-overlay-block w-clearfix"><img class="teacher-overlay-photo">
-                  <div class="teacher-overlay-title"></div>
-                </div>
-                <div class="featured-label">Featured</div>
-              </a>
-              <div class="course-content-block"><a class="course-title-link"></a></div>
-              <div class="course-content-block _2">
-                <div class="course-info-icon"></div>
-                <div class="course-info-title"></div>
-                <div class="course-info-icon"></div>
-                <div class="course-info-title"></div>
-              </div>
-            </div>
-          </div>
+
+  <% if @next_events.size > 0 %>
+    <div class="section">
+      <div class="container w-container">
+        <div class="section-title-wrapper">
+          <h2 class="section-title">Ses prochaines propositions</h2>
+          <h2 class="section-title subtitle with-name">à découvrir</h2>
+          <div class="section-title-divider"></div>
         </div>
-        <div class="empty-state w-dyn-empty">
-          <p>No courses with this teacher yet.</p>
+        <div class="w-dyn-list">
+          <%= render '/events/events', list_events: @next_events %>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
-<p> cl_image_tag(@member.avatar) </p>
-<p> <%= cl_image_tag(@member.avatar)%></p>
-<p> cl_image_tag(@member.avatar.url</p>
-<p> <%= cl_image_tag(@member.avatar.url)%></p>
+  <% if @testimonials_about.size > 0 %>
+    <div class="section">
+      <div class="container w-container">
+        <div class="section-title-wrapper">
+          <h2 class="section-title">On a écrit sur lui</h2>
+          <h2 class="section-title subtitle with-name">dans un témoignage</h2>
+          <h2 class="section-title subtitle with-name"></h2>
+          <div class="section-title-divider"></div>
+        </div>
+        <div class="w-dyn-list">
+          <%= render '/testimonials/testimonials', list_testimonials: @testimonials_about %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<p> cl_image_tag(@member.avatar, :width=> 100, :height=> 100, :crop=>"fill", :gravity=>"faces") </p>
-<p> <%= cl_image_tag(@member.avatar, :width=> 100, :height=> 100, :crop=>"fill", :gravity=>"faces")%></p>
-<p>cl_image_tag(@member.avatar.url, :width=> 100, :height=> 100, :crop=>"fill", :gravity=>"faces")</p>
-<p> <%= cl_image_tag(@member.avatar.url, :width=> 100, :height=> 100, :crop=>"fill", :gravity=>"faces")%></p>
+  <% if @testimonials_by.size > 0 %>
+    <div class="section">
+      <div class="container w-container">
+        <div class="section-title-wrapper">
+          <h2 class="section-title"><%= @member.male? ? "Il" : "Elle" %> a partagé des témoignages</h2>
+          <h2 class="section-title subtitle with-name">qui peuvent vous intéresser</h2>
+          <h2 class="section-title subtitle with-name"></h2>
+          <div class="section-title-divider"></div>
+        </div>
+        <div class="w-dyn-list">
+          <%= render '/testimonials/testimonials', list_testimonials: @testimonials_by %>
+        </div>
+      </div>
+    </div>
+  <% end %>

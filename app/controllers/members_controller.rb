@@ -22,9 +22,10 @@ class MembersController < ApplicationController
     @testimonials_named = testimonials_name_member
 
     @next_workshop = @member.next_workshops.first
-    @next_events = @member.events.first(4)
+    @next_events = @member.next_events.first(4)
     @count_testimonials = Testimonial.count
-    @list_testimonials = Testimonial.published.last(3)
+    @testimonials_by = Testimonial.by(@member)
+    @testimonials_about = Testimonial.about(@member)
   end
 
   private

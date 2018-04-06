@@ -23,23 +23,38 @@ class Testimonial < ApplicationRecord
     return list
   end
 
-  def member_name
+  def self.by(member)
+    Testimonial
+    .where('author_id = ?', member.id)
+  end
+
+  def self.about(member)
+    list = []
+    Testimonial.published.each do |t|
+      if t.member_list.include?(member.pseudo)
+        list << t
+      end
+    end
+    return list
+  end
+
+  def author_name
     self.author.name
   end
 
-  def member_first_name
+  def author_first_name
     self.author.first_name
   end
 
-  def member_avatar
+  def author_avatar
     return self.author.avatar.url
   end
 
-  def member_pseudo
+  def author_pseudo
     return self.author.pseudo
   end
 
-  def member_bio
+  def author_bio
     return self.author.bio
   end
 
