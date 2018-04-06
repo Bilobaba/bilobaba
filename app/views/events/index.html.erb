@@ -1,8 +1,14 @@
-<%= stylesheet_link_tag 'events' %>
-<%= stylesheet_link_tag 'remove_navbar_footer' %>
 
-<div class="container">
-  <div class="table-responsive" id="events">
-    <%= render "events", list_events: @events %>
+  <div class="page-header courses">
+    <div class="page-header-overlay">
+      <div class="container w-container">
+        <h2 data-ix="fade-in-on-load" class="page-header-title">Liste des propositions</h2>
+        <h2 data-ix="fade-in-on-load-2" class="page-subtitle">Pour danser et s'épanouir à Paris</h2>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="section">
+    <div class="container w-container">
+              <%= render "events", list_events: @events %>
+    </div>
+  </div>

@@ -112,18 +112,19 @@ hr {
     border-color: $primary_color;
 }
 
-.green_form {
+.purple_form {
     width: 500px;
     margin: auto;
     background: #c5de6f;
-    background-color: #bad85676;
+    background-color: #F0E9ED;
+    border: solid 2px purple;
     border-radius : 5px;
     padding: 15px;
     text-align: center;
     font-size: 16px;
 }
 
-.green_form hr {
+.purple_form hr {
     background: white;
     background-color: white;
     height: 2px;

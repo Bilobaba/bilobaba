@@ -1,6 +1,6 @@
 
 <div class="container">
-<%= simple_form_for :message, url: contact_path, method: 'POST', html: { class: 'green_form' } do |f|  %>
+<%= simple_form_for :message, url: contact_path, method: 'POST', html: { class: 'purple_form' } do |f|  %>
   <div class="form-inputs">
     <% if member_signed_in? %>
       <%= f.input :name, required: false, label: 'Nom', input_html: {value: "#{current_member.pseudo.capitalize}"} %>
