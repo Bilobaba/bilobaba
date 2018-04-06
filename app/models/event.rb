@@ -78,32 +78,51 @@ class Event < ApplicationRecord
     return pictures
   end
 
+  def self.events
+    Event
+      .order(begin_at: :asc)
+      .where('duration < ?', 4.hours)
+      .includes(:attendees)
+  end
+
+  def self.workshops
+    Event
+      .order(begin_at: :asc)
+      .where('duration >= ?', 4.hours)
+      .includes(:attendees)
+  end
+
   def self.next_events(time = Time.now)
     Event
-      .order(begin_at: :asc)
+      .events
       .where('begin_at >= ?', time)
-      .includes(:attendees)
   end
 
-  def self.next_week(time = Time.now)
+  def self.next_workshops(time = Time.now)
     Event
-      .order(begin_at: :asc)
+      .workshops
+      .where('begin_at >= ?', time)
+  end
+
+  def self.next_week_events(time = Time.now)
+    Event
+      .events
       .where('begin_at >= ? AND begin_at <= ?', time, time + 1.week)
-      .includes(:attendees)
   end
 
-  def self.short
+  def self.events_by_member(member_id)
     Event
-      .order(begin_at: :asc)
-      .where('duration < ?', 1.day.to_int)
+    .order(begin_at: :asc)
+    .where('duration < ?', 4.hours)
+    .where('organizer_id = ? OR teacher_id = ?', member_id, member_id)
   end
 
-  def self.long
+  def self.workshops_by_member(member_id)
     Event
-      .order(begin_at: :asc)
-      .where('duration >= ?', 1.day.to_int)
+    .order(begin_at: :asc)
+    .where('duration >= ?', 4.hours)
+    .where('organizer_id = ? OR teacher_id = ?', member_id, member_id)
   end
-
 
   algoliasearch do
 
@@ -214,6 +233,23 @@ class Event < ApplicationRecord
     I18n.l(self.begin_at, format: '%B').capitalize
   end
 
+
+  def show_end_at
+    show_end_at = I18n.l(self.end_at, format: '%a %-d %b %Y - %Hh%M')
+  end
+
+  def show_end_at_day
+    show_end_at = I18n.l(self.end_at, format: '%a %-d %b %Y')
+  end
+
+  def show_end_at_hours
+    show_end_at = I18n.l(self.end_at, format: '%Hh%M')
+  end
+
+  def show_end_at_month_name
+    I18n.l(self.end_at, format: '%B').capitalize
+  end
+
   def show_duration
     duration = self.duration
     if duration < 1.day
@@ -226,6 +262,11 @@ class Event < ApplicationRecord
   def show_begin_end
     show_begin_end = I18n.l(self.begin_at, format: '%Hh%M') + '-' + I18n.l(self.end_at, format: '%Hh%M')
   end
+
+  def show_date_begin_end
+    show_date_begin_end = I18n.l(self.begin_at, format: '%a %-d %b %Y') + '-' + I18n.l(self.end_at, format: '%a %-d %b %Y')
+  end
+
 
   def interested_members
     interested_members = []

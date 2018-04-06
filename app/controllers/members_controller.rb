@@ -20,6 +20,11 @@ class MembersController < ApplicationController
     @h1_title = @member.first_name.to_s.capitalize + ' ' + @member.name.to_s.upcase
     @testimonials = showed_testimonials
     @testimonials_named = testimonials_name_member
+
+    @next_workshop = @member.next_workshops.first
+    @next_events = @member.events.first(4)
+    @count_testimonials = Testimonial.count
+    @list_testimonials = Testimonial.published.last(3)
   end
 
   private

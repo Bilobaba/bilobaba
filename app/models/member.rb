@@ -49,48 +49,42 @@ class Member < ApplicationRecord
   has_many :comments,  class_name: :Comment, foreign_key: :author_id
   has_many :testimonials, class_name: :Testimonial, foreign_key: :author_id
 
-  def next_events_organize
-    organize_events
-      .order(begin_at: :asc)
-      .where('begin_at >= ?', Time.now)
-      .includes(:attendees)
+  def events
+    Event
+    .events_by_member(self.id)
   end
 
-  def past_events_organize
-    organize_events
-      .order(begin_at: :desc)
-      .where('begin_at <= ?', Time.now)
-      .includes(:attendees)
+  def next_events(time = Time.now)
+    Event
+    .events_by_member(self.id)
+    .where('begin_at >= ?', time)
   end
 
-  def next_events_teach
-    teach_events
-      .order(begin_at: :asc)
-      .where('begin_at >= ?', Time.now)
-      .includes(:attendees)
+  def past_events(time = Time.now)
+    Event
+    .events_by_member(self.id)
+    .where('begin_at < ?', time)
+    .reverse
   end
 
-  def past_events_teach
-    teach_events
-      .order(begin_at: :desc)
-      .where('begin_at <= ?', Time.now)
-      .includes(:attendees)
+  def workshops
+    Event
+    .workshops_by_member(self.id)
   end
 
-  def next_events_t_o #teach or organize
-    (next_events_organize + next_events_teach).uniq
+  def next_workshops(time = Time.now)
+    Event
+    .workshops_by_member(self.id)
+    .where('begin_at >= ?', time)
   end
 
-  def past_events_t_o #teach or organize
-    (past_events_organize + past_events_teach).uniq
+  def past_workshops(time = Time.now)
+    Event
+    .workshops_by_member(self.id)
+    .where('begin_at < ?', time)
+    .reverse
   end
 
-  def next_events_attend
-    attend_events
-      .order(begin_at: :asc)
-      .where('begin_at >= ?', Time.now)
-      .includes(:attendees)
-  end
 
   def showed_testimonials
     self.testimonials.published
