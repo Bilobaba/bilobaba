@@ -10,9 +10,13 @@
 
   <div class="section">
     <div class="container w-container">
-      <%= link_to "Ajouter une proposition", new_event_path, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto " %>
-            </br>
-            </br>
-              <%= render "events", list_events: @events %>
+      <div>
+      <%= link_to "Ajouter une proposition", new_event_path, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto "%>
+      </div>
+      </br>
+      </br>
+      <div class="content">
+        <%= render "events", list_events: @events %>
+      </div>
     </div>
   </div>

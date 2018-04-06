@@ -60,7 +60,7 @@
       <hr>
 
       <!-- Warning  fields hidden but set by daysPicker é rangePicker-->
-      <div class="hidden">
+      <div style="display: none;">
         <%= f.input :calendar_string, label: 'Calendrier pour des événements sur une journée' %>
         <%= f.input :calendar_range_string, label: 'Choisir date de début et date de fin' %>
         <%= f.input :cloudy_id %>
@@ -83,7 +83,7 @@
       </br>
       </br>
 
-      <h4>Choisir une/des dates</h4>
+      <h4>Choisir une ou plusieurs dates</h4>
       <div class="container" style="display: block; text-align: center; width: 100%; border-radius: 5px; border: solid 1px grey" id="daysPickerBlock">
         <div>Pour des événements dont la durée < 1j</div>
         <br />
