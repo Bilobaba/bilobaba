@@ -38,10 +38,8 @@
                 Propositions
               </div>
               <nav class="dropdown-list w-dropdown-list">
-                <a href="our-courses/courses-listview.html" class="dropdown-link w-dropdown-link">Courses (List View)</a>
-                <a href="our-courses/courses-grid-view.html" class="dropdown-link w-dropdown-link">Courses (Grid View)</a>
-                <a href="our-courses/courses-featured.html" class="dropdown-link w-dropdown-link">Featured Courses</a>
-                <a href="our-courses/categories.html" class="dropdown-link w-dropdown-link">Categories</a>
+                <%= link_to("Voir les propositions", events_path, class: "dropdown-link w-dropdown-link") %>
+                <%= link_to("Ajouter une proposition", new_event_path, class: "dropdown-link w-dropdown-link") %>
               </nav>
             </div>
           <% else %>
@@ -56,10 +54,8 @@
                 Témoignages
               </div>
               <nav class="dropdown-list w-dropdown-list">
-                <a href="our-courses/courses-listview.html" class="dropdown-link w-dropdown-link">Témoignages (List)</a>
-                <a href="our-courses/courses-grid-view.html" class="dropdown-link w-dropdown-link">Témoignages (Grid)</a>
-                <a href="our-courses/courses-featured.html" class="dropdown-link w-dropdown-link">Témoignages remarqués</a>
-                <a href="our-courses/categories.html" class="dropdown-link w-dropdown-link">Catégories</a>
+                <%= link_to("Voir les témoignages", testimonials_path, class: "dropdown-link w-dropdown-link") %>
+                <%= link_to("Ecrire un témoignage", new_testimonial_path, class: "dropdown-link w-dropdown-link") %>
               </nav>
             </div>
           <% else %>

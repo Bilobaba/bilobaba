@@ -7,8 +7,12 @@
       </div>
     </div>
   </div>
+
   <div class="section">
     <div class="container w-container">
+              <%= link_to "Ajouter une proposition", new_event_path, class: "button submit-button w-button", style: "font-size: 120%; width: 30%" %>
+            </br>
+            </br>
               <%= render "events", list_events: @events %>
     </div>
   </div>
