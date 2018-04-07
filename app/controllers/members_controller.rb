@@ -4,6 +4,38 @@ class MembersController < ApplicationController
   def index
   end
 
+  # only by ADMIN
+  def edit
+    redirect_to root_path unless current_member && (current_member || current_member.has_role?(ROLE_ADMIN) )
+    @member = Member.find(params[:id])
+  end
+
+
+  # only by ADMIN
+  # PATCH/PUT /members/1
+  # PATCH/PUT /members/1.json
+  def update
+    @member = Member.find(params[:id])
+    # See parameters from application_controller
+    member =  params.require(:member).
+      permit(
+        :email, :password, :password_confirmation,
+        :gender, :pseudo, :first_name, :name, :bio, :birth_date,
+        :address, :zip, :city, :country, :avatar, :site, :current_password
+      )
+    respond_to do |format|
+      if @member.update(member)
+        format.html { redirect_to @member, notice: 'Member was successfully updated.' }
+        format.json { render :show, status: :ok, location: @member }
+      else
+        format.html { render :edit }
+        format.json { render json: @member.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
   def index_pros
       @members = Member.with_role(ROLE_PROFESSIONAL).order(pseudo: :asc)
       @h1_title = 'Les proposants'
