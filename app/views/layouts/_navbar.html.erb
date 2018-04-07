@@ -30,21 +30,7 @@
         <div>
         <nav role="navigation" class="nav-menu w-nav-menu">
           <%= link_to "Accueil", home_awesome_path, class: "nav-link w-nav-link" %>
-
-          <!-- Item different different depending on controller == events -->
-          <% if controller_name == "events" %>
-            <div data-delay="0" data-hover="1" class="dropdown w-dropdown">
-              <div class="nav-link dropdown-toggle w-dropdown-toggle">
-                Propositions
-              </div>
-              <nav class="dropdown-list w-dropdown-list">
-                <%= link_to("Voir les propositions", events_path, class: "dropdown-link w-dropdown-link") %>
-                <%= link_to("Ajouter une proposition", new_event_path, class: "dropdown-link w-dropdown-link") %>
-              </nav>
-            </div>
-          <% else %>
-            <%= link_to "Propositions", events_path, class: "nav-link w-nav-link" %>
-          <% end %>
+          <%= link_to "Propositions", events_path, class: "nav-link w-nav-link" %>
 
 
           <!-- Item different different depending on controller == testimonials -->

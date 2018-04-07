@@ -72,7 +72,15 @@
           <div class="course-main-info-wrapper">
             <div class="main-course-info-title">Sur ce proposant</div><a href="#">Je veux voir</a></div>
         </div>
-        <div class="course-info-block with-button"><a href="contact-us.html" class="button take-course w-button">Je m'inscris</a></div>
+
+        <% if current_member && (current_member == @event.organizer) %>
+          <div class="course-info-block with-button">
+            <%= link_to("Modifier", edit_event_path, class: "button take-course w-button") %>
+          </div>
+        <% end %>
+        <div class="course-info-block with-button">
+          <%= link_to("Copier", duplicate_path, class: "button take-course w-button") %>
+        </div>
       </div>
       <div class="course-main-info-block">
         <div class="course-content-wrapper">
@@ -99,7 +107,6 @@
                   <div class="teacher-title _2"><%= @event.organizer.title %></div>
                 </div>
               </div>
-
               <% if @event.teacher && (@event.organizer != @event.teacher ) %>
                 <div class="teacher-block w-dyn-item w-col w-col-4">
                   <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo" src="<%= @event.teacher_avatar %>" ><a class="teacher-title" href="<%= member_url(@event.teacher) %>"><%= @event.teacher.pseudo %></a>

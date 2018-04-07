@@ -20,6 +20,8 @@
         <div class="blog-post-content-wrapper first">
           <div class="blog-post-content-block w-richtext">
             <%= @testimonial.body.html_safe %>
+          </br>
+            <%= cl_image_tag(@testimonial.image, width:'200%', height:'200%') %>
           </div>
         </div>
         <div class="blog-post-content-wrapper w-clearfix"><img class="blog-author-photo" src="<%= @testimonial.author.avatar_url %>">
