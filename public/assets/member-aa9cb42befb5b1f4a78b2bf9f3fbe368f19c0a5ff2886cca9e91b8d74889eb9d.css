@@ -1,0 +1,48 @@
+/* line 10, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/_default.scss */
+.btn {
+  border-color: purple;
+  color: purple;
+}
+
+/* line 15, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/_default.scss */
+.btn a:hover {
+  background-color: green !important;
+}
+
+/* line 19, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/_default.scss */
+.btn-primary:hover {
+  color: #fff;
+  background-color: black;
+  border-color: black;
+}
+
+/* line 25, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/_default.scss */
+.btn-primary {
+  color: #fff;
+  background-color: purple;
+  border-color: black;
+}
+
+/* line 3, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/member.scss */
+#show_member {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 8, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/member.scss */
+#description {
+  margin-left: 15px;
+}
+
+/* line 12, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/member.scss */
+#pseudo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* line 17, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/member.scss */
+#links {
+  border-bottom: solid 3px #c2c2c2;
+  margin-top: 10px;
+  padding-bottom: 20px;
+}

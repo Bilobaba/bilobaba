@@ -1,0 +1,1391 @@
+@charset "UTF-8";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ * For gem's css, @import 'gem_name'
+ *
+ *
+ */
+@import url("https://fonts.googleapis.com/css?family=Trirong");
+/* line 10, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/_default.scss */
+.btn {
+  border-color: purple;
+  color: purple;
+}
+
+/* line 15, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/_default.scss */
+.btn a:hover {
+  background-color: green !important;
+}
+
+/* line 19, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/_default.scss */
+.btn-primary:hover {
+  color: #fff;
+  background-color: black;
+  border-color: black;
+}
+
+/* line 25, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/_default.scss */
+.btn-primary {
+  color: #fff;
+  background-color: purple;
+  border-color: black;
+}
+
+/* line 8, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+body {
+  color: #333333;
+  font-family: 'Trirong', sans-serif;
+}
+
+/* line 13, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+h1 {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  height: 100px;
+  line-height: 100px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* line 25, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+h3 {
+  margin-top: 0px;
+}
+
+/* line 29, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+a {
+  color: #333333;
+}
+
+/* line 33, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+a:hover {
+  color: #339999;
+  outline: none;
+  text-decoration: none;
+}
+
+/* line 39, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+a.reverse {
+  color: #339999;
+}
+
+/* line 43, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+a.reverse:hover {
+  color: #333333;
+}
+
+/* line 47, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+/* line 52, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+img {
+  border-radius: 5px;
+}
+
+/* line 56, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+hr {
+  margin: 10px 0px 10px 0px;
+}
+
+/* line 60, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.container {
+  padding-top: 5px;
+}
+
+/* line 64, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.pointer {
+  cursor: pointer;
+}
+
+/* line 68, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+#background_top {
+  background-image: url(/assets/header/ginkgo_1-2cc75167146edad446be9bdb3ee8aca1606c957cdde2f632c6f125127e153b80.jpg);
+}
+
+/* line 72, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+#background_home {
+  background-image: url(/assets/header/ginkgo_home-d31d1e71f050672939ea2d3df00e34d80d0a9d1c9a6388177a224ea15d4379e4.jpg);
+}
+
+/* line 76, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.location:hover {
+  color: #2e8585;
+}
+
+/* line 80, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.active {
+  background: #339999;
+}
+
+/* line 84, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.modal-header {
+  background: #339999;
+  border-radius: 5px 5px 0px 0px;
+  color: white;
+}
+
+/* line 90, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+#map {
+  height: 300px;
+}
+
+/* line 96, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.gray_form {
+  width: 500px;
+  margin: 0px auto 10px auto;
+  background: #e8e8e8;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* line 107, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.gray_form > img {
+  margin-bottom: 10px;
+}
+
+/* line 111, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.gray_form > hr {
+  border-color: #333333;
+}
+
+/* line 115, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.purple_form {
+  width: 500px;
+  margin: auto;
+  margin-top: 50px;
+  background: #c5de6f;
+  background-color: #F0E9ED;
+  border: solid 2px purple;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* line 128, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.purple_form hr {
+  background: white;
+  background-color: white;
+  height: 2px;
+}
+
+/* line 134, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+#form_avatar {
+  float: right;
+}
+
+/* line 138, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.is-calendarsPicker {
+  margin: 5px;
+  border: solid 1px purple !important;
+}
+
+/* line 144, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+footer {
+  margin-top: 15px;
+  padding: 1.125rem 0;
+}
+
+/* line 149, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+footer nav {
+  float: left;
+}
+
+/* line 153, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+footer ul {
+  padding-left: 0px;
+}
+
+/* line 157, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+footer ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* line 162, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+.footer {
+  border-top: solid 2px #e4e4e4;
+  padding-top: 15px;
+}
+
+/* line 167, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/pages.scss */
+#copyright {
+  float: right;
+}
+
+/* line 1, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home {
+  color: red;
+  font-size: 20px;
+  margin: 50px auto 0px auto;
+  max-width: 700px;
+}
+
+@media all and (max-device-width: 600px) {
+  /* line 9, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+  #home {
+    text-shadow: 1px 1px 5px black;
+  }
+}
+/* line 14, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home h1 {
+  font-size: 44px;
+  font-weight: normal;
+  height: 44px;
+  line-height: 44px;
+  margin: 0px;
+  opacity: 1;
+  text-align: left;
+}
+
+/* line 24, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home em {
+  font-size: 17px;
+}
+
+/* line 28, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home_content {
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+/* line 33, /home/duy/code/Bilobaba/bilobaba/app/assets/stylesheets/home.scss */
+#home a {
+  color: white;
+}
+
+/*
+Trix 0.11.1
+Copyright © 2017 Basecamp, LLC
+http://trix-editor.org/*/
+/* line 6, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor {
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0.4em 0.6em;
+  min-height: 5em;
+  outline: none;
+}
+
+/* line 13, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar * {
+  box-sizing: border-box;
+}
+
+/* line 15, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+/* line 19, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button-group {
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid #bbb;
+  border-top-color: #ccc;
+  border-bottom-color: #888;
+  border-radius: 3px;
+}
+
+/* line 26, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button {
+  position: relative;
+  float: left;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75em;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0 0.5em;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* line 40, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button:not(:first-child) {
+  border-left: 1px solid #ccc;
+}
+
+/* line 42, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button.trix-active {
+  background: #cbeefa;
+  color: black;
+}
+
+/* line 45, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button:not(:disabled) {
+  cursor: pointer;
+}
+
+/* line 47, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button:disabled {
+  color: rgba(0, 0, 0, 0.125);
+}
+
+@media (max-device-width: 768px) {
+  /* line 50, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+  trix-toolbar .trix-button {
+    letter-spacing: -0.01em;
+    padding: 0 0.3em;
+  }
+}
+/* line 53, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon {
+  font-size: inherit;
+  width: 2.6em;
+  height: 1.6em;
+  max-width: calc(0.8em + 4vw);
+  text-indent: -9999px;
+}
+
+@media (max-device-width: 768px) {
+  /* line 60, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+  trix-toolbar .trix-button--icon {
+    height: 2em;
+    max-width: calc(0.8em + 3.5vw);
+  }
+}
+/* line 63, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon::before {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (max-device-width: 768px) {
+  /* line 76, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+  trix-toolbar .trix-button--icon::before {
+    right: 6%;
+    left: 6%;
+  }
+}
+/* line 79, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon.trix-active::before {
+  opacity: 1;
+}
+
+/* line 81, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon:disabled::before {
+  opacity: 0.125;
+}
+
+/* line 83, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-bold::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M15.6%2011.8c1-.7%201.6-1.8%201.6-2.8a4%204%200%200%200-4-4H7v14h7c2.1%200%203.7-1.7%203.7-3.8%200-1.5-.8-2.8-2.1-3.4zM10%207.5h3a1.5%201.5%200%201%201%200%203h-3v-3zm3.5%209H10v-3h3.5a1.5%201.5%200%201%201%200%203z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 85, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-italic::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M10%205v3h2.2l-3.4%208H6v3h8v-3h-2.2l3.4-8H18V5h-8z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 87, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-link::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M9.88%2013.7a4.3%204.3%200%200%201%200-6.07l3.37-3.37a4.26%204.26%200%200%201%206.07%200%204.3%204.3%200%200%201%200%206.06l-1.96%201.72a.91.91%200%201%201-1.3-1.3l1.97-1.71a2.46%202.46%200%200%200-3.48-3.48l-3.38%203.37a2.46%202.46%200%200%200%200%203.48.91.91%200%201%201-1.3%201.3z%22%2F%3E%3Cpath%20d%3D%22M4.25%2019.46a4.3%204.3%200%200%201%200-6.07l1.93-1.9a.91.91%200%201%201%201.3%201.3l-1.93%201.9a2.46%202.46%200%200%200%203.48%203.48l3.37-3.38c.96-.96.96-2.52%200-3.48a.91.91%200%201%201%201.3-1.3%204.3%204.3%200%200%201%200%206.07l-3.38%203.38a4.26%204.26%200%200%201-6.07%200z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 89, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-strike::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.73%2014l.28.14c.26.15.45.3.57.44.12.14.18.3.18.5%200%20.3-.15.56-.44.75-.3.2-.76.3-1.39.3A13.52%2013.52%200%200%201%207%2014.95v3.37a10.64%2010.64%200%200%200%204.84.88c1.26%200%202.35-.19%203.28-.56.93-.37%201.64-.9%202.14-1.57s.74-1.45.74-2.32c0-.26-.02-.51-.06-.75h-5.21zm-5.5-4c-.08-.34-.12-.7-.12-1.1%200-1.29.52-2.3%201.58-3.02%201.05-.72%202.5-1.08%204.34-1.08%201.62%200%203.28.34%204.97%201l-1.3%202.93c-1.47-.6-2.73-.9-3.8-.9-.55%200-.96.08-1.2.26-.26.17-.38.38-.38.64%200%20.27.16.52.48.74.17.12.53.3%201.05.53H7.23zM3%2013h18v-2H3v2z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 91, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-quote::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M6%2017h3l2-4V7H5v6h3zm8%200h3l2-4V7h-6v6h3z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 93, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-heading-1::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12%209v3H9v7H6v-7H3V9h9zM8%204h14v3h-6v12h-3V7H8V4z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 95, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-code::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.2%2012L15%2015.2l1.4%201.4L21%2012l-4.6-4.6L15%208.8l3.2%203.2zM5.8%2012L9%208.8%207.6%207.4%203%2012l4.6%204.6L9%2015.2%205.8%2012z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 97, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-bullet-list::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M4%204a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm4%203h14v-2H8v2zm0-6h14v-2H8v2zm0-8v2h14V5H8z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 99, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-number-list::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M2%2017h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1%203h1.8L2%2013.1v.9h3v-1H3.2L5%2010.9V10H2v1zm5-6v2h14V5H7zm0%2014h14v-2H7v2zm0-6h14v-2H7v2z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 101, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-undo::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.5%208c-2.6%200-5%201-6.9%202.6L2%207v9h9l-3.6-3.6A8%208%200%200%201%2020%2016l2.4-.8a10.5%2010.5%200%200%200-10-7.2z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 103, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-redo::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.4%2010.6a10.5%2010.5%200%200%200-16.9%204.6L4%2016a8%208%200%200%201%2012.7-3.6L13%2016h9V7l-3.6%203.6z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 105, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-decrease-nesting-level::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-8.3-.3l2.8%202.9L6%2014.2%204%2012l2-2-1.4-1.5L1%2012l.7.7zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 107, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--icon-increase-nesting-level::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-6.9-1L1%2014.2l1.4%201.4L6%2012l-.7-.7-2.8-2.8L1%209.9%203.1%2012zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/* line 109, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-dialogs {
+  position: relative;
+}
+
+/* line 111, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 15px 10px;
+  background: #fff;
+  box-shadow: 0 0.3em 1em #ccc;
+  border-top: 2px solid #888;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+/* line 123, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-input--dialog {
+  font-size: inherit;
+  font-weight: normal;
+  padding: 0.5em 0.8em;
+  margin: 0 10px 0 0;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* line 135, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-input--dialog.validate:invalid {
+  box-shadow: #F00 0px 0px 1.5px 1px;
+}
+
+/* line 137, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-button--dialog {
+  font-size: inherit;
+  padding: 0.5em;
+  border-bottom: none;
+}
+
+/* line 141, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-dialog--link {
+  max-width: 600px;
+}
+
+/* line 143, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-dialog__link-fields {
+  display: flex;
+  align-items: baseline;
+}
+
+/* line 146, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-dialog__link-fields .trix-input {
+  flex: 1;
+}
+
+/* line 148, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-toolbar .trix-dialog__link-fields .trix-button-group {
+  flex: 0 0 content;
+  margin: 0;
+}
+
+/* line 151, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor [data-trix-mutable=true] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 156, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor [data-trix-mutable=true] img {
+  box-shadow: 0 0 0 2px highlight;
+}
+
+/* line 158, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor [data-trix-mutable=true].attachment.attachment--file {
+  box-shadow: 0 0 0 2px highlight;
+  border-color: transparent;
+}
+
+/* line 161, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor [data-trix-mutable=true]::-moz-selection,
+trix-editor [data-trix-cursor-target]::-moz-selection {
+  background: none;
+}
+
+/* line 164, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor [data-trix-mutable=true]::selection,
+trix-editor [data-trix-cursor-target]::selection {
+  background: none;
+}
+
+/* line 167, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor .attachment:hover {
+  cursor: default;
+}
+
+/* line 169, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor .attachment--preview .attachment__caption:hover {
+  cursor: text;
+}
+
+/* line 171, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor .attachment__progress {
+  position: absolute;
+  z-index: 1;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: 5%;
+  width: 90%;
+  opacity: 0.9;
+  transition: opacity 200ms ease-in;
+}
+
+/* line 180, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor .attachment__progress[value="100"] {
+  opacity: 0;
+}
+
+/* line 182, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor .attachment__caption-editor {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-align: center;
+  vertical-align: top;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* line 197, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor .attachment__remove {
+  cursor: pointer;
+}
+
+/* line 199, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor .attachment__remove--icon {
+  text-indent: -9999px;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  top: -1.1em;
+  left: calc(50% - 0.8em);
+  width: 1.8em;
+  height: 1.8em;
+  line-height: 1.8em;
+  border-radius: 50%;
+  text-indent: -9999px;
+  background-color: #fff;
+  border: 2px solid highlight;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* line 216, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor .attachment__remove--icon::before {
+  display: inline-block;
+  position: absolute;
+  top: 0.1em;
+  right: 0.1em;
+  bottom: 0.1em;
+  left: 0.1em;
+  opacity: 0.75;
+  content: "";
+  background-image: url(data:image/svg+xml,%3Csvg%20height%3D%2224%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M19%206.4L17.6%205%2012%2010.6%206.4%205%205%206.4l5.6%205.6L5%2017.6%206.4%2019l5.6-5.6%205.6%205.6%201.4-1.4-5.6-5.6z%22%2F%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* line 229, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor .attachment__remove--icon:hover {
+  border-color: #333;
+}
+
+/* line 231, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+trix-editor .attachment__remove--icon:hover::before {
+  opacity: 1;
+}
+
+/* line 234, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content {
+  line-height: 1.5;
+}
+
+/* line 236, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content * {
+  box-sizing: border-box;
+}
+
+/* line 238, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content h1 {
+  font-size: 1.2em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* line 242, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content blockquote {
+  margin: 0 0 0 0.3em;
+  padding: 0 0 0 0.6em;
+  border-left: 0.3em solid #ccc;
+}
+
+/* line 246, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content pre {
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  font-family: monospace;
+  font-size: 0.9em;
+  margin: 0;
+  padding: 0.5em;
+  white-space: pre;
+  background-color: #eee;
+  overflow-x: auto;
+}
+
+/* line 257, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content ul, .trix-content ol, .trix-content li {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 260, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content ul li, .trix-content ol li, .trix-content li li {
+  margin-left: 1em;
+}
+
+/* line 262, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 265, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content a[data-trix-attachment] {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* line 268, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content a[data-trix-attachment]:hover, .trix-content a[data-trix-attachment]:visited:hover {
+  color: inherit;
+}
+
+/* line 270, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content .attachment {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 276, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content .attachment__caption {
+  padding: 0;
+  text-align: center;
+}
+
+/* line 279, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content .attachment__caption .attachment__name + .attachment__size::before {
+  content: ' · ';
+}
+
+/* line 281, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content .attachment--preview {
+  width: 100%;
+  text-align: center;
+}
+
+/* line 284, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content .attachment--preview .attachment__caption {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.2;
+}
+
+/* line 288, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/trix-0.11.1/vendor/assets/stylesheets/trix.css */
+.trix-content .attachment--file {
+  color: #333;
+  line-height: 1;
+  margin: 0 2px 2px 0;
+  padding: 0.4em 1em;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+/*!
+Chosen, a Select Box Enhancer for jQuery and Prototype
+by Patrick Filler for Harvest, http://getharvest.com
+
+Version 1.8.3
+Full source at https://github.com/harvesthq/chosen
+Copyright (c) 2011-2018 Harvest http://getharvest.com
+
+MIT License, https://github.com/harvesthq/chosen/blob/master/LICENSE.md
+This file is generated by `grunt build`, do not edit it by hand.
+*/
+/* @group Base */
+/* line 14, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 13px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 25, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 30, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .chosen-drop {
+  position: absolute;
+  top: 100%;
+  z-index: 1010;
+  width: 100%;
+  border: 1px solid #aaa;
+  border-top: 0;
+  background: #fff;
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+/* line 43, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container.chosen-with-drop .chosen-drop {
+  display: block;
+}
+
+/* line 47, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container a {
+  cursor: pointer;
+}
+
+/* line 51, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .search-choice .group-name, .chosen-container .chosen-single .group-name {
+  margin-right: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: normal;
+  color: #999999;
+}
+
+/* line 60, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .search-choice .group-name:after, .chosen-container .chosen-single .group-name:after {
+  content: ":";
+  padding-left: 2px;
+  vertical-align: top;
+}
+
+/* @end */
+/* @group Single Chosen */
+/* line 68, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-single {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 0 0 0 8px;
+  height: 25px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background-color: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #fff), color-stop(50%, #f6f6f6), color-stop(52%, #eee), to(#f4f4f4));
+  background: linear-gradient(#fff 20%, #f6f6f6 50%, #eee 52%, #f4f4f4 100%);
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #444;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 24px;
+}
+
+/* line 88, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-single input[type="text"] {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+}
+
+/* line 94, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-default {
+  color: #999;
+}
+
+/* line 98, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-single span {
+  display: block;
+  overflow: hidden;
+  margin-right: 26px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 106, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-single-with-deselect span {
+  margin-right: 38px;
+}
+
+/* line 110, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-single abbr {
+  position: absolute;
+  top: 6px;
+  right: 26px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url(/assets/chosen/chosen-sprite-8aa69ee6b2376505578d758bfbbc52aec88fa5e591f1a7cabd8adfa80a7b613a.png) -42px 1px no-repeat;
+  font-size: 1px;
+}
+
+/* line 121, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-single abbr:hover {
+  background-position: -42px -10px;
+}
+
+/* line 125, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single.chosen-disabled .chosen-single abbr:hover {
+  background-position: -42px -10px;
+}
+
+/* line 129, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-single div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 18px;
+  height: 100%;
+}
+
+/* line 138, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-single div b {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(/assets/chosen/chosen-sprite-8aa69ee6b2376505578d758bfbbc52aec88fa5e591f1a7cabd8adfa80a7b613a.png) no-repeat 0px 2px;
+}
+
+/* line 145, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-search {
+  position: relative;
+  z-index: 1010;
+  margin: 0;
+  padding: 3px 4px;
+  white-space: nowrap;
+}
+
+/* line 153, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-search input[type="text"] {
+  margin: 1px 0;
+  padding: 4px 20px 4px 5px;
+  width: 100%;
+  height: auto;
+  outline: 0;
+  border: 1px solid #aaa;
+  background: url(/assets/chosen/chosen-sprite-8aa69ee6b2376505578d758bfbbc52aec88fa5e591f1a7cabd8adfa80a7b613a.png) no-repeat 100% -20px;
+  font-size: 1em;
+  font-family: sans-serif;
+  line-height: normal;
+  border-radius: 0;
+}
+
+/* line 167, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single .chosen-drop {
+  margin-top: -1px;
+  border-radius: 0 0 4px 4px;
+  background-clip: padding-box;
+}
+
+/* line 173, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-single.chosen-container-single-nosearch .chosen-search {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* @end */
+/* @group Results */
+/* line 180, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .chosen-results {
+  color: #444;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 4px 4px 0;
+  padding: 0 0 0 4px;
+  max-height: 240px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* line 191, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .chosen-results li {
+  display: none;
+  margin: 0;
+  padding: 5px 6px;
+  list-style: none;
+  line-height: 15px;
+  word-wrap: break-word;
+  -webkit-touch-callout: none;
+}
+
+/* line 201, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .chosen-results li.active-result {
+  display: list-item;
+  cursor: pointer;
+}
+
+/* line 206, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .chosen-results li.disabled-result {
+  display: list-item;
+  color: #ccc;
+  cursor: default;
+}
+
+/* line 212, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .chosen-results li.highlighted {
+  background-color: #3875d7;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #3875d7), color-stop(90%, #2a62bc));
+  background-image: linear-gradient(#3875d7 20%, #2a62bc 90%);
+  color: #fff;
+}
+
+/* line 219, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .chosen-results li.no-results {
+  color: #777;
+  display: list-item;
+  background: #f4f4f4;
+}
+
+/* line 225, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .chosen-results li.group-result {
+  display: list-item;
+  font-weight: bold;
+  cursor: default;
+}
+
+/* line 231, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .chosen-results li.group-option {
+  padding-left: 15px;
+}
+
+/* line 235, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container .chosen-results li em {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+/* @end */
+/* @group Multi Chosen */
+/* line 242, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 5px;
+  width: 100%;
+  height: auto;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #eee), color-stop(15%, #fff));
+  background-image: linear-gradient(#eee 1%, #fff 15%);
+  cursor: text;
+}
+
+/* line 256, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices li {
+  float: left;
+  list-style: none;
+}
+
+/* line 261, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices li.search-field {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* line 267, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+  margin: 1px 0;
+  padding: 0;
+  height: 25px;
+  outline: 0;
+  border: 0 !important;
+  background: transparent !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #999;
+  font-size: 100%;
+  font-family: sans-serif;
+  line-height: normal;
+  border-radius: 0;
+  width: 25px;
+}
+
+/* line 284, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice {
+  position: relative;
+  margin: 3px 5px 3px 0;
+  padding: 3px 20px 3px 5px;
+  border: 1px solid #aaa;
+  max-width: 100%;
+  border-radius: 3px;
+  background-color: #eeeeee;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), to(#eee));
+  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+  background-size: 100% 19px;
+  background-repeat: repeat-x;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 0 2px #fff inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 2px #fff inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  color: #333;
+  line-height: 13px;
+  cursor: default;
+}
+
+/* line 304, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice span {
+  word-wrap: break-word;
+}
+
+/* line 308, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+  position: absolute;
+  top: 4px;
+  right: 3px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url(/assets/chosen/chosen-sprite-8aa69ee6b2376505578d758bfbbc52aec88fa5e591f1a7cabd8adfa80a7b613a.png) -42px 1px no-repeat;
+  font-size: 1px;
+}
+
+/* line 319, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close:hover {
+  background-position: -42px -10px;
+}
+
+/* line 323, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice-disabled {
+  padding-right: 5px;
+  border: 1px solid #ccc;
+  background-color: #e4e4e4;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), to(#eee));
+  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+  color: #666;
+}
+
+/* line 332, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice-focus {
+  background: #d4d4d4;
+}
+
+/* line 336, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice-focus .search-choice-close {
+  background-position: -42px -10px;
+}
+
+/* line 340, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-results {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 345, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-multi .chosen-drop .result-selected {
+  display: list-item;
+  color: #ccc;
+  cursor: default;
+}
+
+/* @end */
+/* @group Active  */
+/* line 353, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-active .chosen-single {
+  border: 1px solid #5897fb;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 359, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-active.chosen-with-drop .chosen-single {
+  border: 1px solid #aaa;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #eee), color-stop(80%, #fff));
+  background-image: linear-gradient(#eee 20%, #fff 80%);
+  -webkit-box-shadow: 0 1px 0 #fff inset;
+  box-shadow: 0 1px 0 #fff inset;
+}
+
+/* line 369, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-active.chosen-with-drop .chosen-single div {
+  border-left: none;
+  background: transparent;
+}
+
+/* line 374, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-active.chosen-with-drop .chosen-single div b {
+  background-position: -18px 2px;
+}
+
+/* line 378, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-active .chosen-choices {
+  border: 1px solid #5897fb;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 384, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-container-active .chosen-choices li.search-field input[type="text"] {
+  color: #222 !important;
+}
+
+/* @end */
+/* @group Disabled Support */
+/* line 390, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-disabled {
+  opacity: 0.5 !important;
+  cursor: default;
+}
+
+/* line 395, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-disabled .chosen-single {
+  cursor: default;
+}
+
+/* line 399, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-disabled .chosen-choices .search-choice .search-choice-close {
+  cursor: default;
+}
+
+/* @end */
+/* @group Right to Left */
+/* line 405, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl {
+  text-align: right;
+}
+
+/* line 409, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-single {
+  overflow: visible;
+  padding: 0 8px 0 0;
+}
+
+/* line 414, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-single span {
+  margin-right: 0;
+  margin-left: 26px;
+  direction: rtl;
+}
+
+/* line 420, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-single-with-deselect span {
+  margin-left: 38px;
+}
+
+/* line 424, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-single div {
+  right: auto;
+  left: 3px;
+}
+
+/* line 429, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-single abbr {
+  right: auto;
+  left: 26px;
+}
+
+/* line 434, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-choices li {
+  float: right;
+}
+
+/* line 438, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-choices li.search-field input[type="text"] {
+  direction: rtl;
+}
+
+/* line 442, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-choices li.search-choice {
+  margin: 3px 5px 3px 0;
+  padding: 3px 5px 3px 19px;
+}
+
+/* line 447, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-choices li.search-choice .search-choice-close {
+  right: auto;
+  left: 4px;
+}
+
+/* line 452, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl.chosen-container-single .chosen-results {
+  margin: 0 0 4px 4px;
+  padding: 0 4px 0 0;
+}
+
+/* line 457, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-results li.group-option {
+  padding-right: 15px;
+  padding-left: 0;
+}
+
+/* line 462, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl.chosen-container-active.chosen-with-drop .chosen-single div {
+  border-right: none;
+}
+
+/* line 466, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl .chosen-search input[type="text"] {
+  padding: 4px 5px 4px 20px;
+  background: url(/assets/chosen/chosen-sprite-8aa69ee6b2376505578d758bfbbc52aec88fa5e591f1a7cabd8adfa80a7b613a.png) no-repeat -30px -20px;
+  direction: rtl;
+}
+
+/* line 472, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl.chosen-container-single .chosen-single div b {
+  background-position: 6px 2px;
+}
+
+/* line 476, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+.chosen-rtl.chosen-container-single.chosen-with-drop .chosen-single div b {
+  background-position: -12px 2px;
+}
+
+/* @end */
+/* @group Retina compatibility */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  /* line 483, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rails-assets-chosen-1.8.3/app/assets/stylesheets/chosen/chosen.scss */
+  .chosen-rtl .chosen-search input[type="text"],
+  .chosen-container-single .chosen-single abbr,
+  .chosen-container-single .chosen-single div b,
+  .chosen-container-single .chosen-search input[type="text"],
+  .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
+  .chosen-container .chosen-results-scroll-down span,
+  .chosen-container .chosen-results-scroll-up span {
+    background-image: url(/assets/chosen/chosen-sprite@2x-1e349b80fba8c23b63656925fda8dfe3c5927b5d0d8a1672143416caacf460fb.png) !important;
+    background-size: 52px 37px !important;
+    background-repeat: no-repeat !important;
+  }
+}
+/* @end */
+/* line 1, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/bootstrap-tagsinput-rails-0.4.2.1/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
+.bootstrap-tagsinput {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  display: inline-block;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 4px;
+  max-width: 100%;
+  line-height: 22px;
+  cursor: text;
+}
+/* line 15, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/bootstrap-tagsinput-rails-0.4.2.1/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
+.bootstrap-tagsinput input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  width: auto !important;
+  max-width: inherit;
+}
+/* line 25, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/bootstrap-tagsinput-rails-0.4.2.1/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
+.bootstrap-tagsinput input:focus {
+  border: none;
+  box-shadow: none;
+}
+/* line 31, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/bootstrap-tagsinput-rails-0.4.2.1/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
+.bootstrap-tagsinput .tag {
+  margin-right: 2px;
+  color: white;
+}
+/* line 35, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/bootstrap-tagsinput-rails-0.4.2.1/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
+.bootstrap-tagsinput .tag [data-role="remove"] {
+  margin-left: 8px;
+  cursor: pointer;
+}
+/* line 38, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/bootstrap-tagsinput-rails-0.4.2.1/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
+.bootstrap-tagsinput .tag [data-role="remove"]:after {
+  content: "x";
+  padding: 0px 2px;
+}
+/* line 42, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/bootstrap-tagsinput-rails-0.4.2.1/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
+.bootstrap-tagsinput .tag [data-role="remove"]:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+/* line 44, /home/duy/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/bootstrap-tagsinput-rails-0.4.2.1/vendor/assets/stylesheets/bootstrap-tagsinput.scss */
+.bootstrap-tagsinput .tag [data-role="remove"]:hover:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
