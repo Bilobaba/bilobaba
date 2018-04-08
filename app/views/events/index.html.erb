@@ -5,22 +5,27 @@ Find the latest version on InstantSearch.js website: https://community.algolia.c
 </script>
 <script src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
 
-</br>
-</br>
-</br>
-</br>
-</br>
+
+<div class="page-header courses">
+  <div class="page-header-overlay">
+    <div class="container w-container">
+      <h2 data-ix="fade-in-on-load" class="page-header-title">Liste des propositions du mois à venir</h2>
+      <h2 data-ix="fade-in-on-load-2" class="page-subtitle">Pour danser et s'épanouir à Paris</h2>
+    </div>
+  </div>
+</div>
 <div class="section">
   <div class="container w-container">
     <div>
-        <div id="search-bar" style= "display: flex; justify-content: center;">
+        <div id="search-bar" style= "display: flex; justify-content: center; margin:auto">
           <div style="width: 600px;">
-            <input type="text" class="form-control" id="search-box" style="width: 600px"></input>
+            <input type="text" class="form-control" id="search-box" style="width: 70vw"></input>
             <div style="color: grey; text-align: right !important" >Moteur de recherche : <%= link_to "Algolia", "https://www.algolia.com/", target: "_blank" %> </div>
           </div>
         </div>
       <%= link_to "Ajouter une proposition", new_event_path, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto "%>
     </div>
+    </br>
     </br>
     </br>
     <div class="content">
@@ -53,7 +58,7 @@ Find the latest version on InstantSearch.js website: https://community.algolia.c
   search.addWidget(
     instantsearch.widgets.searchBox({
       container: '#search-box',
-      placeholder: 'Entrez vos mots clés ...',
+      placeholder: 'Entrez vos mots de recherche (ex: "danse mouvement paris") ...',
       autofocus: true
     })
   );
