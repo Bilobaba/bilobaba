@@ -2,10 +2,16 @@ require 'pry'
 
 class ApplicationController < ActionController::Base
   include ApplicationHelper
+  include Devise::Controllers::Rememberable
+
   protect_from_forgery with: :exception
   before_action :configure_devise_parameters, if: :devise_controller?
   before_action :last_request
   after_action :visited_pages
+
+  def after_sign_in_remember_me(resource)
+    remember_me resource
+  end
 
   def after_sign_in_path_for(resource)
     session[:request_back]
