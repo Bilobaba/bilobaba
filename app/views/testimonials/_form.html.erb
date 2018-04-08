@@ -19,8 +19,10 @@
 
       <% if f.object.image.present? %>
         <%= cl_image_tag f.object.image.url, width: 60, height: 60, crop: :fill, radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
-      <% end %>
       <%= f.input :image, label: 'Changer d\'image' %>
+      <% else %>
+      <%= f.input :image, label: 'Ajouter une image' %>
+      <% end %>
 
       <%= f.input :published, label: 'Publier maintenant' %>
     </div>
