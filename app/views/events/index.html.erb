@@ -128,11 +128,34 @@ search.addWidget(
         html = hits.map(function (hit) {
 
           return '<div class="hit">'
-                +   '<h1> Titre ici: ' + hit.short_title + '</h1>'
-                +   '<img src=\"' + hit.member_avatar + '\" />'
-                +   '<a href=\"' + "#" + '\" > Lien 1 </a>'
-                +   '<a href="' + hit.url + '" > Lien 2 </a>'
-                + " Adresse = " + hit.url
+                +       '<img src=\"' + hit.member_avatar + '\" />'
+                +       '<img src=\"' + hit.image_url + '\" />'
+                +   '<a href="' + hit.url + '" >'
+                +     '<div class=\"course-block-wrapper list-view w-clearfix\" style=\" border: solid 1px red \"> '
+
+
+                +       '<h1> Titre ici: ' + hit.short_title + '</h1>'
+                +       " Adresse = " + hit.url
+
+<% if false %>
+                +'        <div class=\"course-block-wrapper list-view w-clearfix\">'
+                +'          <div class=\"course-image-link-block list-view w-inline-block\"  style=\"background-image:url(' + hit.image_url + ')\" >'
+                +'            <div class=\"image-overlay-block\"></div>'
+                +'          </div>'
+                +'          <div class="featured-label"><%= "***e.soon" %></div>'
+                +'          <div class="course-content-block list-view"><a class="course-title-link list-view" href=<%= "***e.url" %> ><%= "***e.title"%></a></div>'
+                +'          <div class="course-content-block _2 list-view"><img class="teacher-overlay-photo list-view-photo w-hidden-tiny" src=<%= "***e.organizer.avatar" %>>'
+                +'            <div class="teacher-overlay-title list-view w-hidden-tiny"><%= "***e.organizer.pseudo" %></div>'
+                +'            <div class="course-info-icon"></div>'
+                +'            <div class="event-info-title"><%= "***e.show_begin_at" %></div>'
+                +'            <div class="course-info-icon"></div>'
+                +'            <div class="event-info-title"><%= "***e.zip" %> <%= "***e.city" %></div>'
+                +'          </div>'
+                +'       </div>'
+<% end %>
+
+                +     '</div>'
+                +   '</a>'
                 +'</div>';
 
         });

@@ -147,7 +147,7 @@ class Event < ApplicationRecord
     # extra_attr will be sent
     add_attribute :member_name, :member_first_name, :unix_begin_at, :url, :summary,
                   :member_avatar, :address, :short_title, :show_begin_at, :member_pseudo,
-                  :show_price, :member_bio, :place_name, :image_cloudinary
+                  :show_price, :member_bio, :place_name, :image_url
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
