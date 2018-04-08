@@ -29,4 +29,5 @@ Rails.application.config.assets.precompile += %w( duys-trendy-project.webflow.cs
 Rails.application.config.assets.precompile += %w( webflow.js )
 Rails.application.config.assets.precompile += %w( fontawesome-webfont.ttf )
 Rails.application.config.assets.precompile += %w( remove_navbar_footer.css )
+Rails.application.config.assets.precompile += %w( form.scss )
 

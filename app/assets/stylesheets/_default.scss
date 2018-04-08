@@ -5,3 +5,25 @@ $border_color: #c2c2c2;
 
 $color_navbar: #A445A1;
 $color_featured: purple;
+
+
+.btn{
+  border-color: purple;
+  color: purple;
+}
+
+.btn a:hover{
+  background-color:green !important;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: purple;
+    border-color: black;
+}
