@@ -24,6 +24,7 @@ class TestimonialsController < ApplicationController
   # GET /testimonials/1.json
   def show
     @h1_title = @testimonial.title
+    @read_duration = @testimonial.body.split.size / 250
   end
 
   # GET /testimonials/new

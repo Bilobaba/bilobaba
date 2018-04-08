@@ -9,6 +9,9 @@
             <div data-ix="fade-in-on-load-2" class="blog-post-date-title"><%= date_sum(@testimonial.created_at) %></div>
             <div data-ix="fade-in-on-load-2" class="course-category-title icon"></div>
             <%= link_to(@testimonial.author.pseudo, @testimonial.author, data: { ix: "fade-in-on-load-2" }, class: "blog-post-date-title") %>
+
+            <div data-ix="fade-in-on-load-2" class="course-category-title icon"></div>
+            <div data-ix="fade-in-on-load-2" class="blog-post-date-title"><%= @read_duration %> min de lecture</div>
           </div>
         </div>
       </div>

@@ -1,0 +1,57 @@
+<div class="container">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#modal_info">
+    Présentation
+  </button>
+
+  <div style="display: flex; justify-content: space-between;">
+    <div>
+      <h2>Les témoignages</h2>
+    </div>
+    <div>
+      <% if member_signed_in? %>
+        <%= link_to 'Ajouter votre témoignage', new_testimonial_path, class: 'btn btn-default', style: 'font-size: 110%' %>
+      <% else %>
+        <%= link_to  '#','data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default'  do %>
+                  Ajouter votre témoignage
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Thèmes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @testimonials.each do |testimonial| %>
+        <tr>
+          <td><%= link_to testimonial.title, testimonial %></td>
+          <td><%= link_to testimonial.author.pseudo, testimonial.author %></td>
+          <td><%= raw testimonial.topic_list.map { |t| link_to t, topic_path(t), title: "les témoignages portant sur #{t}" }.join(', ') %></td>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <% if member_signed_in? %>
+    <%= link_to 'Ajouter votre témoignage', new_testimonial_path, class: 'btn btn-default' %>
+  <% else %>
+    <%= link_to  '#','data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default'  do %>
+              Ajouter votre témoignage
+    <% end %>
+  <% end %>
+
+</div>
+
+<%= render "info_index" %>
+<!-- Popup showed if the first time -->
+<% if !cookies.permanent[VIEWED_TESTIMONIALS] %>
+  <script>
+     $('#modal_info').modal('show');
+  </script>
+<% end %>

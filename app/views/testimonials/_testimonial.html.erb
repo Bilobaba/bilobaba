@@ -1,0 +1,20 @@
+<div class="blog-list-item w-dyn-item w-col w-col-6">
+  <div class="blog-post-block">
+    <a class="blog-post-image-block w-inline-block" style="background-image: url(<%= testimonial.author.avatar_url %>)"
+href="#">
+      <div class="image-overlay-block"></div>
+    </a>
+    <div class="blog-post-content-block">
+      <div class="blog-post-info-block blog-overview">
+        <div class="course-info-icon"></div>
+        <div class="blog-info-title"><%= date_sum(testimonial.created_at) %></div>
+        <div class="course-info-icon"></div>
+        <div class="blog-info-title"><%= testimonial.author.pseudo %></div>
+      </div>
+      <a class="blog-post-title-link blog-page" href="#"><%= testimonial.title %></a>
+      <p class="blog-post-summary"><%= testimonial.body[0..20] %></p>
+      <a class="button blog-read-more w-button"  href="#">Read More</a>
+    </div>
+  </div>
+</div>
+
