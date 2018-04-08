@@ -1,0 +1,22 @@
+
+  <div class="page-header courses">
+    <div class="page-header-overlay">
+      <div class="container w-container">
+        <h2 data-ix="fade-in-on-load" class="page-header-title">Liste des propositions du mois à venir</h2>
+        <h2 data-ix="fade-in-on-load-2" class="page-subtitle">Pour danser et s'épanouir à Paris</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container w-container">
+      <div>
+      <%= link_to "Ajouter une proposition", new_event_path, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto "%>
+      </div>
+      </br>
+      </br>
+      <div class="content">
+        <%= render "events", list_events: @events %>
+      </div>
+    </div>
+  </div>

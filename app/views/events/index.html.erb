@@ -1,22 +1,148 @@
+<%= stylesheet_link_tag 'remove_navbar_footer' %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3/dist/instantsearch.min.css">
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3/dist/instantsearch.min.js">
+<!-- Always use `2.x` versions in production rather than `2` to mitigate any side effects on your website,
+Find the latest version on InstantSearch.js website: https://community.algolia.com/instantsearch.js/v2/guides/usage.html -->
+</script>
+<script src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
 
-  <div class="page-header courses">
-    <div class="page-header-overlay">
-      <div class="container w-container">
-        <h2 data-ix="fade-in-on-load" class="page-header-title">Liste des propositions du mois à venir</h2>
-        <h2 data-ix="fade-in-on-load-2" class="page-subtitle">Pour danser et s'épanouir à Paris</h2>
-      </div>
-    </div>
-  </div>
 
-  <div class="section">
-    <div class="container w-container">
-      <div>
-      <%= link_to "Ajouter une proposition", new_event_path, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto "%>
-      </div>
-      </br>
-      </br>
-      <div class="content">
-        <%= render "events", list_events: @events %>
-      </div>
-    </div>
+<br />
+<div id="search-bar">
+  <input type="text" class="form-control" id="search-box"></input>
+  <div id="add_event">
+    <% if member_signed_in? %>
+      <%= link_to 'Ajouter une proposition', new_event_path, class: 'btn btn-default', style: 'font-weight: bold' %>
+    <% else %>
+      <%= link_to 'Ajouter une proposition', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default', style: 'font-size: 1.2em' %>
+    <% end %>
   </div>
+</div>
+<br />
+
+<div id="hits-container"></div>
+<div id="pagination-container"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
+
+<script>
+  // Configuration for Algolia
+  var search = instantsearch({
+    apiKey: '<%= ENV['ALGOLIA_SEARCH_API_KEY_SEARCH'] %>',
+    appId: '<%= ENV['ALGOLIA_SEARCH_APPLICATION_ID'] %>',
+    indexName: 'Event',
+    searchParameters: {
+      filters: 'unix_begin_at > <%= Time.now.to_i %>'
+    }
+  });
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#search-box',
+      placeholder: 'Entrez vos mots clés ...',
+      autofocus: true
+    })
+  );
+
+// Render template old version
+<% if false %>
+  var hitTemplate =
+    '<br />' +
+    '<table class="table">' +
+      '<thead>' +
+        '<tr><th>Les propositions</th><th>Date</th><th>Prix</th><th>Lieu</th><th>Orga.</th></tr>' +
+      '</thead>' +
+      '<tbody>' +
+        '{{#hits}}' +
+          '<tr onclick="document.location=\'{{url}}\'">' +
+            '<td>{{short_title}}</td>' +
+            '<td>{{show_begin_at}}</td>' +
+            '<td>{{show_price}}</td>' +
+            '<td>{{zip}}</td>' +
+            '<td>' +
+              '<img src="{{member_avatar}}" class="organizer"></img>' +
+            '</td>' +
+          '</tr>' +
+        '{{/hits}}' +
+      '</tbody>' +
+    '</table>';
+
+  var noResultsTemplate =
+    '<div class="text-center">Nous n\'avons trouvé aucun résultat pour <strong>{{query}}</strong>.</div>';
+
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#hits-container',
+      templates: {
+        empty: noResultsTemplate,
+        allItems: hitTemplate
+      },
+      hitsPerPage: 20
+    })
+  );
+  search.addWidget(
+    instantsearch.widgets.pagination({
+      container: '#pagination-container'
+    })
+  );
+<% end %>
+// Render template new version *****************************************************************
+
+var readyToFetchMore = true;
+
+var hitsContainer = $('#hits-container');
+
+search.addWidget(
+  {
+    init: function (params) {
+      params.helper.setQueryParameter('hitsPerPage', 5);
+
+      function scrollhandler() {
+
+        var isAtBottomOfPage = $(window).scrollTop() + $(window).height()
+                                > $(document).height() - 500;
+
+        if (readyToFetchMore && isAtBottomOfPage) {
+          readyToFetchMore = false;
+          params.helper.nextPage().search();
+        }
+      }
+
+      $(window).bind("scroll", scrollhandler);
+    },
+
+    render: function (params) {
+
+      readyToFetchMore = true;
+
+      var hits = params.results.hits;
+
+
+      if (params.state.page === 0) { // because '0' means we changed the query
+        hitsContainer.html('');
+      }
+
+      var html = '';
+
+      if (params.results.nbHits > 0) {
+
+        html = hits.map(function (hit) {
+
+          return '<div class="hit">'
+                    +  '<h1> Titre : ' + hit.short_title + '</h1>'
+                 + '</div>';
+
+        });
+
+      } else {
+          html = ['No results'];
+      }
+
+      hitsContainer.append(html.join(''));
+    }
+  }
+);
+
+
+  // Start search function
+  search.start();
+</script>
