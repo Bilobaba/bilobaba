@@ -12,6 +12,9 @@
 
             <div data-ix="fade-in-on-load-2" class="course-category-title icon"></div>
             <div data-ix="fade-in-on-load-2" class="blog-post-date-title"><%= @read_duration %> min de lecture</div>
+            <% if current_member &&  (current_member == @testimonial.author) %>
+                  <a data-ix="fade-in-on-load-2" href="<%= edit_testimonial_path(@testimonial) %>" class="button blog-read-more w-button"> Modifier</a>
+            <% end %>
           </div>
         </div>
       </div>

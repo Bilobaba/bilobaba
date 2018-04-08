@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'testimonial' %>
 <%= stylesheet_link_tag 'remove_navbar_footer' %>
 
-  <%= simple_form_for(@testimonial) do |f| %>
+  <%= simple_form_for @testimonial, html: { class: 'purple_form', style: 'width: 100%;'} do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">

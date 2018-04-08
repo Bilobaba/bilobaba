@@ -1652,6 +1652,9 @@ footer {
 
 .blog-post-content-block {
   padding: 45px;
+  font-size: 15px;
+  line-height: 23px;
+
 }
 
 .blog-post-summary {
@@ -1659,6 +1662,8 @@ footer {
   color: #8f8f8f;
   font-size: 15px;
   line-height: 23px;
+  height: 200px;
+  overflow: hidden;
 }
 
 .image-overlay-block {

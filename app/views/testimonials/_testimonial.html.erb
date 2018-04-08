@@ -1,9 +1,14 @@
 <div class="blog-list-item w-dyn-item w-col w-col-6">
   <div class="blog-post-block">
-    <a class="blog-post-image-block w-inline-block" style="background-image: url(<%= testimonial.author.avatar_url %>)"
-href="#">
-      <div class="image-overlay-block"></div>
-    </a>
+    <%if testimonial.image_url %>
+      <a class="blog-post-image-block w-inline-block" style="background-image: url(<%= testimonial.image_url %>)" href="#">
+        <div class="image-overlay-block"></div>
+      </a>
+    <% else %>
+      <a class="blog-post-image-block w-inline-block" href=<%= testimonial_path(testimonial) %> style="background-image: url(<%= testimonial.author.avatar_url %>)" href="#">
+        <div class="image-overlay-block"></div>
+      </a>
+    <% end %>
     <div class="blog-post-content-block">
       <div class="blog-post-info-block blog-overview">
         <div class="course-info-icon"></div>
@@ -11,9 +16,11 @@ href="#">
         <div class="course-info-icon"></div>
         <div class="blog-info-title"><%= testimonial.author.pseudo %></div>
       </div>
-      <a class="blog-post-title-link blog-page" href="#"><%= testimonial.title %></a>
-      <p class="blog-post-summary"><%= testimonial.body[0..20] %></p>
-      <a class="button blog-read-more w-button"  href="#">Read More</a>
+      <a class="blog-post-title-link blog-page" href=<%= testimonial_path(testimonial) %>><%= testimonial.title %></a>
+      <div class="blog-post-summary">
+        <div><%= simple_format(testimonial.body[0..200]) %></div> ...
+      </div>
+      <%= link_to "Lire plus", testimonial_path(testimonial), class: "button blog-read-more w-button" %>
     </div>
   </div>
 </div>

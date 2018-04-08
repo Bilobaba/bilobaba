@@ -64,10 +64,23 @@ input::placeholder {
 
 .tag.label.label-info{
   height: 12px !important;
+  color: black;
+  border: solid 1px darkgrey;
+  margin: 2px;
+  padding: 2px;
 }
 
 .tags_css a{
   border-radius: 3px;
   border: solid 1px;
   padding: 1px 5px 1px 5px;
+}
+
+.white-background{
+  background-color:green !important;
+  font-size: 200% !important;
+}
+
+.trix-content{
+  background-color: white;
 }
