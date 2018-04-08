@@ -30,9 +30,15 @@
       <%= f.input :published, label: 'Publier maintenant' %>
     </div>
 
-    <div class="form-actions ">
-      <%= f.button :submit, class: 'btn btn-primary btn-sm' %>
+    <div class="form-actions btn-group btn-group-justified" role="group">
+      <div class="btn-group" role="group">
+        <%= f.button :submit, class: 'btn btn-primary btn-sm' %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to 'Annuler', session[:request_back], class: 'btn btn-primary btn-sm' %>
+      </div>
     </div>
+
   <% end %>
 </div>
 
