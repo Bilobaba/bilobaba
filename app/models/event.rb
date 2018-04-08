@@ -213,11 +213,6 @@ class Event < ApplicationRecord
      return ENV["ROOT_URL"] + event_path(self)
   end
 
-
-  def image_cloudinary
-    return  self.cloudy.identifier
-  end
-
   def image_url
     "http://res.cloudinary.com/bilobaba/image/upload/" + self.cloudy.identifier.to_s
   end
