@@ -85,7 +85,9 @@ class TestimonialsController < ApplicationController
     end
 
     def require_login
-      redirect_to forbidden_path unless member_signed_in?
+      flash[:message] = "Il faut vous connecter pour créer un témoignage" if (action_name == 'new')
+      flash[:message] = "Il faut vous connecter pour modifier un témoignage" if (action_name == 'edit')
+      redirect_to new_member_session_path unless member_signed_in?
     end
 
     def require_permission

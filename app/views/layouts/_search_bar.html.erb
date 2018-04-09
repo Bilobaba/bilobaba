@@ -3,5 +3,7 @@
                   <input type="text" class="form-control search-box" id="search-box"></input>
                   <div style="color: grey; text-align: right !important" >Moteur de recherche : <%= link_to "Algolia", "https://www.algolia.com/", target: "_blank" %> </div>
                 </div>
-                <%= link_to "Ajouter une proposition", new_event_path, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto "%>
+                <% if controller_name != 'members' %>
+                  <%= link_to button_text, button_link, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto "%>
+                <% end %>
               </div>

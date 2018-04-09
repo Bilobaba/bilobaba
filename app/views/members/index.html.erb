@@ -12,22 +12,101 @@
       <div class="w-dyn-list">
         <div class="w-clearfix w-dyn-items w-row">
 
-        <% @members.each do |m| %>
-          <div class="teacher-item w-dyn-item w-col w-col-4">
-            <div class="teacher-overview-block"><img class="teacher-overview-image" src=<%= m.avatar.url %> >
-              <div class="teacher-content-bloc">
-                <div class="teacher-main-title"><%= m.pseudo %></div>
-                <div class="teacher-main-title job-title"><%= m.title %></div>
-                <a class="button teacher-view-more w-button" href=<%= m.url %> >View courses</a>
-              </div>
-            </div>
-          </div>
-        <% end %>
 
-        </div>
-        <div class="empty-state w-dyn-empty">
-          <p>No teachers found.</p>
+              <%= render 'layouts/search_bar', placeholder_text: "mots clés à propos du membre", button_text: "Vous inscrire", button_link: home_path %>
+              <div id="hits-container"></div>
+
         </div>
       </div>
     </div>
   </div>
+
+<script>
+  // Configuration for Algolia
+  var search = instantsearch({
+    apiKey: '<%= ENV['ALGOLIA_SEARCH_API_KEY_SEARCH'] %>',
+    appId: '<%= ENV['ALGOLIA_SEARCH_APPLICATION_ID'] %>',
+    indexName: 'Member',
+    searchParameters: {
+    }
+  });
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#search-box',
+      placeholder: 'Entrez vos mots de recherche (ex: "pierre dupont paris") ...',
+      autofocus: true
+    })
+  );
+
+// Render template new version *****************************************************************
+
+var readyToFetchMore = true;
+
+var hitsContainer = $('#hits-container');
+
+search.addWidget(
+  {
+    init: function (params) {
+      params.helper.setQueryParameter('hitsPerPage', 12);
+
+      function scrollhandler() {
+
+        var isAtBottomOfPage = $(window).scrollTop() + $(window).height()
+                                > $(document).height() - 500;
+
+        if (readyToFetchMore && isAtBottomOfPage) {
+          readyToFetchMore = false;
+          params.helper.nextPage().search();
+        }
+      }
+
+      $(window).bind("scroll", scrollhandler);
+    },
+
+    render: function (params) {
+
+      readyToFetchMore = true;
+
+      var hits = params.results.hits;
+
+
+      if (params.state.page === 0) { // because '0' means we changed the query
+        hitsContainer.html('');
+      }
+
+      var html = '';
+
+      if (params.results.nbHits > 0) {
+
+        html = hits.map(function (hit) {
+
+          return ''
+
+                + '<div class=\"teacher-item w-dyn-item w-col w-col-4\">'
+                + '  <div class=\"teacher-overview-block\"><img class="teacher-overview-image" src=\"' + hit.avatar_url +'\" >'
+                + '    <div class=\"teacher-content-bloc\">'
+                + '      <div class=\"teacher-main-title\">' + hit.pseudo + '</div>'
+                + '      <div class=\"teacher-main-title job-title\">' + hit.title + '</div>'
+                + '      <a class=\"button teacher-view-more w-button\" href=\"' + hit.url + '\"">Détails</a>'
+                + '    </div>'
+                + '  </div>'
+                + '</div>'
+
+
+                +' ';
+
+        });
+
+      } else {
+          html = ['No results ici'];
+      }
+
+      hitsContainer.append(html.join(''));
+    }
+  }
+);
+
+
+search.start();
+
+</script>

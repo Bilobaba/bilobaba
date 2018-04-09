@@ -302,7 +302,10 @@ class EventsController < ApplicationController
   end
 
   def require_login
-    redirect_to forbidden_path unless member_signed_in?
+    flash[:message] = "Il faut vous connecter pour créer un événement" if (action_name == 'new')
+    flash[:message] = "Il faut vous connecter pour modifier un événement" if (action_name == 'edit')
+    flash[:message] = "Il faut vous connecter pour copier un événement" if (action_name == 'duplicate')
+    redirect_to new_member_session_path unless member_signed_in?
   end
 
   def require_permission

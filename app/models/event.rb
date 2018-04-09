@@ -12,7 +12,6 @@ class Event < ApplicationRecord
   validates :address, presence: true
   validates :note, length: { maximum: 250 }
   validates :price_max, presence: true
-  validates :price_min, presence: true
 
   mount_uploader :image, ImageUploader
   mount_uploader :photo1, ImageUploader

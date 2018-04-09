@@ -54,6 +54,7 @@ class ApplicationController < ActionController::Base
         !request.url.include?('sign_in') &&
         !request.referer.include?('/auth') &&
         !request.referer.include?('sign_up') &&
+        !request.referer.include?('forbidden') &&
         !request.referer.include?('sign_in')
         )
       session[:request_back] = request.referer if (request.url != request.referer) &&  request.referer

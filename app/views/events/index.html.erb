@@ -20,7 +20,7 @@ Find the latest version on InstantSearch.js website: https://community.algolia.c
         <div class="w-dyn-list">
           <div class="w-clearfix w-dyn-items">
             <div class="courses-list-item w-dyn-item">
-              <%= render 'layouts/search_bar' %>
+              <%= render 'layouts/search_bar', button_text: "Ajouter une proposition", button_link: new_event_path %>
               <input id="begin_after" name="user[born_on]" type="date" style="background-color: red; display: none" />
 
               <!-- hits-container ALGOLIA -->

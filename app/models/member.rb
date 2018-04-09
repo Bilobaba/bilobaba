@@ -1,5 +1,12 @@
 class Member < ApplicationRecord
   rolify
+
+  include Rails.application.routes.url_helpers
+  include AlgoliaSearch
+
+  acts_as_taggable_on :categories
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -144,12 +151,56 @@ class Member < ApplicationRecord
      return ENV["ROOT_URL"] + '/members/' + self.id.to_s
   end
 
+  def avatar_url
+    self.avatar.url
+  end
+
   def male?
     return self.gender == MEMBER_GENDER_MALE
   end
 
   def female?
     return self.gender == MEMBER_GENDER_FEMALE
+  end
+
+  def categories_seach
+     self.category_list ? self.category_list.join(',') : ""
+  end
+
+
+  algoliasearch do
+
+    # list of attribute used to build an Algolia record
+    attributes :name, :first_name, :pseudo, :bio, :title
+
+    # extra_attr will be sent
+    add_attribute :avatar_url, :categories_seach, :events_cities, :url
+
+    # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
+    # you want to search in: here `title`, `subtitle` & `description`.
+    # You need to list them by order of importance. `description` is tagged as
+    # `unordered` to avoid taking the position of a match into account in that attribute
+    searchableAttributes ['name', 'first_name', 'pseudo', 'bio', 'categories_seach',
+                          'events_cities', 'title']
+
+    # the `customRanking` setting defines the ranking criteria use to compare two matching
+    # records in case their text-relevance is equal. It should reflect ,your record popularity.
+    #customRanking ['desc(likes_count)']
+    # customRanking ['asc(unix_begin_at)']
+
+    ranking ['asc(pseudo)']
+  end
+
+  def events_cities
+    list_cities = []
+    self.organize_events.each do |e|
+      list_cities << e.city
+    end
+    self.teach_events.each do |e|
+      list_cities << e.city
+    end
+    events_cities = list_cities.count > 0 ? list_cities.uniq!.join(', ') : ""
+    return events_cities
   end
 
 end
