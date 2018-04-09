@@ -21,6 +21,8 @@ Find the latest version on InstantSearch.js website: https://community.algolia.c
           <div class="w-clearfix w-dyn-items">
             <div class="courses-list-item w-dyn-item">
               <%= render 'layouts/search_bar' %>
+              <input id="begin_after" name="user[born_on]" type="date" style="background-color: red; display: none" />
+
               <!-- hits-container ALGOLIA -->
               <div id="hits-container"></div>
             </div>
@@ -127,6 +129,21 @@ search.addWidget(
 );
 
 
-  // Start search function
-  search.start();
+var date_begin = 0
+// Start search function
+// search.start();
+
+$('#begin_after').change(function(){
+  console.log('Nouvelle date : ' + $('#begin_after')[0].value );
+  date_begin = Date.parse($('#begin_after')[0].value )/1000;
+  console.log('Date unix : ' + date_begin );
+
+  // search.searchParameters();
+  // search.start();
+
+});
+
+
+search.start();
+
 </script>
