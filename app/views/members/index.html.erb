@@ -1,10 +1,33 @@
-<%= stylesheet_link_tag 'members' %>
 
-<div class="container">
-
-  <div id="members">
-    <% @members.each_with_index do |member, i| %>
-      <%= render partial: "member", locals: { member: member } %>
-    <% end %>
+  <div class="page-header teachers">
+    <div class="page-header-overlay">
+      <div class="container w-container">
+        <h2 data-ix="fade-in-on-load" class="page-header-title">Les membres</h2>
+        <h2 data-ix="fade-in-on-load-2" class="page-subtitle">Des personnes passionées pas l'épanouissement personnel</h2>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="section tint">
+    <div class="container w-container">
+      <div class="w-dyn-list">
+        <div class="w-clearfix w-dyn-items w-row">
+
+        <% @members.each do |m| %>
+          <div class="teacher-item w-dyn-item w-col w-col-4">
+            <div class="teacher-overview-block"><img class="teacher-overview-image" src=<%= m.avatar.url %> >
+              <div class="teacher-content-bloc">
+                <div class="teacher-main-title"><%= m.pseudo %></div>
+                <div class="teacher-main-title job-title"><%= m.title %></div>
+                <a class="button teacher-view-more w-button" href=<%= m.url %> >View courses</a>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        </div>
+        <div class="empty-state w-dyn-empty">
+          <p>No teachers found.</p>
+        </div>
+      </div>
+    </div>
+  </div>

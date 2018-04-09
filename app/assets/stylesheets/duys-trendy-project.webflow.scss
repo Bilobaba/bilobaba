@@ -1147,13 +1147,16 @@ footer {
 }
 
 .page-header.teacher {
-  background-image: image_url('calligraphies/together-we-are-one.jpeg');
-  background-position: 50% 30%;
-  background-size: cover;
+  background-image: image_url('calligraphies/peace-begins-with-your-lovely-smile.jpg');
+  background-position: 50% 100px;
+  background-size: contain;
 }
 
 .page-header.teachers {
-  background-image: image_url('../images/Photo-4.jpg');
+  background-image: image_url('calligraphies/together-we-are-one-2.jpeg');
+  background-position: 50% 60px;
+  background-size: contain;
+  opacity: 1.5;
 }
 
 .page-header.pricing {

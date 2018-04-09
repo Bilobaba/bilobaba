@@ -48,6 +48,10 @@ class MembersController < ApplicationController
       render :index
   end
 
+  def index
+      @members = Member.all.sort_by { |obj| obj.pseudo }
+  end
+
   def show
     @h1_title = @member.first_name.to_s.capitalize + ' ' + @member.name.to_s.upcase
     @testimonials = showed_testimonials

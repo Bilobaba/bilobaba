@@ -1,0 +1,10 @@
+<%= stylesheet_link_tag 'members' %>
+
+<div class="container">
+
+  <div id="members">
+    <% @members.each_with_index do |member, i| %>
+      <%= render partial: "member", locals: { member: member } %>
+    <% end %>
+  </div>
+</div>
