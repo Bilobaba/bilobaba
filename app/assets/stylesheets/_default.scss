@@ -25,8 +25,11 @@ $color_search_box: #E0D4E8;
 
 .btn-primary {
   color: #fff;
-  background-color: purple;
+  background-color: $color_navbar;
   border-color: black;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .search-bar{

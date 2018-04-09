@@ -5,6 +5,10 @@
         <h2 data-ix="fade-in-on-load" class="page-header-title teacher-name"><%= @member.pseudo %></h2>
         <h2 data-ix="fade-in-on-load-2" class="page-subtitle teacher-subtitle"> <%= @member.title %></h2>
         <div data-ix="fade-in-on-load-3" class="short-teacher-biography"><%= simple_format(@member.bio.html_safe)  %>
+
+        <% if current_member == @member %>
+          <%= link_to "MODIFIER VOTRE PROFIL", edit_member_registration_path, class: "btn btn-primary w-button", style: "font-size: 100%; width:250px; margin:auto "%>
+        <% end %>
         </div>
       </div>
     </div>
