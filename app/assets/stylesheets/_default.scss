@@ -47,3 +47,26 @@ $color_search_box: #E0D4E8;
   border:1px purple solid !important;
   width: 80vw !important;
 }
+
+.modal-header{
+  background-color: $color_navbar;
+  border-top-radius: 5px;
+  border: solid 2px purple;
+}
+
+.modal-title{
+  font-size: 20px;
+}
+.modal-body{
+    background-color: white;
+    font-size: 110%;
+}
+.modal-footer{
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+.btn-secondary{
+  background-color: white;
+  color: purple;
+}

@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "remove_navbar_footer" %>
+<%= stylesheet_link_tag "form" %>
 
 <div class="container sign-up">
 
@@ -43,7 +44,7 @@
       <hr />
       <h4> Type de membre </h4>
       <div style="text-align: left">
-        <ul style="list-style-type:none">
+        <ul style="list-style-type:none; flex: left; clear: none">
           <li>
             <%= radio_button_tag(:type_member, MEMBER_TYPE_AMATEUR, checked: true ) %>
             <%= label_tag(:Amateur, "Vous êtes amateur et vous ne faites rien payer") %>
