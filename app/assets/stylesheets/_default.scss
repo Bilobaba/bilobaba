@@ -6,6 +6,7 @@ $border_color: #c2c2c2;
 $color_navbar: #A445A1;
 $color_featured: purple;
 
+$color_search_box: #E0D4E8;
 
 .btn{
   border-color: purple;
@@ -17,13 +18,29 @@ $color_featured: purple;
 }
 
 .btn-primary:hover {
-    color: #fff;
-    background-color: black;
-    border-color: black;
+  color: #fff;
+  background-color: black;
+  border-color: black;
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: purple;
-    border-color: black;
+  color: #fff;
+  background-color: purple;
+  border-color: black;
+}
+
+.search-bar{
+  display: block !important;;
+  justify-content: center !important;
+  margin:auto !important;
+  margin-bottom: 4rem !important;
+}
+
+.search-box{
+  margin: auto  !important;
+  background-color: $color_search_box  !important;
+  display: block  !important;
+  justify-content: center  !important;
+  border:1px purple solid !important;
+  width: 80vw !important;
 }

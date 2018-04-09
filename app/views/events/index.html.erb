@@ -15,24 +15,12 @@ Find the latest version on InstantSearch.js website: https://community.algolia.c
   </div>
 </div>
 <div class="section">
-  <div class="container w-container">
-    <div>
-        <div id="search-bar" style= "display: flex; justify-content: center; margin:auto">
-          <div style="width: 600px;">
-            <input type="text" class="form-control" id="search-box" style="width: 70vw"></input>
-            <div style="color: grey; text-align: right !important" >Moteur de recherche : <%= link_to "Algolia", "https://www.algolia.com/", target: "_blank" %> </div>
-          </div>
-        </div>
-      <%= link_to "Ajouter une proposition", new_event_path, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto "%>
-    </div>
-    </br>
-    </br>
-    </br>
     <div class="content">
       <div class="container w-container">
         <div class="w-dyn-list">
           <div class="w-clearfix w-dyn-items">
             <div class="courses-list-item w-dyn-item">
+              <%= render 'layouts/search_bar' %>
               <!-- hits-container ALGOLIA -->
               <div id="hits-container"></div>
             </div>
@@ -40,7 +28,6 @@ Find the latest version on InstantSearch.js website: https://community.algolia.c
         </div>
       </div>
     </div>
-  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
