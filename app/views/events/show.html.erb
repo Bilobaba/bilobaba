@@ -131,9 +131,7 @@
       <div class="featured-courses-list-wrapper w-dyn-list">
         <div class="featured-courses-list w-clearfix w-dyn-items w-row">
           <% @list_short_events = Event.next_events.first(4) %>
-          <% for i in 0..3 %>
-             <%= render 'layouts/event_sum_small', event: @list_short_events[i] %>
-          <% end %>
+             <%= render partial: 'events/event_sum_small', collection: @list_short_events, as: :event %>
         </div>
       </div>
     </div>
