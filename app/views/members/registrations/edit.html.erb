@@ -26,7 +26,7 @@
       <%= f.input :pseudo %>
       <%= f.input :first_name, label: 'Prénom' %>
       <%= f.input :name, label: 'Nom' %>
-      <%= f.input :bio, label: "Qui êtes-vous en quelques mots " %>
+      <%= f.input :bio, label: "Vos envies, votre parcours, ... ",input_html: {rows: 5} %>
       <% if current_member.avatar.url.present? %>
         <%= cl_image_tag current_member.avatar.url, width: 60, height: 60, crop: :fill, radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
       <% end %>
