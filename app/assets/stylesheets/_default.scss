@@ -77,3 +77,15 @@ $color_search_box: #E0D4E8;
   border: solid 1px violet;
   background-color: violet;
 }
+
+a.tag-white{
+  color: white ;
+  border: solid 1px white;
+  border-radius: 3px;
+}
+
+a.tag-white:hover{
+  color: $color_navbar;
+  border: solid 1px $color_navbar;
+  text-decoration: none;
+}

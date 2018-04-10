@@ -55,6 +55,14 @@
           </li>
         </ul>
       </div>
+
+
+      <h4> Votre activité </h4>
+      <%= f.label 'Catégories' %>
+      <%= f.input :category_list, label: false, input_html:{id: 'categories', data:{role:'tagsinput'},
+            value: f.object.category_list.sort.join(', ').to_s} , placeholder: "Entrez des catégories ..." %>
+
+
       <% if !session['facebook_login'] %>
         <hr />
         <%= f.input :password, label: 'Nouveau mot de passe', autocomplete: "off", placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
@@ -78,3 +86,23 @@
   <% end %>
 
 </div>
+
+
+
+<script>
+
+// constructs the suggestion engine
+var tag_categories = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  // `tag_members` is an array of state names defined in "The Basics"
+    local: <%= raw ViewDatum.find_by_data_type(VIEW_DATA_CATEGORIES).content %>
+});
+
+$('#categories').tagsinput({
+  typeaheadjs: {
+  source: tag_categories.ttAdapter()
+  }
+});
+
+</script>

@@ -30,14 +30,16 @@ class ApplicationController < ActionController::Base
       |u| u.permit(
         :email, :password, :password_confirmation,
         :gender, :pseudo, :first_name, :name,:bio, :birth_date,
-        :address, :zip, :city, :country, :avatar, :site
+        :address, :zip, :city, :country, :avatar, :site,
+        :category_list, :tag, { tag_ids: [] }, :tag_ids
       )
     }
     devise_parameter_sanitizer.permit(:account_update) {
       |u| u.permit(
         :email, :password, :password_confirmation,
         :gender, :pseudo, :first_name, :name, :bio, :birth_date,
-        :address, :zip, :city, :country, :avatar, :site, :current_password
+        :address, :zip, :city, :country, :avatar, :site, :current_password,
+        :category_list, :tag, { tag_ids: [] }, :tag_ids
       )
     }
   end
