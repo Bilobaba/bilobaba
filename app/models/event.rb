@@ -5,7 +5,7 @@ class Event < ApplicationRecord
 
   acts_as_taggable_on :categories
 
-  validates :title, presence: true, length: { minimum: 5, maximum: 33 }
+  validates :title, presence: true, length: { minimum: 5, maximum: 50 }
   validates :description, presence: true, length: { minimum: 10 }
   validates :begin_at, presence: true
   validates :end_at, presence: true
@@ -223,7 +223,7 @@ class Event < ApplicationRecord
   end
 
   def short_title
-    self.title.length > 44 ? self.title[0..40] + '...' : self.title
+    self.title.length > 32 ? self.title[0..28] + '...' : self.title
   end
 
   def show_begin_at

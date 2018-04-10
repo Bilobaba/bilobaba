@@ -59,6 +59,7 @@ class MembersController < ApplicationController
 
     @next_workshops = @member.next_workshops
     @next_events = @member.next_events
+    @past_activities = @member.past_activities
     @count_testimonials = Testimonial.count
     @testimonials_by = Testimonial.by(@member)
     @testimonials_about = Testimonial.about(@member)

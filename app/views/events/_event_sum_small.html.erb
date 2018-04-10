@@ -1,6 +1,7 @@
+<a href="<%= event.url %>">
 <div class="featured-course-item w-dyn-item w-col w-col-3">
   <div class="course-block-wrapper home-featured">
-    <a href=<%= event.url %> style="background-image:url(<%= event.image_url %>)" class="course-image-link-block home-featured w-inline-block" >
+    <div style="background-image:url(<%= event.image_url %>)" class="course-image-link-block home-featured w-inline-block" >
       <div class="teacher-overlay-block w-clearfix">
 <!--               <img class="teacher-overlay-photo"> -->
         <%= cl_image_tag event.organizer.avatar, class: "teacher-overlay-photo" %>
@@ -13,9 +14,11 @@
           </div>
         </div>
       </div>
-    </a>
+    </div>
     <div class="course-content-block">
-      <%= link_to event.title[0..42], home_path, class: "course-title-link" %>
+      <div class="course-title-link" %>
+        <%= event.short_title %>
+      </div>
     </div>
     <div class="course-content-block _2">
       <div class="course-info-icon"><i class="material-icons" style="font-size: 16px; position:relative; top:3px">place</i></div>
@@ -25,3 +28,4 @@
     </div>
   </div>
 </div>
+</a>

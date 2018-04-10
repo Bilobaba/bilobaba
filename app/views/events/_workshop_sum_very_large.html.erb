@@ -1,0 +1,21 @@
+<div class="w-dyn-items">
+  <div class="event-item w-dyn-item">
+    <a class="event-image-block w-inline-block" style="background-image: url(<%= event.image_url %>)" href=<%= event.url %> >
+      <div class="event-date-block w-clearfix">
+        <div class="event-date-title"><%= event.begin_at.mday %></div>
+        <div class="event-date-title month"><%= event.show_begin_at_month_name %></div>
+        <div class="event-date-title month"><%= event.begin_at.year %></div>
+      </div>
+    </a>
+    <div class="event-info-block"><a class="event-title-link" href=<%=event.url %>><%= event.title %></a>
+      <div class="event-info-wrapper">
+        <div class="course-info-icon"></div>
+        <div class="event-info-title"><%= event.show_begin_at %> - <%= event.show_end_at %> </div>
+      </div>
+      <div class="event-info-wrapper">
+        <div class="course-info-icon"></div>
+        <div class="event-info-title"><%= event.city %></div>
+      </div><a class="button events-learn-more w-button" href=<%= event.url %> >Regarder</a>
+    </div>
+  </div>
+</div>

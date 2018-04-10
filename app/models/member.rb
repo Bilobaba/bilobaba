@@ -92,6 +92,12 @@ class Member < ApplicationRecord
     .reverse
   end
 
+  # Workshop & Event in past
+  def past_activities
+    events = self.past_events
+    workshops = self.past_workshops
+    past_activities = self.past_events.concat(self.past_workshops).sort_by{|e| e[:begin_at]}.reverse
+  end
 
   def showed_testimonials
     self.testimonials.published

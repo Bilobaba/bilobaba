@@ -56,21 +56,21 @@
     <div class="container w-container">
       <div class="hero-overlay-row w-row">
         <div class="stats-column w-col w-col-4">
-          <a href="our-courses/courses-grid-view.html" class="hero-overlay-block w-inline-block">
+          <a href=<%= events_path %> class="hero-overlay-block w-inline-block">
             <div class="hero-overlay-number"><%= @count_events_next_week%></div>
             <div class="hero-overlay-block-title">Propositions</div>
             <p class="link-block-paragraph">Disponibles cette semaine</p>
           </a>
         </div>
         <div class="stats-column w-col w-col-4">
-          <a href="teachers.html" class="hero-overlay-block w-inline-block">
+          <a href=<%= members_path %> class="hero-overlay-block w-inline-block">
             <div class="hero-overlay-number"><%= @count_professionals%></div>
             <div class="hero-overlay-block-title">Proposants</div>
             <p class="link-block-paragraph">Dans notre rubrique professionels</p>
           </a>
         </div>
         <div class="stats-column last w-col w-col-4">
-          <a href="events.html" class="hero-overlay-block w-inline-block">
+          <a href=<%= testimonials_path %> class="hero-overlay-block w-inline-block">
             <div class="hero-overlay-number"><%= @coutn_testimonials %></div>
             <div class="hero-overlay-block-title">Témoignages</div>
             <p class="link-block-paragraph">Authentiques partagés entre "amis"</p>
@@ -87,15 +87,11 @@
       </div>
       <div class="w-dyn-list">
         <div class="w-clearfix w-dyn-items w-row" >
-          <% for i in 0..3 %>
-            <% if !@list_short_events[i].nil? %>
-              <%= render 'layouts/event_sum_small', event: @list_short_events[i] %>
-            <% end %>
-          <% end %>
+          <%= render partial: 'events/event_sum_small', collection: @list_short_events.first(4), as: :event %>
         </div>
       </div>
       <div class="bottom-info-text">Vous voulez voir la liste complète des propositions?
-        <%= link_to "Regardez la liste omplète →" , events_path %>
+        <%= link_to "Regardez la liste complète →" , events_path %>
       </div>
     </div>
   </div>
@@ -152,12 +148,13 @@
             <h2 class="section-title"> Le pourquoi de Bilobaba </h2>
             <div class="section-title-divider"></div>
           </div>
-          <a href="#" class="video-lightbox w-inline-block w-lightbox">
+          <a href="https://www.youtube.com/channel/UCgH9tQ00N9xPAxKlkbAPWZw" <% if false %> (put with real video) class="video-lightbox w-inline-block w-lightbox" <% end %>>
             <div class="about-image-block">
               <div class="lightbox-overlay-block">
                 <div class="overlay-lightbox-icon"></div>
               </div>
             </div>
+<!--            Video
             <script type="application/json" class="w-json">{
   "items": [
     {
@@ -170,9 +167,10 @@
       "url": "http://www.youtube.com/watch?v=AYAHkql75qM"
     }
   ]
-}</script>
+}</script> -->
           </a>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero.</p><a href="about-us.html" class="link-below-paragraph">Plus d'infos →</a></div>
+          <p>Vidéo en cours de préparation avec Morane Vigne</p>
+          <a href="https://www.youtube.com/channel/UCgH9tQ00N9xPAxKlkbAPWZw" class="link-below-paragraph">Plus d'infos →</a></div>
       </div>
     </div>
   </div>
@@ -185,34 +183,7 @@
       </div>
       <div class="upcoming-events-list-wrapper w-dyn-list">
         <div class="w-dyn-items">
-          <% for i in 0..2 %>
-            <% if !@list_long_events[i].nil? %>
-              <div class="event-item w-dyn-item">
-                <a class="event-image-block w-inline-block" style="background-image:url(<%= @list_long_events[i].image_url %>)" >
-                  <div class="event-date-block w-clearfix">
-                    <div class="event-date-title"><%= @list_long_events[i].begin_at.mday %></div>
-                    <div class="event-date-title month"><%= @list_long_events[i].show_begin_at_month_name %></div>
-                    <div class="event-date-title month"><%= @list_long_events[i].begin_at.year %></div>
-                  </div>
-                </a>
-                <div class="event-info-block">
-                  <%= link_to @list_long_events[i].title, @list_long_events[i].url, class: "event-title-link" %>
-                  <div class="event-info-wrapper">
-                    <div class="course-info-icon"></div>
-                    <div class="event-info-title">infos 1</div>
-                    <div class="course-info-icon"></div>
-                    <div class="event-info-title">infos 2</div>
-                    <div class="event-info-title">-</div>
-                    <div class="event-info-title">infos 3</div>
-                  </div>
-                  <div class="event-info-wrapper">
-                    <div class="course-info-icon"></div>
-                    <div class="event-info-title"><%= @list_long_events[i].zip %> <%= @list_long_events[i].city %></div>
-                  </div><a class="button events-learn-more w-button">Plus d'infos</a>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
+          <%= render partial: 'events/workshop_sum_very_large', collection: @list_long_events.first(3), as: :event %>
         </div>
       </div>
       <div class="bottom-info-text">

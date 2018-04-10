@@ -24,7 +24,7 @@
           <div class="section-title-divider"></div>
         </div>
         <div class="w-dyn-list">
-          <%= render "layouts/event_sum_very_large", workshops: @next_workshops %>
+          <%= render partial: 'events/workshop_sum_very_large', collection: @next_workshops, as: :event %>
         </div>
       </div>
     </div>
@@ -39,7 +39,23 @@
           <div class="section-title-divider"></div>
         </div>
         <div class="w-dyn-list">
-          <%= render '/events/events', list_events: @next_events %>
+          <%= render partial: '/events/event_sum_very_large', collection: @next_events, as: :event %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+  <% if @past_activities.size > 0 %>
+    <div class="section">
+      <div class="container w-container">
+        <div class="section-title-wrapper">
+          <h2 class="section-title">Ses activités passées</h2>
+          <h2 class="section-title subtitle with-name">pour se faire une idée</h2>
+          <div class="section-title-divider"></div>
+        </div>
+        <div class="w-dyn-list">
+          <%= render partial: '/events/event_sum_very_large', collection: @past_activities, as: :event %>
         </div>
       </div>
     </div>
@@ -49,7 +65,7 @@
     <div class="section">
       <div class="container w-container">
         <div class="section-title-wrapper">
-          <h2 class="section-title">On a écrit sur lui</h2>
+          <h2 class="section-title">On a écrit sur <%= @member.male? ? "lui" : "elle" %></h2>
           <h2 class="section-title subtitle with-name">dans un témoignage</h2>
           <h2 class="section-title subtitle with-name"></h2>
           <div class="section-title-divider"></div>
