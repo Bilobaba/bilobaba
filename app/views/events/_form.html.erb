@@ -140,9 +140,9 @@
         </div>
       <% end %>
 
-      <%= f.label 'Thèmes' %>
+      <%= f.label 'Catégorie (seule la première sera affichée)' %>
       <%= f.input :category_list, label: false, input_html:{id: 'categories', data:{role:'tagsinput'}, style: "background-color: red !important",
-            value: f.object.category_list.sort.join(', ').to_s} , placeholder: "Entrez des categories ..." %>
+            value: @category_list} , placeholder: "Entrez des categories ..." %>
 
 
     </div>

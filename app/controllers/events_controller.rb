@@ -35,16 +35,18 @@ class EventsController < ApplicationController
     @event.begin_at = @event.end_at = DateTime.now + 1.hours #local hour
     # $teachers is global because if !create return view with @teachers wrong
     $teachers = Member.all
+    @category_list = current_member.category_list.sort.join(', ').to_s
   end
 
   # GET /events/duplicate/:id
   def duplicate
     @h1_title = 'Dupliquer cette proposition'
+    # category_list is not in database table Event
+    @category_list = @event.category_list.sort.join(', ').to_s
     @event = @event.dup
     @event.calendar_string = nil
     @event.multi_dates_id = nil
     @event.calendar_range_string = nil
-
     # $teachers is global because if !create return view with @teachers wrong
     $teachers = (Member.pros << current_member).reverse.uniq
     render :new
@@ -55,6 +57,8 @@ class EventsController < ApplicationController
   def edit
     @h1_title = 'Modifier ma proposition'
     $teachers = (Member.pros << current_member).reverse.uniq
+    # must have @category_list in case duplicate
+    @category_list = @event.category_list.sort.join(', ').to_s
   end
 
   # POST /events
