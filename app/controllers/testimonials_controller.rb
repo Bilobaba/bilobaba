@@ -9,9 +9,8 @@ class TestimonialsController < ApplicationController
   # GET /testimonials
   # GET /testimonials.json
   def index
-    @testimonials = list_showed
     if params[:topic]
-      # @testimonials = Testimonial.published.tagged_with(params[:topic])
+      @topic = params[:topic]
       @testimonials = (Testimonial.published.tagged_with(params[:topic]) +
         ( member_signed_in? ? current_member.testimonials.tagged_with(params[:topic]) : [] )).uniq.sort_by{|obj| obj.title}
     else

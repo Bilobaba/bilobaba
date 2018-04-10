@@ -89,3 +89,18 @@ a.tag-white:hover{
   border: solid 1px $color_navbar;
   text-decoration: none;
 }
+
+a.tag-dark{
+  color: purple ;
+  border: solid 1px purple;
+  border-radius: 3px;
+  margin: 2px;
+  padding: 2px;
+}
+
+a.tag-dark:hover{
+  color: white;
+  border: solid 1px purple ;
+  text-decoration: none;
+  background-color: purple;
+}
