@@ -9,13 +9,7 @@
       <div class="image-overlay-block">
         <div class="image-overlay-block w-clearfix">
           <div class="featured-label">
-            <% if event.begin_at.to_date == Date.today %>
-              Aujourd'hui
-            <% elsif event.begin_at.to_date == Date.today + 1 %>
-              Demain
-            <% else %>
-              Bientôt
-            <% end %>
+            <%= event.categories[0].name %>
           </div>
         </div>
       </div>
