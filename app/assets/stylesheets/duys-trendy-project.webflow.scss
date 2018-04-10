@@ -1147,7 +1147,9 @@ footer {
 }
 
 .page-header.pricing {
-  background-image: image_url('../images/Photo-5.jpg');
+  background-image: image_url('peace-in-the-world.jpg');
+  background-size: contain;
+  background-position: 50% 60px;
 }
 
 .page-header-overlay {
