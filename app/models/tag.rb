@@ -7,9 +7,15 @@ class Tag < ApplicationRecord
   def self.topics
     tabs = []
     Tagging.all.each do |t|
-      if t.context == "topics"
-        tabs << t.tag.name
-      end
+        tabs << t.tag.name if t.context == "topics"
+    end
+    return tabs.uniq.sort
+  end
+
+  def self.categories
+    tabs = []
+    Tagging.all.each do |t|
+        tabs << t.tag.name if t.context == "categories"
     end
     return tabs.uniq.sort
   end

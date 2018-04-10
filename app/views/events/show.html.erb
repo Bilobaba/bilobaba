@@ -3,11 +3,11 @@
       <div class="container course-header w-container">
         <h2 data-ix="fade-in-on-load" class="page-header-title course-title" style="width: 120%"><%= @event.title%></h2>
         <div>
-          <% if false %>
+          <% if true %>
           <!-- For after with categories management -->
           <div data-ix="fade-in-on-load-2" class="course-category-title">Categorie : </div>
             <% if @event.categories.first %>
-              <a data-ix="fade-in-on-load-2" class="course-category-link" href="<%= category_path(@event.categories.first) %>" title="Autres événements de cette catégorie">
+              <a data-ix="fade-in-on-load-2" class="course-category-link" href="" title="">
               <%= @event.categories.first.name %>
               </a>
             <% end %>
@@ -21,7 +21,7 @@
     <div class="container w-container">
       <div class="course-block-left">
         <div class="course-image-block w-clearfix" style="background-image: url(<%= @event.image_url %>)">
-          <div class="featured-label"><%= @event.organizer.has_role?(ROLE_PROFESSIONAL)? 'Cours' : 'Sortie' %></div>
+          <div class="featured-label"><%= @event.organizer.has_role?(ROLE_PROFESSIONAL)? 'Professionel' : 'Convivial' %></div>
         </div>
         <div class="course-info-block">
           <h4 class="section-title sidebar">Informations</h4>

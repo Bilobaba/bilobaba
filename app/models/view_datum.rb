@@ -2,6 +2,8 @@ class ViewDatum < ApplicationRecord
   validates :data_type, presence: true
   validates :data_type, uniqueness: true
 
+  # create new category by url/view_data
+
   def self.topics
     v = ViewDatum.find_by_data_type(VIEW_DATA_TOPICS)
     v.content = Tag.topics.sort
@@ -16,7 +18,7 @@ class ViewDatum < ApplicationRecord
 
   def self.categories
     v = ViewDatum.find_by_data_type(VIEW_DATA_CATEGORIES)
-    v.content = Event.categories.sort
+    v.content = Tag.categories.sort
     v.save
   end
 end
