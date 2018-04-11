@@ -205,7 +205,8 @@ class Member < ApplicationRecord
     self.teach_events.each do |e|
       list_cities << e.city
     end
-    events_cities = list_cities.count > 0 ? list_cities.uniq!.join(', ') : ""
+    list_cities.uniq!
+    events_cities = list_cities.count > 0 ? list_cities.join(', ') : ""
     return events_cities
   end
 
