@@ -124,7 +124,9 @@ class Event < ApplicationRecord
   end
 
   def soon
-    if self.begin_at.to_date == Date.today
+    if begin_at.to_date < Date.today
+      soon = "Passé"
+    elsif self.begin_at.to_date == Date.today
       soon = "Aujourd'hui"
     elsif self.begin_at.to_date == Date.today + 1.day
       soon = "Demain"
@@ -133,7 +135,7 @@ class Event < ApplicationRecord
     elsif self.begin_at.to_date > Date.today + 7.day
       soon = "Prochainement"
     else
-      soon = "Passé"
+      soon = "Problème"
     end
     return soon
   end
