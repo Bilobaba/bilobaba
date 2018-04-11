@@ -47,6 +47,7 @@
 
       <%= f.input :gender, collection: [MEMBER_GENDER_MALE,MEMBER_GENDER_FEMALE], label: 'Genre' %>
       <%= f.input :pseudo %>
+      <%= f.input :title, label: 'Titre',  placeholder: 'Professeur de méditation, Particulier, Fou de danse, ...', required: true %>
       <%= f.input :first_name, label: 'Prénom' %>
       <%= f.input :name, label: 'Nom' %>
       <%= f.input :bio, label: "Dites-nous qui vous êtes ...",input_html: {rows: 5}  %>

@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
         :email, :password, :password_confirmation,
         :gender, :pseudo, :first_name, :name,:bio, :birth_date,
         :address, :zip, :city, :country, :avatar, :site,
-        :category_list, :tag, { tag_ids: [] }, :tag_ids
+        :category_list, :tag, { tag_ids: [] }, :tag_ids, :title
       )
     }
     devise_parameter_sanitizer.permit(:account_update) {
@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
         :email, :password, :password_confirmation,
         :gender, :pseudo, :first_name, :name, :bio, :birth_date,
         :address, :zip, :city, :country, :avatar, :site, :current_password,
-        :category_list, :tag, { tag_ids: [] }, :tag_ids
+        :category_list, :tag, { tag_ids: [] }, :tag_ids, :title
       )
     }
   end
