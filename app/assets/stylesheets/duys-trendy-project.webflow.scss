@@ -344,7 +344,7 @@ blockquote {
 
 .nav-menu {
   float: right;
-  z-index: 1000;
+  z-index: 1000 !important;
 }
 
 .nav-menu.left {
