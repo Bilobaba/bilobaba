@@ -77,7 +77,7 @@
       </div>
       <hr />
 
-      <%= f.input :avatar, label: 'Choisir une photo (obligatoire)', required: true  %>
+      <%= f.input :avatar, label: 'Choisir une photo (obligatoire, taille max 1Mo)', required: true  %>
 
       <hr />
 
@@ -85,8 +85,6 @@
       <%= f.label 'Catégories' %>
       <%= f.input :category_list, label: false, input_html:{id: 'categories', data:{role:'tagsinput'},
             value: f.object.category_list.sort.join(', ').to_s} , placeholder: "Entrez des catégories ..." %>
-
-
     </div>
 
     <div class="form-actions btn-group btn-group-justified" role="group">

@@ -17,9 +17,9 @@
       <% end %>
       <!-- upload the image but not recorded directly : association with cloudy record -->
       <% if @event.cloudy.present? %>
-        <%= f.input :image, label: "Changer d'image" %>
+        <%= f.input :image, label: "Changer d'image (taille max 1Mo)" %>
       <% else %>
-         <%= f.input :image, label: "Choisir une image (obligatoire)", required: true %>
+         <%= f.input :image, label: 'Image (obligatoire, taille max 1Mo)', required: true %>
       <% end %>
       <%= f.input :price_min, label: 'Tarif réduit' %>
       <%= f.input :price_max, label: 'Plein tarif', required: true %>
