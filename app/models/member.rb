@@ -159,8 +159,18 @@ class Member < ApplicationRecord
      return ENV["ROOT_URL"] + '/members/' + self.id.to_s
   end
 
-  def avatar_url
-    self.avatar.url
+ def avatar_url
+    if self.avatar.filename
+      # old format with attachanary
+      if self.avatar.filename.include?('http')
+        self.avatar.filename
+      # format with carrierwave
+      else
+        'http://res.cloudinary.com/bilobaba/image/upload/w_300,h_300,c_fill,g_face/' + self.avatar.filename
+      end
+    else
+      ""
+    end
   end
 
   def male?
