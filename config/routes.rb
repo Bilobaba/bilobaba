@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'members/index_pros', as: 'pros'
   get 'members/index_amateurs', as: 'amateurs'
   get 'members/:id/edit', to: 'members#edit',  as: 'member_edit'
+  patch 'members/:id', to: 'members#update'
 
   devise_for :members, controllers: {
     registrations: 'registrations',

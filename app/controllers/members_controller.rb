@@ -6,7 +6,7 @@ class MembersController < ApplicationController
 
   # only by ADMIN
   def edit
-    redirect_to root_path unless current_member && (current_member || current_member.has_role?(ROLE_ADMIN) )
+    redirect_to root_path unless  current_member.has_role?(ROLE_ADMIN)
     @member = Member.find(params[:id])
   end
 
@@ -21,7 +21,9 @@ class MembersController < ApplicationController
       permit(
         :email, :password, :password_confirmation,
         :gender, :pseudo, :first_name, :name, :bio, :birth_date,
-        :address, :zip, :city, :country, :avatar, :site, :current_password
+        :address, :zip, :city, :country, :avatar, :site,
+        :category_list, :tag, { tag_ids: [] }, :tag_ids, :title
+
       )
     respond_to do |format|
       if @member.update(member)

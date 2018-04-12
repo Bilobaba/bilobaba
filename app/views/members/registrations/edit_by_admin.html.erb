@@ -1,0 +1,111 @@
+<!-- MUST BE THE SAME WITH EDIT.HTML?ERB EXCEPT URL -->
+
+<%= stylesheet_link_tag "remove_navbar_footer" %>
+<%= stylesheet_link_tag "form" %>
+
+<div class="container sign-up">
+<h1>Formulaire de l'adminitrateur</h1>
+  <%= simple_form_for(
+        resource,
+        as: resource_name,
+        url: member_path(@member),
+        html: { class: 'purple_form' },
+        defaults: {
+          wrapper_html: { class: 'form-group' }
+        }
+    ) do |f| %>
+
+    <div class="form-inputs">
+
+      <%= f.error_notification %>
+
+      <% if (defined? devise_mapping) && devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+
+      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :gender, collection: [MEMBER_GENDER_MALE,MEMBER_GENDER_FEMALE], label: 'Genre' %>
+      <%= f.input :pseudo %>
+      <%= f.input :title, label: 'Titre',  placeholder: 'Professeur de méditation, Particulier, Fou de danse, ...', required: true %>
+      <%= f.input :first_name, label: 'Prénom' %>
+      <%= f.input :name, label: 'Nom' %>
+      <%= f.input :bio, label: "Vos envies, votre parcours, ... ",input_html: {rows: 5} %>
+      <% if current_member.avatar.url.present? %>
+        <%= cl_image_tag @member.avatar.url, width: 60, height: 60, crop: :fill, radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
+      <% end %>
+      <%= f.input :avatar, label: 'Changer d\'image (moins de 1Mo)' %>
+      <hr />
+      <div class="form-group" style="display: none;">
+        <%= f.label  "Date de naissance" %> </br>
+        <%= f.date_field :birth_date, as: :date, label: "Date de naissance" %>
+      </div>
+      <%= f.input :address, label: 'Adresse' %>
+      <%= f.input :zip, label: 'Code postal' %>
+      <%= f.input :city, label: 'Ville' %>
+      <%= f.input :country, priority: [ "France" ], label: 'Pays' %>
+      <%= f.input :site, label: "Votre site ou page pour les pros " , placeholder: 'www.monsupersite.com (sans le http://)' %>
+      <hr />
+      <h4> Type de membre </h4>
+      <div style="text-align: left">
+        <ul style="list-style-type:none; flex: left; clear: none">
+          <li>
+            <%= radio_button_tag(:type_member, MEMBER_TYPE_AMATEUR, checked: true ) %>
+            <%= label_tag(:Amateur, "Vous êtes amateur et vous ne faites rien payer") %>
+          </li>
+          <li>
+            <%= radio_button_tag(:type_member, MEMBER_TYPE_PRO) %>
+            <%= label_tag(:Pro, "Vous êtes professionnel et faites payer vos cours") %>
+          </li>
+        </ul>
+      </div>
+
+
+      <h4> Votre activité </h4>
+      <%= f.label 'Catégories' %>
+      <%= f.input :category_list, label: false, input_html:{id: 'categories', data:{role:'tagsinput'},
+            value: f.object.category_list.sort.join(', ').to_s} , placeholder: "Entrez des catégories ..." %>
+
+
+      <% if !session['facebook_login'] %>
+        <hr />
+        <%= f.input :password, label: 'Nouveau mot de passe', autocomplete: "off", placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
+        <%= f.input :password_confirmation, label: 'Confirmation nouveau mot de passe', placeholder: "ne rien écrire si vous gardez votre mot de passe" %>
+        <hr />
+        <%= f.input :current_password, label: 'Mot de passe actuel', placeholder: "veuillez indiquer votre mot de passe actuel pour confirmer les changements", required: true %>
+      <% end %>
+    </div>
+
+    <div class="form-actions btn-group btn-group-justified" role="group">
+      <div class="btn-group" role="group">
+        <%= f.button :submit, "Enregistrer", class: 'btn btn-default' %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to 'Annuler', session[:request_back], class: 'btn btn-default' %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to 'Supprimer', registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Etes-vous sûr de vouloir supprimer votre compte ?" }, method: :delete %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+
+
+<script>
+
+// constructs the suggestion engine
+var tag_categories = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  // `tag_members` is an array of state names defined in "The Basics"
+    local: <%= raw ViewDatum.find_by_data_type(VIEW_DATA_CATEGORIES).content %>
+});
+
+$('#categories').tagsinput({
+  typeaheadjs: {
+  source: tag_categories.ttAdapter()
+  }
+});
+
+</script>

@@ -56,6 +56,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @h1_title = 'Modifier ma proposition'
+    @h1_title += 'Formulaire de l\'ADMINISTRATEUR ' if (current_member && current_member.has_role?(ROLE_ADMIN))
     $teachers = (Member.pros << current_member).reverse.uniq
     # must have @category_list in case duplicate
     @category_list = @event.category_list.sort.join(', ').to_s
