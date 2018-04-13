@@ -166,7 +166,7 @@ class Member < ApplicationRecord
         self.avatar.filename
       # format with carrierwave
       else
-        'http://res.cloudinary.com/bilobaba/image/upload/w_300,h_300,c_fill,g_face/' + self.avatar.filename
+        'http://res.cloudinary.com/bilobaba/image/upload/w_300,h_300,c_fill,g_faces/' + self.avatar.filename
       end
     else
       ""

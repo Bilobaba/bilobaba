@@ -34,6 +34,7 @@ class MembersController < ApplicationController
         format.json { render json: @member.errors, status: :unprocessable_entity }
       end
     end
+    @member.index!
   end
 
 
