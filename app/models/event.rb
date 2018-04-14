@@ -146,19 +146,19 @@ class Event < ApplicationRecord
     attributes :id, :title, :address, :city, :zip
 
     # extra_attr will be sent
-    add_attribute :member_name, :member_first_name, :unix_begin_at, :url, :summary,
-                  :member_avatar, :address, :short_title, :show_begin_at, :member_pseudo,
-                  :show_price, :member_bio, :place_name, :image_url, :category_name,
-                  :teacher_pseudo, :teacher_name, :teacher_first_name
+    add_attribute :organizer_name, :organizer_first_name, :unix_begin_at, :url, :summary,
+                  :organizer_avatar, :address, :short_title, :show_begin_at, :organizer_pseudo,
+                  :show_price, :organizer_bio, :place_name, :image_url, :category_name,
+                  :teacher_pseudo, :teacher_name, :teacher_first_name, :teacher_bio
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute
-    searchableAttributes ['title', 'member_name', 'member_first_name', 'address', 'category_name',
-                          'city', 'zip','summary', 'member_avatar','short_title',
-                          'show_begin_at', 'member_pseudo', 'show_price', 'member_bio', 'place_name',
-                          'teacher_first_name','teacher_name','teacher_pseudo']
+    searchableAttributes ['title', 'organizer_name', 'organizer_first_name', 'address', 'category_name',
+                          'city', 'zip','summary', 'organizer_avatar','short_title',
+                          'show_begin_at', 'organizer_pseudo', 'show_price', 'organizer_bio', 'place_name',
+                          'teacher_first_name','teacher_name','teacher_pseudo', 'teacher_bio']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect ,your record popularity.
@@ -172,40 +172,44 @@ class Event < ApplicationRecord
 
   end
 
-  def member_name
+  def organizer_name
     self.organizer.name
   end
 
-  def member_first_name
+  def organizer_first_name
     self.organizer.first_name
   end
 
-  def member_avatar
+  def organizer_avatar
     return self.organizer.avatar_url
   end
 
-  def member_pseudo
+  def organizer_pseudo
     return self.organizer.pseudo
   end
 
-  def member_bio
+  def organizer_bio
     return self.organizer.bio
   end
 
   def teacher_name
-    self.teacher.name
+    self.teacher ? self.teacher.name : ""
   end
 
   def teacher_first_name
-    self.teacher.first_name
+    self.teacher ? self.teacher.first_name : ""
   end
 
   def teacher_avatar
-    return self.teacher.avatar_url
+    self.teacher ? self.teacher.avatar_url : ""
   end
 
   def teacher_pseudo
-    return self.teacher.pseudo
+    self.teacher ? self.teacher.pseudo : ""
+  end
+
+  def teacher_bio
+        self.teacher ? self.teacher.bio : ""
   end
 
   def unix_begin_at
