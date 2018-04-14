@@ -89,6 +89,7 @@ class EventsController < ApplicationController
         @event.reload
         @cloudy.identifier = @event.image.filename
         @cloudy.save
+        @event.index!
       end
 
     elsif @event.calendar_string.size > 0
@@ -128,6 +129,7 @@ class EventsController < ApplicationController
             @cloudy.save
             params[:event].delete(:image)
           end
+          @event.index!
         end
       end
     end
@@ -170,6 +172,7 @@ class EventsController < ApplicationController
         @event.cloudy = @cloudy
       end
       @event.save
+      @event.index!
     end
 
     respond_to do |format|
