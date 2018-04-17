@@ -25,4 +25,5 @@
 /public/uploads/tmp/
 
 # Ignore dump
-/db/latest.dump
+/db/*.dump
+/db/*.dump.*

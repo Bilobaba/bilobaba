@@ -192,19 +192,21 @@ class Member < ApplicationRecord
     attributes :name, :first_name, :pseudo, :bio, :title
 
     # extra_attr will be sent
-    add_attribute :avatar_url, :categories_seach, :events_cities, :url
+    add_attribute :avatar_url, :categories_search, :events_cities, :url
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute
-    searchableAttributes ['name', 'first_name', 'pseudo', 'bio', 'categories_seach',
+    searchableAttributes ['name', 'first_name', 'pseudo', 'bio', 'categories_search',
                           'events_cities', 'title']
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect ,your record popularity.
     #customRanking ['desc(likes_count)']
     # customRanking ['asc(unix_begin_at)']
+
+    attributesForFaceting [:category_name]
 
     ranking ['asc(pseudo)']
   end

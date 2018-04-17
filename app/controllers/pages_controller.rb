@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   def home_awesome
     @count_events_next_week = Event.next_week_events.count
     @count_professionals = Member.pros.count
-    @coutn_testimonials = Testimonial.count
+    @count_testimonials = Testimonial.count
     @list_short_events = Event.next_events.first(4)
     @list_long_events = Event.next_workshops.first(4)
     @list_testimonials = Testimonial.published.last(3)

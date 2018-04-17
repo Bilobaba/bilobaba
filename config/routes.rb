@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  resources :categories
   resources :view_data
   resources :taggings
   resources :tags
   resources :topics, except: :show
-  resources :categories, except: :show
+  resources :categories
   get 'topics/:topic', to: 'testimonials#index'
-  get 'categories/:category', to: 'events#category'
 
 
   resources :testimonials

@@ -21,6 +21,8 @@ ALTER USER user_name WITH PASSWORD 'new_password';
 # delete the dump (that you don't need anymore)
 rm latest.dump
 
+
+# delete indices in Algolia in dev (duy.dang@wanadoo.fr) or test (hello.bilobaba@gmail.com) environment
 # reset Algolia db
 rails c
 Event.reindex!

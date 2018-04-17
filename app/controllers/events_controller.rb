@@ -59,7 +59,7 @@ class EventsController < ApplicationController
     @h1_title += 'Formulaire de l\'ADMINISTRATEUR ' if (current_member && current_member.has_role?(ROLE_ADMIN))
     $teachers = (Member.pros << current_member).reverse.uniq
     # must have @category_list in case duplicate
-    @category_list = @event.category_list.sort.join(', ').to_s
+    @category_list = @event.category_list.join(', ').to_s
   end
 
   # POST /events

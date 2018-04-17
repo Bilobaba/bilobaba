@@ -148,14 +148,14 @@ class Event < ApplicationRecord
     # extra_attr will be sent
     add_attribute :organizer_name, :organizer_first_name, :unix_begin_at, :url, :summary,
                   :organizer_avatar, :address, :short_title, :show_begin_at, :organizer_pseudo,
-                  :show_price, :organizer_bio, :place_name, :image_url, :category_name,
+                  :show_price, :organizer_bio, :place_name, :image_url, :categories_names,
                   :teacher_pseudo, :teacher_name, :teacher_first_name, :teacher_bio
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute
-    searchableAttributes ['title', 'organizer_name', 'organizer_first_name', 'address', 'category_name',
+    searchableAttributes ['title', 'organizer_name', 'organizer_first_name', 'address', 'categories_names',
                           'city', 'zip','summary', 'organizer_avatar','short_title',
                           'show_begin_at', 'organizer_pseudo', 'show_price', 'organizer_bio', 'place_name',
                           'teacher_first_name','teacher_name','teacher_pseudo', 'teacher_bio']
@@ -284,8 +284,8 @@ class Event < ApplicationRecord
     show_date_begin_end = I18n.l(self.begin_at, format: '%a %-d %b %Y') + '-' + I18n.l(self.end_at, format: '%a %-d %b %Y')
   end
 
-  def category_name
-    self.categories.count > 0 ? self.categories.first.name : ""
+  def categories_names
+    self.categories.join(', ')
   end
 
   def interested_members

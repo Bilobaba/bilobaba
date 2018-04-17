@@ -5,11 +5,11 @@
         <div>
           <% if true %>
           <!-- For after with categories management -->
-          <div data-ix="fade-in-on-load-2" class="course-category-title">Categorie : </div>
-            <% if @event.categories.first %>
-              <a data-ix="fade-in-on-load-2" class="course-category-link" href="" title="">
-              <%= @event.categories.first.name %>
-              </a>
+          <div data-ix="fade-in-on-load-2" class="course-category-title">Categories : </div>
+            <% if @event.categories.count > 0 %>
+              <div data-ix="fade-in-on-load-2" class="course-category" href="" title="">
+              <%= @event.categories.join(', ') %>
+              </div>
             <% end %>
           </div>
           <% end %>
@@ -21,7 +21,7 @@
     <div class="container w-container">
       <div class="course-block-left">
         <div class="course-image-block w-clearfix" style="background-image: url(<%= @event.image_url %>)">
-          <div class="featured-label"><%= @event.organizer.has_role?(ROLE_PROFESSIONAL)? 'Professionel' : 'Convivial' %></div>
+          <div class="featured-label"><%= @event.categories.first %></div>
         </div>
         <div class="course-info-block">
           <h4 class="section-title sidebar">Informations</h4>
@@ -103,7 +103,7 @@
             <div class="w-dyn-items w-row">
 
               <div class="teacher-block w-dyn-item w-col w-col-4">
-                <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo" src="<%= @event.member_avatar %>" ><a class="teacher-title" href="<%= member_url(@event.organizer) %>"><%= @event.organizer.pseudo %></a>
+                <div class="teacher-block-wrapper w-clearfix"><img class="teacher-class-photo" src="<%= @event.organizer_avatar %>" ><a class="teacher-title" href="<%= member_url(@event.organizer) %>"><%= @event.organizer.pseudo %></a>
                   <div class="teacher-title _2"><%= @event.organizer.title %></div>
                 </div>
               </div>
