@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit duplicate update destroy show2]
   before_action :require_permission, only: %i[edit update destroy]
   before_action :set_list_events, only: %i[update destroy]
+  after_action :list_categories, only: %i[create edit update destroy]
 
   # GET /events
   # GET /events.json
@@ -88,7 +89,7 @@ class EventsController < ApplicationController
         ContactMailer.new_user_action('Nouvel évènement', @event.url).deliver_now
         @event.reload
         @cloudy.identifier = @event.image.filename
-        @cloudy.prefix_cloudinary = 'http://res.cloudinary.com/' + YAML.load_file('config/cloudinary.yml')['production']['cloud_name']
+        @cloudy.prefix_cloudinary = 'http://res.cloudinary.com/' + YAML.load_file('config/cloudinary.yml')['production']['cloud_name'] + '/'
         @cloudy.save
         @event.index!
       end
@@ -127,7 +128,7 @@ class EventsController < ApplicationController
           if !@cloudy.identifier
             @event.reload
             @cloudy.identifier = @event.image.filename
-            @cloudy.prefix_cloudinary = 'http://res.cloudinary.com/' + YAML.load_file('config/cloudinary.yml')['production']['cloud_name']
+            @cloudy.prefix_cloudinary = 'http://res.cloudinary.com/' + YAML.load_file('config/cloudinary.yml')['production']['cloud_name'] + '/'
             @cloudy.save
             params[:event].delete(:image)
           end
@@ -168,7 +169,7 @@ class EventsController < ApplicationController
         unless @cloudy.identifier
           @event.reload
           @cloudy.identifier = @event.image.filename
-          @cloudy.prefix_cloudinary = 'http://res.cloudinary.com/' + YAML.load_file('config/cloudinary.yml')['production']['cloud_name']
+          @cloudy.prefix_cloudinary = 'http://res.cloudinary.com/' + YAML.load_file('config/cloudinary.yml')['production']['cloud_name'] + '/'
           @cloudy.save
           params[:event].delete(:image)
         end
@@ -354,6 +355,10 @@ class EventsController < ApplicationController
       event.calendar_string = calendar_string
       @delete_is_ok &&= event.save
     end
+  end
+
+  def list_categories
+    ViewDatum.categories
   end
 
 end
