@@ -148,7 +148,7 @@ class Event < ApplicationRecord
     # extra_attr will be sent
     add_attribute :organizer_name, :organizer_first_name, :unix_begin_at, :url, :summary,
                   :organizer_avatar, :address, :short_title, :show_begin_at, :organizer_pseudo,
-                  :show_price, :organizer_bio, :place_name, :image_url, :categories_names,
+                  :show_price, :organizer_bio, :place_name, :image_url, :categories_names, :category_first,
                   :teacher_pseudo, :teacher_name, :teacher_first_name, :teacher_bio
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
@@ -156,7 +156,7 @@ class Event < ApplicationRecord
     # You need to list them by order of importance. `description` is tagged as
     # `unordered` to avoid taking the position of a match into account in that attribute
     searchableAttributes ['title', 'organizer_name', 'organizer_first_name', 'address', 'categories_names',
-                          'city', 'zip','summary', 'organizer_avatar','short_title',
+                          'city', 'zip','summary', 'organizer_avatar','short_title', 'category_first',
                           'show_begin_at', 'organizer_pseudo', 'show_price', 'organizer_bio', 'place_name',
                           'teacher_first_name','teacher_name','teacher_pseudo', 'teacher_bio']
 
@@ -221,7 +221,7 @@ class Event < ApplicationRecord
   end
 
   def image_url
-    "http://res.cloudinary.com/bilobaba/image/upload/" + self.cloudy.identifier.to_s
+    (self.cloudy && self.cloudy.identifier) ? self.cloudy.prefix_cloudinary + self.cloudy.identifier.to_s : ""
   end
 
   def summary
@@ -287,6 +287,11 @@ class Event < ApplicationRecord
   def categories_names
     self.categories.join(', ')
   end
+
+  def category_first
+    self.categories.first ? self.categories.first.name : ""
+  end
+
 
   def interested_members
     interested_members = []

@@ -30,40 +30,42 @@
             <%= cl_image_tag(@testimonial.image, width:'200%', height:'200%') %>
           </div>
 
-<div style="display: flex;">
-  <div style = "font-size: 16px">
-  Thèmes évoqués : &nbsp
-  </div>
-  <div >
-      <%= raw @testimonial.topic_list.sort.map { |t|  link_to t, topic_path(t), class: "tag-dark", title: "les témoignages portant sur #{t}" }.join(' ') %>
-  </div>
-</div>
-<br />
-<div style="display: flex;">
-  <div style = "font-size: 16px">
-  Membres concernés :&nbsp
-  </div>
-  <div class="tags_css ">
-      <% @testimonial.member_list.each do |t| %>
-        <% if Member.find_by_pseudo(t) %>
-          <% url = Member.find_by_pseudo(t).url %>
-        <% else %>
-          <% url = "#" %>
-        <% end %>
-        <%= link_to(t, url, class: "tag-dark") %>
-      <% end %>
-  </div>
+          <div style="display: flex;">
+            <div style = "font-size: 16px">
+            Thèmes&nbspévoqués&nbsp:&nbsp
+            </div>
+            <div >
+                <%= raw @testimonial.topic_list.sort.map { |t|  link_to t, topic_path(t), class: "tag-dark", title: "les témoignages portant sur #{t}" }.join(' ') %>
+            </div>
+          </div>
+          <br />
+          <div style="display: flex;">
+            <div style = "font-size: 16px">
+            Membres&nbspconcernés&nbsp:&nbsp
+            </div>
+            <div class="tags_css ">
+                <% @testimonial.member_list.each do |t| %>
+                  <% if Member.find_by_pseudo(t) %>
+                    <% url = Member.find_by_pseudo(t).url %>
+                  <% else %>
+                    <% url = "#" %>
+                  <% end %>
+                  <%= link_to(t, url, class: "tag-dark") %>
+                <% end %>
+            </div>
 
-</div>
+          </div>
 
-<br />
-<h5>
-  Publié (visible par les autres) : <%= @testimonial.published ? 'Oui' : 'Non' %>
-</h5>
+          <br />
 
+          <% if current_member && (current_member == @testimonial.author) %>
+          <h5>
+            Publié (visible par les autres) : <%= @testimonial.published ? 'Oui' : 'Non' %>
+          </h5>
+          <% end %>
         </div>
         <div class="blog-post-content-wrapper w-clearfix"><img class="blog-author-photo" src="<%= @testimonial.author.avatar_url %>">
-          <div class="blog-author-title w-hidden-tiny">Témoignage partagé par :</div>
+          <div class="blog-author-title w-hidden-tiny">Témoignage écrit par :</div>
           <%= link_to(@testimonial.author.pseudo, @testimonial.author, class: "blog-author-title-link") %>
           <div class="blog-author-title job-title"><%= @testimonial.author.title %></div>
         </div>

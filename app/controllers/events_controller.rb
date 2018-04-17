@@ -88,6 +88,7 @@ class EventsController < ApplicationController
         ContactMailer.new_user_action('Nouvel évènement', @event.url).deliver_now
         @event.reload
         @cloudy.identifier = @event.image.filename
+        @cloudy.prefix_cloudinary = 'http://res.cloudinary.com/' + YAML.load_file('config/cloudinary.yml')['production']['cloud_name']
         @cloudy.save
         @event.index!
       end
@@ -126,6 +127,7 @@ class EventsController < ApplicationController
           if !@cloudy.identifier
             @event.reload
             @cloudy.identifier = @event.image.filename
+            @cloudy.prefix_cloudinary = 'http://res.cloudinary.com/' + YAML.load_file('config/cloudinary.yml')['production']['cloud_name']
             @cloudy.save
             params[:event].delete(:image)
           end
@@ -166,6 +168,7 @@ class EventsController < ApplicationController
         unless @cloudy.identifier
           @event.reload
           @cloudy.identifier = @event.image.filename
+          @cloudy.prefix_cloudinary = 'http://res.cloudinary.com/' + YAML.load_file('config/cloudinary.yml')['production']['cloud_name']
           @cloudy.save
           params[:event].delete(:image)
         end

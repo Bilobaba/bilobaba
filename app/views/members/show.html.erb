@@ -5,19 +5,18 @@
         <h2 data-ix="fade-in-on-load" class="page-header-title teacher-name"><%= @member.pseudo %></h2>
         <h2 data-ix="fade-in-on-load-2" class="page-subtitle teacher-subtitle"> <%= @member.title %></h2>
         <div data-ix="fade-in-on-load-3" class="short-teacher-biography css-tag" >
-          <% if @member.category_list.count > 0  %>
-            <% if true %>
-            Catégories :       <%= raw @member.category_list.sort.map { |t|  link_to t + ' ', "#" , class: "tag-white", title: "A propos de #{t}" }.join('&nbsp&nbsp') %>
-            <% else %>
-            Catégories :       <%= raw @member.category_list.sort.map { |t|  link_to t + ' ', category_path(t), class: "tag-white", title: "A propos de #{t}" }.join('&nbsp&nbsp') %>
-            <% end %>
-            <br/><br/></div>
+          <% if @member.categories.count > 0 %>
+            <div data-ix="fade-in-on-load-2" class="course-category-title">Categories : </div>
+                <div data-ix="fade-in-on-load-2" class="course-category" href="" title="">
+                <%= @member.categories.join(', ') %>
+                </div>
+              <br/><br/>
           <% end %>
-          <div data-ix="fade-in-on-load-3" class="short-teacher-biography"><%= simple_format(@member.bio.html_safe)  %>
+          <div data-ix="fade-in-on-load-3" class="short-teacher-biography"><%= simple_format(@member.bio.html_safe)  %></div>
 
-        <% if current_member == @member %>
-          <%= link_to "MODIFIER VOTRE PROFIL", edit_member_registration_path, class: "btn btn-primary w-button", style: "font-size: 100%; width:250px; margin:auto "%>
-        <% end %>
+          <% if current_member == @member %>
+            <%= link_to "MODIFIER VOTRE PROFIL", edit_member_registration_path, class: "btn btn-primary w-button", style: "font-size: 100%; width:250px; margin:auto "%>
+          <% end %>
         </div>
       </div>
     </div>

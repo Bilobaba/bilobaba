@@ -181,7 +181,7 @@ class Member < ApplicationRecord
     return self.gender == MEMBER_GENDER_FEMALE
   end
 
-  def categories_seach
+  def categories_search
      self.category_list ? self.category_list.join(',') : ""
   end
 

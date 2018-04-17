@@ -141,7 +141,7 @@
       <% end %>
 
       <br/>
-      <%= f.label 'Catégorie (<tab> pour selectionner ou <return> pour valider, seule la première sera affichée)' %>
+      <%= f.label 'Catégories (Au moins une obligatoire, <tab> pour selectionner ou <return> pour valider, seule la première sera affichée)' %>
       <%= f.input :category_list, label: false, input_html:{id: 'categories', data:{role:'tagsinput'}, style: "background-color: red !important",
             value: @category_list} , placeholder: "Entrez des categories ...", required: true %>
 
