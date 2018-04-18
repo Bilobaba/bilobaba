@@ -69,6 +69,7 @@
           <%= link_to(@testimonial.author.pseudo, @testimonial.author, class: "blog-author-title-link") %>
           <div class="blog-author-title job-title"><%= @testimonial.author.title %></div>
         </div>
+          <%= render 'comments/form', commentable: @testimonial %>
       </div>
     </div>
   </div>

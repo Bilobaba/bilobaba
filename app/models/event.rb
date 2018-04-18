@@ -39,8 +39,7 @@ class Event < ApplicationRecord
   has_many :recommend_event_recommenders, class_name: :RecommendEvent, foreign_key: :event_id, dependent: :destroy
   has_many :recommenders , through: :recommend_event_recommenders, source: :member, dependent: :destroy
 
-  has_many :comments, class_name: 'Comment', foreign_key: 'event_id', dependent: :destroy
-
+  has_many :comments, as: :commentable
   has_many :authors, through: :comments
 
   def show_availability

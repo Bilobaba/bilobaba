@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get 'topics/:topic', to: 'testimonials#index'
 
 
-  resources :testimonials
+  resources :testimonials do
+    resources :comments
+  end
+
   # if route defined after, it will be interpreted as events/(:id = search)
   get 'events/search', as: 'search'
   # delete event or events with multi dates
@@ -30,7 +33,9 @@ Rails.application.routes.draw do
   }
 
   devise_scope :member do
-    resources :members, only: %i[show index]
+    resources :members, only: %i[show index] do
+      resources :comments
+    end
   end
 
   # Stripe

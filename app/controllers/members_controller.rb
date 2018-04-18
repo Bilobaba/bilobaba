@@ -66,6 +66,7 @@ class MembersController < ApplicationController
     @count_testimonials = Testimonial.count
     @testimonials_by = Testimonial.by(@member)
     @testimonials_about = Testimonial.about(@member)
+    @comment = Comment.new
   end
 
   private

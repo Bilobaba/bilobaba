@@ -10,7 +10,7 @@ class Testimonial < ApplicationRecord
   belongs_to :author, class_name: 'Member'
 
   has_many :comments, as: :commentable
-
+  has_many :authors, through: :comments
 
   scope :published, -> { where(published: true) }
 
@@ -65,4 +65,13 @@ class Testimonial < ApplicationRecord
   def written_at
     I18n.l(self.created_at, format: '%a %-d %b %Y')
   end
+
+  def interested_members
+    interested_members = []
+    interested_members << self.author
+    interested_members += self.authors
+    interested_members.uniq!
+    return interested_members
+  end
+
 end

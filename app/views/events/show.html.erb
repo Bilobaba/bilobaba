@@ -110,14 +110,19 @@
                   </div>
                 </div>
               <% end %>
-
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <%= render 'comments/form', commentable: @event %>
+  <div class="section">
+    <div class="container w-container">
+      <div class="section-title-wrapper">
+        <%= render 'comments/form', commentable: @event %>
+      </div>
+    </div>
+  </div>
   <div class="section">
     <div class="container w-container">
       <div class="section-title-wrapper">

@@ -55,7 +55,9 @@ class Member < ApplicationRecord
   has_many :recommend_event_recommends, class_name: :RecommendEvent, foreign_key: :member_id
   has_many :recommend_events , through: :recommend_event_recommends, source: :event
 
-  has_many :comments,  class_name: :Comment, foreign_key: :author_id
+  has_many :comments, as: :commentable
+  has_many :authors, through: :comments
+
   has_many :testimonials, class_name: :Testimonial, foreign_key: :author_id
 
   def events
@@ -227,5 +229,14 @@ class Member < ApplicationRecord
     events_cities = list_cities.count > 0 ? list_cities.join(', ') : ""
     return events_cities
   end
+
+  def interested_members
+    interested_members = []
+    interested_members << self
+    interested_members += self.authors
+    interested_members.uniq!
+    return interested_members
+  end
+
 
 end

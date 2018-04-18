@@ -24,6 +24,7 @@ class TestimonialsController < ApplicationController
   def show
     @h1_title = @testimonial.title
     @read_duration = [1, @testimonial.body.split.size / 250].max
+    @comment = Comment.new
   end
 
   # GET /testimonials/new
