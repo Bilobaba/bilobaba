@@ -69,7 +69,6 @@
           <div class="course-main-info-wrapper">
             <div class="main-course-info-title">Sur ce proposant</div><a href="#">Je veux voir</a></div>
         </div>
-
         <% if current_member && (current_member == @event.organizer) %>
           <div class="course-info-block with-button">
             <%= link_to("Modifier", edit_event_path, class: "button take-course w-button") %>
@@ -118,6 +117,7 @@
       </div>
     </div>
   </div>
+  <%= render 'comments/form', commentable: @event %>
   <div class="section">
     <div class="container w-container">
       <div class="section-title-wrapper">
@@ -136,3 +136,4 @@
 
 <!-- Popup Google map -->
 <%= render 'layouts/map', title: @event.address %>
+<%= render 'layouts/connection', title: "Vous devez être connecté pour écrire un commentaire" %>

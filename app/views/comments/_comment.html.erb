@@ -2,6 +2,7 @@
     <p><%= link_to comment.author.pseudo.capitalize, comment.author %> - le <%= comment.created_at.strftime("%d-%m-%Y à %H:%M") %></p>
     <p><%= comment.content %></p>
       <% if member_signed_in? && current_member.id == comment.author.id %>
-          <p><%= link_to ' ', event_comment_path(comment.event.id, comment.id), method: :DELETE, remote: true, class: 'glyphicon glyphicon-trash', data: {confirm: 'Confirmez la suppression' } %></p>
+          <p><%= link_to event_comment_path(comment.event.id, comment.id), method: :DELETE, remote: true, class: 'glyphicon glyphicon-trash', data: {confirm: 'Confirmez la suppression' } do %><i class="fa fa-trash-o" style="font-size:18px"></i><% end %>
+          </p>
       <% end %>
 </div>

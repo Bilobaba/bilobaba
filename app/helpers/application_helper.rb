@@ -11,7 +11,13 @@ module ApplicationHelper
     strings.each do |s|
       s = capitalize_upcase(s)
     end
-    return strings.join(' ')
+    strings =  strings.join(' ')
+    strings = text.split(',')
+    strings.each do |s|
+      s = capitalize_upcase(s)
+    end
+    strings =  strings.join(',')
+    return strings
   end
 
   # return the title for google map on 2 lines

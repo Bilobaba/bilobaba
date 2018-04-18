@@ -94,6 +94,10 @@ class Member < ApplicationRecord
     .reverse
   end
 
+  def events_and_workshops
+    self.events + self.workshops
+  end
+
   # Workshop & Event in past
   def past_activities
     events = self.past_events

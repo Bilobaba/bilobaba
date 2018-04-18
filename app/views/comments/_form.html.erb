@@ -1,0 +1,33 @@
+  <div class="section">
+    <div class="container w-container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Une question ou un commentaire ?</h2>
+        <h2 class="section-title subtitle">Déposez votre question ou commentaire ici :</h2>
+        <div class="section-title-divider"></div>
+      </div>
+      <div class="featured-courses-list-wrapper w-dyn-list">
+        <div class="featured-courses-list w-clearfix w-dyn-items w-row">
+          <div id="discussion">
+            <div id="comments">
+              <% commentable.comments.each do |comment| %>
+                  <%= render comment %>
+                  <hr>
+              <% end %>
+            </div>
+              <%= simple_form_for [commentable, @comment], remote: true do |f| %>
+                  <% if member_signed_in? %>
+                    <%= f.input :content, label: false %>
+                    <%= f.button :submit, 'Envoyer le commentaire' %>
+                  <% else %>
+                    <%= link_to  '#','data-toggle':'modal', 'data-target':'#connection' do %>
+                      <%= f.input :content, label: false %>
+                    <% end %>
+                    <%= link_to 'Envoyer le commentaire', '#', 'data-toggle':'modal', 'data-target':'#connection', class: 'btn btn-default' %>
+                  <% end %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

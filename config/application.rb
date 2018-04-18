@@ -25,5 +25,8 @@ module Bilobaba
     config.assets.paths << Rails.root.join("app", "assets", "images", "calligraphies")
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
+    config.time_zone = 'Paris'
+
+
   end
 end
