@@ -295,7 +295,7 @@ class Event < ApplicationRecord
   def interested_members
     interested_members = []
     interested_members << self.organizer
-    interested_members << self.teacher
+    interested_members << self.teacher if self.teacher
     interested_members += self.authors
     interested_members.uniq!
     return interested_members
