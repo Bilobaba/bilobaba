@@ -1,6 +1,7 @@
 require 'pry'
 
 class RegistrationsController < Devise::RegistrationsController
+  after_action :set_view_data, only: [:create, :update]
 
   def new
     @h1_title = 'Formulaire d\'inscription'
@@ -40,6 +41,11 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     Tag.rename(old_pseudo,resource.pseudo)
-    ViewDatum.members #update list of members for autocompletion
   end
+
+  def set_view_data
+    ViewDatum.members
+    ViewDatum.categories
+  end
+
 end
