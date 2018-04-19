@@ -42,7 +42,7 @@ Find the latest version on InstantSearch.js website: https://community.algolia.c
     appId: '<%= ENV['ALGOLIA_SEARCH_APPLICATION_ID'] %>',
     indexName: 'Event',
     searchParameters: {
-      filters: 'unix_begin_at > <%= Time.now.to_i %>'
+      filters: 'unix_begin_at > <%= Time.zone.now.to_i %>'
     }
   });
   search.addWidget(
