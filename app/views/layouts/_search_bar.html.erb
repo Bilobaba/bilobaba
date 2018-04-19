@@ -1,10 +1,12 @@
-              <div id="search-bar" class="search-bar">
-                  <div class="form-control search-box">
-                  <input type="text" id="search-box"></input></div>
-                  <div style="color: grey; text-align: right !important" >Moteur de recherche : <%= link_to "Algolia", "https://www.algolia.com/", target: "_blank" %> </div>
-                <% if controller_name != 'members' %>
-                  <%= link_to button_text, button_link, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto "%>
-                <% elsif !current_member %>
-                  <%= link_to "Rejoignez nous", new_member_session_path, class: "button submit-button w-button", style: "font-size: 100%; width:170px; margin:auto "%>
-                <% end %>
-              </div>
+<div id="search-bar" class="search-bar">
+  <div class="search-box">
+    <!-- AWARE INPUT doesn t behave like divs -->
+    <input type="text" id="search-box"></input>
+  </div>
+    <div style="color: grey; text-align: right !important" >Moteur de recherche : <%= link_to "Algolia", "https://www.algolia.com/", target: "_blank" %> </div>
+  <% if controller_name != 'members' %>
+    <%= link_to button_text, button_link, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto "%>
+  <% elsif !current_member %>
+    <%= link_to "Rejoignez nous", new_member_session_path, class: "button submit-button w-button", style: "font-size: 100%; width:170px; margin:auto "%>
+  <% end %>
+</div>

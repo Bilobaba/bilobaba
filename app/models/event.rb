@@ -148,7 +148,7 @@ class Event < ApplicationRecord
     add_attribute :organizer_name, :organizer_first_name, :unix_begin_at, :url, :summary,
                   :organizer_avatar, :address, :short_title, :show_begin_at, :organizer_pseudo,
                   :show_price, :organizer_bio, :place_name, :image_url, :categories_names, :category_first,
-                  :teacher_pseudo, :teacher_name, :teacher_first_name, :teacher_bio
+                  :teacher_pseudo, :teacher_name, :teacher_first_name, :teacher_bio, :star
 
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
@@ -299,5 +299,9 @@ class Event < ApplicationRecord
     interested_members += self.authors
     interested_members.uniq!
     return interested_members
+  end
+
+  def star
+    star = self.discovery.to_i > 0 ? '<i class="fa fa-star" style="color:yellow"></i>' : ''
   end
 end
