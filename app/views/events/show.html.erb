@@ -61,7 +61,7 @@
             <div class="main-course-info-title">Remarque</div>
             <div class="main-course-info-title info"><%= @event.note %></div>
           </div>
-          <% if @event.discovery > 0 %>
+          <% if @event.discovery.to_i > 0 %>
             <div class="course-main-info-wrapper">
               <div class="main-course-info-title"> Places <%= @event.star.html_safe %></div>
               <div class="main-course-info-title info"><%= @event.discovery %></div>
