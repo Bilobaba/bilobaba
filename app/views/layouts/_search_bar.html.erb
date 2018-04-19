@@ -1,8 +1,7 @@
               <div id="search-bar" class="search-bar">
-                <div>
-                  <input type="text" class="form-control search-box" id="search-box"></input>
+                  <div class="form-control search-box">
+                  <input type="text" id="search-box" style="border:solid 0px red !important"></input></div>
                   <div style="color: grey; text-align: right !important" >Moteur de recherche : <%= link_to "Algolia", "https://www.algolia.com/", target: "_blank" %> </div>
-                </div>
                 <% if controller_name != 'members' %>
                   <%= link_to button_text, button_link, class: "button submit-button w-button", style: "font-size: 100%; width:237px; margin:auto "%>
                 <% elsif !current_member %>

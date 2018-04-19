@@ -37,15 +37,15 @@ $color_search_box: #E0D4E8;
   justify-content: center !important;
   margin:auto !important;
   margin-bottom: 4rem !important;
+
+  background-color: green;
 }
 
 .search-box{
-  margin: auto  !important;
   background-color: $color_search_box  !important;
-  display: block  !important;
-  justify-content: center  !important;
   border:1px purple solid !important;
-  width: 80vw !important;
+  width: 70vw !important;
+  margin: auto !important;
 }
 
 .modal-header{
