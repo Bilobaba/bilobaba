@@ -1,5 +1,108 @@
 @import "default";
 
+.btn{
+  border-color: purple;
+  color: purple;
+}
+
+.btn a:hover{
+  background-color:green !important;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: black;
+  border-color: black;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: $color_navbar;
+  border-color: black;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.search-bar{
+  display: block !important;;
+  justify-content: center !important;
+  margin:auto !important;
+  margin-bottom: 4rem !important;
+}
+
+
+#search-box{
+  background-color:$color_search_box;
+  border: solid 0px red;
+  width: inherit !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.search-box{
+  background-color: $color_search_box  !important;
+  border:1px purple solid !important;
+  width: 70vw !important;
+  margin: auto !important;
+}
+
+.modal-header{
+  background-color: $color_navbar;
+  border-top-radius: 5px;
+  border: solid 2px purple;
+}
+
+.modal-title{
+  font-size: 20px;
+}
+.modal-body{
+    background-color: white;
+    font-size: 110%;
+}
+.modal-footer{
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+.btn-secondary{
+  background-color: white;
+  color: purple;
+}
+
+.tag{
+  color: black !important;
+  border-radius: 3px;
+  border: solid 1px violet;
+  background-color: violet;
+}
+
+a.tag-white{
+  color: white ;
+  border: solid 1px white;
+  border-radius: 3px;
+}
+
+a.tag-white:hover{
+  color: $color_navbar;
+  border: solid 1px $color_navbar;
+  text-decoration: none;
+}
+
+a.tag-dark{
+  color: purple ;
+  border: solid 1px purple;
+  border-radius: 3px;
+  margin: 2px;
+  padding: 2px;
+}
+
+a.tag-dark:hover{
+  color: white;
+  border: solid 1px purple ;
+  text-decoration: none;
+  background-color: purple;
+}
 
 body {
   height: 100%;

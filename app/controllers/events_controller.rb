@@ -111,13 +111,12 @@ class EventsController < ApplicationController
         @event.teacher = current_member if current_member.has_role?(ROLE_PROFESSIONAL)
 
         @event.cloudy = @cloudy
-
+        # if local zone = Paris, the 2 instruction follow add + hours in execution but not in debug
+        # so DO NOT CHANGE LOCAL ZONE
         time_at = I18n.l(@event.begin_at, format: '%H:%M')
         @event.begin_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
-
         time_at = I18n.l(@event.end_at, format: '%H:%M')
         @event.end_at  = DateTime.strptime(d+' '+time_at, '%d/%m/%Y %H:%M')
-
         @event.duration = @event.end_at - @event.begin_at
 
         # save once to get cloudinary infos, break if save not ok
