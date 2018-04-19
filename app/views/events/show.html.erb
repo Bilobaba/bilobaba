@@ -1,7 +1,7 @@
   <div class="page-header course"  style="background-image: url(<%= @event.image_url %>)" >
     <div class="page-header-overlay course" >
       <div class="container course-header w-container">
-        <h2 data-ix="fade-in-on-load" class="page-header-title course-title" style="width: 120%"><%= @event.title%></h2>
+        <h2 data-ix="fade-in-on-load" class="page-header-title course-title" style="width: 120%"><%= @event.title%> <%= @event.star.html_safe %></h2>
         <div>
           <div data-ix="fade-in-on-load-2" class="course-category-title">Categories : </div>
             <% if @event.categories.count > 0 %>
@@ -61,6 +61,12 @@
             <div class="main-course-info-title">Remarque</div>
             <div class="main-course-info-title info"><%= @event.note %></div>
           </div>
+          <% if @event.discovery > 0 %>
+            <div class="course-main-info-wrapper">
+              <div class="main-course-info-title"> Places <%= @event.star.html_safe %></div>
+              <div class="main-course-info-title info"><%= @event.discovery %></div>
+            </div>
+          <% end %>
         </div>
         <div class="course-info-block">
           <h4 class="section-title sidebar">Témoignages</h4>

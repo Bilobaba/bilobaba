@@ -302,6 +302,6 @@ class Event < ApplicationRecord
   end
 
   def star
-    star = self.discovery.to_i > 0 ? '<i class="fa fa-star" style="color:yellow"></i>' : ''
+    star = self.discovery.to_i > 0 ? '<div class="course-info-icon" style="color: yellow"></div>' : ''
   end
 end
