@@ -57,6 +57,7 @@ class Member < ApplicationRecord
 
   has_many :comments, as: :commentable
   has_many :authors, through: :comments
+  has_many :comments_by, class_name: :Comment, foreign_key: :author_id
 
   has_many :testimonials, class_name: :Testimonial, foreign_key: :author_id
 
