@@ -77,9 +77,7 @@ class EventsController < ApplicationController
     if @event.calendar_range_string.size > 0
 
       @event = Event.new(event_params)
-
-      @event.organizer = current_member
-      @event.teacher = current_member if current_member.has_role?(ROLE_PROFESSIONAL)
+      @event.organizer = ( current_member.has_role?(ROLE_ADMIN) && @event.teacher) ? @event.teacher : current_member
       @event.cloudy = @cloudy
       @event.duration = @event.end_at - @event.begin_at
       # force image to avoid uplaod a new image per event created
@@ -107,8 +105,7 @@ class EventsController < ApplicationController
       tab_dates.each do |d|
         @event = Event.new(event_params)
         @event.multi_dates_id = time_stamp if tab_dates.count > 1
-        @event.organizer = current_member
-        @event.teacher = current_member if current_member.has_role?(ROLE_PROFESSIONAL)
+        @event.organizer = ( current_member.has_role?(ROLE_ADMIN) && @event.teacher) ? @event.teacher : current_member
 
         @event.cloudy = @cloudy
         # if local zone = Paris, the 2 instruction follow add + hours in execution but not in debug

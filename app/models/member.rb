@@ -167,6 +167,8 @@ class Member < ApplicationRecord
   end
 
  def avatar_url
+    #reload because avatar is update by CarrierWave
+    self.reload
     if self.avatar.filename
       # old format with attachanary
       if self.avatar.filename.include?('http')
