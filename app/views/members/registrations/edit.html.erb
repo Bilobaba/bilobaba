@@ -31,7 +31,7 @@
       <% if current_member.avatar.url.present? %>
         <%= cl_image_tag @member.avatar.url, width: 60, height: 60, crop: :fill, radius: 5,  :border => { :width => 4, :color => "#553311" }, :gravity => :face %>
       <% end %>
-      <%= f.input :avatar, label: 'Changer d\'image (moins de 1Mo)' %>
+      <%= f.input :avatar, label: 'Changer d\'image (moins de 500 ko)' %>
       <hr />
       <div class="form-group" style="display: none;">
         <%= f.label  "Date de naissance" %> </br>
