@@ -61,6 +61,31 @@ class Member < ApplicationRecord
 
   has_many :testimonials, class_name: :Testimonial, foreign_key: :author_id
 
+  algoliasearch do
+
+    # list of attribute used to build an Algolia record
+    attributes :name, :first_name, :pseudo, :bio
+
+    # extra_attr will be sent
+    add_attribute :avatar_url, :categories_search, :events_cities, :url, :title_short
+
+    # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
+    # you want to search in: here `title`, `subtitle` & `description`.
+    # You need to list them by order of importance. `description` is tagged as
+    # `unordered` to avoid taking the position of a match into account in that attribute
+    searchableAttributes ['name', 'first_name', 'pseudo', 'bio', 'categories_search',
+                          'events_cities', 'title_short']
+
+    # the `customRanking` setting defines the ranking criteria use to compare two matching
+    # records in case their text-relevance is equal. It should reflect ,your record popularity.
+    #customRanking ['desc(likes_count)']
+    # customRanking ['asc(unix_begin_at)']
+
+    attributesForFaceting [:category_name]
+
+    ranking ['asc(pseudo)']
+  end
+
   def events
     Event
     .events_by_member(self.id)
@@ -195,31 +220,6 @@ class Member < ApplicationRecord
   end
 
 
-  algoliasearch do
-
-    # list of attribute used to build an Algolia record
-    attributes :name, :first_name, :pseudo, :bio, :title
-
-    # extra_attr will be sent
-    add_attribute :avatar_url, :categories_search, :events_cities, :url
-
-    # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
-    # you want to search in: here `title`, `subtitle` & `description`.
-    # You need to list them by order of importance. `description` is tagged as
-    # `unordered` to avoid taking the position of a match into account in that attribute
-    searchableAttributes ['name', 'first_name', 'pseudo', 'bio', 'categories_search',
-                          'events_cities', 'title']
-
-    # the `customRanking` setting defines the ranking criteria use to compare two matching
-    # records in case their text-relevance is equal. It should reflect ,your record popularity.
-    #customRanking ['desc(likes_count)']
-    # customRanking ['asc(unix_begin_at)']
-
-    attributesForFaceting [:category_name]
-
-    ranking ['asc(pseudo)']
-  end
-
   def events_cities
     list_cities = []
     self.organize_events.each do |e|
@@ -241,5 +241,12 @@ class Member < ApplicationRecord
     return interested_members
   end
 
+  def title_short
+    if self.title.size > 36
+      self.title[0..32] + ' ...'
+    else
+      self.title
+    end
+  end
 
 end

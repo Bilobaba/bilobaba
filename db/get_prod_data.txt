@@ -4,7 +4,7 @@
 cd ./db
 
 # dump the heroku database
-heroku pg:backups:capture
+heroku pg:backups:capture --app bilobaba
 
 # download the dump
 heroku pg:backups:download
