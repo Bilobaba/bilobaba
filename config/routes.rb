@@ -23,7 +23,6 @@ Rails.application.routes.draw do
 
   get 'members/index_pros', as: 'pros'
   get 'members/index_amateurs', as: 'amateurs'
-  get 'members/:id/edit', to: 'members#edit',  as: 'member_edit'
   patch 'members/:id', to: 'members#update'
 
   devise_for :members, controllers: {
@@ -31,6 +30,8 @@ Rails.application.routes.draw do
     sessions: 'sessions',
     omniauth_callbacks: 'members/omniauth_callbacks'
   }
+
+  get 'members/:id/edit', to: 'members#edit',  as: 'member_edit'
 
   devise_scope :member do
     resources :members, only: %i[show index] do
