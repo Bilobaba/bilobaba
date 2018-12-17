@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_devise_parameters, if: :devise_controller?
   before_action :last_request
-  after_action :visited_pages
 
   def after_sign_in_remember_me(resource)
     remember_me resource
