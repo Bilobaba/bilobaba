@@ -63,16 +63,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def visited_pages
-    if request.url.include?(ENV["ROOT_URL"])
-      cookies.permanent[VIEWED_ANY] = true
-    end
-    if request.url ==  ENV["ROOT_URL"] + testimonials_path
-      cookies.permanent[VIEWED_TESTIMONIALS] = true
-    end
-    if request.url ==  ENV["ROOT_URL"] + new_testimonial_path
-      cookies.permanent[VIEWED_NEW_TESTIMONIAL] = true
-    end
-  end
 end
 

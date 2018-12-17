@@ -93,13 +93,6 @@
 
 
 <!-- ALL POPUP AND MODAL SCRIPT MUST BE HERE -->
-    <!-- Popup showed if the first time -->
-    <% if !cookies.permanent[VIEWED_ANY] %>
-      <%= render "/pages/info_welcome" %>
-      <script>
-         $('#modal_info').modal('show');
-      </script>
-    <% end %>
 
     <!-- Popup google map -->
     <% if @event && @event.lat %>
